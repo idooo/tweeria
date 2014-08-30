@@ -1,0 +1,102 @@
+<div class="shop-item-popup spell-popup">
+	<div class="shop-popup-img">
+		<span class="item-level item-level-${lvl_enough}">${level}</span>
+		<span class="img-cont"><img class="item-img" src="${img}" alt="${name}"></span>
+
+		{% include "misc/_like_block_js_template.jinja2" %}
+	</div>
+
+	<div class="item-info spell-can-use-${lvl_enough}">
+		<span class="item-type">Magic spell</span>
+		<span class="item-author">@<a href="/${author_name}">${author_name}</a></span>
+		<a class="item-name" href="/u/spell?id=${_id}">${name}</a>
+
+		<div class="spell-keyword">
+			${keyword}
+		</div>
+		<p class="item-text">
+			${desc}
+		</p>
+
+		{% raw %}
+		<ul class="popup-spell-list">
+			{{html rawactions}}
+		</ul>
+		{% endraw %}
+		<br class="clear">
+
+				<span class="mana-cost"><span class="text">Mana cost</span>&nbsp; <i
+						class="icon mana-cost"></i> &nbsp;<span
+						class="count">${manacost}</span></span>
+
+		<span class="item-cost"> <i class="icon gold-3"></i> <span>${cost}</span></span>
+
+
+		{% if login %}
+			{% raw %}
+			{{if already_have }}
+			<div class="you_shall_not_pass">
+				You already have this spell<br>Try to check <a href="/spellbook">your spellbook</a>
+			</div>
+			{{else}}
+			<form action="" method="post">
+
+				<input type="hidden" name='item_name' value="${name}">
+				<input type="hidden" name="type_of_form" value="buy_spell">
+				<input type="hidden" name="spell_id" value="${_id}">
+
+				<input type="submit" value="Buy" class="buy-button btn2 btn2-classic btn2-wide">
+			</form>
+			{{/if}}
+			{% endraw %}
+
+		{% else %}
+			<div class="you_shall_not_pass">
+				To buy this item you must <a href="/login">Log in</a> or <a href="/registration">Sign up</a>
+			</div>
+		{% endif %}
+
+		{% if login %}
+
+			<div class="item-popup-share">
+				<a target="_blank"
+				   href="https://twitter.com/share?url=${shareurl}&hashtags=tweeria&text=${sharetitletwitter} thx @${shareauthor}"
+				   class="achv-share-button tw"
+				   data-lang="ru"
+				   data-url="${shareurl}"
+				   data-text="${sharetitle}"
+				   data-hashtags="tweeria">
+					Twitter
+				</a>
+
+				<a target="_blank"
+				   href="http://www.facebook.com/sharer.php?s=100&p[title]=${sharetitle}&p[summary]=${sharedesc}&p[url]=${shareurl}&p[images][0]=${shareimage}"
+				   data-url="${shareurl}"
+				   data-title="${sharetitle}"
+				   data-description="${sharedesc}"
+				   title="Facebook"
+				   class="achv-share-button fb">
+					Facebook
+				</a>
+
+				<a target="_blank"
+				   href="https://plus.google.com/share?url=${shareurl}"
+				   class="achv-share-button gp"
+				   data-title="${sharetitle}"
+				   data-image="${shareimage}"
+				   data-desc="${sharedesc}"
+				   data-url="${shareurl}">
+					Google+
+				</a>
+				<a href="http://vkontakte.ru/share.php?url=${shareurl}&title=${sharetitle}&description=${sharedesc}&image=${shareimage}"
+				   data-url="${shareurl}"
+				   target="_blank"
+				   class="achv-share-button vk">
+					Vkontakte
+				</a>
+			</div>
+		{% endif %}
+
+	</div>
+	<br class="clear">
+</div>

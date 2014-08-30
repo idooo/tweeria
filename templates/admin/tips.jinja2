@@ -1,0 +1,82 @@
+{% include "header.jinja2" %}
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-page cc-admin-invites-page">
+
+			{% if param_success %}
+				<div class="success-message">
+					<div>
+						You've added new tip successfully</div>
+				</div>
+			{% endif %}
+
+			{% if param_fail %}
+				<div class="error-message">
+					<div>
+						There is unknown error
+					</div>
+				</div>
+			{% endif %}
+
+			<div class="page-part">
+				<a class="link-back" href="/a/index">Back</a><br>
+
+				<h2>Add tip</h2>
+				<form method="POST">
+					<textarea class="tip-content" name="content"></textarea><br>
+					<input type="hidden" name="type_of_form" value="add_tip">
+					<input type="submit" value="Add tip" class="btn2 btn2-classic">
+				</form>
+			</div>
+
+			<h2>Tips:</h2>
+			<div class="timeline-admin">
+				<table class="passive-table">
+					<thead>
+					<tr>
+						<th class="name">Status</th>
+						<th>Tip</th>
+						<th>Creator</th>
+						<th></th>
+					</tr>
+					</thead>
+					<tbody>
+						{% for tip in tips %}
+							<tr>
+								<td class="tip-{{ tip.enable }}">
+									<form method="post">
+										<input type="hidden" value="{{ tip.uid }}" name="uid">
+										{% if not tip.enable %}
+											<input type="hidden" value="tip_enable" name="type_of_form">
+											<a href="#" onclick="$(this).parent().submit();">Enable</a>
+										{% else %}
+											<input type="hidden" value="tip_disable" name="type_of_form">
+											<a href="#" onclick="$(this).parent().submit();">Disable</a>
+										{% endif %}
+									</form>
+								</td>
+								<td class="tip-content">{{ tip.content }}</td>
+								<td class="tip-content">{{ tip.author_name }}</td>
+								<td>
+									<form method="post">
+										<input type="hidden" value="{{ tip.uid }}" name="uid">
+										<input type="hidden" value="tip_delete" name="type_of_form">
+										<a href="#" onclick="$(this).parent().submit();">Delete</a>
+									</form>
+								</td>
+							</tr>
+						{% endfor %}
+
+
+
+					</tbody>
+				</table>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+{% include "footer.jinja2" %}

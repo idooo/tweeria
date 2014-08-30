@@ -1,0 +1,68 @@
+{% include "header.jinja2" %}
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg create-page">
+
+			{% if can_create and not login_ugc_disabled %}
+
+				<h1>Create new item</h1>
+
+				<h2>with your own art</h2>
+
+				{% if param_new == '' %}
+				<p>Your item will be used by thousands of players
+					<br>
+					in a bigest lazy social MMORPG </p>
+
+				<p>Dozens of thousands people will see your art</p>
+				{% endif %}
+
+				<ul class="create-type-list">
+
+
+					<li class="artwork">
+
+						<a href="/u/create_artwork"><img src="/style/img/create_artwork_img.png" alt="Player's artwork\"></a>
+						<h3>player’s artwork</h3>
+						{#
+						<p>
+							Artwork creation was disabled because of
+							copyright issues. <br><br>Please read our blog
+							to get additional information
+						</p> #}
+
+						<a href="/u/create_artwork" class="button">Create</a>
+					</li>
+
+					<li class="item">
+						<a href="/u/craft_item"><img src="/style/img/create_item_img.png" alt="Legendary Item"></a>
+
+
+						<h3>Legendary Item</h3>
+						<a href="/u/craft_item" class="button">Craft</a>
+					</li>
+					<li class="spell">
+						<a href="/u/create_spell"><img src="/style/img/create_spell_img.png" alt="Mighty spell"></a>
+
+						<h3>Mighty spell</h3>
+						<a href="/u/create_spell" class="button">Make</a>
+					</li>
+				</ul>
+
+			{% else %}
+				<div class="ugc-disabled-error-message">
+					{% if login_ugc_disabled %}
+						You can't create new things<br>
+						because moderators banned you
+					{% else %}
+						You must be at least level 5 to create new things
+					{% endif %}
+
+					<br><br>
+					<a href="/{{ login_name }}">Back to profile</a>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% include "footer.jinja2" %}

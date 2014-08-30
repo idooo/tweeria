@@ -1,0 +1,87 @@
+{% include "header.jinja2" %}
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-help-page">
+			<a class="link-back" href="/help">Help</a>
+			<h2>Terms of content creation</h2>
+			<div id="accordion-help">
+				<h3><a class="ac-head" name="title">General</a></h3>
+				<div>
+					<p>
+						1)	An item, a spell or an artwork must properly fit into a typical fantasy campaign setting. All created content is divided into several categories:<br>
+						— Classic medieval content<br>
+						— Anime content (for anime artworks)<br>
+						— Comics related<br>
+						— Steampunk<br>
+						— Holidays related<br>
+						— Fun items (very moderated category)<br>
+					</p>
+					<p>
+						2)	Name and text description of items must be in English. Name must be short, self-consistent and inspiring.
+					</p>
+					<p>
+						3)	We do not object humor, but do not turn Tweeria into 9gag.com. Please know the limits when it comes to humor.
+					</p>
+					<p>
+						4)	When creating items, artworks and spells, you are allowed to use only the images created by you or by a person who gave you permission to use his/her creation. You must provide a reference to a source of a picture if it is required by its author.
+					</p>
+					<p>
+						5)	If you are the author of an artwork, mention it in its description – it will be awesome!
+					</p>
+					<p>
+						6)	Images, text descriptions, objects’ titles must obey ethical standards and moral principles (no X-rated content).
+					</p>
+					<p>
+						7)	It is forbidden to use images and texts that offend, discriminate or violate the dignity of other people. Please respect other tweerians.
+					</p>
+				</div>
+
+				<h3><a class="ac-head" name="items">Items</a></h3>
+				<div>
+					<p>
+						Item description should include its origin and properties. Any slogans and outcries in item description are not allowed. Abstract items not related to categories are not allowed. Item image must contain objects, not people or animals.
+					</p>
+				</div>
+
+				<h3><a class="ac-head" name="magic">Magic</a></h3>
+				<div>
+					<p>
+						Spells images must show magic effects. Pictures of people, animals, toys, memes, etc. are not allowed. Spell description has to contain its origin and properties. Any slogans and outcries in spell description are not allowed.
+					</p>
+					<p>
+						It is nice when spell name is related to its magic effects and properties.
+					</p>
+				</div>
+
+				<h3><a class="ac-head" name="artworks">Artworks</a></h3>
+				<div>
+					<p>
+						Artworks must show characters of the existing races and classes. Pictures of animals, objects and abstract images cannot be approved.
+					</p>
+				</div>
+
+				<div>
+					<p class="important">
+						<span>
+							Tweeria will also censor, without notice, any items that promote hate speech, trolling and are deliberately offensive. Likewise, Tweeria will reject overtly sexual items or artworks. Tweeria will not play "a clever explanation" debate with item creators. If a Moderator rejects an item, they have the choice of informing the maker why. Moderators reserve the right to refuse items without explanation.
+						</span>
+					</p>
+				</div>
+
+			</div>
+
+			<div class="help-menu">
+			</div>
+
+			<div class="clear"></div>
+			<p class="bottom-help-container">
+				{% if login_name %}
+					<a href="/{{ login_name }}" class="btn2 btn2-classic btn2-wide">Back to hero</a>
+				{% else %}
+					<a href="/registration" class="btn2 btn2-classic btn2-wide">Sign up!</a>
+				{% endif %}
+			</p>
+		</div>
+	</div>
+</div>

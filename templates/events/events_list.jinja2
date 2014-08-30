@@ -1,0 +1,168 @@
+{% include "header.jinja2" %}
+{% if param_gvg == "1" %}
+	{% include "events/event_page_gvg.jinja2" %}
+{% else %}
+
+	<script src="/js/page_scripts/upcoming_events.js?{{ build }}"></script>
+
+{% set messages = {
+	"raid": "Raid",
+	"war": "Guild war",
+	"fvf": "Battle between"
+} %}
+
+{% set event_types = [
+		{ 'name': 'All', 'link': 'all'},
+		{ 'name': 'Raids', 'link': 'raids'},
+		{ 'name': 'Wars', 'link': 'wars'},
+		{ 'name': 'Guild runs', 'link': 'gruns', 'only_guild': true},
+		{ 'name': 'Finished', 'link': 'finished'}
+	]
+%}
+
+	<div id="main" role="main">
+		<div class="event-page-border">
+			<div class="white-textured-bg upcoming-events-page">
+
+				<h2>Upcoming events</h2>
+				{% if login %}
+
+					<ul class="event-filter-list">
+						{% for event_type in event_types %}
+							{% if not event_type.only_guild or login_guild %}
+								<li><a href="?{{ event_type.link }}" {% if event_type.link == select %}class="active"{% endif %}>{{ event_type.name }}</a></li>
+							{% endif %}
+						{% endfor %}
+					</ul>
+
+					<a id="new-event" class="new-event" href="/events/new">New event</a>
+				{% endif %}
+
+				<div class="event-timer" data-time={{ user_time|default(0) }}>
+					{{ user_time }}
+				</div>
+
+				<br class="clear">
+
+				{% if param_success %}
+					<div class="success-message">
+						<div>
+							You've remove an event successfully
+						</div>
+					</div>
+				{% endif %}
+
+				{% if param_fail %}
+
+					<div class="error-message">
+						<div>
+							You can't create a new event because
+							{% if param_n == 'same_time_error' %}
+								you're can't be in two groups simultaneously
+							{% elif param_n == 'max_events_error' %}
+								you reached joined events limit
+							{% else %}
+								in Soviet Russia event creates you!
+							{% endif %}
+						</div>
+					</div>
+
+				{% endif %}
+
+				{% if events|length==0 %}
+
+					<div class="empty-table">
+						There are no events for this criteria right now
+					</div>
+
+				{% else %}
+					<table class="upcoming-event-table">
+						<thead>
+						<tr>
+							<th class="date">Date</th>
+							<th class="joined"></th>
+							<th class="target">Target</th>
+							<th class="min-lvl">Min LVL</th>
+							<th class="creator">Creator</th>
+							<th class="people">People</th>
+						</tr>
+						</thead>
+						<tbody>
+						{% for event in events %}
+							{% if not event.HIDE %}
+								<tr data-_id="{{ event._id }}">
+									<td class="event-status-{{ event.operation }} event-date">
+										{% if event.type=="attack" or event.status=="progress" %}
+											<span class="in-progress">in progress</span>
+										{% else %}
+											<span class="event-date-span">{{ event.start_date_f }}</span>
+										{% endif %}
+									</td>
+
+									<td class="joined">
+										{% if event.operation == 'joined' %}
+											<i class="event-icon-joined"></i>
+										{% endif %}
+									</td>
+									<td>
+
+										{% if event.guild_run %}
+											<span class="guild-run {% if event.guild_run_can_join %}green{% endif %}">
+
+												guild run
+											</span>
+										{% endif %}
+
+										{{ messages[event.type] }}
+
+										<span class="event-{{ event.type }}">
+
+										{% if event.type == 'raid' %}
+											[{{ event.where_name }}]
+										{% elif event.type == 'war' %}
+											{{ event.guild_side_name }} vs. {{ event.target_name }}
+										{% elif event.type == 'fvf' %}
+											{{ event.sides_names[0] }} and {{ event.sides_names[1] }}
+										{% endif %}
+
+								</span>
+									</td>
+									<td>
+										{{ event.lvl_min }}
+
+									</td>
+									<td>
+										{{ event.author_name }}
+										{% if event.lead > 0 %}
+											<span class="event-lead-bonus">+{{ event.lead }}</span>
+										{% endif %}
+									</td>
+									<td>
+										{{ event.people_count }}
+										{% if event.people_count_max %}
+											/ {{ event.people_count_max }}
+										{% endif %}
+									</td>
+
+
+								</tr>
+
+
+							{% endif %}
+
+						{% endfor %}
+
+						</tbody>
+
+
+					</table>
+
+				{% endif %}
+
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+
+{% include "footer.jinja2" %}

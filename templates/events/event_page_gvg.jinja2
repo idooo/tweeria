@@ -1,0 +1,148 @@
+{% include "header.jinja2" %}
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg event-gvg-page">
+
+			{% if param_success %}
+				{% set message_type = 30 %}
+				{% include "misc/_messages_.jinja2" %}
+			{% endif %}
+
+			<div class="guild-share">
+				{% set share_type = "event_page_gvg" %}
+				{% include "misc/_share_buttons.jinja2" %}
+			</div>
+
+
+			<a class="link-back" href="/u/events">Events</a>
+
+			<h2>Guild war <a href="/guilds/{{ event.guild_side_name }}">{{ event.guild_side_name }}</a> vs. <a href="/guilds/{{ event.where_name }}">{{ event.where_name }}</a></h2>
+			<span class="gvg-date">
+				{% if event.status == 'progress' %}
+					<div class="event-status-in-progress">
+						In progress
+					</div>
+
+				{% elif event.status == 'complete' %}
+					<div class="event-status-in-progress">
+						Complete
+					</div>
+
+				{% elif event.status == 'fail' %}
+					<div class="event-status-fail">
+						Fail
+					</div>
+
+				{% endif %}
+
+				{{ event.start_date_f }}
+			</span>
+
+			<p class="gvg-text">
+				{{ event.desc }}
+			</p>
+
+			{% if event.promoted_hashtag %}
+				<div class="gvg-hashtag">
+					Use event hashtag to receive a combat bonus:
+					<span>#{{ event.promoted_hashtag }}</span>
+				</div>
+			{% endif %}
+
+
+			{% if login %}
+				<form method="post">
+
+					{% if event.status == 'active' and event.can_join %}
+						<input type="hidden" name="_id" value="{{ event._id }}">
+
+						{% if event.guild_run_can_join %}
+
+							{% if not event.operation == 'joined' %}
+								<input type="hidden" name="type_of_form" value="join_event">
+								<input type="submit" value="Join event" class="btn2 btn2-classic">
+							{% else %}
+								<input type="hidden" name="type_of_form" value="leave_event">
+								<input type="submit" value="Leave event" class="btn2 btn2-classic">
+							{% endif %}
+
+						{% else %}
+							<div class="event-join-error">
+								This is a guild vs. guild war. <br>
+								Only members form {{ event.guild_side_name }} and {{ event.where_name }} guilds can join
+							</div>
+						{% endif %}
+
+					{% endif %}
+
+
+				</form>
+			{% endif %}
+
+			<div class="gvg-guilds">
+				<ul class="gvg-guild gvg-guild-left">
+					<li class="gvg-guild-head"><span>{{ event.guild_side_name }}</span> <span class="gvg-guild-players">{{ event.self_players|count }}</span></li>
+
+					{% if event.status=="complete" %}
+
+						<div class="missing-performance-caption">Performance</div>
+
+						<li class="gvg-guild-result">
+						{% if event.winner_id == event.guild_side %}
+								<span class="gvg-guild-result-block win">Winner</span>
+						{% else %}
+								<span class="gvg-guild-result-block loose">Loser</span>
+						{% endif %}
+						</li>
+					{% endif %}
+
+					{% for player in event.self_players %}
+						<li class="gvg-guild-player">
+							<a class="gvg-guild-player-name {% if player.performance == 0 %}dead{% endif %}" href="/{{ player.name }}">{{ player.name }}</a>
+							<span class="gvg-guild-player-info">{{ player.race_name }} {{ player.class_name }}</span>
+							<span class="gvg-guild-player-level">{{ player.lvl }} {% if loop.index == 1 %}level{% endif %}</span>
+
+							{% if player.performance %}
+								<div class="missing-performance-count">{{ player.performance }}%</div>
+							{% endif %}
+
+						</li>
+					{% endfor %}
+
+				</ul>
+
+				<ul class="gvg-guild">
+					<li class="gvg-guild-head"><span>{{ event.where_name }}</span> <span class="gvg-guild-players">{{ event.target_players|count }}</span></li>
+
+					{% if event.status=="complete" %}
+						<div class="missing-performance-caption">Performance</div>
+
+						<li class="gvg-guild-result">
+							{% if event.winner_id == event.target %}
+								<span class="gvg-guild-result-block win">Winner</span>
+							{% else %}
+								<span class="gvg-guild-result-block loose">Loser</span>
+							{% endif %}
+						</li>
+					{% endif %}
+
+					{% for player in event.target_players %}
+						<li class="gvg-guild-player">
+							<a class="gvg-guild-player-name {% if player.performance == 0 %}dead{% endif %}" href="/{{ player.name }}">{{ player.name }}</a>
+							<span class="gvg-guild-player-info">{{ player.race_name }} {{ player.class_name }}</span>
+							<span class="gvg-guild-player-level">{{ player.lvl }} {% if loop.index == 1 %}level{% endif %}</span>
+
+							{% if player.performance %}
+								<div class="missing-performance-count">{{ player.performance }}%</div>
+							{% endif %}
+						</li>
+					{% endfor %}
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/js/page_scripts/share.js?{{ build }}"></script>
+{% include "footer.jinja2" %}

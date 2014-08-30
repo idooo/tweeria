@@ -1,0 +1,178 @@
+{% include "header.jinja2" %}
+<script src="/js/page_scripts/artists.js?{{ build }}"></script>
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-page cc-admin-invites-page">
+
+			{% if param_success %}
+				<div class="success-message">
+					<div>
+						{% if param_success == 'apply' %}
+							You've granted content creation rights to <strong>{{ param_aname }}</strong><br>
+							{% set tweet_text = "I've granted content creation rights to you in %23Tweeria" %}
+
+						{% elif param_success == 'decline' %}
+							You've declined content creation request from <strong>{{ param_aname }}</strong><br>
+							{% set tweet_text = "I've declined content creation request from you in %23Tweeria" %}
+
+						{% endif %}
+
+						<a target="_blank" href="https://twitter.com/intent/tweet?source=tweetbutton&text=@{{ param_aname }}, {{ tweet_text }}. Try to create: http://tweeria.com/u/create">Tweet</a> him or her about this
+
+					</div>
+				</div>
+			{% endif %}
+
+			<div class="page-part">
+				<a class="link-back" href="/a/index">Back</a><br>
+
+				<h2>Enable content create</h2>
+				<form method="POST">
+					<input type="hidden" name="type_of_form" value="ugc_force_enable">
+					<input type="text" name="name" placeholder="Twitter name"><br>
+					<input type="submit" class="btn2 btn2-classic" value="Enable">
+				</form>
+				<br>
+			</div>
+
+			<div class="page-part">
+
+				{% if requests %}
+
+					<h2>Requests — {{ requests|count }}</h2>
+
+					<table class="passive-table ugc_requests" id="ugc_requests">
+						<thead>
+						<tr>
+							<th class="name">User</th>
+							<th>Information</th>
+							<th class="apply_decline_buttons"></th>
+							<th class="time_ago">Request Date</th>
+						</tr>
+						</thead>
+
+						<tbody>
+						{% for player in requests %}
+							<tr>
+								<td class="player_fullname">
+									<span>{{ player.fullname }}</span>
+
+									<a href="/{{ player.twitter_name }}" target="_blank">{{ player.twitter_name }}</a>
+									(<a href="http://twitter.com/{{ player.twitter_name }}" target="_blank">t</a>)
+								</td>
+
+								<td class="artist_info">
+									<table>
+										<tr>
+											<td><span>Email:</span></td>
+											<td><a href="mailto:{{ player.email }}">{{ player.email }}</a></td>
+										</tr>
+										<tr>
+											<td><span>Portfolio:</span></td>
+											<td><a href="{{ player.link }}" target="_blank">{{ player.link }}</a></td>
+										</tr>
+										{% if player.additional %}
+											<tr>
+												<td><span>Additional:</span></td>
+												<td>{{ player.additional }}</td>
+											</tr>
+										{% endif %}
+									</table>
+								</td>
+
+								<td>
+									<form method="post" class="apply_form">
+										<input type="hidden" value="{{ player.game_id }}" name="_id">
+										<input type="hidden" value="{{ player._id }}" name="request_id">
+										<input type="hidden" value="{{ player.twitter_name }}" name="username">
+										<input type="hidden" value="{{ player.email }}" name="email">
+										<input type="hidden" value="{{ player.fullname }}" name="fullname">
+
+										<input type="hidden" value="request_apply" name="type_of_form">
+										<a href="#" onclick="$(this).parent().submit();">Apply</a>
+									</form>
+
+									<form method="post">
+										<input type="hidden" value="{{ player.game_id }}" name="_id">
+										<input type="hidden" value="{{ player._id }}" name="request_id">
+										<input type="hidden" value="{{ player.twitter_name }}" name="username">
+										<input type="hidden" value="{{ player.email }}" name="email">
+										<input type="hidden" value="{{ player.fullname }}" name="fullname">
+
+										<input type="hidden" value="request_decline" name="type_of_form">
+
+										<select name="reasons" class="reasons_selector">
+											{% for reason in reasons %}
+												<option value="{{ reason.name }}">{{ reason.name }}</option>
+											{% endfor %}
+										</select>
+										<textarea name="reasons2" placeholder="Reason..."></textarea>
+
+										<a href="#" onclick="$(this).parent().submit();">Decline</a>
+									</form>
+
+								</td>
+
+								<td>
+									{{ player.time_f }}
+								</td>
+
+							</tr>
+
+						{% endfor %}
+						</tbody>
+					</table>
+
+				{% else %}
+
+					<h2>No requests</h2>
+
+				{% endif %}
+
+			</div>
+
+			<div class="page-part">
+				<h2>Artists</h2>
+
+				<table class="passive-table">
+					<thead>
+					<tr>
+						<th class="name">Name</th>
+						<th></th>
+					</tr>
+					</thead>
+
+					<tbody>
+					{% for player in players %}
+						<tr>
+							<td>
+								<a href="/{{ player.name }}">{{ player.name }}</a>
+							</td>
+
+							<td>
+								<form method="post">
+									<input type="hidden" value="{{ player._id }}" name="_id">
+
+									{% if player.ugc_enabled %}
+										<input type="hidden" value="ugc_force_disable" name="type_of_form">
+										<a href="#" onclick="$(this).parent().submit();">Disable content create</a>
+									{% else %}
+										<input type="hidden" value="ugc_force_enable" name="type_of_form">
+										<a href="#" onclick="$(this).parent().submit();">Enable content create</a>
+									{% endif %}
+
+								</form>
+							</td>
+
+						</tr>
+
+					{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

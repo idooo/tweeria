@@ -1,0 +1,55 @@
+{% from "misc/_item_new_types.jinja2" import itemNewTypes %}
+
+<div class="shop-content">
+
+	<div class="shop-option-block">
+		<a id="item-filter-button" class="shop-filter-button" href="#filter">filter</a>
+
+		<a id="item-view-table" class="shop-view-table shop-view-toggler active" href="#table">table</a>
+		<a id="item-view-list" class="shop-view-list shop-view-toggler" href="#list">list</a>
+
+		{% include "shop/shop_item_filter.jinja2" %}
+	</div>
+
+
+	<div id="shop-items-list" class="shop-item-list" style="display:none;">
+	{% include "shop/shop_items_list.jinja2" %}
+	</div>
+	<div id="shop-items-table">
+	{% include "shop/shop_items_table.jinja2" %}
+	</div>
+
+	{% if item_pages > 1 %}
+		<div class="pager">
+			{% if param_pi|int == 1 %}
+				<span class="prev">prev</span>
+			{% else %}
+				<a href="?pi={{ param_pi|int - 1 }}#!tab-items" data-page="{{ param_pi|int - 1 }}" class="prev">prev</a>
+			{% endif %}
+			<ul class="page-list">
+
+
+				{% for number_page in display_items_pages %}
+					<li>
+						{% if param_pi|int == number_page %}
+							<span>{{ number_page }}</span>
+						{% else %}
+							{% if number_page == '.' %}
+								...
+							{% else %}
+								<a href="?pi={{ number_page }}#!tab-items">{{ number_page }}</a>
+							{% endif %}
+						{% endif %}
+					</li>
+				{% endfor %}
+
+			</ul>
+			{% if param_pi|int == item_pages %}
+				<span class="next">next</span>
+			{% else %}
+				<a href="?pi={{ param_pi|int + 1 }}#!tab-items" data-page="{{ param_pi|int + 1 }}" class="next">next</a>
+			{% endif %}
+		</div>
+	{% endif %}
+
+</div>

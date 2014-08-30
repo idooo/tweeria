@@ -1,0 +1,247 @@
+{% include "header.jinja2" %}
+{% include "admin/admin_popups.jinja2" %}
+{% set spell_types = ['','+','','-'] %}
+
+<script id="shop-artwork-popup" type="text/x-jquery-tmpl">
+	<div class="shop-item-popup">
+		<div class="shop-popup-img"><img class="item-img" width="240" height="420" src="${img}" alt="${name}"></div>
+
+		<div class="item-info">
+			<form action="" method="post">
+				<h4 class="item-name">${name}</h4>
+				{% raw %}
+					<span class="item-type-level">${race} ${pclass}
+
+						{{if author_name}}
+							 by</span> <a href="/${author_name}" class="item-author">${author_name}</a>
+				{{else}}
+				</span>
+				{{/if}}
+
+				{{if img_author}}
+				<div class="artwork_info artwork_info_artwork">Artwork by
+
+					{{if img_link}}
+					<a class="item-author" href='http://${img_link}'>${img_author}</a>
+					{{else}}
+					${img_author}
+					{{/if}}
+
+				</div>
+				{{/if}}
+
+				<p class="item-text">
+					{{if desc != '0'}}
+					${desc}
+					{{else}}
+					You can create description for this artwork. Just <a href="mailto:yeah@tweenk.me?subject=Description for artwork: ${name}">write email</a>
+					to us or <a target="_blank" href="https://twitter.com/intent/tweet?source=tweetbutton&text=@tweenk ">tweet</a>
+					{{/if}}
+				</p>
+				{% endraw %}
+				<span class="item-cost"> <i class="icon gold-1"></i> <span>${cost}</span></span>
+
+			</form>
+			<div class="approve_reject_form">
+
+				<div class="approve_form">
+					<form method="post">
+						<input type="hidden" value="approve_artwork" name="type_of_form">
+						<input type="hidden" value="${_id}" name="_id">
+						<input type="submit" value="Approve" class="btn-ido-big">
+					</form>
+				</div>
+
+				<div class="reject_form">
+					or reject with message:
+					<form method="post">
+						<input type="hidden" value="reject_artwork" name="type_of_form">
+						<input type="hidden" value="${_id}" name="_id">
+						<textarea name="reject_reason"></textarea>
+						<input type="submit" value="Reject" class="btn-ido-classic">
+					</form>
+				</div>
+			</div>
+		</div>
+		<br class="clear">
+	</div>
+</script>
+
+<script src="/js/page_scripts/approvements.js?{{ build }}"></script>
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-page">
+			<h2>Things to approve</h2>
+			<p>
+				Please, <a href="/a/approve_rules">read some rules</a> about items approvement.
+			</p><br>
+
+			{% if not items %}
+				<h2>No waiting items</h2>
+				<div class="empty-table"></div>
+			{% else %}
+
+			<h2>Waiting items</h2>
+			<table class="shop-item-table item-popuped">
+				<thead>
+				<tr>
+					<th class="type">Type</th>
+					<th class="name">Name</th>
+					<th class="level">Level</th>
+					<th class="author">Author</th>
+					<th class="cost">Cost</th>
+				</tr>
+				</thead>
+				<tbody>
+				{% for item in items %}
+					<tr class="cluetip_popup_shop"
+						title="|<img src='{{ item.img }}'><c class='player_item'><n0>{{ item.name }}</n0>{{ item.bonus_stats }}</c><div class='clear'></div>"
+						data-type="{{ item.view|capitalize }}"
+						data-name="{{ item.name }}"
+						data-level="{{ item.lvl_min|default(1) }}"
+						data-img="{{ item.img }}"
+						data-author_name="{{ item.author_name }}"
+						data-desc="{{ item.desc|escape }}"
+						data-cost="{{ item.cost }}"
+						data-_id="{{ item._id }}"
+						data-sell="{{ item.sell }}"
+						data-primary="{{ item.primary }}"
+						data-bonus="{{ item.stat_parsed }}"
+
+						{% if "img_info" in item %}
+						data-img_link="{{ item.img_info.link }}"
+						data-img_author="{{ item.img_info.name }}"
+						{% endif %}
+
+							>
+
+						<td class="type">{{ item.view|capitalize }}</td>
+						<td class="name">{% if item.old_data %}<span class="item-was-edited">Edit</span>{% endif %} {{ item.name }}
+						</td>
+						<td class="level">{{ item.lvl_min|default(1) }}</td>
+						<td class="author">{{ item.author_name }}</td>
+						<td class="cost">{{ item.cost }}</td>
+
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+			{% endif %}
+
+			{% if artworks %}
+				<h2>Artworks</h2>
+			{% else %}
+				<h2>No artworks</h2>
+			{% endif %}
+
+			<ul class="shop-artwork-list artwork-popuped">
+				{% for artwork in artworks %}
+					<li><a href="#"
+						   data-name="{{ artwork.name }}"
+						   data-race="{{ artwork.race_name }}"
+						   data-pclass="{{ artwork.class_name }}"
+						   data-author_name="{{ artwork.author_name }}"
+						   data-desc="{{ artwork.desc }}"
+						   data-cost="{{ artwork.cost }}"
+						   data-img="{{ artwork.img }}"
+							{% if artwork.UID %}
+						   data-_id="{{ artwork.UID }}"
+							{% else %}
+						   data-_id="{{ artwork._id }}"
+							{% endif %}
+
+							{% if "img_info" in artwork %}
+						   data-img_link="{{ artwork.img_info.link }}"
+						   data-img_author="{{ artwork.img_info.name }}"
+							{% endif %}
+
+							>
+						<img width="120" src="{{ artwork.img }}" alt=""></a>
+
+					</li>
+				{% endfor %}
+			</ul>
+
+			<br>
+
+			{% if not spells %}
+				<h2>No spells</h2>
+				<div class="empty-table"></div>
+			{% else %}
+				<h2>Spells</h2>
+
+			<table class="shop-item-table spell-popuped">
+				<thead>
+				<tr>
+					<th class="name">Name</th>
+					<th class="level">Level</th>
+					<th class="author">Author</th>
+					<th class="cost">Cost</th>
+				</tr>
+				</thead>
+
+					<tbody>
+					{% for spell in spells %}
+
+						<tr
+								class="cluetip_popup_shop"
+								title="|{% include "misc/_spell_cluetip.jinja2" %}|"
+								data-name="{{ spell.name }}"
+								data-level="{{ spell.lvl_min }}"
+								data-img="{{ spell.img }}"
+								data-author_name="{{ spell.author_name }}"
+								data-desc="{{ spell.desc }}"
+								data-cost="{{ spell.cost }}"
+								data-_id="{{ spell._id }}"
+								data-manacost="{{ spell.mana_cost }}"
+
+								{% if "img_info" in spell %}
+								data-img_author="{{ spell.img_name }}"
+								data-img_link="{{ spell.img_link }}"
+								{% endif %}
+
+								data-keyword="{{ spell.keyword }}"
+								data-rawactions='
+								{% for action in spell.spell_actions %}
+								<li data-spellname="{{ action.name }}">
+									<div class="popup-left-part">
+										<span class="spell-img">
+											<img src="/data/effects/{{ action.img }}.jpg" alt="{{ action.img }}">
+										</span>
+										<h4 class="spell-title">{{ action.name }}</h4>
+										<i class="icon spell type_{{ action.type }}"></i><span class="spell-type">{{ action.power }}</span>
+									</div>
+									<div class="popup-right-part">
+										<span class="big">{{ spell_types[action.type] }}{{ action.value }}</span> {{ stat_names[action.effect] }}
+									</div>
+								</li>
+								{% endfor %}
+								'
+
+								data-shareurl=""
+								data-sharetitletwitter="{{ spell.name }}"
+								data-sharetitle="{{ spell.name }}"
+								data-shareauthor="{{ spell.author_name }}"
+								data-sharedesc=""
+								>
+							<td class="name">{{ spell.name }}</td>
+							<td class="level">{{ spell.lvl_min }}</td>
+							<td class="author">{{ spell.author_name }}</td>
+							<td class="cost">{{ spell.cost }}</td>
+
+						</tr>
+
+					{% endfor %}
+
+					</tbody>
+
+				</table>
+
+			{% endif %}
+
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

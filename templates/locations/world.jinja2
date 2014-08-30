@@ -1,0 +1,187 @@
+{% include "header.jinja2" %}
+
+<script type="text/javascript">
+
+	{% if login %}
+
+	var someMapData = {
+		player: {
+			{% if param_x %}
+				x: {{ param_x }},
+			{% else %}
+				x: {{ player_coords.x|default(0) }},
+			{% endif %}
+			{% if param_y %}
+				y: {{ param_y }},
+			{% else %}
+				y: {{ player_coords.y|default(0) }},
+			{% endif %}
+			"name": "{{ login_name|default("") }}"
+
+		{% if login_name %}
+			,playerData: {
+			"name": "{{ login_name }}",
+			"race": "{{ login_race }}",
+			"class": "{{ login_class }}",
+			"lvl": "{{ login_lvl }} level",
+			"img": "{{ login_avatar|default }}",
+			"href" : "/{{ login_name }}",
+			"current": true
+		}
+			{% endif %}
+		}
+	};
+	{% else %}
+		var showAllMapP = true
+	{% endif %}
+
+	var placesData = [
+
+		{% for point in places %}
+			{
+				count: {{ places[point].count }},
+				places: [
+					{% for place in places[point].places %}
+						{
+							"name": "{{ place.name }}",
+							"desc": "{{ place.desc }}",
+							"lvl_max": "{{ place.lvl_max }}",
+							"lvl_min": "{{ place.lvl_min }}",
+							"max_players": "{{ place.max_player }}",
+							"type": "{{ place.type }}",
+							"hash" : "{{ place.hashtag }}"
+						},
+					{% endfor %}
+				],
+				pos: {
+					y: {{ places[point].pos.x }},
+					x: {{ places[point].pos.y }}
+				}
+			},
+		{% endfor %}
+
+	];
+	{% if login %}
+	var currentPlayer = {
+		count: 1,
+		players: [
+			someMapData.player.playerData
+		],
+		pos: {
+			x: {{ player_coords.x }},
+			y: {{ player_coords.y }}
+		}
+	};
+	{% endif %}
+	{% set added = False %}
+
+	var playersData = [
+
+		{# Убрали инфу с игроками #}
+		{% for point in players %}
+			{
+				count: {{ players[point].count }},
+				players: [
+					{% for player in players[point].players %}
+						{
+							"name": "{{ player.name }}",
+							"race": "{{ player.race }}",
+							"class": "{{ player.class }}",
+							"lvl": "{{ player.lvl }} level",
+							"img": "{{ player.img }}",
+							"href" : "/{{ player.name }}"
+							{% if player.name == login_name %}
+								,"current": true
+							{% endif %}
+						},
+					{% endfor %}
+					{% if players[point].pos.x == player_coords.x and players[point].pos.y == player_coords.y %}
+						[someMapData.player.playerData]
+						{% set added = True %}
+					{% endif %}
+				],
+				pos: {
+					y: {{ players[point].pos.x }},
+					x: {{ players[point].pos.y }}
+				}
+			},
+		{% endfor %}
+
+	];
+	{% if not added %}
+	playersData.push({
+		count: 1,
+		players: [
+			someMapData.player.playerData
+		],
+		pos: {
+			x: {{ player_coords.x }},
+			y: {{ player_coords.y }}
+		}
+	});
+	{% endif %}
+
+	{% if other_player %}
+		playersData.push({
+			count: 1,
+			players: [
+				{
+					"name": "{{ other_player.name }}",
+					"race": "{{ other_player.race }}",
+					"class": "{{ other_player.class }}",
+					"lvl": "{{ other_player.lvl }} level",
+					"img": "{{ other_player.img|default }}",
+					"href" : "/{{ other_player.name }}"
+				}
+			],
+			pos: {
+				x: {{ other_player.coords.x }},
+				y: {{ other_player.coords.y }}
+			}
+		});
+	{% endif %}
+
+	localStorage.setItem("map-points","");
+</script>
+{#<script type="text/javascript" src="/js/page_scripts/map.js?{{ build }}"></script>#}
+<script type="text/javascript" src="/js/page_scripts/sprite-map.js?{{ build }}"></script>
+<script type="text/javascript" src="/js/page_scripts/world.js?{{ build }}"></script>
+
+<script id="shop-item-popup" type="text/x-jquery-tmpl">
+	<div class="map-stats-block">
+		<h4>Stats</h4>
+		<h5>Territory controlling</h5>
+		<span class="side-1">${territory1}</span>
+		<span class="side-2">${territory2}</span>
+		<span class="side-3">${territory3}</span>
+
+		<h5>Population</h5>
+		<span class="side-1">${population1}</span>
+		<span class="side-2">${population2}</span>
+		<span class="side-3">${population3}</span>
+
+		<h5>Cities</h5>
+
+		<span class="side-1">${cities1}</span>
+		<span class="side-2">${cities2}</span>
+		<span class="side-3">${cities3}</span>
+	</div>
+</script>
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg shop-page">
+
+			<div id="map-sprite" style="display:block;">
+
+				<div class="global-map">
+
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

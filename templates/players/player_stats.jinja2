@@ -1,0 +1,16 @@
+<div id="player_statistics">
+
+	{% for stat_groups in statistics %}
+		<h4>{{ stat_groups.name }}</h4>
+		<table>
+
+		{% for stat in stat_groups.stats %}
+			<tr>
+				<td class="dotted"> {{ stat.name }}</td>
+				<td> {{ stat.value }}</td>
+			</tr>
+		{% endfor %}
+
+		</table>
+	{% endfor %}
+</div>

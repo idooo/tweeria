@@ -1,0 +1,84 @@
+<div class="new-things">
+	{% set i = -1 %}
+	{% set a = -1 %}
+
+	{% set columns = [
+		{'class': "column-container column1", 'seq':  [1,1,0,1,1], 'inc': [1,4]},
+		{'class': "column-container column2", 'seq':  [0,1,1,1,1], 'inc': [1,4]},
+		{'class': "column-container column3", 'seq':  [1,1,1,1,0], 'inc': [1,4]},
+		{'class': "small-column-container", 'seq':  [1,1,1,1], 'inc': [0,4]}
+	] %}
+
+	{% if new_things %}
+		{% set items_data = cycler(new_things.ni) %}
+
+		{% for col in columns %}
+			<div class="{{ col.class }}">
+				{% for type in col.seq %}
+					{% if type == 1 %}
+						{% set i = i + 1 %}
+						<div class="new-thing-for-popup-item cluetip_popup_shop"
+							 data-thing_type="{{ type }}"
+								{% if type==1 %}
+									{% set item = new_things.ni[i] %}
+							 id="item-{{ item._id }}"
+									{% set parent = "item-"+item._id|string %}
+									{% set id = item._id %}
+							 title="|{% include "misc/_item_cluetip_without_img.jinja2" %}|"
+								{% elif type==2 %}
+
+									{% set spell = new_things.ni[i] %}
+							 id="spell-{{ spell._id }}"
+									{% set parent = "spell-"+spell._id|string %}
+									{% set id = spell._id %}
+							 title="|{% include "misc/_spell_cluetip.jinja2" %}|"
+								{% endif %}>
+
+							<a href="/u/item?id={{ id }}"><img src="{{ new_things.ni[i].img }}" alt="{{ new_things.ni[i].name }} "></a>
+							<a class="title" href="/u/item?id={{ id }}">{{ new_things.ni[i].name }}</a>
+
+							{% set like = new_things.ni[i] %}
+							{% include "misc/_like_inline_block.jinja2" %}
+
+							<a href="/{{ new_things.ni[i].author_name }}"
+							   class="author">{{ new_things.ni[i].author_name }}</a>
+						</div>
+
+					{% else %}
+						{% set a = a + 1 %}
+
+						<div class="big-new-item new-thing-for-popup-item"
+							 data-thing_type="{{ type }}"
+								{% set artwork = new_things.na[a] %}
+								{% if artwork.UID %}
+							 id="artwork-{{ artwork.UID }}"
+									{% set parent = "artwork-"+artwork.UID|string %}
+									{% set id = artwork.UID %}
+								{% else %}
+							 id="artwork-{{ artwork._id }}"
+									{% set parent = "artwork-"+artwork._id|string %}
+									{% set id = artwork._id %}
+								{% endif %}
+								>
+							<a href="/u/artwork?id={{ id }}"><img src="{{ new_things.na[a].img }}" alt="{{ new_things.na[a].name }} "></a>
+
+							{% set like = new_things.na[a] %}
+							{% include "misc/_like_inline_block.jinja2" %}
+
+							<a class="title" href="/u/artwork?id={{ id }}">{{ new_things.na[a].name }}</a>
+							<span class="author">{{ new_things.na[a].author_name }}</span>
+						</div>
+
+					{% endif %}
+
+				{% endfor %}
+
+				{% set i = i + col.inc[1] %}
+				{% set a = a + col.inc[0] %}
+
+			</div>
+		{% endfor %}
+	{% endif %}
+
+	<div class="clear"></div>
+</div>

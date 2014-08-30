@@ -1,0 +1,21 @@
+	{% set spell_types = ['','+','','-'] %}
+
+	<div class="shop-list">
+		{% for spell in spells %}
+			{% set like = spell %}
+			{% set id = spell._id %}
+			<div class="shop-list-item cluetip_popup_shop popuped_spells"
+
+				 title="|{% include "misc/_spell_cluetip.jinja2" %}|"
+				 id="spell-list-{{ spell._id }}"
+					>
+				<a href="/u/spell?id={{ id }}"><img src="{{ spell.img }}" alt="{{ spell.name }}"></a>
+				<a class="title" href="/u/spell?id={{ id }}">{{ spell.name }} </a>
+
+				{% set like_type = 'spell' %}
+				{% include "misc/_like_inline_block.jinja2" %}
+
+				<a class="author" href="/{{ spell.author_name }}">{{ spell.author_name }}</a>
+			</div>
+		{% endfor %}
+	</div>

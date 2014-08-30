@@ -1,0 +1,41 @@
+{% include "header.jinja2" %}
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-invites-page">
+
+			{% if param_error %}
+				<div class="error-message">
+					<div>
+						{{ param_user }}: {{ param_error }}
+					</div>
+				</div>
+			{% endif %}
+
+			<div class="page-part">
+				<a class="link-back" href="/a/index">Back</a><br>
+
+				<h2>Get timeline</h2>
+				<form method="POST">
+					<input type="hidden" name="type_of_form" value="get_timeline">
+					<input type="text" name="user_name" placeholder="Twitter name"><br>
+					<input type="submit" class="btn-ido-big" value="Get">
+				</form>
+
+				{% if timeline %}
+					<br>
+					<h2>{{ param_req_name }}'s timeline:</h2>
+					<div class="timeline-admin">
+						{% for record in timeline %}
+							<p>{{ record }}</p>
+						{% endfor %}
+					</div>
+				{% endif %}
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+{% include "footer.jinja2" %}

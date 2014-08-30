@@ -1,0 +1,454 @@
+/* Default styles */
+
+.inline-block {
+  display: inline-block !important;
+}
+
+.clear {
+  clear: both;
+  height: 1px;
+  line-height: 1px;
+  font-size: 1px;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.nw {
+  white-space: nowrap;
+}
+
+.no-background {
+  background: none !important;
+}
+
+.center-container {
+  text-align: center;
+}
+
+
+/* main mixins */
+
+@mixin twitter-icon {
+  background: url('img/sprite.png') no-repeat -245px -1055px;
+  width: 20px;
+  height: 17px;
+  margin-left: 12px;
+}
+
+@mixin facebook-icon {
+  background: url('img/sprite.png') no-repeat -277px -1054px;
+  width: 18px;
+  height: 19px;
+  margin-left: 10px;
+}
+
+@mixin vk-icon {
+  background: url('img/sprite.png') no-repeat -308px -1055px;
+  width: 14px;
+  height: 18px;
+  margin-left: 12px;
+  margin-top: 1px;
+}
+
+@mixin wikia-icon {
+  background: url("img/sprite.png") no-repeat -333px -1055px;
+  width: 20px;
+  height: 18px;
+  margin-left: 10px;
+  margin-top: 1px;
+}
+
+/* ----------- */
+
+body {
+  background: url(img/textures/bg_main.jpg) #2b2b2b repeat-x;
+
+  #tweeria_main_container {
+    margin: 0 auto;
+    width: 1000px;
+    box-shadow: 0 0 26px rgba(0, 0, 0, 0.7);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+}
+
+header {
+  height: 56px;
+  width: 1000px;
+
+  ul {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+  }
+
+  a.header-mini-logo-link {
+    text-decoration: none;
+    border: 0;
+
+    .header-mini-logo {
+      display: inline-block;
+      background: url('img/sprite.png') no-repeat -195px -198px;
+      width: 18px;
+      height: 30px;
+      margin: 13px 0 0 26px;
+      border: none;
+    }
+
+    &:hover .header-mini-logo {
+      background-position: -219px -198px;
+    }
+  }
+
+  .header-main-menu-bg {
+    background: url(/style/img/textures/header-bg-wide-texture.jpg) repeat-x transparent 0 0;
+    height: 56px;
+  }
+
+  .header-main-menu {
+    font-size: 0;
+    margin-top: 10px;
+    padding-left: 4px;
+    vertical-align: top;
+
+    li {
+      font-family: "Trajan Pro";
+      font-size: 16px;
+      padding-left: 12px;
+      padding-right: 7px;
+      height: 31px;
+      vertical-align: middle;
+      line-height: 34px;
+
+      &:first-child {
+        border-left: none;
+      }
+
+      a {
+        color: #fff;
+        font-size: 14px;
+        text-shadow: 1px 3px 3px black;
+        text-decoration: none;
+
+        &:hover {
+          color: #E6B265;
+        }
+
+        &:active {
+          color: #DDE5CF;
+        }
+
+      }
+
+      &.war {
+        padding-left: 3px;
+
+        a {
+          background: url(img/sprite-bar.png) repeat-x 0 -2053px;
+          display: inline-block;
+          font-family: "Trajan Pro";
+          font-size: 12px;
+          line-height: 18px;
+          height: 19px;
+          padding: 0 4px;
+          text-transform: lowercase;
+          vertical-align: middle;
+        }
+
+      }
+
+    }
+
+  }
+
+  .header-social-link {
+    float: right;
+    margin: 13px 13px 0 0;
+
+    li {
+
+      &.blog-link {
+        margin-top: 5px;
+      }
+
+      a {
+        display: block;
+        margin-left: 15px;
+        text-indent: -9999px;
+
+        &.clean {
+          text-indent: 0;
+          color: #fff;
+          font-family: "Trajan Pro";
+          font-size: 14px;
+          text-decoration: none;
+        }
+
+        &.mail {
+          background: url('img/sprite.png') no-repeat -212px -1055px;
+          width: 19px;
+          height: 16px;
+          margin-left: 10px;
+        }
+
+        &.tw { @include twitter-icon; }
+
+        &.fb { @include facebook-icon; }
+
+        &.vk { @include vk-icon; }
+
+        &.wikia { @include wikia-icon; }
+
+      }
+
+    }
+
+    &.header-login {
+      margin: 13px 15px 0 4px;
+
+      a {
+        margin-left: 0;
+      }
+
+    }
+
+  }
+
+  .search {
+    float: right;
+    margin-top: -1px;
+
+    input[type='text'] {
+      border: none;
+      width: 120px;
+      padding: 0 0 0 7px;
+      margin-top: 15px;
+      margin-right: 12px;
+      background: url(img/textures/footer-input-bg.png) repeat 0 0 transparent;
+      height: 25px;
+      color: #787878;
+      font-family: "PT Serif", serif;
+      font-size: 14px;
+      font-style: italic;
+      line-height: 28px;
+
+      @include placeholder-color(#787878);
+    }
+  }
+
+  .header-player-block  {
+    padding: 1px 1px 0 1px;
+    float: right;
+    margin: 4px 4px 0 0;
+    vertical-align: top;
+
+    .header-player-info-block {
+      color: #fff;
+      display: inline-block;
+      float: left;
+      margin-top: 4px;
+      padding-right: 10px;
+      text-align: right;
+
+      .header-player-name {
+        display: block;
+        color: #fff;
+        font-family: "Trajan Pro";
+        font-size: 14px;
+      }
+
+      .header-player-info {
+        display: block;
+        color: #575757; /* text color */
+        font-family: "Trajan Pro";
+        font-size: 10px;
+      }
+
+    }
+
+    .header-player-link {
+      background: #000;
+      display: inline-block;
+      float: left;
+      margin-bottom: 1px;
+      height: 40px;
+      width: 40px;
+      vertical-align: top;
+
+      img {
+        height: 40px;
+        width: 40px;
+      }
+
+    }
+
+    .header-player-menu-opener {
+      background: black;
+      cursor: pointer;
+      display: block;
+      float: right;
+      margin-left: 1px;
+      margin-bottom: 1px;
+      height: 40px;
+      width: 21px;
+      vertical-align: top;
+
+      i.icon.opener-corner {
+        width: 0px;
+        height: 0px;
+        border-left: 5.5px solid transparent;
+        border-right: 5.5px solid transparent;
+        margin: 18px auto;
+        display: block;
+        border-top: 5px solid #404040;
+      }
+
+      &:hover {
+        background: #333;
+
+        i.icon.opener-corner {
+          border-top: 5px solid #fff;
+        }
+
+      }
+
+      &.opened, &.opened:hover {
+        background: url(img/textures/header-user-menu-bg2.jpeg) repeat transparent 0 0;
+        height: 41px;
+        margin-bottom: 0;
+      }
+
+    }
+
+    .header-player-menu {
+      background: url(img/textures/header-user-menu-bg2.jpeg) repeat transparent 0 0;
+      border-bottom: 3px solid #7e6340;
+      display: none;
+      list-style: none;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+      margin: 41px 0 0 -111px;
+      padding: 0 0 6px;
+      text-align: right;
+      position: absolute;
+      width: 173px;
+      z-index: 17;
+
+      .menu-profile-info {
+        background: url('img/sprite-bar.png') repeat-x 0 -2100px;
+        color: #c05600;
+        font-size: 12px;
+        padding: 8px 21px 6px 9px;
+        font-style: italic;
+        margin-bottom: 4px;
+        font-style: italic;
+      }
+
+      li {
+        display: block;
+        padding: 2px 21px 2px 0;
+
+        &.hr {
+          border-bottom: 1px solid #CCC;
+          padding-top: 6px;
+          height: 0px;
+          margin-bottom: 6px;
+        }
+
+        a {
+          color: #000;
+          font-family: "PT Serif", serif;
+          font-size: 14px;
+          text-decoration: none;
+
+          &:hover {
+            color: #5E3A27;
+            border-bottom: 1px solid #5E3A27;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+footer {
+  margin: 0 auto;
+  width: 1000px;
+
+  .footer-text {
+    background: url(img/footer-shadow.png) repeat-x transparent 0 0;
+    padding-top: 27px;
+    color: #533e30;
+    font-size: 12px;
+    padding: 20px 14px 27px;
+
+    p {
+      float: left;
+      color: #ffffff;
+      opacity: 0.3;
+      margin: 0;
+      padding: 0;
+      font-weight: normal;
+      width: 530px;
+
+      a {
+        color: white;
+      }
+
+    }
+
+    hr {
+      border-top: 1px solid rgba(255,255,255,0.09);
+      height: 0;
+    }
+
+  }
+
+  .footer-social {
+    list-style: none;
+    float: right;
+    margin: 0 17px 0 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      margin-left: 5px;
+      text-indent: -99999px;
+
+      a {
+        display: block;
+        text-indent: -99999px;
+        margin-left: 0;
+
+        &.tw { @include twitter-icon; }
+
+        &.fb { @include facebook-icon; }
+
+        &.vk { @include vk-icon; }
+
+        &.wikia { @include wikia-icon; }
+
+      }
+
+    }
+
+  }
+}

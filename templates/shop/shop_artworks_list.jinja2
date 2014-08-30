@@ -1,0 +1,21 @@
+<div class="shop-list">
+	{% for artwork in artworks %}
+		{% set like = artwork %}
+		{% set id = artwork._id %}
+
+		<div class="shop-list-item cluetip_popup_shop artwork" id="artwork-list-{{ artwork._id }}">
+			<a href="/u/artwork?id={{ id }}"><img src="{{ artwork.img }}" alt="{{ artwork.name }}"></a>
+			<a class="title" href="/u/artwork?id={{ id }}">{{ artwork.name }}</a>
+
+			{% set like_type = 'artwork' %}
+			{% include "misc/_like_inline_block.jinja2" %}
+
+			<a class="author" href="/{{ artwork.author_name }}">{{ artwork.author_name }}</a>
+		</div>
+	{% endfor %}
+</div>
+{% if artworks|length==0 %}
+	<div class="empty-table">
+		There are no artworks for your race and class to buy right now
+	</div>
+{% endif %}

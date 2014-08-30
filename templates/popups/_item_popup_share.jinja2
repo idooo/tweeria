@@ -1,0 +1,37 @@
+<div class="item-popup-share">
+	<a target="_blank"
+	   href="https://twitter.com/share?url=${shareurl}&hashtags=${sharehash}&text=${sharetitletwitter}"
+	   class="achv-share-button tw"
+	   data-lang="ru"
+	   data-url="${shareurl}"
+	   data-text="${sharetitle}"
+	   data-hashtags="tweeria">
+		Twitter
+	</a>
+
+	<a target="_blank"
+	   href="http://www.facebook.com/sharer.php?s=100&p[title]=${sharetitle}&p[summary]=${sharedesc}&p[url]=${shareurl}&p[images][0]=${shareimage}"
+	   data-url="${shareurl}"
+	   data-title="${sharetitle}"
+	   data-description="${sharedesc}"
+	   title="Facebook"
+	   class="achv-share-button fb">
+		Facebook
+	</a>
+
+	<a target="_blank"
+	   href="https://plus.google.com/share?url=${shareurl}"
+	   class="achv-share-button gp"
+	   data-title="${sharetitle}"
+	   data-image="${shareimage}"
+	   data-desc="${sharedesc}"
+	   data-url="${shareurl}">
+		Google+
+	</a>
+	<a href="http://vkontakte.ru/share.php?url=${shareurl}&title=${sharetitle}&description=${sharedesc}&image=${shareimage}"
+	   data-url="${shareurl}"
+	   target="_blank"
+	   class="achv-share-button vk">
+		Vkontakte
+	</a>
+</div>

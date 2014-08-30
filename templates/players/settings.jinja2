@@ -1,0 +1,171 @@
+{% include "header.jinja2" %}
+
+<script src="/js/page_scripts/settings_page.js"></script>
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg create-spell-page hero-settings-page">
+
+
+			{% if param_success %}
+				{% set message_type = 10 %}
+				{% include "misc/_messages_.jinja2" %}
+			{% endif %}
+
+			<a class="link-back" href="/{{ login_name }}">Profile</a>
+
+			{#
+				<div class="delete-hero-block">
+					<p class="desc">You can delete your hero
+						with all items and progress.
+						After than you can create new one.</p>
+					<span class="cant-undo">
+						You can’t undo this thing!
+					</span>
+					<a class="delete-hero" href="#">Delete hero</a>
+
+				</div>
+			 #}
+
+			<div class="delete-hero-block">
+				<p class="desc">
+					You can change race or class of your hero unlimited times.<br>
+					But there are a few penalties:<br>
+					<span class="lose">
+						— You'll lose all your items<br>
+						— You'll lose 50% of hero's levels<br>
+						— You'll lose all artworks<br>
+						— You'll lose 50% of your resources
+					</span>
+
+					<br>
+					You will NOT LOSE your items / spells / artworks
+					in the shop, but you will need to spend your money to buy it.
+
+				</p>
+				<form method="post">
+					<div class="inline-field">
+						<label for="art-race" class="race-label">Race</label>
+						<select name="race" id="art-race" class="race-select">
+							{% for race in races %}
+								<option {% if faction_race == race.value %}selected{% endif %} value="{{ race.value }}">{{ race.name }}</option>
+							{% endfor %}
+						</select>
+					</div>
+
+					<div class="inline-field">
+						<label for="art-class" class="class-label">Class</label>
+						<select name="class" id="art-class" class="race-select">
+							{% for cl in classes %}
+								<option {% if class == cl.value %}selected{% endif %} value="{{ cl.value }}">{{ cl.name }}</option>
+							{% endfor %}
+						</select>
+					</div>
+
+					<input type="hidden" name="type_of_form" value="reset_hero">
+					<input type='submit' id="reset-button" class="btn2 btn2-red" value="Change">
+				</form>
+			</div>
+
+			<h2>Your hero’s settings</h2>
+
+			<ul class="hero-settings-list">
+
+				<li>
+					<label class="setting-title">Pvp Mode is
+						{% if pvp %}
+							<span class="enabled">enabled</span>
+						{% else %}
+							<span class="disabled">disabled</span>
+						{% endif %}
+					</label>
+
+					<p class="setting-desc">Where pvp mode is active you can kill pvp players
+						and may be killed </p>
+
+					<form method="post">
+						<input type="hidden" name="type_of_form" value="change_pvp">
+						{% if pvp %}
+							<input type="hidden" name="pvp_mode" value="0">
+							<input type='submit' class="btn2 btn2-gray btn2-wide" value="Disable">
+						{% else %}
+							<input type="hidden" name="pvp_mode" value="1">
+							<input type='submit' class="btn2 btn2-red btn2-wide" value="Enable">
+						{% endif %}
+					</form>
+
+				</li>
+				<li>
+
+					<label class="setting-title" for="titles">Current Title</label>
+
+					<p class="setting-desc">You can buy new titles in the trivia <a href="/u/shop#!tab-fun">shop</a>
+						or get it as prizes</p>
+
+					<select name="title" id="titles">
+						{% for title in titles %}
+							<option value="{{ title.item_UID }}" {% if title.current %}selected{% endif %}>{{ title.name }}</option>
+						{% endfor %}
+					</select>
+
+					<form method="POST" id="titles_change_form">
+						<input type="hidden" name="type_of_form" value="change_title">
+						<input type="hidden" name="change_title" id="title_UID" value="0">
+					</form>
+				</li>
+
+				<li>
+					<label class="setting-title" for="artworks">Current Artwork</label>
+
+					<p class="setting-desc">You can buy new artworks in the <a href="/u/shop#!tab-artworks">shop</a>
+						or create it by <a href="/u/create_artwork">yourself</a></p>
+
+					<select name="artworks" id="artworks">
+						<option value="0" {% if default_artwork %}selected{% endif %}>Default</option>
+						{% for artwork in artworks %}
+							<option value="{{ artwork.img }}" {% if artwork.current %}selected{% endif %}>{{ artwork.name }}</option>
+						{% endfor %}
+					</select>
+
+					<form method="POST" id="artworks_change_form">
+						<input type="hidden" name="type_of_form" value="change_artwork">
+						<input type="hidden" name="change_artwork" id="artwork_UID" value="0">
+					</form>
+
+
+				</li>
+				<li>
+					<label class="setting-title" for="titles">Notifications is
+						{% if post_to_twitter %}
+							<span class="disabled">
+								ON
+						{% else %}
+							<span class="enabled">
+								OFF
+						{% endif %}
+							</span>
+					</label>
+					<p class="setting-desc">Post messages about earned achievements<br>and new levels to twitter</p>
+
+					<form method="post">
+						<input type="hidden" name="type_of_form" value="change_post_setting">
+						{% if post_to_twitter %}
+							<input type="hidden" name="post_to_twitter" value="0">
+							<input type='submit' class="btn2 btn2-gray btn2-wide" value="Turn off">
+						{% else %}
+							<input type="hidden" name="post_to_twitter" value="1">
+							<input type='submit' class="btn2 btn2-blue btn2-wide" value="Turn on">
+						{% endif %}
+					</form>
+				</li>
+			</ul>
+
+			<br><br>
+			<a href="/{{ login_name }}" class="btn2 btn2-classic">To my sweet hero</a>
+			<br><br>
+
+
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

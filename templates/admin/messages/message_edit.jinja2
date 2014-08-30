@@ -1,0 +1,41 @@
+{% include "header.jinja2" %}
+
+<script type="text/javascript" src="/js/page_scripts/admin_message_edit.js?{{ build }}"></script>
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-page cc-messages-edit">
+
+			{% include "admin/messages/_messages_help.jinja2" %}
+
+			<div class="page-part left">
+				<a class="link-back" href="/a/messages{% if param_a %}?action_name={{ param_a }}{% endif %}">Back</a><br>
+
+				<h2>Edit message</h2>
+
+				<form method="post" class="message-edit">
+					<input type="hidden" name="type_of_form" value="save_edit_message">
+					<input type="hidden" name="_id" value="{{ _id }}">
+
+					<textarea name="text">{% if param_text %}{{ param_text }}{% else %}{{ message }}{% endif %}</textarea>
+
+					<label>Chance: </label>
+					<input type="text" name="p" value="{% if param_p %}{{ param_p  }}{% else %}{{ p }}{% endif %}">
+
+					<br>
+					<input class="btn2 btn2-classic btn2-wide" value="save" type="submit">
+				</form>
+
+				<form method="post" class="message-delete">
+					<input name="type_of_form" type="hidden" value="delete_message">
+					<input type="hidden" name="_id" value="{{ _id }}">
+					<input value="delete" type="submit" class="btn2 btn2-red" id="delete_button">
+				</form>
+
+			</div>
+
+            <div class="clear"></div>
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

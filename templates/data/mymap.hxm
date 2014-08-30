@@ -1,0 +1,5031 @@
+80,60,48x42,id:431495,truecolumns Hexographer http://www.inkwellideas.com/ version 1.74.0
+show/hide	
+line_template	political maj_border 	style:0	-65536	5.0
+line_template	political min_border 	style:1	-65536	3.0
+line_template	natural sea_fill	style:0	-6697729	21.0
+line_template	natural coastline 	style:0	-6697729	9.0
+line_template	natural river 	style:0	-6697729	3.0
+line_template	infrastructure road 	style:0	-16711423	3.0
+line_template	infrastructure trail 	style:0	-1321362	3.0
+line_template	natural elevation	style:3	-9082057	3.0
+line_template	infrastructure shipping	style:2	-1	3.0
+line_template	infrastructure railraod	style:5	-16777216	3.0
+line_template	infrastructure dark_rock_wall	style:0	-16777216	5.0
+line_template	infrastructure medium_rock_wall	style:0	-12566464	5.0
+line_template	infrastructure light_rock_wall	style:0	-4144960	5.0
+line_template	infrastructure dark_metal_wall	style:0	-10197916	5.0
+line_template	infrastructure medium_metal_wall	style:0	-6908266	5.0
+line_template	infrastructure light_metal_wall	style:0	-3618616	5.0
+line_template	infrastructure dark_wood_wall	style:0	-5280512	5.0
+line_template	infrastructure medium_wood_wall	style:0	-3962068	5.0
+line_template	infrastructure light_wood_wall	style:0	-2641078	5.0
+text_template	title 	Times New Roman	32.0	1	-1	3.0	-16777216
+text_template	natural continent 	Arial	26.0	1	-16777216	1.0	-1
+text_template	natural ocean 	Arial	26.0	1	-1	1.0	-16777216
+text_template	natural river 	Arial	14.0	0	-16777216	0.0	-1
+text_template	natural other 	Arial	16.0	0	-16777216	0.0	-1
+text_template	natural minor other 	Arial	14.0	0	-16777216	0.0	-1
+text_template	political nation 	Courier New	22.0	1	-16777216	1.0	-65536
+text_template	political state 	Courier New	20.0	1	-16777216	0.0	-1
+text_template	political other 	Courier New	18.0	0	-16777216	0.0	-1
+text_template	political minor other 	Courier New	16.0	0	-16777216	0.0	-1
+text_template	infrastructure road 	Times New Roman	14.0	0	-16777216	0.0	-1
+text_template	infrastructure other	Times New Roman	14.0	0	-1	0.0	-1
+terrain_template	A Star	Cosmic	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	AA Gun	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Airbase	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Aircraft Carrier	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Ancient Soldier	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Army Base	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Artillery	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Asteroids	Cosmic	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	B Star	Cosmic	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Bad Magic Source	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Badlands	Rough Land	0.82	-13210	false	false	true	true		false	
+terrain_template	Battle	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Battleship	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Beach	Other Land	0.82	-1895	false	false	true	true		false	
+terrain_template	Bear	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Bison	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Black Hole	Cosmic	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Blank	Other Land	0.82	-1447447	false	false	true	true		false	
+terrain_template	Bomber	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Border Only	Other	0.82	-16777216	false	true	false	true		false	
+terrain_template	Bridge	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Broken Lands	Other Land	0.82	-3302656	false	false	true	true		false	
+terrain_template	Broken Lands Underdark	Other Land	0.82	-9408400	false	false	true	true		false	
+terrain_template	Cactus	Rough Land	0.82	-3355648	false	false	true	true		false	
+terrain_template	Camel	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Camp	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Campsite	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Capital	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Castle	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Catapult	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Cathedral	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Cattle	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Cave	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Church	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	City	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Clan Moot	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Crater	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Cruiser	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Cultivated Farmland	Other Land	0.82	-6236309	false	false	true	true		false	
+terrain_template	Dead Forest	Forests	0.82	-5197648	false	false	true	true		false	
+terrain_template	Dead Forest Hills	Forests	0.82	-6250336	false	false	true	true		false	
+terrain_template	Dead Forest Mountain	Forests	0.82	-7303024	false	false	true	true		false	
+terrain_template	Dead Forest Mountains	Forests	0.82	-8355712	false	false	true	true		false	
+terrain_template	Deep Ocean	Water	0.82	-16764058	false	false	true	true		false	
+terrain_template	Deep Sea	Water	0.82	-10053172	false	false	true	true		false	
+terrain_template	Destroyer	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Dinosaur Brontosaurus	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Dinosaur T-Rex	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Dormant Volcano	Other Land	0.82	-3502336	false	false	true	true		false	
+terrain_template	Dragon	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Dungeon	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Elephant	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Empty	Other	0.82	-16777216	false	false	false	true		false	
+terrain_template	Evergreen Hills	Forests	0.82	-12023263	false	false	true	true		false	
+terrain_template	Evergreen Mountain	Forests	0.82	-11045343	false	false	true	true		false	
+terrain_template	Evergreen Mountains	Forests	0.82	-10062303	false	false	true	true		false	
+terrain_template	F Star	Cosmic	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Factory	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Farmland	Other Land	0.82	-6236309	false	false	true	true		false	
+terrain_template	Fishing	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Forested Hills	Forests	0.82	-7422638	false	false	true	true		false	
+terrain_template	Forested Mountain	Forests	0.82	-7953869	false	false	true	true		false	
+terrain_template	Forested Mountains	Forests	0.82	-7892429	false	false	true	true		false	
+terrain_template	Fort	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Fruit for Heavy Woods	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Fruit for Hills-Mtns	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Fruit for Light Woods	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Full Badlands	Hex Fill	0.82	-26368	false	false	true	true		false	
+terrain_template	Full Forest	Hex Fill	0.82	-6961565	false	false	true	true		false	
+terrain_template	Full Mountains	Hex Fill	0.82	-5079040	false	false	true	true		false	
+terrain_template	Full Wheatfields	Hex Fill	0.82	-1575012	false	false	true	true		false	
+terrain_template	Fungal Forest	Forests	0.82	-8010125	false	false	true	true		false	
+terrain_template	G Star	Cosmic	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Gemstones	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Geyser	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Glacier	Other Land	0.82	-1	false	false	true	true		false	
+terrain_template	Good Magic Source	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Grassland	Other Land	0.82	-1575012	false	false	true	true		false	
+terrain_template	Grassland Hills	Other Land	0.82	-2623594	false	false	true	true		false	
+terrain_template	Grassland Poor	Other Land	0.82	-2891121	false	false	true	true		false	
+terrain_template	Grassy Hills	Other Land	0.82	-3943837	false	false	true	true		false	
+terrain_template	Grazing Land	Other Land	0.82	-3608948	false	false	true	true		false	
+terrain_template	Heavy Cactus	Rough Land	0.82	-5066240	false	false	true	true		false	
+terrain_template	Heavy Evergreen	Forests	0.82	-13666783	false	false	true	true		false	
+terrain_template	Heavy Forest	Forests	0.82	-8737469	false	false	true	true		false	
+terrain_template	Heavy Fungal Forest	Forests	0.82	-8010110	false	false	true	true		false	
+terrain_template	Hills	Other Land	0.82	-1585574	false	false	true	true		false	
+terrain_template	Horse	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Ice Flow	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Igloo	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Infantry	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Jump Gate	Cosmic	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Jungle	Forests	0.82	-11694246	false	false	true	true		false	
+terrain_template	Jungle Hills	Forests	0.82	-12155566	false	false	true	true		false	
+terrain_template	Jungle Mountain	Forests	0.82	-12616886	false	false	true	true		false	
+terrain_template	Jungle Mountains	Forests	0.82	-13209278	false	false	true	true		false	
+terrain_template	K Star	Cosmic	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Kelp Forest	Water	0.82	-6692609	false	false	true	true		false	
+terrain_template	Kelp Forest Heavy	Water	0.82	-6688513	false	false	true	true		false	
+terrain_template	Knight	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Landmark	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Lava	Rough Land	0.82	-26368	false	false	true	true		false	
+terrain_template	Light Evergreen	Forests	0.82	-13004499	false	false	true	true		false	
+terrain_template	Light Forest	Forests	0.82	-6961565	false	false	true	true		false	
+terrain_template	Light Jungle	Forests	0.82	-11166108	false	false	true	true		false	
+terrain_template	Lighthouse	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Lion	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	M Star	Cosmic	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Marsh	Other Land	0.82	-8073580	false	false	true	true		false	
+terrain_template	Mines	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Modern Capital	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Modern City	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Monolith	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Monster Lair	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Monument	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Moor	Other Land	0.82	-6236259	false	false	true	true		false	
+terrain_template	Moss	Other Land	0.82	-7095472	false	false	true	true		false	
+terrain_template	Mountain	Other Land	0.82	-3764480	false	false	true	true		false	
+terrain_template	Mountains	Other Land	0.82	-5079040	false	false	true	true		false	
+terrain_template	Mud	Rough Land	0.82	-5204412	false	false	true	true		false	
+terrain_template	Nebula	Cosmic	0.82	-10672286	false	false	true	true		false	
+terrain_template	O Star	Cosmic	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Oasis	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Ocean	Water	0.82	-16750951	false	false	true	true		false	
+terrain_template	Oil Well	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Open Underdark	Other Land	0.82	-3618616	false	false	true	true		false	
+terrain_template	Palace	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Planet	Cosmic	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Plant	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Point of Interest	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Port	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Primitive Battle	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Pyramid	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Radiation	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Railroad N-S	Railroad	1.0	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Railroad N-S-NE	Railroad	1.0	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Railroad N-S-NE-NW	Railroad	1.0	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Railroad N-S-NE-NW-SE-SW	Railroad	1.0	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Railroad N-S-NE-SE	Railroad	1.0	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Railroad N-S-NW	Railroad	1.0	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Railroad N-S-NW-SE	Railroad	1.0	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Railroad S	Railroad	1.0	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Railroad S-NE	Railroad	1.0	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Railroad S-NE-NW	Railroad	1.0	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Ranch	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Reefs	Water	0.82	-6697729	false	false	true	true		false	
+terrain_template	Resource	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Ringed Planet	Cosmic	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Rocky Desert	Rough Land	0.82	-990863	false	false	true	true		false	
+terrain_template	Ruined City	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Ruins	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Sailship	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Sand Dunes	Rough Land	0.82	-103	false	false	true	true		false	
+terrain_template	Sandy Desert	Rough Land	0.82	-462715	false	false	true	true		false	
+terrain_template	Sea	Water	0.82	-6697729	false	false	true	true		false	
+terrain_template	Seagrass	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Shellfish	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Shipwreck	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Shoals	Water	0.82	-3348993	false	false	true	true		false	
+terrain_template	Shrine	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Shrubland	Other Land	0.82	-2433920	false	false	true	true		false	
+terrain_template	Shrubland Hills	Other Land	0.82	-2433935	false	false	true	true		false	
+terrain_template	Snow Fields	Other Land	0.82	-1	false	false	true	true		false	
+terrain_template	Snowcapped Mountain	Other Land	0.82	-3764480	false	false	true	true		false	
+terrain_template	Snowcapped Mountains	Other Land	0.82	-5079040	false	false	true	true		false	
+terrain_template	Solid Rock	Other Land	0.82	-8882056	false	false	true	true		false	
+terrain_template	Space Ship	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Space Station	Cosmic	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Star	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Stars	Cosmic	0.82	-15724528	false	false	true	true		false	
+terrain_template	Statue	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Submarine	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Submerged Battle	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Sun	Cosmic	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Swamp	Other Land	0.82	-5382491	false	false	true	true		false	
+terrain_template	Tee-pee	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Temple	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Tombstone	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Totem	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Tower	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Town	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Transport Ship	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Trap	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Village	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Volcano	Other Land	0.82	-2453760	false	false	true	true		false	
+terrain_template	Waterfall	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Waystation	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Whaling	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Whirlpool	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Windmill	Settlement	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	Winery	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+terrain_template	X	Symbol	0.82	nobackgroundcolor	true	false	true	true		false	
+map-key	Off/No Map Key
+title	Times	-16777216	1	24.0	Map Key
+scale	Times	-16777216	1	20.0	1 Hex = # Miles
+item-font	Times	-16777216	1	18.0
+end-map-key
+hexes	Arial	25	0	-12566464	Col Row	Bottom	0	.	0	0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Rocky Desert	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Mountains	elevation:4	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Farmland	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Light Forest	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Grassland	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Sandy Desert	elevation:0	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Forested Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Forested Mountains	elevation:4	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Heavy Forest	elevation:0	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Hills	elevation:2	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0
+Ocean	elevation:-3	hasfeatures:0

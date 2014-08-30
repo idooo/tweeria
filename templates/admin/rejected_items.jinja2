@@ -1,0 +1,45 @@
+{% include "header.jinja2" %}
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-page">
+			<a class="link-back" href="/a/index">Back</a><br>
+			<h2>Rejected items</h2>
+
+			<table class="passive-table">
+				<thead>
+				<tr>
+					<th class="n"></th>
+					<th class="type">Type</th>
+					<th class="name">Name</th>
+					<th class="level">Level</th>
+					<th class="author">Author</th>
+					<th class="date">Date</th>
+				</tr>
+				</thead>
+				<tbody>
+				{% for item in items %}
+					<tr>
+						<td>{{ loop.index + p*100 }}</td>
+						<td class="type">{{ item.view|capitalize }}</td>
+						<td class="name"><a href="/u/item?id={{ item._id }}">{{ item.name }}</a></td>
+						<td class="level">{{ item.lvl_min|default(1) }}</td>
+						<td class="author">{{ item.author_name }}</td>
+						<td class="date">{{ item.reject_date }}</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+
+			<div class="pager">
+				{% if p|int == 0 %}
+					<span class="prev">prev</span>
+				{% else %}
+					<a href="?p={{ p|int - 1 }}#!tab-items" class="prev">prev</a>
+				{% endif %}
+				<a href="?p={{ p|int + 1 }}#!tab-items" class="next">next</a>
+			</div>
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,113 @@
+{% set cardCreator = "tweeria" %}
+{% set cardTitle = address %}
+{% set cardDesc = "" %}
+{% set cardImage = host+"style/img/icon.png" %}
+{% set cardUrl = host+address %}
+{% if __query__ %}
+	{% set cardUrl = "?"+__query__ %}
+{% endif %}
+
+{% if player and player.race_name %}
+	{% set cardDesc = player.race_name+" "+player.class_name+", Level "+player.lvl|string %}
+	{% if player._guild_name != '' %}
+		{% set cardDesc = cardDesc+", guild “"+player._guild_name+"”" %}
+	{% endif %}
+{% elif current_page == "./events/event_page.jinja2" %} {# Страница ивента #}
+	{% set cardTitle = "Join my raid run to "+event.where_name+" dungeon." %}
+	{% set cardDesc = "I'm going to fight" %}
+	{% set cardCreator = event.author_name %}
+
+	{% if event.boss_name %}
+		{% set cardDesc = cardDesc+" with "+event.boss_name+" in "+event.where_name+" dungeon." %}
+	{% else %}
+		{% set cardDesc = cardDesc+" in "+event.where_name+" dungeon." %}
+	{% endif %}
+	{% set cardDesc = cardDesc+" Wanna join me?" %}
+	{% if event.promoted_hashtag %}
+		{% set cardTitle = cardTitle+" Raid hashtag: %23"+event.promoted_hashtag %}
+		{% set cardDesc = cardDesc+" Raid hashtag: %23"+event.promoted_hashtag+". Wanna join me?" %}
+	{% endif %}
+	{% if event.achv_img %}
+		{% set cardImage = host+event.achv_img %}
+	{% endif %}
+
+{% elif current_page == "./events/event_page_gvg.jinja2" %} {# Страница GvG ивента #}
+
+	{% set cardTitle = "Join guild war against "+event.where_name %}
+	{% set cardDesc = "" %}
+	{% set cardCreator = event.author_name %}
+
+
+
+	{% if event.promoted_hashtag %}
+		{% set cardTitle = cardTitle+" %23"+event.promoted_hashtag %}
+	{% endif %}
+
+	{% if event.where_img %}
+		{% set cardImg = host+event.where_img %}
+	{% endif %}
+
+{% elif current_page == "./guilds/guild_detail.jinja2" %} {# Страница гильдии #}
+
+	{% set cardTitle = "Join the "+name+" guild in Tweeria" %}
+	{% set cardDesc = name+" is a strong and glorious guild. Join us and fight with us against monsters and other guilds" %}
+	{% set cardCreator = creator.name %}
+	{% set cardImage = host+img %}
+
+{% elif current_page == "./guilds/news_page.jinja2" %}
+
+	{% set cardTitle = story.header|truncate(80) %}
+	{% set cardDesc = story.text %}
+	{% set cardImage = host+img %}
+	{% set cardCreator = creator_name|default("") %}
+
+{% elif current_page == "./ugc/item_page.jinja2" %}
+
+	{% if author_name==login_name|default("") %}
+		{% set cardTitle = type_name|default("")+" "+name+" in Tweeria" %}
+	{% else %}
+		{% set cardTitle = "My "+type_name|default("")+": "+name+" in Tweeria" %}
+	{% endif %}
+	{% set cardDesc = desc %}
+	{% set cardCreator = author_name %}
+	{% set cardImage = host+img %}
+
+{% elif current_page == "./ugc/spell_page.jinja2" %}
+
+	{% if author_name==login_name|default("") %}
+		{% set cardTitle = "My spell: "+name+" in Tweeria" %}
+	{% else %}
+		{% set cardTitle = "Spell: "+name+" in Tweeria" %}
+	{% endif %}
+	{% set cardDesc = desc %}
+	{% set cardCreator = author_name %}
+	{% set cardImage = host+img %}
+
+{% elif current_page == "./ugc/artwork_page.jinja2" %}
+
+	{% if author_name==login_name|default("") %}
+		{% set cardTitle = "My artwork: "+name+" in Tweeria" %}
+	{% else %}
+		{% set cardTitle = "Artwork: "+name+" in Tweeria" %}
+	{% endif %}
+	{% set cardDesc = desc %}
+	{% set cardCreator = author_name %}
+	{% set cardImage = host+img %}
+
+{% elif current_page == "./players/invite_center.jinja2" %}
+
+	{% set cardUrl = host+"registration?"+login_name %}
+	{% set cardCreator = login_name %}
+	{% set cardTitle = "Tweeria invite" %}
+	{% set cardDesc = "%23Tweeria is lazy Twitter RPG. Join the game and get some luck for free." %}
+
+{% else %}
+	{% set cardDesc = "Tweeria — Lazy Twitter MMORPG. Everytime you tweet, your alter ego finds adventures, kills monsters or gets items." %}
+{% endif %}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@tweeria">
+<meta name="twitter:creator" content="@{{ cardCreator }}">
+<meta name="twitter:url" content="{{ cardUrl }}">
+<meta name="twitter:title" content="{{ cardTitle }}">
+<meta name="twitter:description" content="{{ cardDesc }}">
+<meta name="twitter:image" content="{{ cardImage }}">

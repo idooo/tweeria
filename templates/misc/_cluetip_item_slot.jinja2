@@ -1,0 +1,22 @@
+|<img src='{{ item.img }}'>
+
+<c>
+	<n0>{{ item.name }}</n0>
+	<t {% if item.cant_use %}class='item-cant-use'{% endif %}>
+		{{ item.view|capitalize }}, Level {{ item.lvl_min|default(1) }}
+	</t>
+
+	{% if item.primary %}
+		<dmg>{{ item.primary }}</dmg>
+	{% endif %}
+
+	{% for data in ['int','str','dex','luck','HP','MP', 'DEF', 'DMG'] %}
+		{% if item.bonus[data] and item.bonus[data] > 0 %}
+			<s>
+				+{{ item.bonus[data] }} {{ stats[data] }}
+			</s>
+		{% endif %}
+	{% endfor %}
+
+</c>
+<div class='clear'></div>|

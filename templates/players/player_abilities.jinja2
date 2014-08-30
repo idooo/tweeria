@@ -1,0 +1,64 @@
+<div id="player_stats">
+
+		{% if player.buffs %}
+
+			<div class="attr_block">
+				<h4>Buffs and debuffs</h4>
+
+				<ul class="buff-debuff-list">
+
+					{% for buff in player.buffs %}
+						{% if buff.minutes > 0 %}
+							<li class="{{ buff.type }}">
+								<img src="{{ buff.buff_img }}" alt="{{ buff.buff_name }}" title="|{% include "misc/_debuff_cluetip.jinja2" %}">
+							</li>
+						{% endif %}
+					{% endfor %}
+
+				</ul>
+			</div>
+		{% endif %}
+
+
+	<div class="attr_block">
+		<h4>Main attributes</h4>
+		<table>
+			<tr> <td width="108">Strength <td id="player-ab-str" class="buff_{{ player.stat.str.change }}">{{ player.stat.str.current }} </tr>
+			<tr> <td>Dexterity <td id="player-ab-dex" class="buff_{{ player.stat.dex.change }}"> {{ player.stat.dex.current }}</tr>
+			<tr> <td>Intellect <td id="player-ab-int" class="buff_{{ player.stat.int.change }}"> {{ player.stat.int.current }}</tr>
+			<tr> <td>Luck <td id="player-ab-luck" class="buff_{{ player.stat.luck.change }}">{{ player.stat.luck.current }}</tr>
+		</table>
+		<table class="right_table">
+			<tr> <td width="100">{{ player.damage_type }} attack <td id="player-ab-DMG" class="buff_{{ player.stat.DMG.change }}">{{ player.stat.DMG.current - 1}} — {{ player.stat.DMG.current + 1}} </tr>
+			<tr> <td>Defense <td id="player-ab-DEF" class="buff_{{ player.stat.DEF.change }}">{{ player.stat.DEF.current }} </tr>
+		</table>
+		<table class="big_table">
+			<tr>
+				<td class="pvp_points">
+					<i class="icon_pvp"></i>PvP score: {{ player.pvp_score }}
+				</td>
+				<td class="achv_points">
+					<i class="icon_achv"></i>Achv. points: {{ player.achv_points }}
+				</td>
+			</tr>
+		</table>
+		<div class="clear"></div>
+	</div>
+
+	<div class="attr_block">
+		<h4>Minor attributes</h4>
+		<table>
+			<tr> <td width="108">Leadership <td id="player-ab-lead"> {{ player.stat.lead.current }}</tr>
+			{# <tr> <td>Karma <td id="player-ab-karma"> {{ player.stat.karma.current }}</tr> #}
+
+		</table>
+		<table>
+			<tr> <td width="108">Mastery <td id="player-ab-mastery"> {{ player.stat.mastery.current }}</tr>
+			{# <tr> <td>Fame <td id="player-ab-fame"> {{ player.stat.fame.current }}</tr> #}
+
+		</table>
+
+		<div class="clear"></div>
+
+	</div>
+</div>

@@ -1,0 +1,89 @@
+{% include "header.jinja2" %}
+<script src="/js/page_scripts/creation_center.js?{{ build }}"></script>
+
+{% set spell_types = ['','+','','-'] %}
+{% set spell_table_rows = [
+	{'name':'Name','class':'name'},
+	{'name':'Level','class':'lvl_min'},
+	{'name':'Author','class':'author'},
+	{'name':'Cost','class':'cost'},
+	{'name':'Likes','class':'likes'},
+	{'name':'Created date','class':'date'}
+] %}
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page">
+			<h2>Created things</h2>
+			{% if can_create and not login_ugc_disabled %}
+				<a href="/u/craft_item" class="cc-top-button">New item</a>
+				<a href="/u/create_spell" class="cc-top-button">Spell</a>
+				<a href="/u/create_artwork" class="cc-top-button">Artwork</a>
+			{% endif %}
+
+			{% if param_creation == 'ok' %}
+				<div class="success-message"><div>
+
+					{% if param_type %}
+						{% if param_type == 'item' %}
+							{% set type = 'an item' %}
+						{% elif param_type == 'spell' %}
+							{% set type = 'a spell' %}
+						{% elif param_type == 'artwork' %}
+							{% set type = 'an artwork' %}
+						{% else %}
+							{% set type = 'an unknown thing' %}
+						{% endif %}
+						You successfully created {{ type }}. Now moderators will approve it and then you can use or sell it.
+
+					{% endif %}
+
+
+				</div></div>
+			{% endif %}
+
+			<table class="cc-item-table">
+				<thead>
+				<tr>
+					<th class="type">Type</th>
+					<th class="name">Name</th>
+					<th class="level">Level</th>
+					<th class="cost">Cost</th>
+					<th class="sold">Sold</th>
+					<th class="earn">Earn</th>
+					<th class="status">Status</th>
+				</tr>
+				</thead>
+				<tbody>
+
+					{% for item in items %}
+				<tr
+				data-view="{{ item.view }}"
+					{% if item.view=="Spell" %}
+						{% set href = "/u/spell?id="+item._id|string %}
+						{% set spell = item %}
+						title="|{% include "misc/_spell_cluetip.jinja2" %}|"
+					{% elif item.view=="Artwork" %}
+						{% set href = "/u/artwork?id="+item._id|string %}
+					{% else %}
+						{% set href = "/u/item?id="+item._id|string %}
+						title="|{% include "misc/_item_cluetip.jinja2" %}"
+					{% endif %}
+				>
+					<td class="type">{{ item.view }}</td>
+					<td class="name name_{{ item.view }}"><a href="{{ href }}">{{ item.name }}</a></td>
+					<td class="level">{{ item.lvl_min }}</td>
+					<td class="cost">{{ item.cost }}</td>
+					<td class="sold">{{ item.sale_info.sell_times }}</td>
+					<td class="earn">{{ item.sale_info.total_earn }}</td>
+					<td class="status status_{{ item.raw_status }}">{{ item.status }}</td>
+				</tr>
+				{% endfor %}
+
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+</div>
+{% include "footer.jinja2" %}

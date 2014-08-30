@@ -1,0 +1,96 @@
+{% set inventory_max = 8 %}
+
+<div class="shop-item-popup">
+	<div class="shop-popup-img">
+		<span class="item-level item-level-${lvl_enough}">${level}</span>
+		<span class="img-cont">
+			<a href="/u/item?id=${_id}"><img class="item-img" src="${img}" alt="${name}"></a>
+		</span>
+	</div>
+
+
+	<div class="item-info can-use-${can_use}">
+		<span class="item-type">${type}</span>
+		{% raw %}
+			{{if author_name}}
+				<span class="item-author">@<a href="/${author_name}">${author_name}</a></span>
+			{{/if}}
+
+			<span class="item-name">
+				{{if uid > 0}}
+					${name}
+				{{else}}
+					<a href="/u/item?id=${_id}">${name}</a>
+				{{/if}}
+			</span>
+
+		{% endraw %}
+
+		<div class="primary_stat">${primary}</div>
+
+		{% raw %}
+		<ul class="item-stats">
+			{{each bonusparsed}}
+				<li>${$value}</li>
+			{{/each}}
+		</ul>
+		{% endraw %}
+
+		<p class="item-text">
+			${desc}
+		</p>
+
+		<span class="item-cost"> <i class="icon gold-3"></i> <span>${cost}</span></span>
+
+		{% if can_buy_in_popup %}
+
+			{% if login %}
+				{% if inventory_count < inventory_max %}
+					{% raw %}
+					{{if enough_gold && canbuy}}
+					<form action="" method="post">
+						<input type="hidden" name="item_id" value="${_id}">
+						<input type="hidden" name='item_name' value="${name}">
+						<input type="hidden" name="type_of_form" value="buy_crafted_item">
+						<input type="submit" value="Buy" class="buy-button btn2 btn2-classic btn2-wide">
+					</form>
+
+					{{else}}
+					<div class="you_shall_not_pass">
+						{{if enough_gold}}
+							You cant buy thus item. <br>
+							Maybe u already got it.
+						{{else}}
+							Not enough gold to buy this item. <br>
+							You have only ${gold} gold
+						{{/if}}
+					</div>
+					{{/if}}
+					{% endraw %}
+
+				{% else %}
+
+					<div class="error-buy">
+						Your inventory is full. <br> To buy new item you must <a href="/{{ login_name }}">sell</a> any item
+						from your inventory
+					</div>
+
+				{% endif %}
+
+				{% include "popups/_item_popup_share.jinja2" %}
+
+			{% else %}
+				<div class="you_shall_not_pass">
+					To buy this item you must <a href="/login">Log in</a> or <a href="/registration">Sign up</a>
+				</div>
+			{% endif %}
+
+		{% else %}
+
+			{% include "popups/_item_popup_share.jinja2" %}
+
+		{% endif %}
+
+	</div>
+	<br class="clear">
+</div>

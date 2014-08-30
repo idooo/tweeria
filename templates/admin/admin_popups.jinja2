@@ -1,0 +1,220 @@
+
+
+<script id="admin-item-popup" type="text/x-jquery-tmpl">
+
+	<div class="shop-item-popup">
+		<div class="shop-popup-img">
+			<span class="img-cont"><img class="item-img" src="${img}" alt="${name}"></span>
+			<span class="item-level">Level ${level}</span>
+		</div>
+
+
+		<div class="item-info">
+			<form action="" method="post">
+				<span class="item-type">${type}</span>
+				<span class="item-author">@<a href="/${author_name}">${author_name}</a></span>
+				<h4 class="item-name">${name}</h4>
+
+				<div class="primary_stat">${primary}</div>
+
+				{% raw %}
+				<ul class="item-stats">
+					{{each bonusparsed}}
+					<li>${$value}</li>
+					{{/each}}
+				</ul>
+				{% endraw %}
+
+
+				<p class="item-text">
+					${desc}
+				</p>
+				{% raw %}
+				<span class="item-artwork-author">
+					{{if img_link}}
+						<a href="http://${img_link}">Artwork Source</a>
+					{{/if}}
+				</span>
+				{% endraw %}
+
+
+
+
+
+				<span class="item-cost"> <i class="icon gold-3"></i> <span>${cost}</span></span>
+			</form>
+			<div class="approve_reject_form">
+
+				<div class="approve_form">
+					<form method="post">
+						<input type="hidden" value="approve_item" name="type_of_form">
+						<input type="hidden" value="${_id}" name="_id">
+						<input type="submit" value="Approve" class="btn-ido-big">
+					</form>
+				</div>
+
+				<div class="reject_form">
+					or reject with message:
+					<form method="post">
+						<input type="hidden" value="reject_item" name="type_of_form">
+						<input type="hidden" value="${_id}" name="_id">
+						{% if __page__ !="rejected" %}
+						<textarea name="reject_reason" placeholder="You must write why you rejected this"></textarea>
+						{% endif %}
+						<input type="submit" value="Reject" class="btn-ido-classic">
+					</form>
+				</div>
+			</div>
+		</div>
+		<br class="clear">
+	</div>
+
+</script>
+
+<script id="admin-spell-popup" type="text/x-jquery-tmpl">
+
+	<div class="shop-item-popup">
+		<div class="shop-popup-img">
+			<span class="img-cont"><img class="item-img" width="100" src="${img}" alt="${name}"></span>
+			<span class="item-level">Level ${level}</span>
+		</div>
+
+		<div class="item-info">
+			<form action="" method="post">
+				<span class="item-type">Magic spell</span>
+				<span class="item-author">@<a href="/${author_name}">${author_name}</a></span>
+				<h4 class="item-name">${name}</h4>
+				<div class="spell-keyword">
+					${keyword}
+				</div>
+				<p class="item-text">
+					${desc}
+				</p>
+				{% raw %}
+				<span class="item-artwork-author">
+					{{if img_link}}
+						<a href="http://${img_link}">Artwork Source</a>
+					{{/if}}
+				</span>
+				{% endraw %}
+
+				{% raw %}
+				<ul class="popup-spell-list">
+					{{html rawactions}}
+				</ul>
+				{% endraw %}
+				<br class="clear">
+
+				<span class="mana-cost"><span class="text">Mana cost</span>&nbsp; <i class="icon mana-cost"></i> &nbsp;<span
+						class="count">${manacost}</span></span>
+
+
+
+				<span class="item-cost"> <i class="icon gold-3"></i> <span>${cost}</span></span
+
+			</form>
+
+			<div class="approve_reject_form">
+
+				<div class="approve_form">
+					<form method="post">
+						<input type="hidden" value="approve_spell" name="type_of_form">
+						<input type="hidden" value="${_id}" name="_id">
+						<input type="submit" value="Approve" class="btn-ido-big">
+					</form>
+				</div>
+
+				<div class="reject_form">
+					or reject with message:
+					<form method="post">
+						<input type="hidden" value="reject_spell" name="type_of_form">
+						<input type="hidden" value="${_id}" name="_id">
+						{% if __page__ !="rejected" %}
+							<textarea name="reject_reason" placeholder="You must write why you rejected this"></textarea>
+						{% endif %}
+						<input type="submit" value="Reject" class="btn-ido-classic">
+					</form>
+				</div>
+			</div>
+		</div>
+		<br class="clear">
+	</div>
+
+</script>
+
+<script id="admin-artwork-popup" type="text/x-jquery-tmpl">
+	<div class="shop-item-popup shop-artwork-popup">
+		<div class="shop-popup-img"><img class="item-img" width="240" src="${img}" alt="${name}"></div>
+
+		<div class="item-info">
+			<form action="" method="post">
+
+				<span class="item-type">${race} ${pclass}</span>
+				<span class="item-author">@<a href="/${author_name}">${author_name}</a></span>
+				<h4 class="item-name">${name}</h4>
+
+				<div class="primary_stat">${primary}</div>
+
+				{% raw %}
+				<ul class="item-stats">
+					{{each bonusparsed}}
+					<li>${$value}</li>
+					{{/each}}
+				</ul>
+				{% endraw %}
+
+
+				<p class="item-text">
+					{% raw %}
+					{{if desc != '0'}}
+					${desc}
+					{{else}}
+					You can create description for this artwork. Just <a
+						href="mailto:yeah@tweenk.me?subject=Description for artwork: ${name}">write email</a>
+					to us or <a target="_blank"
+								href="https://twitter.com/intent/tweet?source=tweetbutton&text=@tweenk ">tweet</a>
+					{{/if}}
+					{% endraw %}
+				</p>
+				{% raw %}
+				<span class="item-artwork-author">
+					{{if img_link}}
+						<a href="http://${img_link}">Artwork Source</a>
+					{{/if}}
+				</span>
+				{% endraw %}
+
+
+
+
+
+				<span class="item-cost"> <i class="icon gold-3"></i> <span>${cost}</span></span>
+
+			</form>
+
+			<div class="approve_reject_form">
+
+				<div class="approve_form">
+					<form method="post">
+						<input type="hidden" value="approve_artwork" name="type_of_form">
+						<input type="hidden" value="${_id}" name="_id">
+						<input type="submit" value="Approve" class="btn-ido-big">
+					</form>
+				</div>
+
+				<div class="reject_form">
+					or reject with message:
+					<form method="post">
+						<input type="hidden" value="reject_artwork" name="type_of_form">
+						<input type="hidden" value="${_id}" name="_id">
+						{% if __page__ !="rejected" %}
+							<textarea name="reject_reason" placeholder="You Must write why you rejected this"></textarea>
+						{% endif %}
+						<input type="submit" value="Reject" class="btn-ido-classic">
+					</form>
+				</div>
+			</div>
+		</div>
+		<br class="clear">
+	</div>
+</script>

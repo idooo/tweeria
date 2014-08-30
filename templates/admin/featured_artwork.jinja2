@@ -1,0 +1,48 @@
+{% include "header.jinja2" %}
+
+{% set artwork_filter = [
+	{'name': 'Last Week', 'value': 1},
+	{'name': 'Last Month', 'value': 4},
+	{'name': 'Last Life', 'value': 1000},
+] %}
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-invites-page">
+
+			<div class="page-part">
+				<a class="link-back" href="/a/index">Back</a><br>
+
+				<h2>Artworks</h2>
+
+				<div class="time-selector-featured-artworks">
+
+					{% for item in artwork_filter %}
+						<a href="/a/artwork?wk={{ item.value }}" {% if wk == item.value %}class="selected"{% endif %}>{{ item.name }}</a>
+					{% endfor %}
+
+				</div>
+
+				<ul class="shop-artwork-list">
+					{% for artwork in artworks %}
+						<li>
+							<img width="120" src="{{ artwork.img }}" alt="">
+							<div class="artwork-selector">
+								{% for i in [0,1,2] %}
+									{% if artwork.select in [0,1,2] and artwork.select == i %}
+										<span>{{ i+1 }}</span>
+									{% else %}
+										<a href="?type_of_form=featured&n={{ i }}&set={{ artwork._id }}">{{ i+1 }}</a>
+									{% endif %}
+								{% endfor %}
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

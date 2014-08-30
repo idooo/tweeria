@@ -1,0 +1,53 @@
+
+
+<div class="shop-content">
+	<div class="shop-option-block">
+	<a id="spell-filter-button" class="shop-filter-button" href="#filter">filter</a>
+
+		<a id="spell-view-table" class="shop-view-table active shop-view-toggler" href="#table">table</a>
+		<a id="spell-view-list" class="shop-view-list shop-view-toggler" href="#list">list</a>
+
+		{% include "shop/shop_spell_filter.jinja2" %}
+	</div>
+
+	<div id="shop-spells-list" class="shop-item-list" style="display:none;">
+		{% include "shop/shop_spells_list.jinja2" %}
+	</div>
+
+	<div id="shop-spells-table">
+		{% include "shop/shop_spells_table.jinja2" %}
+	</div>
+
+	{% if spell_pages > 1 %}
+		<div class="pager">
+			{% if param_ps|int == 1 %}
+				<span class="prev">prev</span>
+			{% else %}
+				<a href="?ps={{ param_ps|int - 1 }}#!tab-spells" data-page="{{ param_ps|int - 1 }}" class="prev" data-type="spell">prev</a>
+			{% endif %}
+			<ul class="page-list">
+
+				{% for number_page in display_spells_pages %}
+					<li>
+						{% if param_ps|int == number_page %}
+							<span>{{ number_page }}</span>
+						{% else %}
+							{% if number_page == '.' %}
+								...
+							{% else %}
+								<a href="?ps={{ number_page }}#!tab-spells" data-type="spell">{{ number_page }}</a>
+							{% endif %}
+						{% endif %}
+					</li>
+				{% endfor %}
+
+			</ul>
+			{% if param_ps|int == spell_pages %}
+				<span class="next">next</span>
+			{% else %}
+				<a href="?ps={{ param_ps|int + 1 }}#!tab-spells" data-page="{{ param_ps|int + 1 }}" class="next" data-type="spell">next</a>
+			{% endif %}
+		</div>
+	{% endif %}
+
+</div>

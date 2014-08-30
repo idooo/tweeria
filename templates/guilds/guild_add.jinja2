@@ -1,0 +1,119 @@
+{% include "header.jinja2" %}
+<script src="/js/page_scripts/guild-add.js?{{ build }}"></script>
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg guild-page">
+			<div class="guild_settings_form">
+				<h2>Create guild</h2>
+
+				<div class="error-message">
+					<div style="display:{% if errors or critical_error or param_error %}block{% else %}none{% endif %};">
+
+						{% if param_error %}
+							Guild with this name already exists
+						{% endif %}
+
+						{% if errors or critical_error %}
+						{% for error in errors %}
+
+
+							{% if error.name == 'name' %}
+								Name
+							{% elif error.name == 'img' %}
+								Image
+							{% elif error.name == 'desc' %}
+								Description
+							{% elif error.name == 'cost' %}
+								Cost
+							{% endif %}
+
+							{% if error.desc == 'min_length_fail' %}
+								must be longer
+							{% elif error.desc == 'null' %}
+								must not be empty
+							{% elif error.desc == 'not_greater' %}
+								must be greater
+							{% elif error.desc == 'not_int' %}
+								must be a number
+							{% elif error.desc == 'not_match' %}
+								can contain only latin letters and numbers
+							{% endif %}
+							<br>
+
+						{% endfor %}
+
+						{{ critical_error }}
+						{% endif %}
+					</div></div>
+
+				<form method="post" enctype="multipart/form-data"  id="form_add_guild" action="/guilds/add">
+					<input type="hidden" name='type_of_form' value="create_guild">
+					<label class="block-label" for="guild-name">Name</label>
+					<input type="text" name="name" class="input-text" id="guild-name" value="{{ param_name }}">
+					<br class="clear">
+
+					<label class="block-label" for="guild-desc">Description</label>
+					<textarea id="guild-desc" name="desc" class="textarea">{{ param_desc }}</textarea>
+					<br class="clear">
+
+					<label class="block-label" for="guild-link">Web site</label>
+					<input type="text" id="guild-link" name="site_link" class="input-text" value="{{ param_site_link }}">
+					<br class="clear">
+
+
+					<div class="img_change_form" style="margin-bottom:20px;">
+						<label class="block-label" for="guild-img">Upload avatar</label>
+
+						<input type="file" name="image_file" id="guild-img">
+						<div class="img-annotation">
+
+							<ul>
+								<li>Image can not be larger than 200 x 200 pixels and 250 Kb</li>
+								<li>You must have rights to sell or use this art</li>
+								<li>Allowed .PNG, JPG, GIF</li>
+							</ul>
+						</div>
+					</div>
+
+					<input name="closed" id="guild-open" type="checkbox"> <label class="inline-label" for="guild-open">Closed guild (join only by invite)</label>
+
+					<br class="clear"><br>
+
+					<a href="#" class="btn2 btn2-classic" onclick="$('#form_add_guild').submit();">Create</a>
+				</form>
+
+
+			</div>
+			<br class="clear">
+
+
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var validateForm = "#form_add_guild",
+		validateAdditionalOptions = {
+			rules : {
+				"name"  : {
+					required: true,
+					minlength: 3,
+					regexp: /^[a-zA-Z0-9\s\-\+]+$/i
+				},
+				"desc"  : {
+					required: true,
+					minlength: 5
+				},
+				"image_file"   : {
+					required: true
+				}
+			},
+			showErrors : function(errorMap,errorList){
+				if ($(".error-message div label:visible").size()==0){
+					$(".error-message div").hide();
+				}
+				this.defaultShowErrors();
+			}
+		};
+</script>
+<script src="/js/page_scripts/validate.js?{{ build }}"></script>
+{% include "footer.jinja2" %}

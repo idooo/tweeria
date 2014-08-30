@@ -1,0 +1,39 @@
+{% include "header.jinja2" %}
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-invites-page">
+
+			{% if param_success %}
+				<div class="success-message">
+					<div>
+						You've banned  <strong>{{ param_name }}</strong> successfully<br>
+						<a target="_blank" href="https://twitter.com/intent/tweet?source=tweetbutton&text=@{{ param_name }}, You was banned in%20%23tweeria with reason: {{ param_re }}">Write</a> him about it
+					</div>
+				</div>
+			{% endif %}
+
+			<div class="page-part">
+				<a class="link-back" href="/a/index">Back</a><br>
+
+				<h2 style="color:red">Ban player</h2>
+				<form method="POST">
+					<input type="hidden" name="type_of_form" value="ban_player">
+					<input type="text" name="user_name" placeholder="Twitter name"><br>
+					<input type="text" name="reason" placeholder="Reason"><br>
+					<input type="checkbox" name="sure"> Enable this to ban<br><br>
+					<input type="submit" value="Ban">
+				</form>
+			</div>
+
+			<h2>Banned player:</h2>
+			<div class="timeline-admin">
+			{% for player in banned_players %}
+				<p>— {{ player.name }} — {{ player.ban_reason }} (by {{ player.banned_by }})</p>
+			{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% include "footer.jinja2" %}

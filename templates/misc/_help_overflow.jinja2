@@ -1,0 +1,14 @@
+{% if help %}
+	<div class="help-page-container" id="help-page-container">
+
+		<div class="overlay-help-container"></div>
+
+		{% if current_page == './players/player.jinja2' %}
+
+			<div class="help-content-container">
+				<a href="/{{ address }}" onclick="$('#help-page-container').hide(); return false;">close</a>
+				<div class="player_over"></div>
+			</div>
+		{% endif %}
+	</div>
+{% endif %}

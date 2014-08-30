@@ -1,0 +1,407 @@
+{% include "header.jinja2" %}
+<script src="/js/page_scripts/create_spell.js?{{ build }}"></script>
+
+<script src="/js/page_scripts/crop_img.js?{{ build }}"></script>
+
+<div id="crop-cont" style="display:none; text-align:center;">
+	<img src="" alt="Image to crop" id="thumb">
+	<a id="crop-image" href="/u/ajax/?action=crop_image" class="create-item-button">Crop Image</a>
+</div>
+
+
+<script id="used-spell-template" type="text/x-jquery-tmpl">
+	<a class="remove-spell" href="#" data-spellid="${spellId}"></a>
+	<h4 class="spell-title">${spellName}</h4>
+	<i class="icon ${spellIcon}"></i><span class="spell-type">${spellType}</span>
+	<br>
+	<span class="spell-power-slider" id="spell-${spellId}"></span>
+	<input class="params" disabled="disabled" type="text" name="spell-${spellId}" id="spell-input-${spellId}"
+		   value="${spellValue}" data-startvalue="${spellvalue}"> <span
+		class="spell-value-text">${spellValueText}</span>
+
+	<span class="spell-cost"><span class="count"></span> ${spellManaCost}</span>
+</script>
+
+<div id="main" role="main">
+<div class="event-page-border">
+<div class="white-textured-bg create-spell-page">
+
+<a class="link-back" href="/u/creation_center">Creation center</a>
+
+<h2>New spell</h2>
+
+<div class="error-message">
+	<div style="display:{% if errors or critical_error %}block{% else %}none{% endif %};">
+
+		{% if errors or critical_error %}
+
+
+			{% for error in errors %}
+
+				{% if error.name == 'name' %}
+					Name
+				{% elif error.name == 'img' %}
+					Image
+				{% elif error.name == 'desc' %}
+					Description
+				{% elif error.name == 'cost' %}
+					Cost
+				{% endif %}
+
+				{% if error.desc == 'min_length_fail' %}
+					must be longer
+				{% elif error.desc == 'null' %}
+					must not be empty
+				{% elif error.desc == 'not_greater' %}
+					must be greater
+				{% elif error.desc == 'not_int' %}
+					must be a number
+				{% elif error.desc == 'dublicate' %}
+					already exist. Please select the new name
+				{% elif error.desc == 'not_match' %}
+					can contain only latin letters and numbers
+				{% endif %}
+				<br>
+
+			{% endfor %}
+
+			{{ critical_error }}
+
+
+		{% endif %}
+	</div>
+</div>
+<form method="post" id="upload-image-form" action="">
+	<div class="readme-block">
+		<h2>Read me may be</h2>
+
+		<ul>
+			<li>
+				An spell must properly fit into<br>
+				a typical fantasy medieval universe
+			</li>
+			<li>
+				We do not object humor,<br>
+				but don’t turn Tweeria into 9gag.com
+			</li>
+			<li>
+				Use only the images created by you<br>
+				or by a person who gave you<br>
+				permission to use it.
+			</li>
+			<li>
+				Please, provide a reference<br>
+				to a source of a picture
+			</li>
+		</ul>
+		<a class="read-more" href="/help#creating">Read more</a>
+	</div>
+	<label for="spell-image">Image</label>
+	<input type="file" name="img" id="spell-image" data-imgsize="54px">
+	<input type="hidden" name="type_of_form" value="create_spell"/>
+
+
+	<div class="img-annotation">
+
+		<ul>
+			<li>Image can not be larger than 200 x 200 pixels and 250 Kb</li>
+			<li>You must have rights to sell or use this art</li>
+			<li>Allowed .PNG, JPG, GIF</li>
+		</ul>
+	</div>
+	<br class="clear">
+
+	<img id="dest-img" src="http://placehold.it/10x10" style="display:none; float:right;"/>
+
+	<div class="preview" style="display:none;">
+		<img width="150px" height="100px" src="http://placehold.it/150x100"/>
+
+		<input type="hidden" id="x1" name="x1"/>
+		<input type="hidden" id="y1" name="y1"/>
+		<input type="hidden" id="x2" name="x2"/>
+		<input type="hidden" id="y2" name="y2"/>
+		<input type="hidden" id="w" name="w"/>
+		<input type="hidden" id="h" name="h"/>
+
+		<input type="hidden" id="img_to_crop" name="img_to_crop" value="">
+		<br>
+
+	</div>
+</form>
+
+<br class="clear">
+
+<form method="post" id="create-spell-form">
+	<input type="hidden" name="type_of_form" value="create_spell"/>
+	<input type="hidden" name="img" id="img-link">
+
+	<label for="spell-name">Name</label> <input name="name" type="text" value="{{ param_name }}" id="spell-name">
+
+
+	<br class="clear">
+
+	<label for="spell-desc">Text</label> <textarea id="spell-desc" name="desc">{{ param_desc }}</textarea>
+
+	<br class="clear">
+
+	<div class="create-spell-text-annotation">
+		Now you must create the keyword which you will use in tweet text to cast the spell. It must be unique
+		<br><br>
+		For example: fireball
+	</div>
+	<br class="clear">
+
+
+	<label for="spell-word">Word</label> <input name="keyword" type="text" value="{{ param_keyword }}"
+												class="spell-word" id="spell-word">
+
+	<label for="spell-lvl">Level</label>
+	<select name="lvl" id="spell-lvl">
+		{% for i in range(login_lvl) %}
+			<option value="{{ i+1 }}">{{ i+1 }}</option>
+		{% endfor %}
+	</select>
+
+	<br class="clear">
+
+	{% include "ugc/_artwork_info_creation.jinja2" %}
+
+	<br class="clear">
+
+	<div class="create-spell-stat-bonus">
+		<h2>Spell effects</h2>
+		<hr class="right-line">
+		<br class="clear">
+
+		<div class="spellbook" id="spellbook">
+			<div class="spellbook-header">
+				<div class="spellbook-page spellbook-page-left">
+					<hr class="spellbook-textured-hr small left">
+
+					<h3 class="spellbook-using-effects-title">Using effects</h3>
+
+					<hr class="spellbook-textured-hr small right">
+					{# <span class="more-available"><span class="more-count">1</span> more available</span>#}
+					<br class="clear">
+				</div>
+				<div class="spellbook-page spellbook-page-right">
+					<hr class="spellbook-textured-hr small left">
+
+					<h3 class="spellbook-available-effects-title">Available effects</h3>
+
+					<hr class="spellbook-textured-hr small right">
+					<br class="clear">
+				</div>
+			</div>
+			<div class="spellbook-middle">
+				<div class="spellbook-page spellbook-page-left">
+
+					<ul class="spellbook-spell-to-create">
+						<li>
+										<span class="spell-img empty"><img src="/style/img/clean-spell-slot.png"
+																		   alt="No spell"></span>
+
+							<div class="spell-info empty">
+
+							</div>
+						</li>
+						<li>
+										<span class="spell-img empty"><img src="/style/img/clean-spell-slot.png"
+																		   alt="No spell"></span>
+
+							<div class="spell-info empty">
+
+							</div>
+						</li>
+						<li>
+										<span class="spell-img empty"><img src="/style/img/clean-spell-slot.png"
+																		   alt="No spell"></span>
+
+							<div class="spell-info empty">
+
+							</div>
+						</li>
+					</ul>
+
+					<a id="create-spell-submit" class="create-spell-submit" href="#">
+						<span class="manacost-text">Mana cost</span>
+						<span class="count">0</span>
+						<i class="icon mana-cost"></i>
+					</a>
+					<br class="clear">
+				</div>
+				<div class="spellbook-page spellbook-page-right">
+					<ul class="spellbook-spell-filter">
+						<li data-type="1"><span>Buffs</span></li>
+						<li data-type="2"><span>Damage</span></li>
+						<li data-type="3"><span>Curses</span></li>
+					</ul>
+
+					<ul class="available-spell-list">
+						{% set iconByType = {
+								1: "buff",
+								2: "direct",
+								3: "debuff"
+							} %}
+						{% for action in actions %}
+
+							<li
+									data-spellname="{{ action.name }}"
+									data-spellid="{{ action.UID }}"
+									data-spelltype="{{ action.power }}"
+									data-spellicon="{{ iconByType[action.type] }}"
+									data-spellcounttext="{{ action.effect }}"
+									data-spellmanacost="{{ action.effect_desc }} for every {{ action.cost_by_effect }} mana"
+									data-maxvalue="{{ action.restriction_by_lvl }}"
+									data-multiply="{{ action.cost_by_effect }}"
+									data-spellvaluetext="{{ action.effect_value_text }}"
+									data-desc="{{ action.desc }}"
+									data-spellvalue="1"
+									data-title="|{{ action.desc }}"
+									data-type="{{ action.type }}"
+									>
+									<span class="spell-img">
+										<img src="/data/effects/{{ action.img }}.jpg" alt="{{ action.name }}">
+									</span>
+
+								<h4 class="spell-title" style="white-space: nowrap">{{ action.name }}</h4>
+								{#<i class="icon spell {{ iconByType[action.type] }}"></i><span
+									class="spell-type">{{ action.power|capitalize }}</span>#}
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+			<div class="spellbook-footer">
+
+			</div>
+		</div>
+	</div>
+	<div id="spell-actions">
+		<input type="hidden" name="action1" id="action1" class="input-action">
+		<input type="hidden" name="action1_value" id="action1_value" class="input-action-value">
+		<input type="hidden" name="action2" id="action2" class="input-action">
+		<input type="hidden" name="action1_value" id="action2_value" class="input-action-value">
+		<input type="hidden" name="action3" id="action3" class="input-action">
+		<input type="hidden" name="action1_value" id="action3_value" class="input-action-value">
+	</div>
+	<br class="clear">
+
+	<div class="item-cost">
+		<h2 class="cost">Cost</h2>
+		<hr class="right-line">
+		<br class="clear">
+		<label for="item-cost-gold">Gold</label>
+		<input name="cost" type="text" value="{% if param_cost %}{{ param_cost }}{% else %}100{% endif %}" id="item-cost-gold">
+		{# 	<label for="item-cost-real">$</label> <input type="text" name="real_cost" value="Coming soon"
+													 disabled="disabled" id="item-cost-real"> #}
+	</div>
+	<div class="create-summary-block">
+
+						<span class="ore-count-wrappper">
+							Creating cost:
+							<input type="hidden" name="ore_count" id="ore-count" value="0">
+							<span class="ore-count">0</span> <span class="x">×</span> <i class="icon scroll"></i>
+						</span>
+
+						<span class="ore-total-count-wrapper">
+							<input type="hidden" name="ore_total_count" id="ore-total-count"
+								   value="{{ player.resources.prg }}">
+							You have: <span class="ore-total-count">{{ player.resources.prg }}</span>
+						</span>
+
+		<br class="clear">
+
+		<input type="submit" value="Create" class="create-item-button">
+	</div>
+</form>
+
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+	var $uploadForm = $("#upload-image-form"),
+			validateForm = "#create-spell-form",
+			$imgInput = $("#img-link"),
+			$oreCountInput = $("#ore-count"),
+			$summaryBlock = $(".create-summary-block"),
+			validateAdditionalOptions = {
+
+				debug:true,
+				rules:{
+					"name":{
+						required:true,
+						minlength:3,
+						maxlength:40,
+						regexp:/^[a-zA-Z\s\-\+\']+$/i
+
+					},
+					"desc":{
+						required:true,
+						minlength:5,
+						regexp:/^[a-zA-Z0-9\s\-\+\'\!\.\,\?\:\"\']+$/i
+					},
+					"img":{
+						required:true
+					},
+					"cost":{
+						required:true,
+						min:1,
+						number:true
+					},
+					"ore_count":{
+						required:true,
+						min:1,
+						max: {{ player.resources.prg }}
+					},
+					"keyword":{
+						required:true,
+						minlength:3,
+						maxlength:20,
+						regexp:/^[a-zA-Z]+$/i
+					},
+					"action1":{
+						required:true
+					}
+				},
+				ignore:"",
+				highlight:function (element, errorClass, validClass) {
+					if (element.name == "img") {
+						$uploadForm.addClass("error_field");
+					}
+					if (element.name == "ore_count") {
+						$summaryBlock.addClass("invalid");
+					}
+
+					if (element.name == "action1" || element.name == "action1_value") {
+
+					}
+					if (element.type === 'radio') {
+						this.findByName(element.name).addClass(errorClass).removeClass(validClass);
+					} else {
+						$(element).addClass(errorClass).removeClass(validClass);
+					}
+				}
+			};
+	$oreCountInput.on("change", function () {
+		if ($(this).val() >= 1 && $(this).val() <={{ player.resources.prg }}) {
+			$summaryBlock.removeClass("invalid");
+		} else {
+			$summaryBlock.addClass("invalid");
+		}
+	});
+	$imgInput.on("change", function () {
+		var $this = $(this);
+		$("#create-spell-form").find("input.params:text[disabled]").each(function () {
+			$(this).attr("disabled", "disabled");
+		});
+		if ($this.hasClass("error_field") && $uploadForm.hasClass("error_field") && $this.val() != "") {
+			$this.removeClass("error_field");
+			$uploadForm.removeClass("error_field");
+		}
+	});
+</script>
+<script src="/js/page_scripts/validate.js?{{ build }}"></script>
+
+{% include "footer.jinja2" %}

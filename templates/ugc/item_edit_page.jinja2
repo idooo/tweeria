@@ -1,0 +1,112 @@
+{% include "header.jinja2" %}
+{% from "misc/_item_new_types.jinja2" import itemNewTypes %}
+
+<div id="crop-cont" style="display:none; text-align:center;">
+	<img src="" alt="Image to crop" id="thumb">
+	<a id="crop-image" href="/u/ajax/?action=crop_image" class="create-item-button">Crop Image</a>
+</div>
+
+<script src="/js/page_scripts/create_item.js?{{ build }}"></script>
+<script src="/js/page_scripts/crop_img.js?{{ build }}"></script>
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg detail-item-page">
+			<a class="link-back" href="/u/item?id={{ _id }}">Item</a>
+			<br class="clear">
+
+			<div class="edit-item-img">
+				<span class="item-level item-level-">{{ lvl_min }}</span>
+				<form method="post" id="upload-image-form" action=""  {% if 'img' in error_fields %}
+				      class="error_field" {% endif %}>
+
+					<input type="file" name="img" id="item-image" data-imgsize="100px" data-fsizew="100"
+					       data-fsizeh="100" data-src="/{{ img }}_fit.png">
+
+					<input type="hidden" name="type_of_form" value="create_item"/>
+
+					<img id="dest-img" src="http://placehold.it/10x10" style="display:none; float:right;"/>
+
+					<div class="preview" style="display:none;">
+						<img width="150px" height="100px" src="http://placehold.it/150x100"/>
+
+						<input type="hidden" id="x1" name="x1"/>
+						<input type="hidden" id="y1" name="y1"/>
+						<input type="hidden" id="x2" name="x2"/>
+						<input type="hidden" id="y2" name="y2"/>
+						<input type="hidden" id="w" name="w"/>
+						<input type="hidden" id="h" name="h"/>
+
+						<input type="hidden" id="img_to_crop" name="img_to_crop" value="">
+						<br>
+
+					</div>
+				</form>
+			</div>
+
+			<div class="edit-item-info">
+				<form method="post" action="/u/edit_item">
+
+					<input type="hidden" name="img" id="img-link">
+
+					<select id="item-type" name="item_type">
+						{% for group in itemNewTypes %}
+							<optgroup label="{{ group.name }}">
+								{% for item in group.types %}
+									<option
+											{% if type == item.value %}
+												selected="selected"
+											{% endif %}
+												value="{{ item.value }}">{{ item.name }}</option>
+								{% endfor %}
+							</optgroup>
+						{% endfor %}
+					</select>
+					<br class="clear">
+
+					<input type="text" name="name" class="name-input" value="{{ name }}" placeholder="Name">
+					<br class="clear">
+
+					<div class="primary_stat">{{ primary }}</div>
+
+					<ul class="item-stats">
+						{% for bonus in stat_parsed %}
+							<li>+ {{ bonus.value }} {{ bonus.name }}</li>
+						{% endfor %}
+					</ul>
+					<br>
+
+					<textarea name="desc" class="desc-textarea" placeholder="Description">{{ desc }}</textarea>
+					<br class="clear">
+
+					{% include "ugc/_artwork_edit_info_block.jinja2" %}
+
+					<label for="cost" class="cost-label">Cost</label>
+					<input type="text" class="cost-input" id="cost" name="cost" value="{{ cost }}">
+					<br class="clear">
+
+					<input type="hidden" name="type_of_form" value="edit_item">
+					<input type="hidden" name="id" value="{{ _id }}">
+
+					<br>
+					<input type="submit" value="Ok" class="btn2 btn2-classic btn2-wide">
+					<a class="btn2 btn2-gray" href="/u/item?id={{ _id }}">Cancel</a>
+
+				</form>
+
+				{% if login_admin or login_id == author %}
+				<div class="delete-item ">
+					<form method="post" action="/u/edit_item">
+						<input type="hidden" name="type_of_form" value="delete_item">
+						<input type="hidden" name="id" value="{{ _id }}">
+						<input type="button" value="delete" class="btn2 btn2-red" id="delete-item-button">
+					</form>
+				</div>
+				{% endif %}
+			</div>
+
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

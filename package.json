@@ -1,0 +1,19 @@
+{
+  "name": "TweeriaAssets",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "grunt",
+    "start": ""
+  },
+  "author": {
+    "name": "Alex Shteinikov",
+    "email": "alex.shteinikov@gmail.com",
+    "web": "http://shteinikov.com"
+  },
+  "devDependencies": {
+    "grunt-contrib-sass‎": "~0.7.0",
+    "grunt-contrib-uglify": "~0.1.1",
+    "grunt": "~0.4.2",
+    "grunt-contrib-cssmin": "~0.7.0"
+  }
+}

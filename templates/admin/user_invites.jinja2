@@ -1,0 +1,63 @@
+{% include "header.jinja2" %}
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-invites-page">
+
+			{% if param_success %}
+				<div class="success-message">
+					<div>
+						{% if param_reject %}
+							I've canceled <strong>{{ param_reject }}</strong> invite<br>
+							<a target="_blank" href="https://twitter.com/intent/tweet?source=tweetbutton&text=@{{ param_reject }}, I've canceled you invite">Write</a> to him or her
+						{% elif param_invite %}
+							You've invited <strong>{{ param_invite }}</strong> successfully<br>
+							<a target="_blank" href="https://twitter.com/intent/tweet?source=tweetbutton&text=@{{ param_invite }}, I've invited you to%20%23tweeria — &url={{ host }}registration">Write</a> to him about it
+						{% endif %}
+
+					</div>
+				</div>
+			{% endif %}
+
+			<div class="page-part">
+				<a class="link-back" href="/a/index">Back</a><br>
+
+				<h2>Invite user</h2>
+				<form method="POST">
+					<input type="hidden" name="type_of_form" value="invite_user">
+					<input type="text" name="user_name" placeholder="Twitter name"><br>
+					<input type="submit" class="btn-ido-big" value="Invite">
+				</form>
+			</div>
+			<div class="page-part">
+				<h2>Invited users</h2>
+				<table class="list-invited-users">
+					{% for user in invited_users %}
+
+						<tr>
+								<td>{{ loop.index }}</td>
+								<td width="150">{{ user.name }}</td>
+								<td width="90">{% if user.lvl %}Level {{ user.lvl }} {% endif %}</td>
+								<td>
+									<form method="post">
+									<input type="hidden" name="type_of_form" value="reject_invite">
+									<input type="hidden" name="user_name" value="{{ user.name }}">
+									<a href="#" onclick="$(this).parent().submit()">reject</a>
+									</form>
+								</td>
+
+						</tr>
+
+					{% endfor %}
+				</table>
+				{% if invited_users|length == 0 %}
+					<div class="empty-gray-text">
+						There are no invited users yet
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% include "footer.jinja2" %}

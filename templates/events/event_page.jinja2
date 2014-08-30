@@ -1,0 +1,165 @@
+{% include "header.jinja2" %}
+
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg upcoming-events-detail-page ">
+
+			{% if param_success %}
+				{% set message_type = 30 %}
+				{% include "misc/_messages_.jinja2" %}
+			{% endif %}
+
+			{% if param_fail %}
+				<div class="error-message"><div>
+					{% if param_n == 'same_time_error' %}
+						You can't be in two different events simultaneously
+					{% endif %}
+				</div></div>
+			{% endif %}
+
+			<div class="upcoming-events-detail-page-content {% if event.status == "complete" or event.status == "fail" %}complete-event-page{% endif %}">
+				{% if login and not event.status == 'complete' and not event.status == 'fail' %}
+					<div class="invite-block">
+
+						<div class="invite-share">
+							{% set share_type = "event_page" %}
+							{% include "misc/_share_buttons.jinja2" %}
+						</div>
+					</div>
+				{% endif %}
+
+				{% if event.status == 'complete' or event.status == 'fail' %}
+					<a class="link-back" href="/u/events?finished">Events</a>
+				{% else %}
+					<a class="link-back" href="/u/events">Events</a>
+				{% endif %}
+
+				<h2>Raid to <span class="dungeon">{{ event.where_name }}</span></h2>
+
+				<div class="event-date">
+					{{ event.start_date_f }}
+				</div>
+
+				{% if event.status == 'complete' %}
+					<div class="event-status-complete">
+						Complete
+					</div>
+				{% elif event.status == 'fail' %}
+					<div class="event-status-fail">
+						Fail
+					</div>
+				{% elif event.status == 'progress' %}
+					<div class="event-status-in-progress">
+						In progress
+					</div>
+				{% endif %}
+
+				<p class="event-desc">
+					{{ event.desc }}
+				</p>
+
+
+				<div class="event-lead-bonus">
+					Created by {{ event.author_name }}<br>
+					Party receive bonus from +{{ event.author_lead }} Leadership
+				</div>
+
+
+				{% if login and not event.guild_run_can_join %}
+					<div class="event-join-error">
+						This is a closed guild run. Only for {{ event.guild_side_name }} guild members
+					</div>
+				{% else %}
+
+					{% if event.status == 'active' and not event.can_join %}
+						<div class="event-join-error">
+							{% if event.operation == 'lvl' %}
+								You must be a least level {{ event.lvl_min }} to join this raid
+							{% elif event.operation == 'full' %}
+								Raid is full. There are enough players to complete it
+							{% endif %}
+						</div>
+					{% endif %}
+
+				{% endif %}
+
+				{% if event.promoted_hashtag %}
+					<div class="upcomig-event-page-hashtag">
+						Use event hashtag to receive a combat bonus:
+						<span class="hash-tag">#{{ event.promoted_hashtag }}</span>
+					</div>
+				{% endif %}
+
+				<table class="upcoming-event-members complete-event-table">
+						<thead>
+						<tr>
+							<th class="first-th">{{ event.people_count }} of {{ event.people_count_max }} members</th>
+							<th>Level</th>
+							<th>Guild</th>
+							{% if event.status == "complete" or event.status == "fail" %}
+								<th colspan="2">Performance </th>
+							{% endif %}
+						</tr>
+						</thead>
+						<tbody>
+
+						{% for player in event.players %}
+						<tr>
+							<td class="name">
+								<img src="{{ player.avatar }}" alt="{{ player.name }}">
+								<a href="/{{ player.name }}">{{ player.name }}</a>
+								<span class="race-class">{{ player.race_name }} {{ player.class_name }}</span>
+							</td>
+							<td class="lvl">{{ player.lvl }}</td>
+							<td class="guild_name"><a href="/guilds/{{ player._guild_name }}">{{ player._guild_name }}</a></td>
+
+							{% if event.status == "complete" or event.status == "fail"  %}
+							<td class="event-progress-text">
+								{{ player.performance|default(0) }}%
+							</td>
+							<td class="event-progress-with-bar">
+								<span class="event-progress-bar-wrapper"><span class="event-progress-bar" style="width: {{ player.performance|default(0) }}%"></span></span>
+							</td>
+							{% endif %}
+						</tr>
+						{% endfor %}
+
+						</tbody>
+					</table>
+
+
+				{% if login %}
+				<form method="post">
+					{% if event.status == 'active' and event.can_join %}
+						<input type="hidden" name="_id" value="{{ event._id }}">
+						{% if event.guild_run_can_join %}
+							<div class="event-raid-button-container">
+								{% if not event.operation == 'joined' %}
+									<input type="hidden" name="type_of_form" value="join_event">
+									<input type="submit" value="Join event" class="btn2 btn2-classic">
+								{% else %}
+									<input type="hidden" name="type_of_form" value="leave_event">
+									<input type="submit" value="Leave event" class="btn2 btn2-classic">
+								{% endif %}
+							</div>
+						{% endif %}
+					{% endif %}
+
+				</form>
+				{% endif %}
+
+				{% if event.status == 'complete' or event.status == 'fail' %}
+					<div class="event-total-performance">Total performance <span>{{ event.total_performance|default(0) }}%</span></div>
+				{% endif %}
+			</div>
+
+
+			<br class="clear">
+		</div>
+	</div>
+</div>
+
+<script src="/js/page_scripts/share.js?{{ build }}"></script>
+
+{% include "footer.jinja2" %}

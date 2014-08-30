@@ -1,0 +1,74 @@
+{% include "header.jinja2" %}
+<script id="friends-list-template" type="text/x-jquery-tmpl">
+	{% raw %}
+	<li class="friend">
+		<img src="${avatar}"
+			 alt="${name}">
+		<span>@${name}</span>
+		<form method="post" class="invite-form">
+			<input type="hidden" name="type_of_form" value="send_mention_invite">
+			<input type="hidden" name="name" value="${name}">
+			<input type="submit" class="invite" value="Invite">
+		</form>
+	</li>
+	{% endraw %}
+</script>
+
+<script src="/js/page_scripts/inviter.js"></script>
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg invite-page ">
+
+
+			<div class="info-block">
+				<h1>Invite your friends</h1>
+				<h2>
+					and receive bonus for each friend:<br>
+					<span>
+						+1 Luck<br>
+						+5 Hit Points
+					</span>
+				</h2>
+			</div>
+
+			{% set shareUrl = host+login_name+"?invite" %}
+			{% set shareTwitterTitle = "Hey! Glad to invite you to %23Tweeria!" %}
+			{% set shareTags = "" %}
+
+			<div class="send-to-twitter">
+				<h4>Post registration link to your followers:</h4>
+
+				<div class="invite-share-block">
+					<div class="invite-share">
+						{% set share_type = "invite_center" %}
+						{% include "misc/_share_buttons.jinja2" %}
+					</div>
+				</div>
+
+				<h4>Send registration link directly to your twitter friend:</h4>
+				<form method="post" class="invite-target-form">
+					<input type="hidden" name="type_of_form" value="send_mention_invite">
+					<input class="invite-text-input" name="name" type="text" placeholder="@twitter_name">
+					<input type="submit" value="Send" class="btn2 btn2-classic">
+					<span class="was-invited"></span>
+				</form>
+				<h4>... or ...</h4>
+				<ul id="friend-list">
+					<li class="preloader">
+						<img src="/style/img/ajax-loader_2.gif" alt="">
+					</li>
+
+				</ul>
+				<div class="center-container">
+					<a class="btn2 btn2-blue btn2-wide more" href="#more">More</a>
+				</div>
+			</div>
+
+			<div class="invite-summary-block">
+				<a href="/{{ login_name }}" class="btn2 btn2-classic btn2-wide">To hero</a>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/js/page_scripts/share.js"></script>
+{% include "footer.jinja2" %}

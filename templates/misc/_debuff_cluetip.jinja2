@@ -1,0 +1,24 @@
+<img src='{{ buff.buff_img }}' width='52'>
+<c class='player_item'>
+	<n0>{{ buff.buff_name }}</n0>
+	<t>
+		{% if buff.minutes > 60 %}
+			{{ buff.minutes // 60 }} hours left
+		{% else %}
+			{{ buff.minutes }} min left
+		{% endif %}
+	</t>
+
+		{% if buff.buff_uid == 1000 %}
+			<s>Experience x2</s>
+			<s>Gold x2</s>
+		{% else %}
+			{% for action in buff.actions %}
+				{% if stat_names[action] %}
+					<s>{{ buff.actions[action] }} {{ stat_names[action] }}</s>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+
+</c>
+<div class='clear'></div>

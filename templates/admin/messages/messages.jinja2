@@ -1,0 +1,60 @@
+{% include "header.jinja2" %}
+
+<script type="text/javascript" src="/js/page_scripts/admin_messages.js?{{ build }}"></script>
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-page cc-messages-edit">
+
+			{% if param_success %}
+
+				{% set messages_types = {
+					'delete': 42,
+					'edit': 41,
+					'add': 40
+				} %}
+
+				{% set message_type = messages_types[param_success] %}
+				{% include "misc/_messages_.jinja2" %}
+			{% endif %}
+
+			<div class="page-part">
+				<a class="link-back" href="/a/index">Back</a><br>
+				<h2>Messages controls</h2>
+
+				<form method="get" id="action_select_form">
+
+					<input value="type_of_form" type="hidden" value="get_messages">
+
+					<label for="action_selector">Action:</label>
+					<div class="select_container">
+						<select name="action_name" id="action_selector">
+							{% if not param_action_name %}
+								<option>---</option>
+							{% endif %}
+							{% for action in actions %}
+								<option value="{{ action.name }}" {% if action.name == param_action_name %}selected{% endif %}>{{ action.name }}</option>
+							{% endfor %}
+						</select>
+					</div>
+
+					<label>or</label> <a class="btn2 btn2-classic" href="/a/add_message">New message</a>
+
+					<div id="loading_message" style="display: none">Loading...</div>
+				</form>
+
+
+				<div class="clear"></div>
+			</div>
+
+			<div class="page-part" id="content_part">
+				{% if param_action_name %}
+					{% include "admin/messages/messages_list.jinja2" %}
+				{% endif %}
+			</div>
+
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

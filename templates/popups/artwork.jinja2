@@ -1,0 +1,107 @@
+<div class="shop-item-popup shop-artwork-popup">
+
+	<table>
+		<tr>
+			<td>
+				<div class="shop-popup-img">
+					<img class="item-img" src="${img}" alt="${name}">
+				</div>
+			</td>
+			<td class="item-info">
+
+					<span class="item-type">${race} ${pclass}</span>
+					{% if author_name %}
+						<span class="item-author">@<a href="/${author_name}">${author_name}</a></span>
+					{% endif %}
+					<a class="item-name" href="/u/artwork?id=${id}">${name}</a>
+
+					<p class="item-text">
+						{% raw %}
+						{{if desc != '0'}}
+						${desc}
+						{{else}}
+						You can create description for this artwork. Just <a
+							href="mailto:yeah@tweenk.me?subject=Description for artwork: ${name}">write email</a>
+						to us or <a target="_blank"
+									href="https://twitter.com/intent/tweet?source=tweetbutton&text=@tweenk ">tweet</a>
+						{{/if}}
+						{% endraw %}
+					</p>
+					{% raw %}
+				<span class="item-artwork-author">
+					{{if img_link}}
+						<a href="http://${img_link}">Artwork Source</a>
+					{{/if}}
+				</span>
+					{% endraw %}
+
+					<span class="item-cost"> <i class="icon gold-3"></i> <span>${cost}</span></span>
+					{# OLD #}
+
+
+					{% if login %}
+						<form action="" method="post">
+
+							<input type="hidden" name='artwork_id' value="${id}">
+							<input type="hidden" name='item_name' value="${name}">
+							<input type="hidden" name="type_of_form" value="buy_artwork">
+							<input type="submit" value="Buy" class="buy-button btn2 btn2-classic btn2-wide">
+
+						</form>
+						{% include "misc/_like_block_js_template.jinja2" %}
+					{% else %}
+
+						<br class="clear">
+						<div class="you_shall_not_pass">
+							To buy this item you must <a href="/login">Log in</a> or <a href="/registration">Sign up</a>
+						</div>
+					{% endif %}
+
+
+
+				{% if login %}
+					<br class="clear">
+					<div class="artwork-popup-share">
+						<a target="_blank"
+						   href="https://twitter.com/share?url=${shareurl}&hashtags=tweeria&text=${sharetitletwitter} thx @${shareauthor}"
+						   class="achv-share-button tw"
+						   data-lang="ru"
+						   data-url="${shareurl}"
+						   data-text="${sharetitle}"
+						   data-hashtags="tweeria">
+							Twitter
+						</a>
+
+						<a target="_blank"
+						   href="http://www.facebook.com/sharer.php?s=100&p[title]=${sharetitle}&p[summary]=${sharedesc}&p[url]=${shareurl}&p[images][0]=${shareimage}"
+						   data-url="${shareurl}"
+						   data-title="${sharetitle}"
+						   data-description="${sharedesc}"
+						   title="Facebook"
+						   class="achv-share-button fb">
+							Facebook
+						</a>
+
+						<a target="_blank"
+						   href="https://plus.google.com/share?url=${shareurl}"
+						   class="achv-share-button gp"
+						   data-title="${sharetitle}"
+						   data-image="${shareimage}"
+						   data-desc="${sharedesc}"
+						   data-url="${shareurl}">
+							Google+
+						</a>
+						<a href="http://vkontakte.ru/share.php?url=${shareurl}&title=${sharetitle}&description=${sharedesc}&image=${shareimage}"
+						   data-url="${shareurl}"
+						   target="_blank"
+						   class="achv-share-button vk">
+							Vkontakte
+						</a>
+					</div>
+
+				{% endif %}
+
+			</td>
+		</tr>
+	</table>
+</div>

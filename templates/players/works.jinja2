@@ -1,0 +1,168 @@
+{% include "header.jinja2" %}
+
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg ratings-page all-page portfolio-page">
+
+			<div class="author_block author_block_wide">
+				<div class="author_info">
+					<div class="player-avatar">
+						<a href="/{{ player.name }}">
+							<img width="48px" src="{{ player.avatar }}" alt="{{ player.name }}"
+                                 onerror="this.src='/style/img/unknown.jpg'"
+                                    >
+						</a>
+					</div>
+					<div class="player-name">
+						<span><a class="player-name-link" href="/{{ player.name }}">{{ player.name }}</a></span>
+
+						{% if player._guild_name %}
+							<a href="/guilds/{{ player._guild_name }}" class="player-guild">{{ player._guild_name }}</a>
+						{% endif %}
+
+					</div>
+
+				</div>
+
+				<div class="big-likes">
+					{{ author_info.likes }} like{% if author_info.likes != 1 %}s{% endif %}
+				</div>
+
+				<div class="guild-share works-share">
+
+					{% set shareTwitterTitle = "Awesome Tweeria portfolio of @"+player.name %}
+					{% set shareTags = "art" %}
+					{% set shareTitle = shareTwitterTitle %}
+					{% set shareImg = player.name %}
+					{% set shareText = "Check latest artworks, items and spells created by "+player.name %}
+					{% set shareUrl = host+player.name %}
+
+					<a target="_blank"
+					   href="https://twitter.com/share?url={{ shareUrl }}&hashtags={{ shareTags }}&text={{ shareTwitterTitle }}"
+					   class="achv-share-button tw">
+						Twitter
+					</a>
+
+					<a target="_blank"
+					   href="http://www.facebook.com/sharer.php?s=100&p[title]={{ shareTitle }}&p[summary]={{ shareText }}&p[url]={{ shareUrl }}&p[images][0]={{ shareImg }}"
+					   title="Facebook"
+					   class="achv-share-button fb">
+						Facebook
+					</a>
+
+				</div>
+
+
+				<div class="clear"></div>
+			</div>
+
+			{% if not artworks and not items and not spells %}
+				<div class="no-portfolio">
+					Author has no works yet<br>
+					<a href="/authors">Other authors</a>
+				</div>
+			{% endif %}
+
+			{# -------------------- A R T W O R K S -------------------- #}
+
+			{% if artworks %}
+				<h2>Artworks</h2>
+				<div class="shop-list works-list">
+					{% for artwork in artworks %}
+						{% set like = artwork %}
+						{% set id = artwork._id %}
+
+						<div class="shop-list-item cluetip_popup_shop artwork" id="artwork-list-{{ artwork._id }}">
+							<a href="/u/artwork?id={{ id }}"><img src="{{ artwork.img }}" alt="{{ artwork.name }}"></a>
+							<a class="title" href="/u/artwork?id={{ id }}">{{ artwork.name }}</a>
+
+							{% set like_type = 'artwork' %}
+							{% include "misc/_like_inline_block.jinja2" %}
+
+							<a class="author" href="/{{ artwork.author_name }}">{{ artwork.author_name }}</a>
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+
+			{# -------------------- I T E M S -------------------- #}
+
+			{% if items %}
+				<h2>Items</h2>
+				<div class="shop-list works-list">
+					{% for item in items %}
+						{% set like = item %}
+						{% set id = item._id %}
+						{% set parent = "item-list-"+item._id|string %}
+
+						<div class="shop-list-item cluetip_popup_shop {% if item.cant_use %}cant-use-item{% endif %}"
+						     title="|{% include "misc/_item_cluetip_without_img.jinja2" %}"
+						     id="item-list-{{ item._id }}"
+								>
+							<a href="/u/item?id={{ item._id }}"><img src="{{ item.img }}" alt="{{ item.name }}"></a>
+							<a class="title" href="/u/item?id={{ item._id }}">{{ item.name }} </a>
+
+							{% set like_type = 'item' %}
+							{% include "misc/_like_inline_block.jinja2" %}
+
+							<a class="author" href="/{{ item.author_name }}">{{ item.author_name }}</a>
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+
+
+			{# -------------------- S P E L L S -------------------- #}
+
+			{% if spells %}
+				<h2>Spells</h2>
+				{% set spell_types = ['','+','','-'] %}
+				<div class="shop-list works-list">
+					{% for spell in spells %}
+						{% set like = spell %}
+						{% set id = spell._id %}
+						<div class="shop-list-item cluetip_popup_shop popuped_spells"
+
+						     title="|{% include "misc/_spell_cluetip.jinja2" %}|"
+						     id="spell-list-{{ spell._id }}"
+								>
+							<a href="/u/spell?id={{ id }}"><img src="{{ spell.img }}" alt="{{ spell.name }}"></a>
+							<a class="title" href="/u/spell?id={{ id }}">{{ spell.name }} </a>
+
+							{% set like_type = 'spell' %}
+							{% include "misc/_like_inline_block.jinja2" %}
+
+							<a class="author" href="/{{ spell.author_name }}">{{ spell.author_name }}</a>
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+
+			<div class="comments">
+
+				<div class="disqus-thread">
+					<div id="disqus_thread"></div>
+				</div>
+				<script type="text/javascript">
+					var disqus_shortname = 'tweeria'; // required: replace example with your forum shortname
+
+					(function () {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript';
+						dsq.async = true;
+						dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					})();
+				</script>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<script src="/js/page_scripts/like.js?{{ build }}"></script>
+
+{% include "footer.jinja2" %}

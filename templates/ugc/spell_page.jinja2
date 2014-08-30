@@ -1,0 +1,168 @@
+{% include "header.jinja2" %}
+{% set spell_types = ['','+','','-'] %}
+{% if not stat_names %}
+	{% set stat_names = {'DEF': 'Defense',
+                'DMG': 'Damage',
+                'HP': 'Hit points',
+                'MP': 'Mana points',
+                'SPD': 'Speed',
+                'dex': 'Dexterity',
+                'fame': 'Fame',
+                'int': 'Intellect',
+                'karma': 'Karma',
+                'lead': 'Leaderhip',
+                'luck': 'Luck',
+                'mastery': 'Mastery',
+                'str': 'Strength'}
+			%}
+{% endif %}
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg detail-spell-page">
+
+			{% if param_success %}
+				{% set message_type = 1 %}
+				{% include "misc/_messages_.jinja2" %}
+			{% endif %}
+
+			{% if reject %}
+				<div class="reject_message_container">
+					Spell was rejected by <b>{{ reject_name }}</b> (<a href="http://twitter.com/{{ reject_name }}">Twitter</a>)<br>
+					with reason: <b>{{ reject.reason }}</b>
+				</div>
+			{% elif not approve.approved %}
+				<div class="waiting_message_container">
+					This spell is need to be approved
+				</div>
+			{% endif %}
+
+			<a class="link-back" href="/u/shop#!tab-spells">Marketplace</a>
+
+			<div class="mt-10">
+				<div class="shop-popup-img" id="like-spell">
+					<span class="spell-level spell-level-{{ lvl_enough }}">{{ lvl_min }}</span>
+					<span class="img-cont"><img class="spell-img" src="{{ img }}" alt="{{ name }}"></span>
+
+					{% set parent = "like-spell" %}
+					{% set like_type = 'spell' %}
+					{% include "misc/_like_block.jinja2" %}
+				</div>
+
+
+				<div class="spell-info  can-use-{{ can_use }}">
+
+					<span class="spell-type spell-type">Magic spell</span>
+					{% if tag %}<span class="item-tag">{{ tag|capitalize }}</span>{% endif %}
+
+						<h2 class="spell-name">{{ name }}
+							<span class="spell-author">Added by @<a href="/{{ author_name }}">{{ author_name }}</a></span>
+						</h2>
+
+						<div class="event-status-complete">
+							{{ keyword }}
+						</div>
+
+						<p class="spell-text">
+							{{ desc }}
+						</p>
+
+						<br class="clear">
+
+						<ul class="popup-spell-list">
+							{% for action in spell_actions %}
+								<li data-spellname="{{ action.name }}">
+									<div class="popup-left-part">
+									<span class="spell-img">
+										<img src="/data/effects/{{ action.img }}.jpg" alt="{{ action.img }}">
+									</span>
+										<h4 class="spell-title">{{ action.name }}</h4>
+										<i class="icon spell type_{{ action.type }}"></i><span class="spell-action-type">{{ action.power }}</span>
+									</div>
+									<div class="popup-right-part">
+										<span class="big">{% if action.type == 3 %}-{% elif action.type == 1 %}+{% endif %}{{ action.value }}</span> {{ stat_names[action.effect] }}
+									</div>
+									<br class="clear">
+								</li>
+							{% endfor %}
+						</ul>
+						<span class="mana-cost"><span class="text">Mana cost</span>&nbsp; <i class="icon mana-cost"></i> &nbsp;
+							<span class="count">{{ mana_cost }}</span></span>
+
+						<span class="spell-cost">
+							<i class="icon gold-3"></i>
+							<span>{{ cost }}</span>
+							{% if login and login_resources.gold < cost %}
+								<br>Not enough gold to buy
+							{% endif %}
+						</span>
+
+						{% if login %}
+							<form action="/u/shop" method="post">
+								{% if not already_have %}
+									{% if login_resources.gold >= cost %}
+
+										{% if not reject and sale_info and sale_info.active and approve and approve.approved %}
+											<input type="hidden" name='item_name' value="{{ name }}">
+											<input type="hidden" name="type_of_form" value="buy_spell">
+											<input type="hidden" name='backlink' value="/u/spell?id={{ _id }}&success=1">
+											<input type="hidden" name="spell_id" value="{{ _id }}">
+											<input type="submit" value="Buy" class="btn2 btn2-classic btn2-wide">
+										{% endif %}
+
+									{% endif %}
+
+								{% else %}
+									{% if sale_info and sale_info.active and not reject %}
+										<div class="error-buy">
+											You already have this spell. Try to check <a href="/spellbook">your spellbook</a>
+										</div>
+									{% endif %}
+								{% endif %}
+
+								{% if login_moderator or login_admin or login_id == author and not sale_info.active %}
+									<a href="/u/edit_spell?id={{ _id }}" class="btn2 btn2-gray">Edit</a>
+								{% endif %}
+
+							</form>
+						{% else %}
+
+						{% endif %}
+
+					{% if login_admin %}
+						{% set reject_type = 'spell' %}
+						{% include "misc/_admin_reject.jinja2" %}
+					{% endif %}
+
+				</div>
+			</div>
+
+			{% include "ugc/_artwork_info_block.jinja2" %}
+
+			<div class="item-popup-share">
+				{% set share_type = "spell_page" %}
+				{% include "misc/_share_buttons.jinja2" %}
+			</div>
+
+			<div class="disqus-thread">
+				<div id="disqus_thread"></div>
+			</div>
+			<script type="text/javascript">
+				var disqus_shortname = 'tweeria'; // required: replace example with your forum shortname
+
+				(function () {
+					var dsq = document.createElement('script');
+					dsq.type = 'text/javascript';
+					dsq.async = true;
+					dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+				})();
+			</script>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="/js/page_scripts/like.js"></script>
+<script src="/js/page_scripts/share.js?{{ build }}"></script>
+
+{% include "footer.jinja2" %}

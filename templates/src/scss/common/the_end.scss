@@ -1,0 +1,36 @@
+.the-end {
+  background-color: rgb(95, 45, 45);
+  margin: 0 auto;
+  width: 100%;
+  z-index: 1000;
+  position: relative;
+}
+
+  .the-end__text {
+    color: white;
+    text-shadow: -1px -1px rgba(0,0,0,0.3);
+    margin: 0 auto;
+    width: 950px;
+    padding: 5px;
+
+    h3, p {
+      margin: 0;
+      padding: 0;
+    }
+
+    h3 {
+      font-weight: normal;
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 12px;
+      padding-top: 5px;
+      color: rgb(219, 178, 178);
+
+      a {
+        color: white;
+      }
+    }
+
+  }

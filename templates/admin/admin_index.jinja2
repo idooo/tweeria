@@ -1,0 +1,110 @@
+{% include "header.jinja2" %}
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page admin-index">
+			<h2>Admin page</h2>
+			<div class="admin-index-menu-container">
+
+				<div>
+					<h3>Approvements</h3>
+
+					{% if login_admin or moderator_rights[0] %}
+						<a href="/a/approve_items">Items</a>
+						{% if waiting_items %}
+							<span class="waiting-counter">{{ waiting_items }}</span>
+						{% endif %}
+						<br>
+					{% endif %}
+
+
+					{% if login_admin or moderator_rights[2] %}
+						<a href="/a/approve_spells">Spells</a>
+						{% if waiting_spells %}
+							<span class="waiting-counter">{{ waiting_spells }}</span>
+						{% endif %}
+						<br>
+					{% endif %}
+
+					{% if login_admin or moderator_rights[1] %}
+						<a href="/a/approve_artworks">Artworks</a>
+						{% if waiting_artworks %}
+							<span class="waiting-counter">{{ waiting_artworks }}</span>
+						{% endif %}
+						<br>
+					{% endif %}
+
+					{% if login_admin %}
+
+						<h3>Rejects</h3>
+						<a href="/a/rejected_items">Rejected items</a><br>
+						<a href="/a/rejected_spells">Rejected spells</a><br>
+						<a href="/a/rejected_artworks">Rejected artworks</a><br>
+
+						{#
+
+							Temporary disabled
+
+							<h3>Reports</h3>
+							<a href="/a/reported_items">Reported items</a><br>
+							<a href="/a/reported_spells">Reported spells</a><br>
+							<a href="/a/reported_artworks">Reported artworks</a><br>
+						 #}
+
+						<h3>Misc</h3>
+						<a href="/a/deleted">Deleted</a><br>
+
+
+					{% endif %}
+				</div>
+
+				{% if login_admin %}
+
+					<div>
+						<h3>Authors</h3>
+
+						<a href="/a/artists">Auth artists</a>
+						{% if waiting_requests %}
+							<span class="waiting-counter">{{ waiting_requests }}</span>
+						{% endif %}
+						<br>
+						<a href="/a/people">Bad people</a><br>
+
+						<br>
+						<h3>Game control</h3>
+						<a href="/a/messages">Messages</a><br>
+                        <a href="/a/tags">Tags</a><br>
+
+					</div>
+
+					<div>
+
+						<h3>Users</h3>
+
+						<a href="/a/invites">Invites</a><br>
+						<a href="/a/timeline">Get timeline</a><br>
+						<a href="/a/level">Change level</a><br>
+						<a href="/a/ban" style="color:red">Ban</a><br>
+
+						<br>
+						<a href="/a/moderators">Moderators</a><br>
+
+					</div>
+
+					<div>
+						<h3>Main page</h3>
+						<a href="/a/tips">Tips</a><br>
+
+						<h3>Misc</h3>
+						<a href="/a/achvs">Rare achievements</a>
+					</div>
+
+				{% endif %}
+
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+
+
+{% include "footer.jinja2" %}

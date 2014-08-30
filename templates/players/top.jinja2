@@ -1,0 +1,121 @@
+{% include "header.jinja2" %}
+
+<script src="/js/page_scripts/players_top.js?{{ build }}"></script>
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg ratings-page">
+
+		{% if param_success %}
+			{% set message_type = 20 %}
+			{% include "misc/_messages_.jinja2" %}
+		{% endif %}
+
+        <h2>Best players</h2>
+
+        <div>
+            <table class="ratings-table">
+	            <thead>
+	            <tr>
+		            <th class="number"></th>
+		            <th class="name"></th>
+		            <th class="race_class"></th>
+		            <th class="level">Level</th>
+		            <th class="achv_points"><i></i> Achv</th>
+		            <th class="pvp_points"><i></i> PvP</th>
+					<th class="guild"><i></i>Guild</th>
+	            </tr>
+	            </thead>
+	            <tbody>
+
+            {% for player in top_by_lvl %}
+	        <tr>
+		            <td>{{ loop.index }}</td>
+					<td>
+                        <img src="{{ player.avatar }}" onerror="this.src='/style/img/unknown.jpg'">
+                        <a href="/{{ player.name }}">{{ player.name }}</a>
+                    </td>
+		            <td>{{ player.race_name }} {{ player.class_name }}</td>
+					<td>Level {{ player.lvl }} </td>
+		            <td>{{ player.achv_points }} </td>
+		            <td>{{ player.pvp_score }} </td>
+					<td class="player-guild"><a href="/guilds/{{ player._guild_name }}">{{ player._guild_name }} </a></td>
+	        </tr>
+            {% endfor %}
+
+            </tbody>
+            </table>
+	        <a class="all-players" href="/all-players">All players</a>
+        </div>
+			<div class="typical_col first_col">
+
+				<h2 class="caption_popular_guilds">Top guilds</h2>
+
+				<div>
+					<table class="ratings-table">
+						<thead>
+						<tr>
+							<th class="number"></th>
+							<th class="guild_name"></th>
+							<th class="guild_players">Players</th>
+							<th class="">PvP</th>
+						</tr>
+						</thead>
+						<tbody>
+						{% if top_popular_guilds|length>0 %}
+
+							{% for guild in top_popular_guilds %}
+							<tr>
+								<td>{{ loop.index }}</td>
+								<td><img src="{{ guild.img }}"><a href="/guilds/{{ guild.name }}">{{ guild.name }}</a></td>
+								<td>{{ guild.people_count }}</td>
+								<td>{{ guild.pvp_score }}</td>
+							</tr>
+							{% endfor %}
+
+							</tbody>
+							</table>
+							<a class="all-players" href="/all-guilds">All guilds</a>
+						{% else %}
+							<tr><td colspan="4"></td></tr>
+							</tbody>
+							</table>
+
+							<div class="empty-rating-table">
+								There are no guilds yet. <a href="/guilds/add">Create one!</a>
+							</div>
+							<br class="clear"/>
+
+						{% endif %}
+
+				</div>
+			</div>
+
+			<div class="typical_col second_col">
+				<h2 class="your-sweet-guild">Your sweet guild</h2>
+				<hr>
+				{% if not your_guild %}
+					<div class="you-not-ia-a-guild">
+
+						<p>Right now you're not in a guild. <br>
+							It’s sad. Isn’t it?</p>
+						<a href="/guilds/add" class="btn2 btn2-classic">Create guild</a>
+					</div>
+				{% else %}
+					<div class="your-sweet-guild">
+						<span class="img-cont"><img src="{{ your_guild.img }}" alt="{{ your_guild.img }}"></span>
+						<div class="guild-info">
+							<a href="/guilds/{{ your_guild.name }}">{{ your_guild.name }}</a> <br>
+							{{ your_guild.people_count }} players
+						</div>
+					</div>
+				{% endif %}
+			</div>
+			<br class="clear">
+
+</div>
+</div>
+</div>
+
+
+
+{% include "footer.jinja2" %}

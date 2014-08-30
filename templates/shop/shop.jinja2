@@ -1,0 +1,134 @@
+
+{% include "header.jinja2" %}
+{% set spell_types = ['','+','','-'] %}
+
+<script id="success-message-tmpl" type="text/x-jquery-tmpl">
+	<div class="shop-message success">
+		You’ve bought [${item_name}]. See it on your <a href="/{{ login_name }}">character's page</a>
+
+		<a target="_blank"
+		   href="https://twitter.com/share?url={{ host }}u/item?id=${item_id}&hashtags=tweeria&text=${item_name} is a cool item{% raw %}{{if item_author}}&via=${item_author}{{/if}}{% endraw %}"
+		   class="achv-share-button tw">
+			Twitter
+		</a>
+	</div>
+</script>
+
+<script id="error-message-tmpl" type="text/x-jquery-tmpl">
+	<div class="shop-message error">
+		${message}
+
+		<a target="_blank"
+		   href="https://twitter.com/share?url={{ host }}u/item?id=${item_id}&hashtags=tweeria&text=${item_name} is a cool item&via=${item_author}"
+		   class="achv-share-button tw">
+			Twitter
+		</a>
+	</div>
+</script>
+
+<script id="shop-pager-tmpl" type="text/x-jquery-tmpl">
+{% raw %}
+
+	{{if currentPage==1}}
+		<span class="prev">prev</span>
+	{{else}}
+		<a href="?pi=${currentPage-1}-1#!tab-items" data-page="${currentPage-1}" class="prev" data-type="${type}">prev</a>
+	{{/if}}
+	<ul class="page-list">
+
+		{{each pagesToShow}}
+			<li>
+				{{if currentPage==$value}}
+					<span>${$value}</span>
+				{{else}}
+					{{if $value == '.'}}
+						...
+					{{else}}
+						<a href="?pi=${$value}#!tab-items" data-type="${type}">${$value}</a>
+					{{/if}}
+				{{/if}}
+			</li>
+		{{/each}}
+
+	</ul>
+	{{if currentPage == totalPages}}
+		<span class="next">next</span>
+	{{else}}
+		<a href="?pi=${currentPage+1}#!tab-items" data-page="${currentPage+1}" class="next" data-type="${type}">next</a>
+	{{/if}}
+{% endraw %}
+</script>
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg shop-page">
+			<div class="shop-head-title">
+				<h2 class="shop-title">Marketplace</h2>
+				{% if login %}
+					{% if can_create and not login_ugc_disable and login_ugc_enabled %}
+						{% if login_lvl >= min_lvl_to_create %}
+							<a href="/u/create" class="shop-create-button">Create</a>
+						{% endif %}
+					{% endif %}
+					<div class="player-gold-outer">
+						<div class="player-gold" id="player-gold">
+							<i class="icon gold"></i> <span class="counter">{{ login_resources.gold }}</span>
+						</div>
+					</div>
+				{% endif %}
+			</div>
+			<div id="shop-tabs">
+				<div id="tab-overlay">
+					<div class="pac-man-proggres">
+						<div></div>
+					</div>
+				</div>
+				<ul class="shop-tabs-head">
+					<li><a href="#tab-new">New Things</a></li>
+					<li><a href="#tab-items">Players items</a></li>
+					<li><a href="#tab-spells">Spells patterns</a></li>
+					<li><a href="#tab-artworks">Artworks</a></li>
+					<li><a href="#tab-fun">Fun items</a></li>
+				</ul>
+
+				{% if param_success %}
+					<div class="success-message"><div>
+						You bought <strong>[{{ param_n }}]</strong>.
+						{% set sharing = '<a target="_blank" href="https://twitter.com/intent/tweet?source=tweetbutton&text=I purchased ['+param_n+'] in%20%23tweeria — &url='+host+login_name+'">Share this</a> on twitter' %}
+
+						{% if param_sb %}
+							To use this spell you must put it into your <a href="/spellbook">spellbook</a> | {{ sharing }}
+						{% else %}
+							See it on your <a href="/{{ login_name }}">character's page</a> | {{ sharing }}
+						{% endif %}
+					</div></div>
+				{% endif %}
+
+				{% if errors or critical_error %}
+
+					<div class="error-message"><div>
+						{% for error in errors %}
+							{{ error.desc }} — [{{ error.name }}] <br>
+						{% endfor %}
+						{{ critical_error }}
+					</div></div>
+
+				{% endif %}
+
+				<div id="tab-new" class="shop-tab-content">{% include "shop/shop_new_things.jinja2" %}</div>
+				<div id="tab-items" class="shop-tab-content">{% include "shop/shop_players_items.jinja2" %}</div>
+				<div id="tab-spells" class="shop-tab-content">{% include "shop/shop_spells.jinja2" %}</div>
+				<div id="tab-artworks" class="shop-tab-content">{% include "shop/shop_artworks.jinja2" %}</div>
+				<div id="tab-fun" class="shop-tab-content">{% include "shop/shop_trivia.jinja2" %}</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script src="/js/page_scripts/shop.js?{{ build }}"></script>
+<script src="/js/page_scripts/share.js?{{ build }}"></script>
+<script src="/js/page_scripts/like.js?{{ build }}"></script>
+
+{% include "footer.jinja2" %}

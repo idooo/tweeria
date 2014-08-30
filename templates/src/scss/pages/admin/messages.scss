@@ -1,0 +1,161 @@
+
+/* Messages */
+
+.cc-messages-edit {
+
+  #action_select_form {
+    margin-left: 1px;
+    padding-top: 10px;
+
+    label {
+      padding-right: 7px;
+      padding-left: 9px;
+      display: block;
+      float: left;
+    }
+
+    .select_container {
+      float: left;
+    }
+
+    .btn2 {
+      margin-top: -2px;
+      height: 12px;
+      line-height: 13px;
+      font-size: 12px;
+    }
+
+  }
+
+
+
+  .group_name {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 7px 4px 4px 7px;
+    border-bottom: 1px solid #AAA;
+  }
+
+  .messages-table {
+
+    tbody {
+
+      tr {
+
+        &:hover {
+          background-color: #ccc;
+
+        }
+
+      }
+
+      td {
+
+        cursor: default;
+
+        &.m_UID {
+          color: #999;
+          font-size: 12px;
+          width: 25px;
+        }
+
+        &.not_defined {
+          color: #999;
+          font-style: italic;
+        }
+
+        &.m_rates {
+          color: #999;
+          width: 100px;
+
+          span {
+            color: #000000;
+          }
+
+        }
+
+        a {
+          color: #999;
+
+          &:hover {
+            color: red;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+  form.message-edit {
+    margin: 1px 0px 0px 10px;
+
+    label {
+      display: block;
+      margin-bottom: 2px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    input[type=text] {
+      @include input-text-standart;
+      width: 400px;
+    }
+
+    textarea {
+      @include input-textarea-standart;
+      width: 400px;
+      height: 160px;
+    }
+
+    div.selector {
+      margin-left: -6px;
+    }
+
+  }
+
+  form.message-delete {
+    position: absolute;
+    margin-left: 325px;
+    margin-top: -32px;
+  }
+
+  .help-info {
+    float: right;
+    width: 400px;
+    border-left: 1px solid #BBB;
+    padding-left: 30px;
+    margin-top: 10px;
+
+    .new-variable {
+      display: inline-block;
+      margin-left: 5px;
+      background-color: rgb(0, 138, 17);
+      padding: 1px 5px;
+      color: white !important;
+    }
+
+    h4 {
+      margin-bottom: 2px;
+      font-family: "Trajan pro";
+      color: orangeRed;
+      margin-top: 10px;
+    }
+
+    p {
+      margin-left: 0;
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 0;
+
+      span {
+        color: black;
+      }
+    }
+
+  }
+
+}

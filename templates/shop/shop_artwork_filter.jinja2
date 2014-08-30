@@ -1,0 +1,81 @@
+{% set races_combo = [
+	{'name':'Undead', 'value': '0:0'},
+	{'name':'Faceless', 'value': '0:1'},
+	{'name':'Human', 'value': '1:0'},
+	{'name':'Elf', 'value': '1:1'},
+	{'name':'Orc', 'value': '2:0'},
+	{'name':'Troll', 'value': '2:1'}
+]
+%}
+
+{% set classes_combo = [
+	{'name':'Warrior','value':'1'},
+	{'name':'Hunter','value':'3'},
+	{'name':'Mage','value':'2'}
+] %}
+
+<div id="artwork-filter" class="item-filter">
+	<form method="get" id="artwork_filter">
+		<input type="hidden" name="t" value="artwork">
+		<input type="hidden" name="s" value="{{ param_s|default("") }}" id="artwork_sorting_field">
+		<input type="hidden" name="o" value="{{ param_o|default("1") }}" id="artwork_sorting_order">
+		<input type="hidden" name="pa" value="1" id="artwork_page">
+
+		<table class="shop-filter-table">
+			<tr>
+				<td>
+					<label for="filter-artwork-name">Name</label>
+					<input type="text" name="search" id="filter-artwork-name" class="text mr22" value="{{ param_artwork_search }}">
+				</td>
+				<td>
+					<label for="filter-item-cost-max">Cost</label>
+					<input type="text" name="cost_min" id="filter-item-cost-min" class="text mini" value="{{ param_artwork_cost_min }}">
+					<span class="shop-filter-table-dash">—</span>
+					<input type="text" name="cost_max" id="filter-item-cost-max" class="text mini mr35" value="{{ param_artwork_cost_max }}">
+				</td>
+				<td>
+					<label for="filter-artwork-author"  class="author">Author</label>
+					<input type="text" name="author" id="filter-artwork-author" class="text author" value="{{ param_artwork_author }}">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="art-race" class="race-label">Race</label>
+					<select name="race" id="art-race" class="race-select">
+						<option value="">Any</option>
+						{% for race in races_combo %}
+							<option value="{{ race.value }}">{{ race.name }} {% if race.name == login_race_str %}*{% endif %}</option>
+						{% endfor %}
+					</select>
+
+					<label for="art-class" class="class-label">Class</label>
+					<select name="class" id="art-class" class="race-select">
+						<option value="">Any</option>
+						{% for class in classes_combo %}
+							<option value="{{ class.value }}">{{ class.name }} {% if class.name == login_class_str %}*{% endif %}</option>
+						{% endfor %}
+					</select>
+				</td>
+				<td>
+
+				</td>
+				<td>
+					<label for="filter-artwork-tag" class="author">Category</label>
+					<select name="tag" id="filter-artwork-tag" class="select">
+						<option value="">Any</option>
+						{% for cat in categories %}
+							<option value="{{ cat.value }}" {% if cat.value == param_artwork_tag %} selected {% endif %}>{{ cat.value }}</option>
+						{% endfor %}
+					</select>
+				</td>
+			</tr>
+		</table>
+
+		<br class="clear">
+		<input type="submit" value="Find" class="find-button">
+
+			<a class="clear_filter_btn" href="/u/shop#!tab-artworks" style="display: {% if is_artwork_filter %} block {% else %} none; {% endif %};">Clear</a>
+
+
+	</form>
+</div>

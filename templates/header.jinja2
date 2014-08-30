@@ -1,0 +1,211 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en" itemscope itemtype="http://schema.org/twshare"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang="en" itemscope itemtype="http://schema.org/twshare"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en" itemscope itemtype="http://schema.org/twshare"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" itemscope itemtype="http://schema.org/twshare"> <!--<![endif]-->
+<!--[if IE]><!-->
+<html class="no-js ie" lang="en" itemscope itemtype="http://schema.org/twshare"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>
+		{% if page_title_name %}{{ page_title_name }} — {% endif %}
+		Tweeria {{ version }} — Lazy Twitter RPG
+	</title>
+
+	<meta name="keywords" content="tweeria rpg mmorpg twitter rpg lazy tweenk">
+	<meta name="description" content="Lazy Twitter RPG">
+
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" type="text/css" href="/style/plugins.css?{{ build }}" media="all">
+
+	<link rel="stylesheet" href="/style/tweeria.css?{{ build }}">
+	<link rel="stylesheet" href="/style/style.css?{{ build }}">
+	<link rel="stylesheet" href="/style/ido.css?{{ build }}">
+
+	<link rel="stylesheet" href="/style/map.css?{{ build }}">
+	<link rel="stylesheet" href="/style/style-to-merge.css?{{ build }}">
+
+	<link rel="shortcut icon" href="/style/favicon.ico"/>
+	<link rel="icon" type="image/png" href="/style/favicon.png"/>
+	{#
+		{% include "misc/_twitter_cards.jinja2" %}
+		{% include "misc/_gplus_header_meta.jinja2" %}
+	#}
+
+	<meta property="og:title" id="og-title" content="Heya! Here is Tweeria lazy Twitter RPG"/>
+	<meta property="og:description" id="og-desc" content="Tweeria is a game with minimal user's involvement. Everytime you tweet, your alter ego finds adventures, kills monsters or gets items. Every tweet you post can change his life."/>
+	<meta property="og:type" content="game"/>
+	<meta property="og:url" id="og-url" content="{{ host }}"/>
+	<meta property="og:image" id="og-image" content="{{ host }}style/img/icon.png"/>
+	<meta property="og:site_name" content=""/>
+	<meta property="fb:admins" content="1462008391"/>
+	<link rel="image_src" href="{{ host }}style/img/icon.png"/>
+
+	<script src="/js/libs/modernizr-2.5.3.min.js?{{ build }}"></script>
+	<script type="text/javascript">var currentPage = "{{ current_page }}";</script>
+
+	<meta id="address" value="{{ address }}"/>
+
+	<script src="/js/libs/jquery-1.8.js?{{ build }}"></script>
+
+	<script src="/js/libs/jquery-ui-1.8.23.custom.min.js?{{ build }}"></script>
+	<script src="/js/plugins.js?{{ build }}"></script>
+	<script src="/js/script.js?{{ build }}"></script>
+
+
+</head>
+<body>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a
+	different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a>
+	to experience this site.</p><![endif]-->
+
+{% include "the_end.jinja2" %}
+
+<div id="tweeria_main_container">
+<header>
+
+	<div class="header-main-menu-bg">
+
+		<a href="/" title="Tweeria's main page" class="place-holder-{{ __page__ }} header-mini-logo-link"><span class="header-mini-logo" ></span></a>
+
+		<ul class="header-main-menu">
+
+
+			<li><a href="/u/shop">Market</a></li>
+			<li><a href="/top">Ladder</a></li>
+			{% if login %}
+				<li><a href="/u/world">Map</a></li>
+			{% endif %}
+			<li><a href="/u/events">Events</a></li>
+			<li><a href="/authors">Authors</a></li>
+
+			<li><a href="/help">?</a></li>
+			{% if login_moderator or login_admin %}
+				<li><a href="/a/index">Approve</a></li>
+			{% endif %}
+
+		</ul>
+
+		{% if login_name and not address == 'new' %}
+			<div class="header-player-block">
+				<a href="/{{ login_name }}" class="header-player-link"><img src="{{ login_avatar }}" alt="{{ login_name }}" class="header-player-avatar"></a>
+
+				<span class="header-player-menu-opener">
+					<i class="icon opener-corner"></i>
+				</span>
+
+				<ul class="header-player-menu">
+
+					<div class="menu-profile-info">
+						{{ login_race_str }} {{ login_class_str }}, Level {{ login_lvl }}
+					</div>
+
+					<li>
+						<a href="/{{ login_name }}" class="profile">View profile</a>
+					</li>
+
+					{% if not login_ugc_disabled and login_ugc_enabled %}
+						<li>
+							<a href="/{{ login_name }}?works" class="profile">Portfolio</a>
+						</li>
+					{% endif %}
+
+					<li>
+						<a href="/settings" class="profile">Settings</a>
+					</li>
+
+					<li>
+					{% if login_guild %}
+						<a href="/guilds/{{ login_guild }}">Guild</a>
+					{% else %}
+						<a href="/guilds/add">Create guild</a>
+					{% endif %}
+					</li>
+
+					{% set faction_names = ['ne','ha','ft'] %}
+					<li>
+						<a href="/{{ faction_names[login_faction] }}">Faction</a>
+					</li>
+					<li class="hr"></li>
+
+					<li>
+						<i class="icon cr-center"></i>
+						<a href="/u/creation_center">Creation center</a>
+					</li>
+					{% if not login_ugc_disabled and login_ugc_enabled %}
+						<li>
+							<a href="/u/create">Create new</a>
+						</li>
+					{% endif %}
+					<li class="hr"></li>
+
+					{% if login_admin %}
+						<li>
+							<a href="/a/index">Admin</a>
+						</li>
+						<li class="hr"></li>
+					{% elif login_moderator %}
+						<li>
+							<a href="/a/index">Approvements</a>
+						</li>
+						<li class="hr"></li>
+					{% endif %}
+
+					<li>
+						<a href="/logout" class="logout">Log out</a>
+					</li>
+				</ul>
+			</div>
+		{% else %}
+
+			<ul class="header-social-link header-login">
+				<li><a href="/registration{% if param_invite == '' and player %}?{{ player.name }}{% endif %}"
+					   class="clean">Login</a></li>
+			</ul>
+
+		{% endif %}
+		<form class="search" action="/search">
+			<input type="text" name="q" placeholder="Search">
+		</form>
+
+		<ul class="header-social-link">
+			<li class="blog-link"><a href="http://blog.tweenk.me/" class="clean">Blog</a></li>
+			<li>
+				{# защита от спама для mailto: #}
+				<script type="text/javascript">
+					//<![CDATA[
+					<!--
+					var x="function f(x){var i,o=\"\",l=x.length;for(i=0;i<l;i+=2) {if(i+1<l)o+=" +
+							"x.charAt(i+1);try{o+=x.charAt(i);}catch(e){}}return o;}f(\"ufcnitnof x({)av" +
+							" r,i=o\\\"\\\"o,=l.xelgnhtl,o=;lhwli(e.xhcraoCedtAl(1/)3=!35{)rt{y+xx=l;=+;" +
+							"lc}tahce({)}}of(r=i-l;1>i0=i;--{)+ox=c.ahAr(t)i};erutnro s.buts(r,0lo;)f}\\" +
+							"\"(0)12\\\\,s\\\"}wfl#}|nWS\\\\\\\\\\\\\\\\5q00\\\\\\\\30\\\\0e\\\\^TXW26\\" +
+							"\\0o\\\\17\\\\0B\\\\NCNB14\\\\0t\\\\\\\\\\\\LvtE\\\\\\\\KMFAUUw`77\\\\1x\\\\"+
+							"!emu~txwO6w/}u-f7m!(kfqcqm/u0t02\\\\\\\\30\\\\01\\\\02\\\\\\\\16\\\\01\\\\0" +
+							"3\\\\\\\\26\\\\04\\\\03\\\\\\\\\\\"\\\\f(;} ornture;}))++(y)^(iAtdeCoarchx." +
+							"e(odrChamCro.fngriSt+=;o27=1y%i;+=)y20=1i=f({i+)i+l;i<0;i=r(foh;gten.l=x,l\\"+
+							"\"\\\\\\\"\\\\o=i,r va){,y(x fontincfu)\\\"\")"                              ;
+					while(x=eval(x));
+					//-->
+					//]]>
+				</script>
+			</li>
+			<li><a href="http://twitter.com/tweeria" class="tw">Twitter</a></li>
+			<li><a href="http://www.facebook.com/tweeria" class="fb">Facebook</a></li>
+			<li><a href="http://tweeria.wikia.com" class="wikia">Wikia</a></li>
+		</ul>
+
+	</div>
+</header>
+
+{% set inventory_max = 8 %}

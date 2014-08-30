@@ -1,0 +1,72 @@
+{% include "header.jinja2" %}
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-page cc-admin-invites-page">
+
+			{% if param_success %}
+				<div class="success-message">
+					<div>
+						You've added new tag successfully</div>
+				</div>
+			{% endif %}
+
+			{% if param_fail %}
+				<div class="error-message">
+					<div>
+						There is unknown error
+					</div>
+				</div>
+			{% endif %}
+
+			<div class="page-part">
+				<a class="link-back" href="/a/index">Back</a><br>
+
+				<h2>Add tag</h2>
+				<form method="POST">
+					#<input type="text" name="name" placeholder="hashtag, for example: Tweeria">
+					{tag:<input type="text" name="variable" placeholder="variable, for example: tag1">}
+					<input type="hidden" name="type_of_form" value="add_tag">
+					<input type="submit" value="Add tag" class="btn2 btn2-classic">
+				</form>
+			</div>
+
+			<h2>Tags:</h2>
+			<div class="timeline-admin">
+				<table class="passive-table">
+					<thead>
+					<tr>
+						<th>Tag</th>
+                        <th>Variable</th>
+						<th>Creator</th>
+						<th></th>
+					</tr>
+
+					</thead>
+					<tbody>
+						{% for tag in tags %}
+							<tr>
+								<td class="tag-content">#{{ tag.name }}</td>
+                                <td class="tag-content">{tag:{{ tag.variable }}}</td>
+								<td class="tag-content">{{ tag.author_name }}</td>
+								<td>
+									<form method="post">
+										<input type="hidden" value="{{ tag.uid }}" name="uid">
+										<input type="hidden" value="tag_delete" name="type_of_form">
+										<a href="#" onclick="$(this).parent().submit();">Delete</a>
+									</form>
+								</td>
+							</tr>
+						{% endfor %}
+
+					</tbody>
+				</table>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+{% include "footer.jinja2" %}

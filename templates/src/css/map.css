@@ -1,0 +1,395 @@
+
+/*
+* sprite-map
+*/
+#map-sprite {
+    position: relative;
+
+    overflow: hidden;
+
+/* width: 100%; */
+    width: 100%;
+/* height: 2558px; */
+
+    height: 700px;
+    margin: 0 auto;
+}
+.ie #map-sprite {
+    overflow: auto;
+}
+.global-map-wrapper {
+    position: absolute;
+    z-index: 2;
+
+    width: 2157px;
+    height: 1996px;
+}
+.global-map {
+    position: absolute;
+
+    width: 2169px;
+    height: 2016px;
+
+    margin-top: -20px;
+    margin-left: -12px;
+}
+.global-map img {
+    display: block;
+    float: left;
+
+    /* width: 321px; */
+    /* height: 363px; */
+}
+.player-baloon {
+    position: absolute;
+    z-index: 5;
+
+    padding: 5px;
+
+    cursor: pointer;
+
+    border: 2px solid gray;
+    border-radius: 5px;
+    background: white;
+}
+.player-baloon.small {
+    width: 1px;
+    height: 1px;
+
+    cursor: pointer;
+    text-indent: -99999px;
+
+    background: red;
+}
+
+.some-baloon {
+    position: absolute;
+    z-index: 4;
+
+    padding: 6px;
+
+    cursor: pointer;
+
+    border: 2px solid gray;
+    border-radius: 5px;
+    background: white;
+}
+.some-baloon.small {
+    width: 1px;
+    height: 1px;
+
+    cursor: pointer;
+    text-indent: -99999px;
+
+    border: 3px solid blue;
+    border-radius: 3px;
+    background: black;
+}
+
+.map-form {
+    position: absolute;
+    z-index: 3;
+
+    display: none;
+
+    padding: 10px;
+
+    border: 2px solid gray;
+    border-radius: 3px;
+    background: #fff;
+}
+.map-form ul {
+    list-style: none;
+}
+.map-form ul li {
+    padding: 4px 0;
+
+    white-space: nowrap;
+}
+.map-form ul li .button {
+    padding: 2px 5px;
+}
+.map-point {
+    position: absolute;
+    z-index: 4;
+
+    padding: 5px;
+
+    cursor: pointer;
+
+    border: 2px solid green;
+    border-radius: 5px;
+    background: white;
+}
+.map-point.small {
+    width: 1px;
+    height: 1px;
+
+    text-indent: -99999px;
+}
+/*Playrs*/
+.player-mark {
+
+    position: absolute;
+    z-index: 101;
+
+    width: 16px;
+    height: 16px;
+
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+
+
+    color: #000; /* text color */
+    border: 1px solid #fff; /* stroke */
+    border-radius: 8px;
+
+    background: #fff;
+    -webkit-box-shadow: 2px 3px 3px rgba(0,0,0,.33); /* drop shadow */
+
+    -moz-box-shadow: 2px 3px 3px rgba(0,0,0,.33); /* drop shadow */
+    box-shadow: 2px 3px 3px rgba(0,0,0,.33); /* drop shadow */
+
+    font-family: "PT Serif", serif;
+    font-size: 12px;
+    font-weight: bold;
+}
+.player-mark.current-player-mark {
+    border: 2px solid red;
+    border-radius: 10px;
+}
+.player-mark img {
+    width: 16px;
+    height: 16px;
+    /*margin-top: -2px;*/
+
+    border-radius: 7px;
+}
+.player-map-list {
+    position: absolute;
+    z-index: 100;
+
+    display: none;
+    overflow: auto;
+
+    min-width: 130px;
+    max-height: 145px;
+    margin: 8px;
+    padding: 9px;
+    padding-left: 12px;
+
+    list-style-type: none;
+
+    color: #898989; /* text color */
+    border-radius: 4px;
+    background-color: #fff; /* color overlay */
+    -webkit-box-shadow: 3px 4px 5px rgba(0,0,0,.36); /* drop shadow */
+    -moz-box-shadow: 3px 4px 5px rgba(0,0,0,.36); /* drop shadow */
+    box-shadow: 3px 4px 5px rgba(0,0,0,.36); /* drop shadow */
+
+    font-family: "PT Serif", serif;
+    font-size: 10px;
+}
+.player-map-list li {
+    padding-bottom: 5px;
+}
+.player-map-list .player-map-title {
+    text-decoration: none;
+
+    color: #876100; /* text color */
+
+    font-family: "PT Serif", serif;
+    font-size: 14px;
+}
+.player-map-list .player-map-title-current {
+    text-decoration: none;
+
+    color: #c50000; /* text color */
+
+    font-family: "PT Serif", serif;
+    font-size: 14px;
+}
+.player-map-list .player-map-info {
+    display: block;
+
+    margin-top: -3px;
+
+    color: #898989; /* text color */
+
+    font-family: "PT Serif", serif;
+    font-size: 10px;
+}
+.player-map-list .close-player-map-list {
+    position: absolute;
+    top: 3px;
+    right: 8px;
+
+    cursor: pointer;
+}
+
+/*Places*/
+
+.place-mark {
+    background: url(../../style/img/sprite.png) no-repeat -444px -97px;
+    width: 16px;
+    height: 22px;
+
+    position: absolute;
+    z-index: 101;
+
+    cursor: pointer;
+}
+.place-mark.active {
+    background: url(../../style/img/sprite.png) no-repeat -475px -98px;
+    width: 20px;
+    height: 20px;
+    margin-left: -1px;
+}
+.place-mark.current-place-mark {
+    border: 2px solid red;
+    border-radius: 10px;
+}
+.place-mark img {
+    width: 16px;
+    height: 16px;
+    /*margin-top: -2px;*/
+
+    border-radius: 7px;
+}
+.place-map-list {
+    position: absolute;
+    z-index: 100;
+
+    display: none;
+    overflow: auto;
+
+    min-width: 130px;
+    max-height: 145px;
+    margin: 8px;
+    padding: 9px;
+    padding-left: 12px;
+
+    list-style-type: none;
+
+    color: #898989; /* text color */
+    border-radius: 5px 0 0 0;
+    background-color: #fff; /* color overlay */
+    -webkit-box-shadow: 3px 4px 5px rgba(0,0,0,.36); /* drop shadow */
+    -moz-box-shadow: 3px 4px 5px rgba(0,0,0,.36); /* drop shadow */
+    box-shadow: 3px 4px 5px rgba(0,0,0,.36); /* drop shadow */
+
+    font-family: "PT Serif", serif;
+    font-size: 10px;
+}
+.place-map-list li {
+    padding-bottom: 5px;
+}
+.place-map-list .place-map-title {
+    text-decoration: none;
+
+    color: #876100; /* text color */
+
+    font-family: "PT Serif", serif;
+    font-size: 14px;
+}
+.place-map-list .place-map-title-current {
+    text-decoration: none;
+
+    color: #c50000; /* text color */
+
+    font-family: "PT Serif", serif;
+    font-size: 14px;
+}
+.place-map-list .place-map-info {
+    display: block;
+
+    margin-top: -3px;
+
+    color: #898989; /* text color */
+
+    font-family: "PT Serif", serif;
+    font-size: 10px;
+}
+.place-map-list .close-place-map-list {
+    display: none;
+    position: absolute;
+    top: 3px;
+    right: 8px;
+
+    cursor: pointer;
+}
+
+.place-map-list a.create-raid {
+    color: #b83000;
+    display: block;
+    font-family: "PT Serif";
+    font-size: 12px;
+    padding-top: 10px;
+}
+.place-map-list .place-go {
+    color: #555555;
+    display: block;
+    font-family: "PT Serif";
+    font-size: 12px;
+    padding-top: 10px;
+}
+.place-map-list .place-go a{
+    color: #895700;
+}
+
+.map-layer {
+    position: absolute;
+}
+#place-layer.map-layer {
+    display: none;
+}
+
+.layer-toggler-wrap {
+    position: absolute;
+    width: 954px;
+    z-index: 200;
+}
+.layer-toggler {
+    background: #fff;
+    border-radius: 4px;
+    margin: 10px auto 0;
+    padding: 4px;
+    width: 234px;
+}
+
+.layer-toggler .toggler {
+    display: inline-block;
+    background: url(../../style/img/sprite.png) no-repeat -12px -989px;
+    width: 92px;
+    height: 26px;
+    color: #000; /* text color */
+    font-family: "Trajan Pro";
+    font-size: 12px;
+    text-shadow: 0 1px 0 rgba(255,255,255,.42); /* drop shadow */
+    text-align: center;
+    line-height: 26px;
+    text-decoration: none;
+    margin-right: 4px;
+}
+.layer-toggler .toggler:hover {
+    background: url(../../style/img/sprite.png) no-repeat -12px -1026px;
+    width: 92px;
+    height: 26px;
+}
+.layer-toggler .toggler.active,.layer-toggler .toggler:active {
+    background: url(../../style/img/sprite.png) no-repeat -12px -1061px;
+    width: 92px;
+    height: 26px;
+    color: #fff; /* text color */
+}
+.layer-toggler a.help {
+    color: #895700;
+    font-family: "PT Serif";
+    font-size: 12px;
+    line-height: 26px;
+    padding-left: 5px;
+}
+.layer-toggler a.help:hover {
+    text-decoration: none;
+}

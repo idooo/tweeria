@@ -1,0 +1,79 @@
+.shop-top-shadow {
+    background: url('../../style/img/sprite-bar.png') repeat-x 0 -742px;
+    height: 130px;
+    margin-top: -130px;
+}
+
+.shop-bottom-shadow {
+    background: url('../../style/img/sprite-bar.png') repeat-x 0 -874px;
+    height: 130px;
+    margin-top: 0;
+    margin-left: -22px;
+}
+
+.main-top-desc-block {
+    z-index: 2;
+    position: relative;
+}
+
+.items h2 {
+    padding-top: 5px;
+}
+
+.items h2, .main-trending-players h2, .famous-guilds h2 {
+    color: #e6b265;
+}
+
+.main-trending-players .main-tranding-playes-list, .famous-guilds .famous-guilds-list {
+    margin: 20px 0 0 -1px;
+}
+
+
+.shop-item-table th a {
+    text-decoration: none;
+}
+
+    .shop-item-table th a:hover {
+        color: #A46140;
+    }
+
+    .shop-item-table th.sorted-1 i,.ratings-table  th.sorted-1 i {
+        background: url('../../style/img/sprite.png') no-repeat -22px -160px;
+        width: 7px;
+        height: 4px;
+        display: inline-block;
+        margin-left: 6px;
+        margin-bottom: 2px;
+    }
+
+    .shop-item-table th.sorted1 i,.ratings-table  th.sorted1 i {
+        background: url('../../style/img/sprite.png') no-repeat -8px -160px;
+        width: 7px;
+        height: 4px;
+        margin-left: 6px;
+        margin-bottom: 2px;
+        display: inline-block;
+    }
+
+.shop-item-table th.type { width: 65px; }
+.shop-item-table th.lvl_min { width: 45px; }
+.shop-item-table th.author { width: 126px; }
+.shop-item-table th.cost { width: 65px; }
+.shop-item-table th.likes { width: 45px; }
+.shop-item-table th.date { width: 90px; }
+
+.main-left .top-shadow {
+    width: 490px;
+    background: url('../../style/img/sprite-bar.png') repeat-x 0 -1110px;
+    height: 18px;
+    position: absolute;
+}
+
+.main-left .top-right-shadow {
+    width: 510px;
+    margin-top: -14px;
+}
+
+.shop-top-shadow {
+    width: 480px;
+}

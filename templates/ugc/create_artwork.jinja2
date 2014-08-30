@@ -1,0 +1,220 @@
+{% include "header.jinja2" %}
+
+<div id="crop-cont" style="display:none; text-align:center;">
+	<img src="" alt="Image to crop" id="thumb">
+	<a id="crop-image" href="/u/ajax/?action=crop_image" class="create-item-button">Crop Image</a>
+</div>
+
+<script src="/js/page_scripts/create_artwork.js?{{ build }}"></script>
+<script type="text/javascript">
+	var pageImgInputId = "art-pre-image";
+</script>
+<script src="/js/page_scripts/crop_img.js?{{ build }}"></script>
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg craft-artwork-page">
+			<a class="link-back" href="/u/creation_center">Creation center</a>
+
+			<h2>New artwork</h2>
+
+			<div class="error-message">
+				<div style="display:{% if errors or critical_error %}block{% else %}none{% endif %};">
+					{% if errors or critical_error %}
+
+						{% for error in errors %}
+
+							{% if error.name == 'name' %}
+								Name
+							{% elif error.name == 'img' %}
+								Image
+							{% elif error.name == 'desc' %}
+								Description
+							{% elif error.name == 'cost' %}
+								Cost
+							{% endif %}
+
+							{% if error.desc == 'min_length_fail' %}
+								must be longer
+							{% elif error.desc == 'null' %}
+								must not be empty
+							{% elif error.desc == 'not_greater' %}
+								must be greater
+							{% elif error.desc == 'not_int' %}
+								must be a number
+							{% elif error.desc == 'dublicate' %}
+								already exist. Please select the new name
+							{% elif error.desc == 'not_match' %}
+								can contain only latin letters and numbers
+							{% endif %}
+							<br>
+
+						{% endfor %}
+
+						{{ critical_error }}
+					{% endif %}
+				</div>
+			</div>
+
+
+			<div class="create-artwork-form-wrapper">
+				<form action="" method="post" id="upload-image-form" {% if 'img' in error_fields %}
+					  class="error_field" {% endif %}>
+
+					<input type="hidden" name="type_of_form" value="create_artwork"/>
+					<input type="file" name="img" id="art-pre-image" class="artwork-image-field"
+						   data-imgsize="240px 400px" data-aspect="0.6">
+
+					<div class="preview" style="display:none;">
+						<img width="150px" height="100px" src="http://placehold.it/150x100"/>
+
+						<input type="hidden" id="x1" name="x1"/>
+						<input type="hidden" id="y1" name="y1"/>
+						<input type="hidden" id="x2" name="x2"/>
+						<input type="hidden" id="y2" name="y2"/>
+						<input type="hidden" id="w" name="w"/>
+						<input type="hidden" id="h" name="h"/>
+
+						<input type="hidden" id="img_to_crop" name="img_to_crop" value="">
+						<br>
+
+					</div>
+				</form>
+			</div>
+
+			<div class="create-artwork-form-wrapper">
+				<form action="" method="post" id="create-artwork-form">
+					<input type="hidden" name="type_of_form" value="create_artwork"/>
+					<input type="hidden" name="img" id="img-link">
+
+					<div class="create-artwork-right-form-part">
+						<div class="readme-block">
+							<a class="title" href="/help#creating">Read this first</a>
+							<p>
+								You must know some things about artworks creation and approvement
+							</p>
+						</div>
+
+						<div class="inline-field">
+							<label for="art-race" class="race-label">Race</label>
+							<select name="race" id="art-race" class="race-select">
+								<option value=""></option>
+								{% for race in races %}
+									<option value="{{ race.value }}">{{ race.name }} {% if race.name == login_race_str %}*{% endif %}</option>
+								{% endfor %}
+							</select>
+						</div>
+
+						<div class="inline-field">
+							<label for="art-class" class="class-label">Class</label>
+							<select name="class" id="art-class" class="race-select">
+								<option value=""></option>
+								{% for class in classes %}
+									<option value="{{ class.value }}">{{ class.name }} {% if class.name == login_class_str %}*{% endif %}</option>
+								{% endfor %}
+							</select>
+						</div>
+						<br class="clear">
+
+						<label class="name-label" for="art-name">Name</label>
+						<input {% if 'name' in error_fields %} class="error_field" {% endif %} type="text" name="name"
+															   id="art-name" value="{{ param_name }}">
+
+						<br class="clear">
+
+						<label for="art-text" label="text-label">Text</label>
+						<textarea name="desc" id="art-text" cols="30" rows="10"  {% if 'desc' in error_fields %}
+								  class="error_field" {% endif %}>{{ param_desc }}</textarea>
+						<br class="clear">
+
+						{% include "ugc/_artwork_info_creation.jinja2" %}
+						<br class="clear">
+
+						<h3>Cost</h3>
+						<hr class="right-line">
+						<br class="clear">
+
+						<div class="inline-field">
+							<div class="item-cost">
+								<label for="item-cost-gold">Gold</label> <input name="cost" type="text"
+																				value="{% if param_cost %}{{ param_cost }}{% else %}500{% endif %}"
+																				id="item-cost-gold"
+									{% if 'cost' in error_fields %} class="error_field" {% endif %}>
+
+								{# <label for="item-cost-real">$</label> <input type="text" name="real_cost"
+																			 value="Coming soon" disabled="disabled"
+																			 id="item-cost-real">
+								 #}
+							</div>
+						</div>
+
+
+						<div class="phantom-create-summary-block"></div>
+					</div>
+					<div class="create-summary-block with-absolute-position">
+						<br class="clear">
+
+						<input type="submit" value="Create" class="create-item-button">
+					</div>
+				</form>
+			</div>
+			<br class="clear">
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var $uploadForm = $("#upload-image-form"),
+			validateForm = "#create-artwork-form",
+			$imgInput = $("#img-link"),
+			validateAdditionalOptions = {
+				rules:{
+					"name":{
+						required:true,
+						minlength:3,
+						maxlength:40,
+						regexp:/^[a-zA-Z0-9\s\-\+\']+$/i
+					},
+					"desc":{
+						required:true,
+						minlength:5,
+						regexp: /^[a-zA-Z0-9\s\-\+\'\!\.\,\?\:\"\']+$/i
+					},
+					"img":{
+						required:true
+					},
+					"cost":{
+						required:true,
+						min: 1,
+						number:true
+					}
+				},
+				ignore:"",
+				showErrors:function (errorMap, errorList) {
+					if ($(".error-message div label:visible").size() == 0) {
+						$(".error-message div").hide();
+					}
+					this.defaultShowErrors();
+				},
+				highlight:function (element, errorClass, validClass) {
+					if (element.name == "img") {
+						$uploadForm.addClass("error_field");
+					}
+					if (element.type === 'radio') {
+						this.findByName(element.name).addClass(errorClass).removeClass(validClass);
+					} else {
+						$(element).addClass(errorClass).removeClass(validClass);
+					}
+				}
+			};
+	$imgInput.on("change", function () {
+		var $this = $(this);
+		if ($this.hasClass("error_field") && $uploadForm.hasClass("error_field") && $this.val() != "") {
+			$this.removeClass("error_field");
+			$(".error-message div label[for='img-link']").hide();
+			$uploadForm.removeClass("error_field");
+		}
+	});
+</script>
+<script src="/js/page_scripts/validate.js?{{ build }}"></script>
+
+{% include "footer.jinja2" %}

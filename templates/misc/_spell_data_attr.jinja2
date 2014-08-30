@@ -1,0 +1,60 @@
+{% if parent %}
+data-parent="{{ parent }}"
+{% else %}
+data-parent="spell-{{ spell._id }}"
+{% endif %}
+data-name="{{ spell.name }}"
+data-level="{{ spell.lvl_min }}"
+data-lvl_enough="{{ login_lvl|default(100) >= spell.lvl_min }}"
+data-img="{{ spell.img }}"
+data-author_name="{{ spell.author_name }}"
+data-desc="{{ spell.desc }}"
+data-cost="{{ spell.cost }}"
+{% if spell.img_info %}
+	data-img_author="{{ spell.img_info.name }}"
+	data-img_link="{{ spell.img_info.link }}"
+{% else %}
+	data-img_author=""
+	data-img_link=""
+{% endif %}
+
+data-is_like="{{ spell.is_like|lower }}"
+data-likes="{{ spell.likes }}"
+
+data-_id="{{ spell._id }}"
+date-create_date_f="{{ spell.create_date_f }}"
+data-manacost="{{ spell.mana_cost }}"
+data-keyword="{{ spell.keyword }}"
+{% if spell.already_have %}
+	data-already_have="{{ spell.already_have }}"
+{% endif %}
+data-rawactions='
+{% for action in spell.spell_actions %}
+	<li data-spellname="{{ action.name }}">
+		<div class="popup-left-part">
+								<span class="spell-img">
+									<img src="/data/effects/{{ action.img }}.jpg" alt="{{ action.img }}">
+								</span>
+			<h4 class="spell-title">{{ action.name }}</h4>
+			<i class="icon spell type_{{ action.type }}"></i><span class="spell-type">{{ action.power }}</span>
+		</div>
+		<div class="popup-right-part">
+			<span class="big">{% if action.type == 3 %}-{% elif action.type == 1 %}+{% endif %}{{ action.value }}</span> {{ stat_names[action.effect] }}
+		</div>
+	</li>
+{% endfor %}
+'
+
+data-shareurl="{{ host }}u/shop/?tab=spells"
+data-shareimage="{{ host+spell.img[3:] }}"
+data-sharetitletwitter="{{ spell.name }} is a cool spell"
+data-sharetitle="{{ spell.name }} is a cool item"
+data-shareauthor="{{ spell.author_name }}"
+data-sharedesc=""
+
+
+{% if login %}
+	data-login="true"
+{% else %}
+	data-login="false"
+{% endif %}

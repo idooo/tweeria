@@ -1,0 +1,161 @@
+{% include "header.jinja2" %}
+<script type="text/javascript" src="/js/page_scripts/admin_approve.js"></script>
+
+{% set spell_types = ['','+','','-'] %}
+{% if not stat_names %}
+	{% set stat_names = {'DEF': 'Defense',
+                'DMG': 'Damage',
+                'HP': 'Hit points',
+                'MP': 'Mana points',
+                'SPD': 'Speed',
+                'dex': 'Dexterity',
+                'fame': 'Fame',
+                'int': 'Intellect',
+                'karma': 'Karma',
+                'lead': 'Leaderhip',
+                'luck': 'Luck',
+                'mastery': 'Mastery',
+                'str': 'Strength'} %}
+{% endif %}
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-page">
+			<a class="link-back" href="/a/index">Back</a><br>
+
+			<h2>Spells to approve</h2>
+
+			<p class="read-rules">
+				Please read <a href="/help_ugc" target="_blank">new approvement rules</a> before approve
+			</p>
+
+			<div class="nothing-to-approve"{% if not spells %} style="display:block;"{% endif %}>
+				<h2>No spells</h2>
+			</div>
+
+			{% if spells %}
+				<div id="approve-block" data-type="spells">
+					<h2>Spells</h2>
+
+					{% for spell in spells %}
+						<div class="approve-item-wrapper">
+							<div class="approve-item">
+								<div class="image-container">
+									<img src="{{ spell.img }}" alt="">
+								{# <span class="level">Level {{ spell.lvl_min|default(1) }}</span>  #}
+									<br/>
+									{% if spell.img_info.link %}
+										<a class="artwork-source" href="http://{{ spell.img_info.link }}" target="_blank">Artwork Source</a><br>
+									{% endif %}
+
+									{% if spell.img_info.name %}
+										<br>{{ spell.img_info.name }}
+									{% endif %}
+
+									{% if spell.img_info.email %}
+										<br><a class="artwork-source" href="mailto:{{ spell.img_info.email }}">{{ spell.img_info.email }}</a>
+									{% endif %}
+
+									{% if spell.img_info.twitter %}
+										<br><a class="artwork-source" href="http://twitter.com/{{ spell.img_info.twitter }}">@{{ spell.img_info.twitter }}</a>
+									{% endif %}
+
+									{% if spell.img_info.iamauthor %}
+										<br><b>[He is author]</b>
+									{% endif %}
+
+									<br>License: {{ spell.img_info.copyright }}
+
+								</div>
+
+								<div class="info-container">
+									<div class="approve-name">
+										{% if spell.old_data %}<span class="item-was-edited">Edit</span>{% endif %}
+
+										{{ spell.name }}
+									</div>
+									<div class="keyword">
+										{{ spell.keyword }}
+									</div>
+									<div class="bonus">
+										<ul class="bonus-list">
+											{% for action in spell.spell_actions %}
+												<li>
+													{% if action.type == 3 %}-{% elif action.type == 1 %}
+														+{% endif %}{{ action.value }} {{ stat_names[action.effect] }}
+
+												</li>
+											{% endfor %}
+										</ul>
+									</div>
+									<span class="mana-cost"><i
+											class="icon mana-cost-small"></i>{{ spell.mana_cost }}</span>
+
+									<p class="desc">{{ spell.desc }}</p>
+
+									<span class="cost"><i class="icon gold-3"></i> {{ spell.cost }}</span>
+									<a class="author">@{{ spell.author_name }}</a>
+
+									{% if spell.old_data %}
+										<div class="old-data">
+											Old data:<br>
+											{% for data in spell.old_data %}
+												{{ data|capitalize }}: {{ spell.old_data[data] }}<br>
+											{% endfor %}
+										</div>
+									{% endif %}
+
+								</div>
+
+								<div class="reject-container">
+
+									<h4>Reject reason:</h4>
+
+									<form method="post" action="">
+
+										<ul class="reason-list">
+											{% for reason in reasons %}
+												<li class="reason-item">
+													<input type="checkbox" name="reject_reason{{ reason.id }}"
+														   id="reason-{{ loop.index }}-{{ spell._id }}">
+													<label for="reason-{{ loop.index }}-{{ spell._id }}">{{ reason.name }}</label>
+												</li>
+											{% endfor %}
+										</ul>
+										<input type="hidden" value="reject_spell" name="type_of_form">
+										<input type="hidden" value="{{ spell._id }}" name="_id">
+										{#<textarea name="reject_reason"
+										  placeholder="You must write why you rejected this"></textarea>#}
+										<input type="submit" value="Reject" class="flat-button reject">
+										<input type="checkbox" name="force_delete" id="force_delete"> <label
+											class="force-delete-label" for="force_delete">Force delete</label>
+									</form>
+
+								</div>
+
+								<div class="approve-container">
+									<form method="post" action="">
+										<input type="hidden" value="approve_spell" name="type_of_form">
+										<input type="hidden" value="{{ spell._id }}" name="_id">
+										<label for="tag">Category:</label>
+										<select name="tag" id="tag">
+
+											<option value=""></option>
+											{% for cat in categories %}
+												<option value="{{ cat.value }}" {% if cat.value == tag %}
+														selected {% endif %}>{{ cat.name }}</option>
+											{% endfor %}
+										</select>
+										<input type="submit" value="Approve" class="flat-button approve">
+									</form>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

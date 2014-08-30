@@ -1,0 +1,46 @@
+{% include "header.jinja2" %}
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-help-page">
+			<a class="link-back" href="/help">Help</a>
+			<h2>Art authorization</h2>
+			<div id="accordion-help">
+				<div>
+					<p>
+						All items in the game are divided into two categories by their artworks:<br><br>
+						<b>1) Non-authorized artworks<br></b>
+						If the art of this item or spell or this artwork was not placed in Tweeria by
+						it’s author, we should be sure that author give us rights to use his art in the game.
+						If you know author’s contact details, you can help us and <a href="mailto:yeah@tweenk.me?subject=I know author!">send us</a> a mail with this data.
+					</p>
+					<p>
+						If author wrote us that he don’t want to place his art in the game, we will delete it from all our pages.
+					</p>
+					<p>
+						You cannot buy character’s artwork which not authorized.
+					</p>
+					<p>
+						<b>2) Authorized<br></b>
+						When artwork was authorized we change it’s status and every player in the game
+						can buy it to use as his character’s avatar.
+					</p>
+					<p>
+						If you are an author of an image and you don’t mind placing your art on our website,
+						if you want thousands of players to see your artworks, <a href="mailto:yeah@tweenk.me?subject=Yay! Artwoks!">send them</a> to us. Don’t
+						forget to mention your contact details and a reference to your portfolio.
+				</div>
+			</div>
+
+
+			<div class="clear"></div>
+			<p class="bottom-help-container">
+				{% if login_name %}
+					<a href="/{{ login_name }}" class="btn2 btn2-classic btn2-wide">Back to hero</a>
+				{% else %}
+					<a href="/registration" class="btn2 btn2-classic btn2-wide">Sign up!</a>
+				{% endif %}
+			</p>
+		</div>
+	</div>
+</div>

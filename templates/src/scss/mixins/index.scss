@@ -1,0 +1,47 @@
+
+@mixin shadow($first, $second) {
+  -moz-box-shadow: $first, $second;
+  -webkit-box-shadow: $first, $second;
+  box-shadow: $first, $second;
+}
+
+@mixin placeholder-color($color) {
+  &::-webkit-input-placeholder { color: $color; }
+  &:-moz-placeholder { color: $color; }
+  &::-moz-placeholder { color: $color; }
+  &:-ms-input-placeholder { color: $color; }
+}
+
+/* === Standart Form === */
+
+@mixin input-text-standart  {
+  border: 1px solid #c3c2be;
+  background: #fff;
+  line-height: 27px;
+  padding: 3px 9px 0;
+  margin-bottom: 20px;
+  height: 24px;
+
+  @include shadow(0 1px 0 rgba(255, 255, 255, .45), inset 1px 2px 4px rgba(0, 0, 0, .07));
+
+  &.invalid {
+    border-color: #ff5c5c;
+  }
+
+}
+
+@mixin input-textarea-standart {
+  @include input-text-standart;
+  line-height: 19px;
+}
+
+/* ==== Containers === */
+
+@mixin container-one {
+  margin-top: 10px;
+  padding-bottom: 30px;
+  vertical-align: top;
+  margin-left: 12px;
+  color: black;
+  font-size: 14px;
+}

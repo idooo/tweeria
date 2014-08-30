@@ -1,0 +1,142 @@
+{% include "header.jinja2" %}
+
+<script src="/js/page_scripts/upcoming_events.js?{{ build }}"></script>
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg upcoming-events-detail-page ">
+
+
+			{% if param_fail %}
+				<div class="error-message type-2">
+					<div>
+						{% if param_n == 'same_time_error' %}
+							You can't be in two different events simultaneously
+						{% endif %}
+						{% if param_n == 'no_guild' %}
+							There is no guild with that name
+						{% endif %}
+                        {% if param_n == 'your_guild' %}
+							Nice try! You can't attack your guild
+                        {% endif %}
+					</div>
+				</div>
+			{% endif %}
+
+			<a class="link-back" href="/u/events">Events</a>
+
+			<h2>New event</h2>
+
+
+			{% if not can_create_gvg %}
+				<div class="why-cant-create-gvg">
+					<h2>You can't create <br>Guild vs. guild event</h2>
+					<ul>
+						<li>
+							Only guild leader or 5 top pvp guild members
+							can create guild vs. guild events
+						</li>
+						<li>
+							One player can't create more than one
+							guild vs. guild event
+						</li>
+					</ul>
+				</div>
+			{% endif %}
+
+			<div class="new-event-form" style="display: block">
+				<form method="post">
+					<div class="new-event-fieldset">
+						<label class="new-event-label label-event-type" for="event-type">Event type:</label>
+
+						<div class="new-event-field">
+							<input type="hidden" name="event-type" id="event-type" value="raid">
+							<ul class="event-filter-list">
+								<li><a href="#" data-type="raid" class="active new-event-type-toggler">Raid</a></li>
+								{% if can_create_gvg %}
+									<li><a href="#" data-type="war" class="new-event-type-toggler">Guild war</a></li>
+								{% endif %}
+							</ul>
+						</div>
+					</div>
+
+					<div class="new-event-fieldset event-type-depend raid-block">
+						<label class="new-event-label" for="dungeon">Dungeon</label>
+
+						<div class="new-event-field">
+							<select name="where" id="dungeon">
+								{% for event in available_raids %}
+									<option value="{{ event.UID }}" {% if param_hash == event.hashtag %}selected{% endif %}>{{ event.name }} ({{ event.lvl_min }})</option>
+								{% endfor %}
+							</select>
+						</div>
+					</div>
+
+					<div class="new-event-fieldset event-type-depend guild-block war-block" style="display:none;">
+						<label class="new-event-label" for="guild">Guild</label>
+
+						<div class="new-event-field">
+							<input type="text" name="vs_guild" class="text-input" id="guild">
+						</div>
+					</div>
+
+					<div class="new-event-fieldset start-time-block">
+						<label class="new-event-label" for="start-time">Start time</label>
+
+						<div class="new-event-field">
+							<input type="text" name="start_date" id="start-time" class="new-event-time"
+								   value="{{ upcoming_time_f }}">
+							<span class="event-form-annotation">Length of raid run is about 1 hour</span>
+						</div>
+					</div>
+
+					<div class="new-event-fieldset" >
+						<label class="new-event-label" for="guild">Hashtag</label>
+
+						<div class="new-event-field">
+							<input type="text" name="hashtag" class="text-input" value="#raid">
+						</div>
+					</div>
+
+
+					{% if login_guild %}
+					<div class="new-event-fieldset event-type-depend raid-block">
+						<label class="new-event-label" for="guild-run"></label>
+
+						<div class="new-event-field">
+							<input class="checkbox" type="checkbox" name="guild_run" id="guild-run">
+							<label class="new-event-label-right" for="guild-run">Guild run</label>
+							<span class="event-form-annotation db">Only your guild mates can join this raid</span>
+
+						</div>
+					</div>
+					{% endif %}
+
+					<div class="new-event-fieldset description-block">
+						<label class="new-event-label" for="desc">Description</label>
+
+						<div class="new-event-field">
+							<textarea class="textarea" name="desc" id="desc">{{ param_desc }}</textarea>
+
+						</div>
+					</div>
+					<br class="clear">
+
+					<input type="hidden" name="type_of_form" value="start_new_event">
+
+					<input type="hidden" id="event_type_field" name="event_type" value="raid">
+
+					<br class="clear">
+					<div class="create-event-button-container">
+						<input type="submit" value="Create" class="btn2 btn2-classic btn2-wide">
+					</div>
+
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+{% include "footer.jinja2" %}

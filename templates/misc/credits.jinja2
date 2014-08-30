@@ -1,0 +1,174 @@
+{% include "header.jinja2" %}
+
+
+{% set authors = [
+	{
+		'link': 'http://opengameart.org/content/weapon-icons-32x32px-painterly',
+		'author': 'Scrittl',
+		'license': 'CC-BY 3.0, CC-BY-SA 3.0, GPL 3.0'
+	},
+	{
+		'link': 'http://opengameart.org/content/armor-icons-32x32-px-painterly',
+		'author': 'Scrittl',
+		'license': 'CC-BY 3.0, CC-BY-SA 3.0, GPL 3.0'
+	},
+	{
+		'link': 'http://opengameart.org/content/rpg-items-zoomed',
+		'author': 'Jetrel',
+		'license': 'CC0 1.0'
+	},
+	{
+		'link': 'http://opengameart.org/content/armor-icons-by-equipment-slot-with-transparency',
+		'author': 'Clint Bellanger, Blarumyrran, crowline, Justin Nichol',
+		'license': 'CC0 1.0'
+	},
+	{
+		'link': 'http://opengameart.org/content/32x32-fantasy-tileset',
+		'author': 'Jerom',
+		'license': 'CC-BY-SA 3.0',
+	},
+	{
+		'link': 'http://opengameart.org/content/items',
+		'author': 'Reid',
+		'license': 'CC-BY-SA 3.0',
+	},
+	{
+		'link': 'http://opengameart.org/content/roguelike-tiles-large-collection',
+		'author': 'David E. Gervais',
+		'license': 'CC-BY 3.0',
+	},
+	{
+		'link': 'http://opengameart.org/content/tools-and-other-items',
+		'author': 'wokste',
+		'license': 'CC-BY-SA 3.0, CC-BY 3.0',
+	},
+	{
+		'link': 'http://opengameart.org/content/flare-compatible-ish-item-icons',
+		'author': 'Stephen Challener (Redshrike), Sandstein',
+		'license': 'CC-BY 3.0',
+	},
+	{
+		'link': 'http://opengameart.org/content/set-items',
+		'author': 'elerya',
+		'license': 'CC-BY 3.0',
+	},
+	{
+		'link': 'http://opengameart.org/content/rpg-item-set',
+		'author': 'Jetrel',
+		'license': 'CC0 1.0',
+	},
+	{
+		'link': 'http://opengameart.org/content/flare-item-variation-60x60-only',
+		'author': 'Mumu',
+		'license': 'CC0 1.0',
+	},
+	{
+		'link': 'http://opengameart.org/content/osare-weapon-icons',
+		'author': 'Blarumyrran',
+		'license': 'CC0 1.0',
+	},
+	{
+		'link': 'http://opengameart.org/content/skill-item-and-spell-icons',
+		'author': 'Paulius Jurgelevičius',
+		'license': 'CC0 1.0'
+	},
+	{
+		'link': 'http://opengameart.org/content/weapons-64x64',
+		'author': 'LordNeo',
+		'license': 'CC0 1.0'
+	},
+	{
+		'link': 'http://opengameart.org/content/weapon-icons',
+		'author': 'Tartos',
+		'license': 'CC-BY-SA 3.0'
+	},
+	{
+		'link': 'http://opengameart.org/content/weapons-icons',
+		'author': 'elerya',
+		'license': 'CC-BY 3.0'
+	},
+	{
+		'link': 'http://opengameart.org/content/kingdom-weapon-set',
+		'author': 'Clint Bellanger',
+		'license': 'CC-BY-SA 3.0'
+	},
+	{
+		'link': 'http://opengameart.org/content/elven-weapon-set',
+		'author': 'Clint Bellanger',
+		'license': 'CC-BY-SA 3.0'
+	},
+	{
+		'link': 'http://opengameart.org/content/fantasy-icon-pack-by-ravenmore-20',
+		'author': 'Ravenmore',
+		'license': 'CC-BY 3.0'
+	},
+	{
+		'link': 'http://opengameart.org/content/fantasy-icon-pack-by-ravenmore',
+		'author': 'Ravenmore',
+		'license': 'CC-BY 3.0'
+	},
+	{
+		'link': 'http://opengameart.org/content/141-military-icons-set',
+		'author': 'AngryMeteor.com',
+		'license': 'CC-BY 3.0'
+	},
+	{
+		'link': 'http://opengameart.org/content/random-rpg-icons-part-1',
+		'author': 'HorrorPen',
+		'licens': 'CC-BY 3.0'
+	},
+	{
+		'link': 'http://opengameart.org/content/modified-and-cliped-magic-skill-item-icons',
+		'author': 'Paulius Jurgelevičius',
+		'license': 'CC0 1.0'
+	},
+	{
+		'link': 'http://www.pixeljoint.com/pixelart/40749.htm',
+		'author': 'Windwhisper'
+	},
+	{
+		'link': 'http://opengameart.org/content/animals-and-tea-by-strawheart',
+		'author': 'strawheart',
+		'license': 'CC-BY-SA 3.0'
+	}
+
+] %}
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-help-page">
+
+			<h2>Credits</h2>
+			<div id="accordion-help">
+				<h3><a class="ac-head" name="game-art">In-game art</a></h3><br>
+				<div>
+					All game art (including basic items, spells, trivia items, achievements icons)
+					created by these authors and used under open licenses:
+
+					<ul class="open-art-authors">
+						{% for author in authors %}
+							<li>
+								<a href="{{ author.link }}">{{ author.link }}</a><br>
+								by {{ author.author }} <i>{{ author.license }}</i>
+							</li>
+						{% endfor %}
+
+					</ul>
+
+				</div>
+			</div>
+
+			<div class="clear"></div>
+			<p class="bottom-help-container">
+				{% if login_name %}
+					<a href="/{{ login_name }}" class="btn2 btn2-classic btn2-wide">Back to hero</a>
+				{% else %}
+					<a href="/registration" class="btn2 btn2-classic btn2-wide">Sign up!</a>
+				{% endif %}
+			</p>
+
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

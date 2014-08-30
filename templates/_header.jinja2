@@ -1,0 +1,178 @@
+﻿<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en" itemscope itemtype="http://schema.org/twshare"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en" itemscope itemtype="http://schema.org/twshare"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en" itemscope itemtype="http://schema.org/twshare"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" itemscope itemtype="http://schema.org/twshare"> <!--<![endif]-->
+<!--[if IE]><!--> <html class="no-js ie" lang="en" itemscope itemtype="http://schema.org/twshare"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>
+		{% if page_title_name %}{{ page_title_name }} — {% endif %}
+		Tweeria {{ version }} — Lazy Twitter RPG
+	</title>
+	<meta name="keywords" content="tweeria rpg mmorpg twitter rpg lazy tweenk">
+	<meta name="description" content="Lazy Twitter RPG">
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width">
+
+
+
+
+	{#<link rel="stylesheet" href="/style/tweenk-ui/jquery-ui-1.8.23.custom.css?{{ build }}">
+
+	<link rel="stylesheet" type="text/css" href="/style/jquery.fancybox.css?{{ build }}" media="all">
+	<link rel="stylesheet" type="text/css" href="/style/jquery.cluetip.css?{{ build }}" media="all">
+	<link rel="stylesheet" type="text/css" href="/style/uniform.aristo.css?{{ build }}" media="all">
+	<link rel="stylesheet" type="text/css" href="/style/tweenk-ui/jquery.Jcrop.css?{{ build }}" media="all">#}
+	<link rel="stylesheet" type="text/css" href="/style/plugins.css?{{ build }}" media="all">
+
+	<link rel="stylesheet" href="/style/style.css?{{ build }}">
+	<link rel="stylesheet" href="/style/ido.css?{{ build }}">
+	<link rel="stylesheet" href="/style/map.css?{{ build }}">
+	<link rel="stylesheet" href="/style/style-to-merge.css?{{ build }}">
+
+	{#	<link rel="stylesheet" href="/style/style_merged.css?{{ build }}">#}
+	<link rel="shortcut icon" href="/style/favicon.ico" />
+	<link rel="icon" type="image/png" href="/style/favicon.png" />
+
+
+	<meta itemprop="name" id="gp-widget-title" content="">
+	<meta itemprop="description" id="gp-widget-desc" content="">
+	<meta itemprop="image" content="" id="gp-widget-img">
+
+	<meta property="og:title" id="og-title" content="Tweeria" />
+	<meta property="og:description" id="og-desc" content="Tweeria" />
+	<meta property="og:type" content="game" />
+	<meta property="og:url" id="og-url" content="{{ host }}" />
+	<meta property="og:image" id="og-image" content="{{ host }}style/img/logo-3.png" />
+	<meta property="og:site_name" content="" />
+	<meta property="fb:admins" content="1462008391" />
+	<link rel="image_src" href="{{ host }}style/img/logo-3.png" />
+
+	{% set cardTitle = address %}
+	{% set cardDesc = "" %}
+	{% if player and player.race_name %}
+		{% set cardDesc = player.race_name+" "+player.class_name+", Level "+player.lvl|string%}
+		{% if player._guild_name != '' %}
+			{% set cardDesc = cardDesc+", guild “"+player._guild_name+"”"%}
+		{% endif %}
+	{% else %}
+		{% set cardDesc = "Tweeria — Lazy Twitter MMORPG. Everytime you tweet, your alter ego finds adventures, kills monsters or gets items." %}
+	{% endif %}
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@tweeria">
+	<meta name="twitter:creator" content="@tweeria">
+	<meta name="twitter:url" content="{{ host }}{{ address }}">
+	<meta name="twitter:title" content="{{ cardTitle }}">
+	<meta name="twitter:description" content="{{ cardDesc }}">
+	<meta name="twitter:image" content="{{host}}style/img/icon.png">
+
+	<script src="/js/libs/modernizr-2.5.3.min.js?{{ build }}"></script>
+	<script type="text/javascript">var currentPage  = "{{ current_page }}";</script>
+
+	<meta id="address" value="{{ address }}" />
+
+
+	<script src="/js/libs/jquery-1.8.js?{{ build }}"></script>
+
+	<script src="/js/libs/jquery-ui-1.8.23.custom.min.js?{{ build }}"></script>
+	{% include "/js/plugins.jinja2" %}
+
+	<script src="/js/script.js?{{ build }}"></script>
+
+	{#	<script src="/js/tmp.js?{{ build }}"></script>#}
+
+</head>
+<body>
+<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
+	   chromium.org/developers/how-tos/chrome-frame-getting-started -->
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+
+<header>
+	<a href="/" title="Tweeria"><img class="logo" src="/style/img/logo-3.png" alt="Twee Tales" /></a>
+	<ul class="header-main-menu">
+
+
+		<li><a href="/u/shop">Shop</a></li>
+		<li><a href="/top">Ladder</a></li>
+		{% if login %}
+			<li><a href="/u/world">Map</a></li>
+		{% endif %}
+		<li><a href="/u/events">Events</a></li>
+
+		{% if login_moderator %}
+			<li><a href="/a/approve">=)</a></li>
+		{% endif %}
+		<li><a href="/help">?</a></li>
+
+	</ul>
+	{% if login_name and not __page__ == 'new' %}
+		<div class="header-player-block">
+			<a href="/{{ login_name }}" class="header-player-link"><img src="{{ login_avatar }}" alt="{{ login_name }}" class="header-player-avatar"></a>
+			<span class="header-player-menu-opener">
+				<i class="icon opener-corner"></i>
+			</span>
+			<ul class="header-player-menu">
+				<li>
+					<a href="/{{ login_name }}" class="profile">View profile</a>
+				</li>
+
+				{% if login_guild %}
+					<li>
+						<a href="/guilds/{{ login_guild }}">Guild</a>
+					</li>
+				{% endif %}
+				<li class="hr"></li>
+				<li>
+					<i class="icon cr-center"></i>
+					<a href="/u/creation_center">Creation center</a>
+				</li>
+				{# <li>
+					<a href="/u/create">Create new</a>
+				</li>
+			 #}
+				<li class="hr"></li>
+
+				{% if login_admin %}
+					<li>
+						<a href="/a/index">Admin</a>
+					</li>
+					<li class="hr"></li>
+				{% endif %}
+
+				<li>
+					<a href="/logout" class="logout">Log out</a>
+				</li>
+			</ul>
+		</div>
+	{% else %}
+
+		<ul class="header-social-link header-login">
+
+			<li><a href="/registration{% if param_invite == '' and player %}?{{ player.name }}{% endif %}" class="clean">Login</a></li>
+		</ul>
+
+	{% endif %}
+
+	<form class="search" action="/search">
+		<input type="text" name="q">
+		<input type="submit" class="search-submit">
+	</form>
+
+	<ul class="header-social-link">
+		<li><a href="http://blog.tweenk.me/" class="clean">Blog</a></li>
+		<li><a href="http://twitter.com/tweeria" class="tw">Twitter</a></li>
+		<li><a href="http://www.facebook.com/Tweenkme?ref=hl" class="fb">Facebook</a></li>
+		<li><a href="http://vk.com/tweenk_me" class="vk">VK</a></li>
+	</ul>
+
+</header>

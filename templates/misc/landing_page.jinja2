@@ -1,0 +1,139 @@
+{% include "header.jinja2" %}
+
+<script type="text/javascript" src="/js/page_scripts/landing_page.js"></script>
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page landing-page">
+
+			<div style="display: none" id="player_name">{{ player.name }}</div>
+			<div style="display: none" id="guild_name">{{ player._guild_name }}</div>
+
+			<div class="invite-info">
+				<img src="{{ player.avatar }}" class="avatar" alt="{{ player.name }}">
+
+				<div class="main-info">
+						<h2><span>@{{ player.name }}</span> invites you to </h2>
+						<div class="tweeria-logo-small"></div>
+
+						<div class="inviter-race-info">
+							{{ player.race_name }} {{ player.class_name }}, Level {{ player.lvl }}
+						</div>
+
+						<div class="invite-bonus">
+							Join your friend and receive a bonus
+							<span>+1 Luck</span> and <span>+5 Hit Points</span>
+						</div>
+
+						{% if player._guild_name %}
+							<div class="join-guild-block">
+								<input type="checkbox" id="join_guild" checked>
+								<label for="join_guild">Join @{{ player.name }}’s guild “{{ player._guild_name }}”</label>
+							</div>
+						{% endif %}
+
+						<a class="btn2 btn2-classic reg-link" href="/registration?{{ player.name }}{% if player._guild_name %}&guild={{ player._guild_name }}{% endif %}">Start playing</a>
+						<div class="registration-description">
+							— Registration takes about 10 seconds<br>
+							— Twitter account needed
+						</div>
+
+					</div>
+
+				<div class="clear"></div>
+
+			</div>
+
+			<div class="landing-main-info">
+				<div class="tweeria-logo-big"></div>
+
+				<h3 class="part">— is a game</h3>
+
+				<p>
+					Tweeria is a role-playing game based on Twitter with minimal user's involvement.
+					Everytime you tweet, your alter ego finds adventures, kills monsters or gets items.
+				</p>
+
+				<h4>Features:</h4>
+
+				<div class="image-tweet"></div>
+				<div class="feature-list">
+					<div class="feature">
+						<div class="image feature1"></div>
+						<p>
+							<span>You need nothing to do to play</span>
+							Just continue your twitter communications<br>
+							and your hero will fight with monsters
+						</p>
+					</div>
+
+					<div class="feature">
+						<div class="image feature2"></div>
+						<p>
+							<span>Your own classic RPG hero in web</span>
+							With abilities, inventory, spells, statistics<br>
+							and achievements at one web page
+						</p>
+					</div>
+
+					<div class="feature">
+						<div class="image feature3"></div>
+						<p>
+							<span>Really big world to explore</span>
+							Hundreds of monsters, dozens of dungeons<br>
+							and a lot of others interesting things
+						</p>
+					</div>
+
+					<div class="feature">
+						<div class="image feature4"></div>
+						<p>
+							<span>1000+ of unique fantasy items and spells</span>
+							Created by other players with award-winning artworks<br>
+							added by their authors
+						</p>
+					</div>
+
+				</div>
+
+				<h3 class="part">— art project</h3>
+
+				<p>
+					Tweeria is an art project where everyone can create items, spells and heroes
+					with own artworks and share it with friends.
+				</p>
+
+				<div class="image-create"></div>
+				<div class="feature-list">
+					<div class="feature">
+						<div class="image feature5"></div>
+						<p>
+							<span>Create your own world</span>
+							You can create your own items with unique artwork,<br>
+							history and bonuses
+						</p>
+					</div>
+
+					<div class="feature">
+						<div class="image feature6"></div>
+						<p>
+							<span>Be a rockstar</span>
+							Thousnads of players will see your artworks,<br>
+							will like it and share across the world.
+						</p>
+					</div>
+
+				</div>
+
+				<a class="btn2 btn2-classic reg-link" href="/registration?{{ player.name }}">Join Tweeria</a>
+				<div class="registration-description">
+					— Registration takes about 10 seconds<br>
+					— Twitter account needed
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

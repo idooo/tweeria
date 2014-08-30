@@ -1,0 +1,56 @@
+<div id="spell-filter" class="item-filter">
+	<form method="get" id="spell_filter">
+		<input type="hidden" name="t" value="spell">
+		<input type="hidden" name="s" value="{{ param_s|default("") }}" id="spell_sorting_field">
+		<input type="hidden" name="o" value="{{ param_o|default("1") }}" id="spell_sorting_order">
+		<input type="hidden" name="ps" value="1" id="spell_page">
+
+		<table class="shop-filter-table">
+			<tr>
+				<td>
+					<label for="filter-spell-name">Name</label>
+					<input type="text" name="search" id="filter-spell-name" class="text mr22" value="{{ param_spell_search }}">
+				</td>
+				<td>
+					<label for="filter-spell-cost-min">Cost</label>
+					<input type="text" name="cost_min" id="filter-spell-cost-min" class="text mini" value="{{ param_spell_cost_mmin }}">
+					<span class="shop-filter-table-dash">—</span>
+					<input type="text" name="cost_max" id="filter-spell-cost-max" class="text mini mr35" value="{{ param_spell_cost_max }}">
+				</td>
+				<td>
+					<label for="filter-spell-author"  class="author">Author</label>
+					<input type="text" name="author" id="filter-spell-author" class="text authro" value="{{ param_spell_author }}">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="filter-spell-keyword">Word</label>
+					<input type="text" name="keyword" id="filter-spell-keyword" class="text mr22" value="{{ param_spell_keyword }}">
+				</td>
+				<td>
+					<label for="filter-spell-lvl-max">Level</label>
+					<input type="text" name="level_min" id="filter-spell-lvl-min" class="text mini" value="{{ param_spell_level_min }}">
+					<span class="shop-filter-table-dash">—</span>
+					<input type="text" name="level_max" id="filter-spell-lvl-max" class="text mini mr35" value="{{ param_spell_level_max }}">
+				</td>
+				<td>
+					<label for="filter-spell-tag" class="author">Category</label>
+					<select name="tag" id="filter-spell-tag" style="min-width: 200px">
+						<option value="">Any</option>
+						{% for cat in categories %}
+							<option value="{{ cat.value }}" {% if cat.value == param_spell_tag %} selected {% endif %}>{{ cat.value }}</option>
+						{% endfor %}
+					</select>
+				</td>
+			</tr>
+		</table>
+
+
+
+		<input type="submit" value="Find" class="find-button">
+
+
+		<a class="clear_filter_btn" href="/u/shop#!tab-spells">Clear</a>
+
+	</form>
+</div>

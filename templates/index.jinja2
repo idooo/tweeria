@@ -1,0 +1,381 @@
+{% include "header.jinja2" %}
+<script src="/js/page_scripts/like.js?{{ build }}"></script>
+<script id="shop-item-popup" type="text/x-jquery-tmpl">
+
+	{% include "popups/item.jinja2" %}
+
+</script>
+
+<div role="main" id="main" class="main_index">
+<div class="base-column main-left">
+<ul class="base-row">
+<li class="left-base-column">
+
+	<div class="main-top-desc-block">
+
+		<img src="style/img/logo_7_3.png" width="266" height="92">
+
+		{% if not login %}
+			<a class="bit-red-registration-button" href="/registration" title="Play now"></a>
+		{% endif %}
+
+		<p>
+			Tweeria is a game with minimal user's involvement. Everytime you tweet,
+			your alter ego finds adventures, kills monsters or gets items.
+
+			<span>
+				Tweeria is proud to bring free RPG art and game here in Twitter!<br>
+				And you know it's so lazy...
+			</span>
+		</p>
+
+		<div class="main-share-block" id="main-share-block">
+			{% if conf_name != 'local' %}
+			<ul>
+				<li class="main-share-fb">
+					<div id="fb-root"></div>
+					<script id="facebook-jssdk" src="//connect.facebook.net/en_GB/all.js#xfbml=1"></script>
+
+					<script type="text/javascript">
+						$(function () {
+							FB.Event.subscribe('xfbml.render',
+									function (response) {
+										$("#main-share-block ul").show();
+									}
+							);
+						})
+					</script>
+					<div class="fb-like" data-href="{{ host }}" data-send="true" data-layout="button_count"
+						 data-width="45075" data-show-faces="false"></div>
+				</li>
+				<li class="main-share-tw">
+					<a href="https://twitter.com/share" class="twitter-share-button" data-url="{{ host }}"
+					   data-hashtags="tweeria" data-text="Heya! Here is Tweeria lazy Twitter RPG">Tweet</a>
+					<script>!function (d, s, id) {
+						var js, fjs = d.getElementsByTagName(s)[0];
+						if (!d.getElementById(id)) {
+							js = d.createElement(s);
+							js.id = id;
+							js.src = "//platform.twitter.com/widgets.js";
+							fjs.parentNode.insertBefore(js, fjs);
+						}
+					}(document, "script", "twitter-wjs");</script>
+				</li>
+				<li class="main-share-gp">
+					<a href="https://twitter.com/tweeria" class="twitter-follow-button" data-show-count="false">Follow @tweeria</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</li>
+
+				{#
+					<li class="paypal">
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+							<input type="hidden" name="cmd" value="_s-xclick">
+							<input type="hidden" name="hosted_button_id" value="NTYBKUXB3V6JG">
+							<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+							<img alt="" border="0" src="https://www.paypalobjects.com/ru_RU/i/scr/pixel.gif" width="1" height="1">
+						</form>
+					</li>
+				 #}
+			</ul>
+			{% endif %}
+		</div>
+
+	</div>
+	<div class="new-in-shop">
+		<div class="item-shop-container">
+			<div class="items">
+				<h1>
+					<hr>
+					New items
+					<hr>
+				</h1>
+				{% set itemLenght  = last_items|length %}
+				{% set pageCount = (itemLenght/8)|round|int %}
+
+				<ul class="new-items-list main-new-items-list">
+					{% set like_type = 'item' %}
+					{% for item in last_items %}
+
+						{% set like = item %}
+						{% set id = item._id %}
+						{% set parent = "item-"+item._id|string %}
+
+						{% set item_img = item.img+'_fit.png' %}
+						<li class="{{ loop.cycle('odd', 'even') }}"
+							id="item-{{ item._id }}"
+							title="|{% include "misc/_item_cluetip_without_img.jinja2" %}"
+								{% include "misc/_item_data_attr.jinja2" %}
+
+								>
+							<span class="img-cont"><img src="{{ item.img }}" alt=""></span>
+
+							<div class="item-desc">
+								<span class="item-name">{{ item.name }}</span>
+
+								{% include "misc/_like_main_page.jinja2" %}
+
+								<a href="/{{ item.author_name }}" class="item-author">@{{ item.author_name }}</a>
+							</div>
+						</li>
+					{% endfor %}
+
+				</ul>
+			</div>
+
+		</div>
+	</div>
+	<div class="main-trending-players">
+		<h2>Trending players</h2>
+
+		<table class="main-trending-players-table">
+
+			<tbody>
+			{% for player in trending_players %}
+				<tr >
+					<td class="player">
+						<a href="/{{ player.name }}">
+                            <img src="{{ player.avatar }}" alt="{{ player.name }}" onerror="this.src='/style/img/unknown.jpg'">
+                        </a>
+						<a href="/{{ player.name }}">{{ player.name }}</a>&nbsp;&nbsp;{{ player.race_name }} {{ player.class_name }}
+					</td>
+					<td class="level">
+						<span>Level </span>
+						{{ player.lvl }}
+					</td>
+					<td class="achv">
+						{{ player.achv_points }}
+						<span><i class="icon main-achv-points"></i></span>
+					</td>
+					<td class="pvp">
+						{{ player.pvp_score }}
+						<span><i class="icon main-pvp-score"></i></span>
+					</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+	<div class="main-trending-guilds main-trending-players">
+		<h2>Trending guilds</h2>
+		<table class="main-trending-players-table">
+			<tbody>
+			{% for guild in trending_guilds %}
+				<tr>
+					<td class="player">
+						<a href="/guilds/{{ guild.link_name }}">{{ guild.name }}</a>
+					</td>
+					<td class="maintrending-guild-people-count">
+						{{ guild.people_count }}
+						<span> players</span>
+					</td>
+					<td>
+						{{ guild.pvp_score }}
+						<span> <i class="icon main-pvp-score"></i></span>
+					</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+</li>
+<li class="center-base-column">
+
+	<div class="main-artwork">
+
+		{% if featured_artwork %}
+			<a href="/u/artwork?id={{ featured_artwork._id }}">
+			<img width="237" height="395" src="{{ featured_artwork.img }}"
+				 alt="{{ featured_artwork.race_name }} {{ featured_artwork.class_name }}">
+
+				<div class="artwork-info gray80" id="featured-artwork-{{ featured_artwork._id }}">
+					<h3>Featured Artwork</h3>
+					<span class="artwork-name">{{ featured_artwork.race_name }} {{ featured_artwork.class_name }}</span>
+					<span class="added">Added by</span>
+					<a href="/{{ featured_artwork.author_name }}" class="author">@{{ featured_artwork.author_name }}</a>
+
+					<div>
+
+						{% set like_type = 'artwork' %}
+						{% set like = featured_artwork %}
+						{% set id = featured_artwork._id %}
+						{% set parent = "featured-artwork-"+featured_artwork._id|string %}
+						{% include "misc/_like_main_page.jinja2" %}
+					</div>
+				</div>
+			</a>
+		{% else %}
+			<img src="/style/img-tmp/main-page-artwork.png" alt="">
+
+			<div class="artwork-info gray80">
+				<h3>Featured Artwork</h3>
+				<span class="artwork-name">Mega Elf Mage </span>
+				<span class="added">Added by</span> <span class="author">@thisismynick</span>
+			</div>
+		{% endif %}
+
+	</div>
+
+	<div class="tip-day">
+		<h2>Tip of the day</h2>
+
+		<p>
+			{% if tip %}
+				{{ tip.content }}
+			{% else %}
+				Faceless race does not have a permanent appearance, therefore faceless characters sometimes take an
+				appearance of a random humanoid.
+				You can find more information about faceless <a
+					href="http://blog.tweenk.me/post/33640839820/the-history-of-tweeria-iii-north-expansion">here</a>
+			{% endif %}
+		</p>
+	</div>
+
+
+	<div class="world-stats">
+		<h2>World stats</h2>
+
+		<div class="alliances-list">
+			<a href="/ne"><h3 class="north-expansion">
+				<div><i></i></div>
+				North<br>Expansion
+			</h3></a>
+			<a href="/ha"><h3 class="human-alliance">
+				<div><i></i></div>
+				Human<br>Alliance
+			</h3></a>
+			<a href="/ft"><h3 class="free-tribes">
+				<div><i></i></div>
+				Free<br>Tribes
+			</h3></a>
+			<div class="clear"></div>
+		</div>
+		<div class="main-graphs">
+
+			<h4><span>Population</span></h4>
+
+			<div class="parameters">
+				<div class="value">{{ players_count[0] }}
+
+				</div>
+				<div class="value">{{ players_count[1] }}
+
+				</div>
+				<div class="value">{{ players_count[2] }}
+
+				</div>
+
+				<br class="clear"/>
+			</div>
+
+			<h4><span>Average level</span></h4>
+
+			<div class="parameters">
+				<div class="value">{{ players_avg_level[0] }}
+					<div class="changed">
+					</div>
+				</div>
+				<div class="value">{{ players_avg_level[1] }}
+					<div class="changed">
+					</div>
+				</div>
+				<div class="value">{{ players_avg_level[2] }}
+					<div class="changed">
+					</div>
+				</div>
+
+				<br class="clear"/>
+			</div>
+		</div>
+	</div>
+
+	<br class="clear">
+
+</li>
+
+<li class="right-base-column">
+
+	<div class="sub-column-right-inner">
+		<div class="world-news">
+			{% for post in blog_posts %}
+				<div class="world-news-item">
+					<span class="date">{{ post.date }}</span>
+
+					<p class="desc">
+						{{ post.text }}
+					</p>
+				</div>
+			{% endfor %}
+		</div>
+
+
+
+		<div class="authors-rating">
+			<h1><hr> Top artists <hr></h1>
+
+
+			<div class="crown-icon"></div>
+			<table>
+				<tr class="top_author">
+					<td class="count">1</td>
+					<td colspan="2" class="authors-info">
+						<a href="/{{ authors_likes[0].author_name }}?works">
+							<img src="{{ authors_likes[0].author_avatar }}" alt="{{ authors_likes[0].author_name }}"
+                                 onerror="this.src='/style/img/unknown.jpg'"
+                                    >
+						</a>
+
+						<a href="/{{ authors_likes[0].author_name }}?works">{{ authors_likes[0].author_name }}</a>
+						<span class="author-likes">{{ authors_likes[0].likes }} likes</span>
+					</td>
+				</tr>
+
+				{% for i in range(1,10) %}
+					<tr>
+						<td class="count">{{ i+1 }}</td>
+						<td class="authors-info">
+							<a href="/{{ authors_likes[0].author_name }}?works">
+								<img src="{{ authors_likes[i].author_avatar }}" alt="{{ authors_likes[i].author_name }}"
+                                     onerror="this.src='/style/img/unknown.jpg'"
+                                        >
+							</a>
+							<a href="/{{ authors_likes[i].author_name }}?works">{{ authors_likes[i].author_name }}</a>
+						</td>
+						<td class="author-likes">{{ authors_likes[i].likes }}</td>
+					</tr>
+				{% endfor %}
+			</table>
+
+			{% if login and not login_ugc_enabled or login_admin %}
+				<a href="/u/create" class="btn2 btn2-classic btn2-small btn2-wide">Become an artist</a>
+			{% endif %}
+
+			<div class="bottom-bg"></div>
+
+		</div>
+
+
+	<div class="main-map">
+
+		<a href="http://blog.tweenk.me/post/34228054785/conflict">
+			<img src="/style/img/lore.jpg?4" alt="History of world" width="237">
+		</a>
+
+		<div class="main-map-info gray80" data-href="http://blog.tweenk.me/post/34228054785/conflict">
+			<h3>History of world</h3>
+			<a>Part IV: Conflict</a>
+		</div>
+
+	</div>
+
+	</div>
+
+</li>
+</ul>
+</div>
+</div>
+
+<script src="/js/page_scripts/main.js"></script>
+
+{% include "footer.jinja2" %}

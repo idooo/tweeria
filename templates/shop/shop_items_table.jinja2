@@ -1,0 +1,55 @@
+{% set item_table_rows = [
+	{'name':'Type','class':'type'},
+	{'name':'Name','class':'name'},
+	{'name':'Level','class':'lvl_min'},
+	{'name':'Author','class':'author'},
+	{'name':'Cost','class':'cost'},
+	{'name':'Likes','class':'likes'},
+	{'name':'Created date','class':'date'}
+] %}
+{% if param_o=="1" %}
+	{% set order = "-1" %}
+{% else %}
+	{% set order = "1" %}
+{% endif %}
+
+<table class="shop-item-table item-popuped">
+	<thead>
+	<tr>
+		{% for row in item_table_rows %}
+			<th class="{{ row.class }}{% if param_s == row.class %} sorted{{ param_o }} {% endif %}">
+				<a href="#" data-field="{{ row.class }}" data-type="item"
+				   data-order="{{ param_o }}">{{ row.name }}</a><i></i>
+			</th>
+		{% endfor %}
+	</tr>
+	</thead>
+
+	{% if players_items|length==0 %}
+		</table>
+		<div class="empty-table">
+			There are no items for this search criteria.<br>
+			May be you should <a href="/u/shop#!tab-items">clear</a> filter
+		</div>
+
+	{% else %}
+
+		<tbody>
+		{% for item in players_items %}
+			<tr class="cluetip_popup_shop {% if item.cant_use %}cant-use-item{% endif %}"
+				title="|{% include "misc/_item_cluetip.jinja2" %}"
+				id="item-table-{{ item._id }}"
+				{% set parent = "item-table-"+item._id|string %}
+				>
+				<td class="type">{{ item.view|capitalize }}</td>
+				<td class="name"><a href="/u/item?id={{ item._id }}">{{ item.name }}</a></td>
+				<td class="level">{{ item.lvl_min|default(1) }}</td>
+				<td class="author"><a href="/{{ item.author_name }}">{{ item.author_name }}</a></td>
+				<td class="cost">{{ item.cost }}</td>
+				<td class="likes"><span class="likes-count">{{ item.likes }}</span></td>
+				<td class="date">{{ item.create_date_f }}</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+		</table>
+	{% endif %}

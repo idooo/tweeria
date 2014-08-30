@@ -1,0 +1,92 @@
+{% set gplusName = "" %}
+{% set gplusDesc = "" %}
+{% set gplusImg = host+"style/img/icon.png" %}
+{% if current_page == "./events/event_page.jinja2" %} {# Страница ивента #}
+
+	{% set gplusName = "Join my raid run to "+event.where_name+" dungeon." %}
+	{% set gplusDesc = "I'm going to fight" %}
+	{% set cardCreator = event.author_name %}
+
+	{% if event.boss_name %}
+		{% set gplusDesc = gplusDesc+" with "+event.boss_name+" in "+event.where_name+" dungeon." %}
+	{% else %}
+		{% set gplusDesc = gplusDesc+" in "+event.where_name+" dungeon." %}
+	{% endif %}
+	{% set gplusDesc = gplusDesc+" Wanna join me?" %}
+	{% if event.promoted_hashtag %}
+		{% set gplusName = gplusName+" Raid hashtag: #"+event.promoted_hashtag %}
+		{% set gplusDesc = gplusDesc+" Raid hashtag: #"+event.promoted_hashtag+". Wanna join me?" %}
+	{% endif %}
+	{% if event.achv_img %}
+		{% set gplusImg = event.achv_img %}
+	{% endif %}
+
+{% elif current_page == "./events/event_page_gvg.jinja2" %} {# Страница GvG ивента #}
+
+	{% if event.where_img %}
+		{% set gplusImg = host+event.where_img %}
+	{% endif %}
+
+	{% set gplusName = "Join guild war against "+event.where_name+" in Tweeria" %}
+
+{% elif current_page == "./guilds/guild_detail.jinja2" %} {# Страница гильдии #}
+
+	{% if img %}
+		{% set gplusImg = host+img %}
+	{% endif %}
+
+	{% set gplusDesc = name+" is a strong and glorious guild. Join us and fight with us against monsters and other guilds" %}
+	{% set gplusName = "Join the "+name+" guild in Tweeria" %}
+
+{% elif current_page == "./guilds/news_page.jinja2" %}
+
+	{% set gplusName = story.header|truncate(80) %}
+	{% set gplusDesc = story.text %}
+	{% set gplusImg = host+img %}
+
+{% elif current_page == "./ugc/item_page.jinja2" %}
+
+	{% if author!=login_id|default("") %}
+		{% set gplusName = type_name|default("")+" "+name+" in Tweeria" %}
+	{% else %}
+		{% set gplusName = "My "+type_name|default("")+": "+name+" in Tweeria" %}
+	{% endif %}
+	{% set gplusDesc = desc %}
+
+	{% set gplusImg = host+img %}
+
+{% elif current_page == "./ugc/spell_page.jinja2" %}
+
+	{% if author_name==login_name|default("") %}
+		{% set gplusName = "My spell: "+name+" in Tweeria" %}
+	{% else %}
+		{% set gplusName = "Spell: "+name+" in Tweeria" %}
+
+	{% endif %}
+	{% set gplusDesc = desc %}
+
+	{% set gplusImg = host+img %}
+
+{% elif current_page == "./ugc/artwork_page.jinja2" %}
+
+	{% if author_name==login_name|default("") %}
+		{% set gplusName = "My artwork: "+name+" in Tweeria" %}
+	{% else %}
+		{% set gplusName = "Artwork: "+name+" in Tweeria" %}
+
+	{% endif %}
+	{% set gplusDesc = desc %}
+
+	{% set gplusImg = host+img %}
+
+{% elif current_page == "./players/invite_center.jinja2" %}
+
+	{% set gplusName = "Tweeria invite" %}
+	{% set gplusDesc = "%23Tweeria is lazy Twitter RPG. Join the game and get some luck for free." %}
+
+
+{% endif %}
+
+<meta itemprop="name" id="gp-widget-title" content="{{ gplusName }}">
+<meta itemprop="description" id="gp-widget-desc" content="{{ gplusDesc }}">
+<meta itemprop="image" content="{{ gplusImg }}" id="gp-widget-img">

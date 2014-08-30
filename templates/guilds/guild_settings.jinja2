@@ -1,0 +1,206 @@
+{% include "header.jinja2" %}
+<script src="/js/page_scripts/guild-add.js?{{ build }}"></script>
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg guild-page">
+
+			<a class="link-back" href="/guilds/{{ link_name }}">Back to guild</a>
+
+			<h2>{{ name }}</h2>
+
+
+			<div class="guild-setting-form">
+				<form method="post" enctype="multipart/form-data" id="form_change_guild_settings">
+					<input type="hidden" name="type_of_form" value="change_settings">
+					<label class="block-label" for="guild-desc">Description</label>
+					<textarea id="guild-desc" class="default-classic-input textarea" name="description">{{ description }}</textarea>
+					<br class="clear">
+
+
+					<label class="block-label" for="guild-link">Web site</label>
+					<input type="text" id="guild-link" name="site_link" class="default-classic-input input-text" value="{{ site_link }}">
+
+					<br class="clear">
+
+					<label class="block-label" for="guild-img">Upload avatar</label>
+					<input type="file" name="image_file" data-img="/{{ img }}" id="guild-img">
+
+					<div class="img-annotation">
+
+						<ul>
+							<li>Image can not be larger than 200 x 200 pixels and 250 Kb</li>
+							<li>You must have rights to sell or use this art</li>
+							<li>Allowed .PNG, JPG, GIF</li>
+						</ul>
+					</div>
+					<br class="clear">
+					<br class="clear">
+
+					<input type="checkbox" name="closed" id="guild-open"
+					{% if closed %} checked {% endif %}>
+					<label for="guild-open"> Closed guild (join only by invite)</label>
+					<br class="clear">
+					<br class="clear">
+					<a href="#" class="btn2 btn2-classic" onclick="$(this).parent().submit();">Change settings</a>
+					<br><br>
+				</form>
+			</div>
+
+			<div class="promote-leader">
+
+				{% if people|length > 1 %}
+					<h3>Promote leadership</h3>
+					<p>You can provide your leadership to other player. After that you loose your rights to control guild</p>
+					<span>You can’t undo this</span>
+					<form method="post">
+						<select name="player_name" id="promote-select">
+							{% for player in people %}
+								{% if not player.creator %}
+									<option value="{{ player.name }}">{{ player.name }}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+						<input type="hidden" name="type_of_form" value="promote_leadership">
+						<br class="clear">
+						<input type="submit" value="promote" class="btn2 btn2-red">
+					</form>
+
+				{% else %}
+
+					<h3>Delete guild</h3>
+
+					<form method="post" id="form_delete_guild">
+						<input type="hidden" name="type_of_form" value="delete_guild">
+						<input type="hidden" name="guild_search_name" value="{{ search_name }}">
+						<a href="#" class="btn2 btn2-red" onclick="$(this).parent().submit();">Delete guild</a>
+					</form>
+				{% endif %}
+
+			</div>
+
+			<br>
+			{% if requesters|length > 0 %}
+				<hr class="guild-table-line">
+				<table class="guild-settings-table">
+					<thead>
+					<tr>
+						<th class="first" colspan="2">
+							{{ requesters|length }} request to join
+						</th>
+						<th>Level</th>
+						<th>Achievements</th>
+						<th>PvP</th>
+						<th>&nbsp;</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+					{% set player = {} %}
+						<td class="name">
+							<a href="/{{ player.name }}">{{ player.name }}</a>
+							{% if player.creator %}
+								<span class="leader">leader</span>
+							{% endif %}
+						</td>
+						<td class="race-class">{{ player.race_name }} {{ player.class_name }}</td>
+						<td class="level">{{ player.lvl }}</td>
+						<td class="achvs">{{ player.achv_points }}</td>
+						<td class="pvp">{{ player.pvp_score }}</td>
+
+						<td class="action">
+							<form method="post">
+								<input type="hidden" name="type_of_form" value="approve_invite">
+								<input type="hidden" name="player_user_id" value="{{ player.user_id }}">
+								<input type="submit" value="Accept" class="accept">
+							</form>
+
+							<form method="post">
+								<input type="hidden" name="type_of_form" value="reject_invite">
+								<input type="hidden" name="player_user_id" value="{{ player.user_id }}">
+								<input type="submit" class="cancel" value="Cancel">
+							</form>
+						</td>
+					</tr>
+					{% for player in requesters %}
+						<tr>
+							<td class="name">
+								<a href="/{{ player.name }}">{{ player.name }}</a>
+								{% if player.creator %}
+									<span class="leader">leader</span>
+								{% endif %}
+							</td>
+							<td class="race-class">{{ player.race_name }} {{ player.class_name }}</td>
+							<td class="level">{{ player.lvl }}</td>
+							<td class="achvs">{{ player.achv_points }}</td>
+							<td class="pvp">{{ player.pvp_score }}</td>
+
+							<td class="action">
+								<form method="post">
+									<input type="hidden" name="type_of_form" value="approve_invite">
+									<input type="hidden" name="player_user_id" value="{{ player.user_id }}">
+									<input type="submit" value="Accept" class="accept">
+								</form>
+
+								<form method="post">
+									<input type="hidden" name="type_of_form" value="reject_invite">
+									<input type="hidden" name="player_user_id" value="{{ player.user_id }}">
+									<input type="submit" class="cancel" value="Cancel">
+								</form>
+							</td>
+						</tr>
+					{% endfor %}
+					</tbody>
+				</table>
+				<br class="clear">
+			{% endif %}
+
+
+
+			<hr class="guild-table-line">
+			<table class="guild-settings-table">
+
+
+				<thead>
+				<tr class="header">
+					<th class="first" colspan="2">
+						<span class="not_too_big">{{ people|length }} members</span>
+					</th>
+					<th>Level</th>
+					<th>Achievements</th>
+					<th>PvP</th>
+					<th>&nbsp;</th>
+				</tr>
+				</thead>
+				<tbody>
+				{% for player in people %}
+					<tr>
+						<td class="name"><a href="/{{ player.name }}">{{ player.name }}</a>
+							{% if player.creator %}
+								<span class="leader">leader</span>
+							{% endif %}
+						</td>
+						<td class="race-class">{{ player.race_name }} {{ player.class_name }}</td>
+						<td class="level">{{ player.lvl }}</td>
+						<td class="achvs">{{ player.achv_points }}</td>
+						<td class="pvp">{{ player.pvp_score }}</td>
+
+						<td class="action">
+						{% if not player.creator or 1 %}
+							<form method="post" enctype="multipart/form-data">
+								<input type="hidden" name="type_of_form" value="kick_player">
+								<input type="hidden" name="user_id" value="{{ player.user_id }}">
+								<input type="submit" value="kick" class="cancel kick">
+							</form>
+						{% endif %}
+						</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+			<br class="clear">
+
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

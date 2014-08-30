@@ -1,0 +1,60 @@
+{% include "header.jinja2" %}
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-invites-page">
+
+			<div class="page-part">
+				<a class="link-back" href="/a/rejected">Back</a><br>
+
+				<h2>{{ item.name }}</h2>
+				<br>
+				type: {{ item.view }}
+
+				<form method="post" action="" id="create-item-form">
+					<input type="hidden" name="_id" value="{{ item._id }}">
+					<input type="hidden" name="backlink" value="item?id={{ item._id }}">
+					<input type="hidden" name="type_of_form" value="admin_change_item"/><br>
+					<label for="item-type">Type </label>
+					<select id=item-type name="item_type">
+						<option value=""></option>
+						<optgroup label="Weapons">
+							<option value="1:dagger">Dagger</option>
+							<option value="1:sword">Sword</option>
+							<option value="1:axe">Axe</option>
+							<option value="1:bow">Bow</option>
+							<option value="1:crossbow">Crossbow</option>
+							<option value="1:staff">Staff</option>
+						</optgroup>
+						<optgroup label="Armor">
+							<option value="4">Helm</option>
+							<option value="13">Shoulders</option>
+							<option value="9">Wrist</option>
+							<option value="10">Gloves</option>
+							<option value="12">Chest</option>
+							<option value="8">Waist</option>
+							<option value="11">Leggings</option>
+							<option value="7">Boots</option>
+						</optgroup>
+						<optgroup label="Jewel">
+							<option value="5">Necklace</option>
+							<option value="6">Ring</option>
+						</optgroup>
+
+					</select>
+					<input type="submit" value="Change" class="create-item-button">
+				</form>
+
+				<div class="approve_form">
+					<form method="post">
+						<input type="hidden" value="approve_item" name="type_of_form">
+						<input type="hidden" value="{{ item._id }}" name="_id">
+						<input type="submit" value="Approve" class="btn-ido-big">
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

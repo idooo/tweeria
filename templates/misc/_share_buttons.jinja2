@@ -1,0 +1,155 @@
+{% set shareUrl = host+address|replace(" ","_") %}
+{% if __query__ %}
+	{% set shareUrl = shareUrl+"?"+__query__ %}
+{% endif %}
+{% set shareTwitterTitle = "" %}
+{% set shareTags = "Tweeria" %}
+{% set shareTitle = "" %}
+{% set shareImg = host+"style/img/icon.png" %}
+{% set shareText = "" %}
+
+
+{% if share_type == "event_page" %}
+	{% set shareUrl = host+address %}
+	{% set shareTwitterTitle = "Join my raid run to "+event.where_name+" dungeon." %}
+	{% set shareTags = "Tweeria" %}
+
+	{% set shareText = "I'm going to fight" %}
+	{% if event.boss_name %}
+		{% set shareText = shareText+" with "+event.boss_name+" in "+event.where_name+" dungeon." %}
+	{% else %}
+		{% set shareText = shareText+" in "+event.where_name+" dungeon." %}
+	{% endif %}
+
+	{% if event.promoted_hashtag %}
+		{% set shareTags = "" %}
+		{% set shareTwitterTitle = shareTwitterTitle+" Raid hashtag: %23"+event.promoted_hashtag %}
+		{% set shareText = shareText+" Raid hashtag: %23"+event.promoted_hashtag+". Wanna join me?" %}
+	{% endif %}
+
+	{% if event.achv_img %}
+		{% set shareImg = host+event.achv_img %}
+	{% endif %}
+
+	{% set shareTitle = "Tweeria raid run to "+event.where_name %}
+
+
+{% elif share_type == "event_page_gvg" %}
+	{% set shareUrl = host+address %}
+	{% set shareTwitterTitle = "Join guild war against "+event.where_name %}
+	{% set shareTags = "Tweeria" %}
+
+	{% if event.promoted_hashtag %}
+		{% set shareTags = "" %}
+		{% set shareTwitterTitle = shareTwitterTitle+" %23"+event.promoted_hashtag %}
+	{% endif %}
+
+	{% if event.where_img %}
+		{% set shareImg = host+event.where_img %}
+	{% endif %}
+
+	{% set shareTitle = "Join guild war against "+event.where_name+" in Tweeria" %}
+
+{% elif share_type == "guild_detail" %}
+
+	{% set shareTags = "" %}
+
+	{% if login_name %}
+		{% set shareUrl = host+"invite?"+login_name %}
+	{% else %}
+		{% set shareUrl = host %}
+	{% endif %}
+	{% set shareTwitterTitle = "Join me and my "+name+" guild in %23Tweeria Lazy RPG" %}
+
+	{% set shareTitle = "Join the "+name+" guild in Tweeria" %}
+	{% set shareText = name+" is a strong and glorious guild. Join us and fight with us against monsters and other guilds" %}
+	{% set shareImg = host+img %}
+
+{% elif share_type == "news_page" %}
+
+	{% set shareTitle = story.header|truncate(80) %}
+	{% set shareTwitterTitle = story.header|truncate(80) %}
+	{% set shareText = story.text %}
+	{% set shareImg = host+img %}
+
+{% elif share_type == "item_page" %}
+
+	{% set shareUrl = host+address+"?"+__query__ %}
+
+	{% if author==login_id|default("") %}
+		{% set shareTwitterTitle = "Check my "+name %}
+		{% set shareTitle = "My "+view|default("")+": "+name+" in Tweeria" %}
+
+	{% else %}
+		{% set shareTwitterTitle = "Just found "+name %}
+		{% set shareTitle = view|default("")+" "+name+" in Tweeria" %}
+
+	{% endif %}
+	{% set shareText = desc %}
+
+	{% set shareImg = host+img %}
+
+{% elif share_type == "spell_page" %}
+
+	{% set shareUrl = host+address+"?"+__query__ %}
+	{% if author_name==login_name|default("") %}
+		{% set shareTwitterTitle = "Check my spell "+name %}
+		{% set shareTitle = "My spell "+name+" in Tweeria" %}
+	{% else %}
+		{% set shareTwitterTitle = "Spell: "+name %}
+		{% set shareTitle = "Spell: "+name+" in Tweeria" %}
+	{% endif %}
+	{% set shareText = desc %}
+
+	{% set shareImg = host+img %}
+
+{% elif share_type == "artwork_page" %}
+
+	{% set shareUrl = host+address+"?"+__query__ %}
+	{% if author_name==login_name|default("") %}
+		{% set shareTwitterTitle = "Check my artwork: "+name %}
+		{% set shareTitle = "My artwork "+name+" in Tweeria" %}
+	{% else %}
+		{% set shareTwitterTitle = "Artwork: "+name %}
+		{% set shareTitle = "Artwork "+name+" in Tweeria" %}
+	{% endif %}
+	{% set shareText = desc %}
+
+	{% set shareImg = host+img %}
+
+{% elif share_type == "invite_center" %}
+
+	{% set shareUrl = host+"invite?"+login_name %}
+
+	{% set shareTwitterTitle = "Hey! Glad to invite you to %23Tweeria!" %}
+	{% set shareTitle = "Tweeria invite" %}
+	{% set shareTags = "" %}
+	{% set shareText = "%23Tweeria is lazy Twitter RPG. Join the game and get some luck for free." %}
+
+
+{% endif %}
+
+	<a target="_blank"
+	   href="https://twitter.com/share?url={{ shareUrl }}&hashtags={{ shareTags }}&text={{ shareTwitterTitle }}"
+	   class="achv-share-button tw">
+		Twitter
+	</a>
+
+	<a target="_blank"
+	   href="http://www.facebook.com/sharer.php?s=100&p[title]={{ shareTitle }}&p[summary]={{ shareText }}&p[url]={{ shareUrl }}&p[images][0]={{ shareImg }}"
+	   title="Facebook"
+	   class="achv-share-button fb">
+		Facebook
+	</a>
+{#
+	<a target="_blank"
+	   href="https://plus.google.com/share?url={{ shareUrl }}?gplus=1"
+	   class="achv-share-button gp">
+		Google+
+	</a>
+ #}
+	<a href="http://vkontakte.ru/share.php?url={{ shareUrl }}&title={{ shareTitle }}&description={{ shareText }}&image={{ shareImg }}"
+	   target="_blank"
+	   class="achv-share-button vk">
+		Vkontakte
+	</a>

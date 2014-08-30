@@ -1,0 +1,20 @@
+	<div class="shop-list">
+		{% for item in players_items %}
+			{% set like = item %}
+			{% set id = item._id %}
+			{% set parent = "item-list-"+item._id|string %}
+
+			<div class="shop-list-item cluetip_popup_shop {% if item.cant_use %}cant-use-item{% endif %}"
+				 title="|{% include "misc/_item_cluetip_without_img.jinja2" %}"
+				 id="item-list-{{ item._id }}"
+					>
+				<a href="/u/item?id={{ item._id }}"><img src="{{ item.img }}" alt="{{ item.name }}"></a>
+				<a class="title" href="/u/item?id={{ item._id }}">{{ item.name }} </a>
+
+				{% set like_type = 'item' %}
+				{% include "misc/_like_inline_block.jinja2" %}
+
+				<a class="author" href="/{{ item.author_name }}">{{ item.author_name }}</a>
+			</div>
+		{% endfor %}
+	</div>

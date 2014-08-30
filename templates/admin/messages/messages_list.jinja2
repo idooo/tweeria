@@ -1,0 +1,43 @@
+
+{% set group_names = [
+	'messages_OK', 'messages_FAIL', 'callback_OK', 'callback_FAIL'
+]%}
+
+{% set group_desc = [
+	'Messages when action was completed',
+	'Messages when action was failed',
+	'Callback messages when action was completed',
+	'Callback messages when action was failed'
+] %}
+
+
+{% for group_name in group_names %}
+
+<div class="group_name">{{ group_desc[loop.index-1] }}</div>
+<table class="moderators-table messages-table">
+
+		{% if message_groups[group_name] %}
+
+			{% for message in message_groups[group_name] %}
+				<tr>
+					<td class="m_UID">{{ message.UID }}</td>
+					<td>{{ message.message }}</td>
+					<td class="m_rates">{{ message.p }} <sup><span>{{ message.p_f }}%</span></sup></td>
+					<td width="60">
+						<a href="/a/m?a={{ selected_action_name }}&id={{ message._id }}">edit</a>
+					</td>
+				</tr>
+			{% endfor %}
+
+		{% else %}
+			<tr>
+				<td class="not_defined">
+					There are no messages for this action result
+				</td>
+			</tr>
+		{% endif %}
+
+
+</table>
+
+{% endfor %}

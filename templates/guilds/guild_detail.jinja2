@@ -1,0 +1,236 @@
+{% include "header.jinja2" %}
+
+{% set table_header = [
+		{ 'name': 'Player', 'value': 'name', 'colspan': '2' },
+		{ 'name': 'Level', 'value': 'lvl' },
+		{ 'name': '<i class="icon main-achv-points"></i>', 'value': 'achv' },
+		{ 'name': '<i class="icon main-pvp-score"></i>', 'value': 'pvp' },
+		{ 'name': 'Leadership', 'value': 'lead' }
+	]
+%}
+
+<script type="text/javascript">
+{% if param_invite == '' %}
+	var inviterData = {
+		"avatar" 		: "{{ inviter_avatar }}",
+		"inviter"		: "{{ param_name }}",
+		"guild_name"	: "{{ name }}",
+		"guild_avatar"	: "/{{ img }}"
+	}
+{% endif %}
+
+</script>
+{% include "misc/quick_tour.jinja2" %}
+
+<script src="/js/page_scripts/guild_detail.js?{{ build }}"></script>
+<script src="/js/page_scripts/share.js?{{ build }}"></script>
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="guild-main-info">
+			<div class="top-guild-header-shadow"></div>
+
+			<div class="guild-share">
+				{% set share_type = "guild_detail" %}
+				{% include "misc/_share_buttons.jinja2" %}
+			</div>
+
+			<img src="/{{ img }}" class="guild-detail-img" width="100" height="100">
+
+			<div class="guild-info">
+				<h2 id="guild_name">{{ name }}</h2>
+
+				{% if site_link%}
+					<a href="{{ site_link }}" target="_blank" class="guild-detail-link">{{ site_link }}</a>
+				{% endif %}
+
+				{% if description|length>0 %}
+					<p class="guild-desc">
+						{{ description }}
+					</p>
+				{% endif %}
+
+				{#
+				<div class="guild-stats">
+					<ul>
+						<li>125</li>
+						<li>4092</li>
+						<li>73</li>
+					</ul>
+				</div>
+				 #}
+
+				{% if login %}
+				<p class="guild_membership">
+
+					{% if login_creator %}
+
+						<form method="post" action="/guilds/settings" id="settings">
+							<a href="#" class="btn2 btn2-dark contrast submit-parent">Settings</a>
+						</form>
+
+					{% else %}
+						{% if in_guild == 'this' %}
+
+							<form method="post" id="leave_guild">
+								<input type="hidden" name="type_of_form" value="leave_guild">
+								<a href="#" class="btn2 btn2-dark contrast submit-parent">Leave guild</a>
+							</form>
+
+						{% elif in_guild == 'other' %}
+
+						{% else %}
+
+							{% if open %}
+								<form method="post" id="join_guild">
+									<input type="hidden" name="type_of_form" value="join_guild">
+									<input type="hidden" name="guild_search_name" value="{{ search_name }}">
+									<a href="#" class="btn2 btn2-dark contrast submit-parent">Join</a>
+								</form>
+
+							{% else%}
+
+								{% if requested %}
+									<br> You already requested it
+									<form method="post" id="withdraw_request">
+										<input type="hidden" name="type_of_form" value="withdraw_request">
+										<input type="hidden" name="guild_search_name" value="{{ search_name }}">
+										<input type="submit" value="Withdraw request" class="btn2 btn2-dark contrast">
+									</form>
+
+								{% else %}
+									<form method="post" id="ask_join_guild">
+										<input type="hidden" name="type_of_form" value="ask_join_guild">
+										<input type="hidden" name="guild_search_name" value="{{ search_name }}">
+										<input type="submit" value="Ask to join" class="btn2 btn2-dark contrast">
+									</form>
+
+								{% endif %}
+
+							{% endif %}
+
+						{% endif %}
+
+					{% endif %}
+
+				</p>
+				{% endif %}
+
+				{% if open or in_guild == 'this' or login_creator %}
+					<div class="guild-news">
+						<ul class="guild-news-list">
+							{% if not news %}
+								<li class="guild-news-item">
+									<p class="guild-news-text no-news">There are no news right now</p>
+								</li>
+							{% else %}
+								{% for story in news %}
+									<li class="guild-news-item">
+										<a class="guild-news-title" href="/guilds/story?id={{ story.UID }}">{{ story.header}}</a>
+										<p class="guild-news-text">{{ story.text }}</p>
+									</li>
+								{% endfor %}
+							{% endif %}
+
+						</ul>
+
+						{% if in_guild == 'this' or login_creator %}
+							<ul class="guild-news-buttons">
+								{% if news %}
+									<li class="guild-news-button"><a class="guild-news-more" href="/guilds/news">More</a></li>
+								{% endif %}
+
+								{% if login_creator %}
+									<li class="guild-news-button"><a class="guild-news-add" href="/guilds/addnews">Add</a></li>
+								{% endif %}
+
+							</ul>
+						{% endif %}
+					</div>
+				{% endif %}
+
+			</div>
+
+
+
+		</div>
+		<div class="bottom-guild-header-shadow"></div>
+		<div id="guild-detail-page">
+
+			<ul class="guild-page-tab-header">
+				<li><a href="#tab-guild-info">{{ people|length }} members</a></li>
+				<li><a href="#tab-guild-events">Last events</a></li>
+
+			</ul>
+
+			<div id="tab-guild-info">
+				{% if in_guild == 'this' or login_creator %}
+					<div class="invite-block guild-invite-block">
+						<a class="invite" href="https://twitter.com/share?url={{ host }}invite?{{ login_name }}&text=Join my {{ name }} guild in %23Tweeria Lazy RPG">Invite friends</a>
+						<span>to make your guild larger and stronger</span>
+					</div>
+				{% endif %}
+
+				{#
+					<br><br>
+					{% for event in events %}
+						{{ event._id }}, {{ event.type }}, {{ event.status }}  <br>
+
+					{% endfor %}
+				#}
+
+				<table class="guild-settings-table guild-small-table guild-detail-table">
+					<thead>
+					<tr class="header">
+						<th class="player-number">&nbsp;</th>
+						{% for item in table_header %}
+							<th class="{{ item.value }}{% if param_s==item.value %} sorted{{ param_o }}{% endif %}" {% if item.colspan %}colspan="{{ item.colspan }}" {% endif %}>
+								<a href="?s={{ item.value }}&o={{ param_o|default(1)|int*-1 }}">{{ item.name }}</a>
+								<i class="sort-icon"></i>
+							</th>
+						{% endfor %}
+					</tr>
+					</thead>
+					<tbody>
+					{% for player in people %}
+						<tr>
+							<td class="number">{{ loop.index }}</td>
+							<td class="name">
+								<a href="/{{ player.name }}">{{ player.name }}</a>
+								{% if player.creator %}
+									<span class="leader">leader</span>
+								{% endif %}
+							</td>
+							<td class="race-class">{{ player.race_name }} {{ player.class_name }}</td>
+							<td class="level">Level {{ player.lvl }}</td>
+							<td class="achvs">{{ player.achv_points }}</td>
+							<td class="pvp">{{ player.pvp_score }}</td>
+							<td class="leadership">
+								<span class="leadership-wrapper"><span title="Leadership: +{{ player.leadership }}" class="leadership-current" style="width: {{player.leadership*15}}%"></span></span>
+							</td>
+						</tr>
+					{% endfor %}
+					</tbody>
+				</table>
+
+			</div>
+			<div id="tab-guild-events">
+				<div class="guild-events-list">
+					<ul class="last-events-list">
+						{% set shareEventUrl = host+address %}
+						{% for message in messages %}
+							{% set shareEventText = message.message|striptags|replace("|","") %}
+							<li>
+								<span class="time">{{ message.time }}</span>
+								<p class="message">{{ message.message }}</p>
+								<a class="achv-share-button twitter-event" href="https://twitter.com/share?url={{ shareEventUrl }}&hashtags=tweeria&text={{ shareEventText }}" target="_blank">Tweet</a>
+							</li>
+						{% endfor %}
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

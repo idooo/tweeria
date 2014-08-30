@@ -1,0 +1,132 @@
+
+/* Btn 2 buttons for Tweeria */
+/* base */
+
+.btn2 {
+	background-color: #4b3f39;
+	font-size: 16px;
+    border: none;
+    display: inline-block;
+	text-decoration: none;
+	position: relative;
+	padding: 9px 20px 4px;
+	font-family: "Trajan Pro";
+	letter-spacing: 1px;
+	line-height: 18px;
+	font-weight: normal;
+	text-shadow: -1px -1px 0 #381B0C;
+	color: #fbf6f4;
+	cursor: pointer;
+	border-radius: 3px;
+
+	&:active { top: 2px; }
+
+	&:hover { color: #fbf6f4; }
+
+	&.btn2-wide {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+
+    &.btn2-small {
+      font-size: 12px;
+      padding: 5px 8px 1px;
+    }
+
+    &.btn2-wide.btn2-small {
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+
+}
+
+@mixin button($border_top, $top_light, $border_side) {
+
+	$inset_1: 0px 1px 0px $top_light;
+	$inset_2: 0px 4px 0px 0px $border_side;
+	$inset_2a: 0px 2px 0px 0px $border_side;
+
+	border-top: 1px solid $border_top;
+	box-shadow: inset $inset_1, $inset_2, 0px 6px 5px rgba(0,0,0,0.5);
+
+	&:active {
+    	box-shadow: inset $inset_1, $inset_2a, 0px 4px 5px rgba(0,0,0,0.3);
+	}
+
+	/* For dark BG */
+
+	&.contrast {
+		 box-shadow: inset $inset_1, $inset_2, 0px 6px 5px rgba(0,0,0,0.3);
+	
+		&:active {
+		    box-shadow: inset $inset_1, $inset_2a, 0px 4px 5px rgba(0,0,0,0.1);
+		}
+	}
+}
+
+@mixin gradient($color1, $color2) {
+	background: $color2;
+    background-image: -moz-linear-gradient(top, $color1 0%, $color2 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color1), color-stop(100%,$color2));
+	background-image: -webkit-linear-gradient(top, $color1 0%,$color2 100%);
+	background-image: -o-linear-gradient(top, $color1 0%,$color2 100%);
+	background-image: -ms-linear-gradient(top, $color1 0%,$color2 100%);
+	background-image: linear-gradient(to bottom, $color1 0%,$color2 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2',GradientType=0 );
+}
+
+/* classic */
+
+.btn2-classic {
+	@include button(#7B5043, #9e8d84, #1a0b06);
+	background-image: url(data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABVAAD/4QMtaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjMtYzAxMSA2Ni4xNDU2NjEsIDIwMTIvMDIvMDYtMTQ6NTY6MjcgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzYgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RTVDMUZDNTQzNTc1MTFFMjkyQ0FFRjZDREMzQzExRTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RTVDMUZDNTUzNTc1MTFFMjkyQ0FFRjZDREMzQzExRTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGM0Y1RkZGRjM1NzQxMUUyOTJDQUVGNkNEQzNDMTFFNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGM0Y2MDAwMDM1NzQxMUUyOTJDQUVGNkNEQzNDMTFFNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pv/uAA5BZG9iZQBkwAAAAAH/2wCEAAIBAQEBAQIBAQIDAgECAwMCAgICAwMDAwMDAwMFAwQEBAQDBQUFBgYGBQUHBwgIBwcKCgoKCgwMDAwMDAwMDAwBAgICBAMEBwUFBwoIBwgKDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDP/AABEIACAAGAMBEQACEQEDEQH/xAB5AAACAgMAAAAAAAAAAAAAAAAAAQMHAgUGAQADAQEBAAAAAAAAAAAAAAABAgMABgcQAQACAAQDBwUBAAAAAAAAAAERAgAhMQNBBAbwUWESIgUHcYEyEyOREQACAQMEAwEBAAAAAAAAAAABEQDwIQIxQVESYYGhkbH/2gAMAwEAAhEDEQA/AKrr8r9RPrt7nzCGR/feHLRGr38IxxXYqepg4jUC62o8tfsfM/KfUlLQe58xXQtO/vH3BtGFDbj54jVfIbfyt1HdLW9y5jzWQD929JLGcWhy8DDMxR1BRTdeePcpqnWFTbjcum4tdAiz3/5l2MUu/EljmjzVeplfrO1Nvy7e4+dmQ9WUOpqZve4PUEXgxyYFgq+eeYjrCta1q3Tdm3pAByziO9z7OBdmYZoHd1tOI2+dWK1VqQwLnBHFxWSLcjtzyzuSlrRXchFiZl1TDaw9nX9klefvnYWa+ZgsmbDxXTCuKy3ea8b1gBKP5cGdOGnjnhwHMkdIX/Y2Y/GMyueehlgQkLaOrcSgfzcw4S/SCPDBTgAubCf/2Q==);
+   
+    &:hover {
+		background-image: url(data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABVAAD/4QMtaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjMtYzAxMSA2Ni4xNDU2NjEsIDIwMTIvMDIvMDYtMTQ6NTY6MjcgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzYgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RTVDMUZDNTgzNTc1MTFFMjkyQ0FFRjZDREMzQzExRTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RTVDMUZDNTkzNTc1MTFFMjkyQ0FFRjZDREMzQzExRTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpFNUMxRkM1NjM1NzUxMUUyOTJDQUVGNkNEQzNDMTFFNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpFNUMxRkM1NzM1NzUxMUUyOTJDQUVGNkNEQzNDMTFFNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pv/uAA5BZG9iZQBkwAAAAAH/2wCEAAIBAQEBAQIBAQIDAgECAwMCAgICAwMDAwMDAwMFAwQEBAQDBQUFBgYGBQUHBwgIBwcKCgoKCgwMDAwMDAwMDAwBAgICBAMEBwUFBwoIBwgKDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDP/AABEIACAAGAMBEQACEQEDEQH/xAB3AAACAwEAAAAAAAAAAAAAAAAAAQIEBwYBAAMBAQEAAAAAAAAAAAAAAAABAgMGBxAAAQMCBQMEAwAAAAAAAAAAAREhAgADMUESBQZRIgTwYYEHkRMjEQACAQMEAgMBAAAAAAAAAAABEQDwMQIhQVFhgRKRobED/9oADAMBAAIRAxEAPwDK4/a/Ij3y3PyCAw/veBbAgxPXJK4r2KnqYOIuBqtqPLXzH5P2nySEkG5+RHASW/eHyAZJUhty88RdfULf2tyOZEpbl5GqRAA/deUKUdJIW9hVMyR6gopuu+PMxyHLUtpcmRcJjgAkj1/DehWmr6meOaPNV4jnzC5C3ptzOsqoHcyHEYhz1NNAjWTiWBoF5pd8wHLdMYxMiLqy7QAAWdE6l/RpaswGaB3dbTl7atEEmLFAS6BMzVuBBchIkkzUgySM0QlFV8SKq8L1+ycZTche3UUBIcvmTUuJG8vDa7kcIkROOT/GFIFzf0RtHLarpJQNmAFfJqHGcFtCO13AkRHsxAyWhuA/nraf/9k=);	
+	}
+}
+
+/* red */
+
+.btn2-red {
+	@include button(#5e3e2d, #9e3030, #1a0b06);
+	@include gradient(#830000, #530000);
+
+    &:hover {
+      background: #830000;
+    }
+}
+
+/* blue */
+
+.btn2-blue {
+	@include button(#192a3e, #4d627c, #1a0b06);
+	@include gradient(#243e5d, #132029);
+
+    &:hover {
+      background: #243e5d;
+    }
+}
+
+/* gray */
+
+.btn2-gray {
+	@include button(#5f5f5f, #9c9c9c, #1a1a1a);
+	@include gradient(#838383, #343434);
+}
+
+/* dark */
+
+.btn2-dark {
+	@include button(#3f4751, #80858d, #1a0b06);
+	@include gradient(#606871, #1d262b);
+}
+
+/* brown */
+
+.btn2-brown {
+	@include button(#5e3e2d, #997b6b, #1a0b06);
+	@include gradient(#805b48, #3f2317);
+}
+
+

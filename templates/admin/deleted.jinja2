@@ -1,0 +1,39 @@
+{% include "header.jinja2" %}
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-page">
+			<a class="link-back" href="/a/index">Back</a><br>
+			<h2>Deleted</h2>
+
+			<table class="passive-table">
+				<thead>
+				<tr>
+					<th class="n"></th>
+					<th class="type" style="width:80px;">Type</th>
+					<th class="name">Name</th>
+					<th class="time" style="width:100px;">Delete time</th>
+					<th class="person" style="width:100px;">Person delete</th>
+				</tr>
+				</thead>
+				<tbody>
+				{% for item in deleted %}
+					<tr>
+						<td>{{ loop.index }}</td>
+						<td class="type">
+							{{ item.deleted_type|capitalize }}:
+							{{ item.view|capitalize }}
+						</td>
+						<td class="name">{{ item.name }}</td>
+						<td class="author">{{ item.deleted_time }}</td>
+						<td>{{ item.deleted_person }}</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

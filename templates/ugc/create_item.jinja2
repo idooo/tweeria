@@ -1,0 +1,345 @@
+{% include "header.jinja2" %}
+
+<script src="/js/page_scripts/create_item.js?{{ build }}"></script>
+<script src="/js/page_scripts/crop_img.js?{{ build }}"></script>
+
+<script id="crop-image-popup" type="text/x-jquery-tmpl">
+
+</script>
+
+<div id="crop-cont" style="display:none; text-align:center;">
+	<img src="" alt="Image to crop" id="thumb">
+	<a id="crop-image" href="/u/ajax/?action=crop_image" class="create-item-button">Crop Image</a>
+</div>
+
+{% set item_types_sliders = [
+	{'name': "Weapons", "types": [
+		{ "name": "Dagger", "value": "1:dagger", "stats": '{"DMG": 33, "DEF":false }'},
+		{ "name": "Sword", "value": "1:sword", "stats": '{ "DMG": 33, "DEF":false }'},
+		{ "name": "Axe", "value": "1:axe", "stats": '{ "DMG": 50, "DEF":false }'},
+		{ "name": "Bow", "value": "1:bow", "stats": '{ "DMG": 25, "DEF":false }'},
+		{ "name": "Crossbow", "value": "1:crossbow", "stats": '{ "DMG": 50, "DEF":false }'},
+		{ "name": "Staff", "value": "1:staff", "stats": '{ "DMG": 20, "DEF":false }'},
+	]},
+	{'name': "Armor", "types": [
+		{ "name": "Helm", "value": "4", "stats": '{"DEF": 25, "DMG":false}'},
+		{ "name": "Shoulders", "value": "13", "stats": '{ "DEF": 25, "DMG":false }'},
+		{ "name": "Wrist", "value": "9", "stats": '{ "DEF": 25, "DMG":false }'},
+		{ "name": "Gloves", "value": "10", "stats": '{ "DEF": 25, "DMG":false }'},
+		{ "name": "Chest", "value": "12", "stats": '{ "DEF": 50, "DMG":false }'},
+		{ "name": "Waist", "value": "8", "stats": '{ "DEF": 25, "DMG":false }'},
+		{ "name": "Leggings", "value": "11", "stats": '{ "DEF": 25, "DMG":false }'},
+		{ "name": "Boots", "value": "7", "stats": '{ "DEF": 25, "DMG":false }'},
+	]},
+	{'name': "Jewel", "types": [
+		{ "name": "Necklace", "value": "5", "stats": '{ "DEF":false, "DMG":false }'},
+		{ "name": "Ring", "value": "6", "stats": '{ "DEF":false, "DMG":false }'},
+	]}
+]
+%}
+
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg craft-items-page">
+			<a class="link-back" href="/u/creation_center">Creation center</a>
+			<h2>New item</h2>
+			<div class="error-message">
+				<div style="display:{% if errors or critical_error %}block{% else %}none{% endif %};">
+
+					{% if errors or critical_error %}
+
+
+					{% for error in errors %}
+
+						{% if error.name == 'name' %}
+							Name
+						{% elif error.name == 'img' %}
+							Image
+						{% elif error.name == 'desc' %}
+							Description
+						{% elif error.name == 'cost' %}
+							Cost
+						{% endif %}
+
+						{% if error.desc == 'min_length_fail' %}
+							must be longer
+						{% elif error.desc == 'null' %}
+							must not be empty
+						{% elif error.desc == 'not_greater' %}
+							must be greater than {{ param_level|int*(10+param_level|int/10)|int-1 }}
+						{% elif error.desc == 'not_int' %}
+							must be a number
+						{% elif error.desc == 'dublicate' %}
+							already exist. Please select the new name
+						{% elif error.desc == 'not_match' %}
+							can contain only latin letters and numbers
+						{% endif %}
+						<br>
+
+					{% endfor %}
+
+					{{ critical_error }}
+
+
+			{% endif %}
+			</div></div>
+			<form method="post" id="upload-image-form" action=""  {% if 'img' in error_fields %} class="error_field" {% endif %}>
+
+				<div class="readme-block">
+					<h2>Yay! Read this</h2>
+
+					<ul>
+						<li>
+							An item must properly fit into<br>
+							a typical fantasy medieval universe
+						</li>
+						<li>
+							We do not object humor,<br>
+							but don’t turn Tweeria into 9gag.com
+						</li>
+						<li>
+							Use only the images created by you<br>
+							or by a person who gave you<br>
+							permission to use it.
+						</li>
+						<li>
+							Please, provide a reference<br>
+							to a source of a picture
+						</li>
+					</ul>
+					<a class="read-more" href="/help#creating">Read more</a>
+				</div>
+
+				<label for="item-image">Image</label>
+				<input type="file" name="img" id="item-image" data-imgsize="54px">
+
+				<input type="hidden" name="type_of_form" value="create_item"/>
+
+
+				<div class="img-annotation">
+
+					<ul>
+						<li>Image can not be larger than 200 x 200 pixels and 250 Kb</li>
+						<li>You must have rights to sell or use this art</li>
+						<li>Allowed .PNG, JPG, GIF</li>
+					</ul>
+				</div>
+				<br class="clear">
+
+				<img id="dest-img" src="http://placehold.it/10x10" style="display:none; float:right;"/>
+
+				<div class="preview" style="display:none;">
+					<img width="150px" height="100px" src="http://placehold.it/150x100"/>
+
+					<input type="hidden" id="x1" name="x1"/>
+					<input type="hidden" id="y1" name="y1"/>
+					<input type="hidden" id="x2" name="x2"/>
+					<input type="hidden" id="y2" name="y2"/>
+					<input type="hidden" id="w" name="w"/>
+					<input type="hidden" id="h" name="h"/>
+
+					<input type="hidden" id="img_to_crop" name="img_to_crop" value="">
+					<br>
+
+				</div>
+			</form>
+
+			<form method="post" action="" id="create-item-form">
+
+				<input type="hidden" name="type_of_form" value="add_item"/><br>
+				<input type="hidden" name="img" id="img-link">
+				<label for="item-type">Type </label>
+				<select id=item-type name="item_type">
+					<option value=""></option>
+
+					{% for group in item_types_sliders %}
+						<optgroup label="{{ group.name }}">
+							{% for option in group.types %}
+								<option value="{{ option.value }}" data-things='{{ option.stats }}'>{{ option.name }}</option>
+							{% endfor %}
+						</optgroup>
+					{% endfor %}
+				</select>
+
+				<label for="item-level">Level</label> {# <input id="item-level" type="text" name="level" value="{{ param_level }}"><br> #}
+				<select name="level" id="item-level">
+					{% for i in range(login_lvl) %}
+						<option value="{{ i+1 }}" data-max-stats="{{ (i+1)*2 }}"{% if i==(login_lvl-1) and not param_level %} selected="selected" {% endif %}>{{ i+1 }}</option>
+					{% endfor %}
+				</select>
+
+				<br class="clear">
+
+
+				<label for="item-name">Name</label> <input {% if 'name' in error_fields %} class="error_field" {% endif %} type="text" id="item-name" name="name" value="{{ param_name }}"><br>
+
+				<label for="item-text">Text</label> <textarea {% if 'desc' in error_fields %} class="error_field" {% endif %} id="item-text" name="desc">{{ param_desc }}</textarea>
+
+				{% include "ugc/_artwork_info_creation.jinja2" %}
+
+				<div class="create-item-stat-bonus create-item-sublevel">
+					<h2>Stats bonus</h2>
+					<hr class="right-line">
+
+					<br class="clear">
+					<div id="params" data-max-value="{{ max_stat_level }}">
+						<div class="left-params">
+
+							<label for="item-str">STR</label> <span id="str" class="param-span" >0</span>
+							<input id="item-str" type="text" name="str" class="params" disabled="disabled">
+
+							<br class="clear">
+
+							<label for="item-dex">DEX</label> <span id="dex" class="param-span" >0</span>
+							<input type="text" name="dex" class="params" id="item-dex" disabled="disabled">
+
+							<br class="clear">
+
+							<label for="item-int">INT</label> <span id="int" class="param-span" >0</span>
+							<input type="text" name="int" class="params" id="item-int" disabled="disabled">
+
+							<br class="clear">
+
+							<label for="item-luck">LUCK</label> <span id="luck" class="param-span">0</span>
+							<input type="text" name="luck" class="params" id="item-luck" disabled="disabled">
+
+							<br class="clear">
+						</div>
+
+						<div class="right-params">
+							<label for="item-HP">HP</label> <span id="HP" class="param-span">0</span>
+							<input type="text" name="HP" class="params" id="item-HP" disabled="disabled">
+							<br class="clear">
+
+							<label for="item-MP">MANA</label> <span id="MP" class="param-span">0</span>
+							<input type="text" name="MP" class="params" id="item-MP" disabled="disabled">
+
+							<br class="clear">
+
+							<label for="item-DMG">DAMAGE</label> <span id="DMG" class="param-span">0</span>
+							<input type="text" name="DMG" class="params" id="item-DMG" disabled="disabled">
+
+							<br class="clear">
+
+							<label for="item-DEF">ARMOR</label> <span id="DEF" class="param-span">0</span>
+							<input type="text" name="DEF" class="params" id="item-DEF" disabled="disabled">
+
+							<br class="clear">
+						</div>
+
+						<div class="stat-summary">
+							Summary power <span class="current-stat-summ"></span><span class="max-stat-summ">/100</span>
+							<br class="clear">
+							{# <span class="rune-slider"></span> #}
+							<label for="item-rune"><i class="icon rune"></i></label> <span class="param-span rune-slider" id="rune" data-max-value="1"></span>
+							<input id="item-rune" name="rune" class="params" type="text" data-maxsumm-modifier="10" disabled="disabled">
+
+							<div class="rune-annotation">
+								You can add enchanted ore to increase item’s power
+							</div>
+						</div>
+
+						<br class="clear">
+					</div>
+					<span id="max_sum" style="display: none">25</span>
+					<div class="item-cost">
+						<h2 class="cost">Cost</h2>
+						<hr class="right-line">
+						<br class="clear">
+						<label for="item-cost-gold">Gold</label> <input  {% if 'cost' in error_fields %} class="error_field" {% endif %} type="text" name="cost" value="{% if param_cost %}{{ param_cost }}{% else %}100{% endif %}" id="item-cost-gold">
+
+					{# 	<label for="item-cost-real">$</label> <input type="text" name="real_cost" value="Coming soon" disabled="disabled" id="item-cost-real"> #}
+
+					</div>
+					<div class="create-summary-block">
+
+						<span class="ore-count-wrappper">
+							Creating cost:
+							<span class="ore-count">1</span> <span class="x">×</span> <i class="icon ore"></i>
+						</span>
+						<span class="ore-count-wrappper">
+							and
+							<span class="ore-count" id="ench-ore-count">0</span> <span class="x">×</span> <i class="icon ench-ore"></i>
+						</span>
+
+						<span class="ore-total-count-wrapper">
+							You have: <span class="ore-total-count">{{ player.resources.ore }}</span>
+							and
+							<span class="ore-total-count">{{ player.resources.eore }}</span>
+						</span>
+
+						<br class="clear">
+
+						<input type="submit" value="Create" class="create-item-button">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var $uploadForm = $("#upload-image-form"),
+			validateForm = "#create-item-form",
+			$imgInput = $("#img-link"),
+			validateAdditionalOptions = {
+				rules : {
+					"name"  : {
+						required: true,
+						minlength: 3,
+						maxlength: 40,
+						regexp: /^[a-zA-Z\s\-\+\']+$/i
+					},
+					"item_type": {
+						required: true,
+						minlength: 1
+					},
+					"desc"  : {
+						required: true,
+						minlength: 5,
+						regexp: /^[a-zA-Z0-9\s\-\+\'\!\.\,\?\:\"\']+$/i
+					},
+					"img"   : {
+						required: true
+					},
+					"cost"  : {
+						required: true,
+						min: 1,
+						number: true
+					}
+				},
+				ignore: "",
+				showErrors : function(errorMap,errorList){
+					if ($(".error-message div label:visible").size()==0){
+						$(".error-message div").hide();
+					}
+					this.defaultShowErrors();
+				},
+				highlight: function(element, errorClass, validClass) {
+					if (element.name=="img"){
+						$uploadForm.addClass("error_field");
+					}
+					if (element.type === 'radio') {
+						this.findByName(element.name).addClass(errorClass).removeClass(validClass);
+					} else {
+						$(element).addClass(errorClass).removeClass(validClass);
+					}
+				}
+			};
+	$imgInput.on("change",function(){
+		var $this = $(this);
+		if ($this.hasClass("error_field") && $uploadForm.hasClass("error_field") && $this.val()!=""){
+			$this.removeClass("error_field");
+			$(".error-message div label[for='img-link']").hide();
+			$uploadForm.removeClass("error_field");
+		}
+	});
+
+
+</script>
+
+<script src="/js/page_scripts/validate.js?{{ build }}"></script>
+
+
+{% include "footer.jinja2" %}

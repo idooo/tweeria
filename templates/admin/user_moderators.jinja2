@@ -1,0 +1,108 @@
+{% include "header.jinja2" %}
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-invites-page">
+
+			{% if param_success %}
+				<div class="success-message">
+					<div>
+						{% if param_reject %}
+							You've rejected moderators access from <strong>{{ param_reject }}</strong><br>
+							<a target="_blank" href="https://twitter.com/intent/tweet?source=tweetbutton&text=@{{ param_reject }}, I've rejected your moderators access ">Write</a> to him or her
+						{% elif param_promote %}
+							You've granted moderators access to <strong>{{ param_promote }}</strong> successfully<br>
+							<a target="_blank" href="https://twitter.com/intent/tweet?source=tweetbutton&text=@{{ param_promote }}, I've granted to you moderators access to%20%23tweeria — &url={{ host }}a/approve">Write</a> to him about it
+						{% endif %}
+
+					</div>
+				</div>
+			{% endif %}
+
+			<div class="page-part">
+				<a class="link-back" href="/a/index">Back</a><br>
+
+				<h2>Promote user to moderate</h2>
+				<form method="POST">
+					<input type="hidden" name="type_of_form" value="promote_to_moderator">
+					<input type="text" name="user_name" placeholder="Twitter name"><br>
+
+					<div class="users-can-approve">
+						User can approve:<br>
+
+						<input type="checkbox" name="approve_items" id="approve_items">
+						<label for="approve_items">items</label>
+
+						<input type="checkbox" name="approve_spells" id="approve_spells">
+						<label for="approve_spells">spells</label>
+
+						<input type="checkbox" name="approve_artworks" id="approve_artworks">
+						<label for="approve_artworks">artworks</label>
+					</div>
+
+					<br>
+
+					<input type="submit" class="btn2 btn2-classic" value="Promote">
+				</form>
+			</div>
+
+			<div class="page-part">
+				<h2>Moderators</h2>
+				<table class="moderators-table">
+					<thead>
+					<tr>
+						<th class="id"></th>
+						<th class="name">Name</th>
+						<th class="items">Items</th>
+						<th class="spells">Spells</th>
+						<th class="artworks">Artworks</th>
+						<th class="time">Last approve</th>
+						<th class="misc"></th>
+					</tr>
+					</thead>
+					<tbody>
+
+					{% for user in moderators %}
+
+						<tr>
+							<td>{{ loop.index }}</td>
+							<td width="150">{{ user.name }}</td>
+							<td>
+								<div class="can-approve-{{ user.app_items }}"> </div>
+								{{ user.moderator_stats.a_items }} <div class="delimeter">...</div> {{ user.moderator_stats.r_items }}
+							</td>
+							<td>
+								<div class="can-approve-{{ user.app_spells }}"> </div>
+								{{ user.moderator_stats.a_spells }} <div class="delimeter">...</div> {{ user.moderator_stats.r_spells }}
+							</td>
+							<td>
+								<div class="can-approve-{{ user.app_artworks }}"> </div>
+								{{ user.moderator_stats.a_artworks }} <div class="delimeter">...</div> {{ user.moderator_stats.r_artworks }}
+							</td>
+
+							<td>{{ user.moderator_stats.time }}</td>
+
+							<td>
+								<form method="post">
+								<input type="hidden" name="type_of_form" value="reject_from_moderator">
+								<input type="hidden" name="user_name" value="{{ user.name }}">
+								<a href="#" onclick="$(this).parent().submit()">reject</a>
+								</form>
+							</td>
+
+						</tr>
+
+					{% endfor %}
+					</tbody>
+				</table>
+				{% if moderators|length == 0 %}
+					<div class="empty-gray-text">
+						There are no moderators yet
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% include "footer.jinja2" %}

@@ -1,0 +1,76 @@
+{% include "header.jinja2" %}
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg ratings-page all-page">
+
+			<div>
+				<table class="ratings-table">
+					<thead>
+					<tr>
+						<th class="number" colspan="2">
+							<h2>Best authors</h2>
+						</th>
+
+						<th class="achv_points">Likes</th>
+						<th class="level">Level</th>
+						<th class="guild">Guild</th>
+					</tr>
+					</thead>
+					<tbody>
+
+					{% for player in authors %}
+						<tr>
+							<td>{{ loop.index+20*(param_pi|int-1) }}</td>
+							<td><img src="{{ player.author_avatar }}"><a href="/{{ player.author_name }}?works">{{ player.author_name }}</a></td>
+							<td>{{ player.likes }} </td>
+							<td>Level {{ player.lvl }} </td>
+							<td class="player-guild"><a href="/guilds/{{ player._guild_name }}">{{ player._guild_name }} </a></td>
+						</tr>
+					{% endfor %}
+
+					</tbody>
+				</table>
+			</div>
+
+			<br class="clear">
+
+			{% if total_pages and total_pages > 1 %}
+				<div class="pager">
+					{% if param_pi|int == 1 %}
+						<span class="prev">prev</span>
+					{% else %}
+						<a href="?pi={{ param_pi|int - 1 }}{{ addPagePart }}" data-page="{{ param_pi|int - 1 }}" class="prev">prev</a>
+					{% endif %}
+					<ul class="page-list">
+
+						{% for number_page in display_pages %}
+							<li>
+								{% if param_pi|int == number_page %}
+									<span>{{ number_page }}</span>
+								{% else %}
+									{% if number_page == '.' %}
+										...
+									{% else %}
+										<a href="?pi={{ number_page }}{{ addPagePart }}">{{ number_page }}</a>
+									{% endif %}
+								{% endif %}
+							</li>
+						{% endfor %}
+
+					</ul>
+					{% if param_pi|int == total_pages %}
+						<span class="next">next</span>
+					{% else %}
+						<a href="?pi={{ param_pi|int + 1 }}{{ addPagePart }}" data-page="{{ param_pi|int + 1 }}" class="next">next</a>
+					{% endif %}
+				</div>
+			{% endif %}
+			<br class="clear">
+
+		</div>
+	</div>
+</div>
+
+
+{% include "footer.jinja2" %}

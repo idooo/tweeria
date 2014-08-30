@@ -1,0 +1,49 @@
+
+/* Fonts */
+
+@mixin fontload($family, $name, $filename, $svgname) {
+  font-family: $family;
+  src: url('#{$filename}.eot');
+  src: local($name),
+  url('#{$filename}.eot?#iefix') format('embedded-opentype'),
+  url('#{$filename}.woff') format('woff'),
+  url('#{$filename}.ttf') format('truetype'),
+  url('#{$filename}.svg##{$svgname}') format('svg');
+}
+
+  /* PT Serif */
+
+  @font-face {
+    @include fontload('PT Serif', 'PT Serif', 'fonts/ptf55f_w', 'PTSerif-Regular');
+  }
+
+  @font-face {
+    @include fontload('PT Serif', 'PT Serif Italic', 'fonts/ptf56f_w', 'PTSerif-Italic');
+    font-style: italic;
+  }
+
+  @font-face {
+    @include fontload('PT Serif', 'PT Serif Bold', 'fonts/ptf75f_w', 'PTSerif-Bold');
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  @font-face {
+    @include fontload('PT Serif', 'PT Serif Bold Italic', 'fonts/ptf76f_w', 'PTSerif-BoldItalic');
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  /* Trajan Pro */
+
+  @font-face {
+    @include fontload('Trajan Pro', 'Trajan Pro', 'fonts/trajanpro-regular-webfont', 'trajan_proregular');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    @include fontload('Trajan Pro', 'Trajan Pro Bold', 'fonts/trajanpro-bold-webfont', 'trajan_probold');
+    font-weight: bold;
+    font-style: normal;
+  }

@@ -1,0 +1,49 @@
+
+{% set licenses = [
+			{'name':'cc-by', 'code':'<img src="/style/img/licenses/cc-by.png">'},
+			{'name':'cc-by-sa', 'code':'<img src="/style/img/licenses/cc-by-sa.png">'},
+			{'name':'cc-by-nd', 'code':'<img src="/style/img/licenses/cc-by-nd.png">'},
+			{'name':'cc-by-nc', 'code':'<img src="/style/img/licenses/cc-by-nc.png">'},
+			{'name':'cc-by-nc-sa', 'code':'<img src="/style/img/licenses/cc-by-nc-sa.png">'},
+			{'name':'cc-by-nc-nd', 'code':'<img src="/style/img/licenses/cc-by-nc-nd.png">'},
+			{'name':'closed', 'code':'Closed'},
+			{'name':'unknown', 'code':'Unknown'},
+]%}
+
+<div class="artwork-information">
+	<h2>Artwork information</h2>
+
+	{% if login_admin %}
+		<div class="verified-block">
+			<input type="checkbox" name="verified" id="verified" {% if img_info.verified %}checked{% endif %}><label for="verified">Authorized</label>
+		</div>
+	{% endif %}
+
+	<label for="img-source">Link</label>
+	<input type="text" id="img-source" name="img_source" value="{{ img_info.link }}" placeholder="http://"><br>
+
+	<label for="img-author">Author</label>
+	<input type="text" id="img-author" name="img_author" value="{{ img_info.name }}"><br>
+
+	<label for="img-email">Contact</label>
+	<input class="contact-field" type="text" id="img-email" name="img_email" value="{{ img_info.email }}" placeholder="E-mail">
+	<input class="contact-field" type="text" id="img-twitter" name="img_twitter" value="{{ img_info.twitter }}" placeholder="Twitter">
+
+	{% if login_admin %}
+
+		<div class="copyright-select-block">
+			{% for license in licenses %}
+				<div class="copyright-select-block-item">
+					<input type="radio" name="copyright_type" value="{{ license.name }}" id="{{ license.name }}" {% if img_info.copyright == license.name %}checked{% endif %}>
+					<label for="{{ license.name }}">
+						{{ license.code }}
+					</label>
+				</div>
+			{% endfor %}
+
+			<div class="clear"></div>
+			<a href="/licenses" target="_blank">Learn more about licensing</a>
+		</div>
+	{% endif %}
+
+</div>

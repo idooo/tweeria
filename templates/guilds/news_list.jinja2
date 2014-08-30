@@ -1,0 +1,38 @@
+{% include "header.jinja2" %}
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg guild-page guild-news-list-page">
+
+			<a class="link-back" href="/guilds/{{ link_name }}">{{ name }}</a>
+
+			<h2>News</h2>
+
+			{% if login_id == creator %}
+				<a class="add-news" href="/guilds/addnews">Add</a>
+			{% endif %}
+
+			<ul class="guild-news-list">
+				{% for story in news %}
+					<li class="guild-news-list-item">
+						<span class="guild-news-date">Today 12:4{{ loop.index }}</span>
+
+						<div class="news-info">
+							<a href="/guilds/story?id={{ story.UID }}" class="guild-news-title">{{ story.header }}</a>
+
+							<p class="guild-news-text">{{ story.text }}</p>
+
+							<div class="guild-news-author">by <a
+									href="/{{ story.author_name }}">@{{ story.author_name }}</a>
+							</div>
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+
+		</div>
+	</div>
+</div>
+
+
+{% include "footer.jinja2" %}

@@ -1,0 +1,16 @@
+{% if production or 1%}
+<script src="/js/plugins.js?{{ build }}"></script>{# TODO незабыть его сгенерировать #}
+{% else %}
+	<script src="/js/plugins/cluetip.js" type="text/javascript"></script>
+	<script src="/js/plugins/dragscrollable.js" type="text/javascript"></script>
+	<script src="/js/plugins/fancybox.js" type="text/javascript"></script>
+	<script src="/js/plugins/form.js" type="text/javascript"></script>
+	<script src="/js/plugins/jcrop.js" type="text/javascript"></script>
+	<script src="/js/plugins/jquery.tmpl.js" type="text/javascript"></script>
+	<script src="/js/plugins/mousewheel.js" type="text/javascript"></script>
+	<script src="/js/plugins/scrollsync.js" type="text/javascript"></script>
+	<script src="/js/plugins/timepicker.js" type="text/javascript"></script>
+	<script src="/js/plugins/uniform.js" type="text/javascript"></script>
+	<script src="/js/plugins/user.js" type="text/javascript"></script>
+	<script src="/js/plugins/validation.js" type="text/javascript"></script>
+{% endif %}

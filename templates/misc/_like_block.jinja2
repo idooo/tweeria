@@ -1,0 +1,40 @@
+	{% if not item %}
+		{% set item = {'likes': likes, 'is_like': is_like} %}
+	{% endif %}
+
+	<div class="like-block">
+
+		{% if login %}
+			{% if is_like or item and item.is_like %}
+				<a href="#like" class="like-button liked-button">Liked<span class="like-counter">{{ likes|default(item.likes) }}</span></a>
+			{% else %}
+				<form method="post" action="/" name="like-form">
+					<input type="hidden" name="_id" value="{{ _id }}">
+					<input type="hidden" name="type" value="{{ like_type }}">
+					<input type="hidden" name="backlink" value="/{{ address }}?{{ __query__ }}">
+					<input type="hidden" name="like" value="true">
+					<a href="#like" class="like-button" data-likes="{{ likes|default(item.likes) }}" data-parent={{ parent }}><span class="like-counter">{{ likes|default(item.likes) }}</span>Like</a>
+				</form>
+
+			{% endif %}
+
+			{#
+			{% if is_reported %}
+				<input type="button" value="Reported" class="report-button reported-button">
+			{% else %}
+				<form method="post" action="/">
+					<input type="hidden" name="_id" value="{{ _id }}">
+					<input type="hidden" name="backlink" value="/{{ address }}?{{ __query__ }}">
+					<input type="hidden" name="report_type" value="{{ report_type }}">
+					<input type="hidden" name="report" value="true">
+					<input type="submit" value="Report" class="report-button">
+				</form>
+			{% endif %}
+			 #}
+
+		{% else %}
+			<a href="#" class="like-button inactive">Likes<span class="like-counter">{{ likes|default(item.likes) }}</span></a>
+
+		{% endif %}
+	</div>
+

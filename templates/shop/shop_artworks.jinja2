@@ -1,0 +1,45 @@
+
+<div class="shop-content">
+	<div class="shop-option-block">
+		<a id="artwork-filter-button" class="shop-filter-button" href="#filter">filter</a>
+
+		{% include "shop/shop_artwork_filter.jinja2" %}
+	</div>
+
+	<div id="shop-artworks-list" class="shop-item-list shop-artwork-list">
+		{% include "shop/shop_artworks_list.jinja2" %}
+	</div>
+
+	{% if artwork_pages > 1 %}
+		<div class="pager">
+			{% if param_pa|int == 1 %}
+				<span class="prev">prev</span>
+			{% else %}
+				<a href="?pa={{ param_pa|int - 1 }}#!tab-artworks" data-page="{{ param_pa|int - 1 }}" class="prev"  data-type="artwork">prev</a>
+			{% endif %}
+			<ul class="page-list">
+
+				{% for number_page in display_artworks_pages %}
+					<li>
+						{% if param_pa|int == number_page %}
+							<span>{{ number_page }}</span>
+						{% else %}
+							{% if number_page == '.' %}
+								...
+							{% else %}
+								<a href="?pa={{ number_page }}#!tab-artworks" data-type="artwork">{{ number_page }}</a>
+							{% endif %}
+						{% endif %}
+					</li>
+				{% endfor %}
+
+			</ul>
+			{% if param_pa|int == item_pages %}
+				<span class="next">next</span>
+			{% else %}
+				<a href="?pa={{ param_pa|int + 1 }}#!tab-artworks" data-page="{{ param_pa|int + 1 }}" class="next" data-type="artwork">next</a>
+			{% endif %}
+		</div>
+	{% endif %}
+
+</div>

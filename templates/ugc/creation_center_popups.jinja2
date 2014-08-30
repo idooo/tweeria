@@ -1,0 +1,483 @@
+<script id="cc-item-popup" type="text/x-jquery-tmpl">
+
+	<div class="shop-item-popup">
+		<div class="shop-popup-img">
+			<span class="item-level">${level}</span>
+			<span class="img-cont"><img class="item-img" src="${img}" alt="${name}"></span>
+
+			{% raw %}
+				<span class="item-artwork-author">
+					{{if img_link}}
+						<a href="http://${img_link}">Artwork Source</a>
+					{{/if}}
+				</span>
+			{% endraw %}
+		</div>
+
+
+		<div class="item-info">
+			<form action="" method="post">
+				<span class="item-type">${type}</span>
+				<h4 class="item-name">${name}</h4>
+
+				{% raw %}
+				{{if rejected}}
+				<div class="rejected-info">
+					Rejected by moderator with reason:<br> ${rejected_reason}
+				</div>
+				{{/if}}
+				{% endraw %}
+
+				<div class="primary_stat">${primary}</div>
+
+				{% raw %}
+				<ul class="item-stats">
+					{{each bonusparsed}}
+					<li>${$value}</li>
+					{{/each}}
+				</ul>
+				{% endraw %}
+
+
+				<p class="item-text">
+					${desc}
+				</p>
+
+
+
+
+
+				<span class="item-cost"> <i class="icon gold-3"></i> <span>${cost}</span></span>
+
+
+{% raw %}
+				{{if formtype=="sell"}}
+					<input type="hidden" id="item-cost" name="cost" value="${cost}" class="input-cost">
+					<input type="hidden" name="type_of_form" value="cancel_sell">
+					<input type="hidden" name="copy" value="${sell}">
+					<input type="hidden" name="item_id" value="${id}">
+					<div class"submit_button"><input class="btn-ido-big" type="submit" value="Stop selling"></div>
+				{{/if}}
+
+				{{if formtype=="not_sell"}}
+					<input type="hidden" name="type_of_form" value="put_crafted_item_to_market">
+					<input type="hidden" name="_id" value="${id}">
+					<label class="label-cost" for="item-cost">Cost</label>
+					<input type="text" id="item-cost" name="cost" value="${cost}" class="input-cost">
+					<div class"submit_button"><input class="btn-ido-big" type="submit" value="Sell"></div>
+					{{/if}}
+{% endraw %}
+
+	{% if login %}
+					<div class="item-popup-share">
+						<a target="_blank"
+						   href="https://twitter.com/share?url=${shareurl}&hashtags=tweeria&text=${sharetitletwitter} thx @${shareauthor}"
+						   class="achv-share-button tw"
+						   data-lang="ru"
+						   data-url="${shareurl}"
+						   data-text="${sharetitle}"
+						   data-hashtags="tweeria">
+							Twitter
+						</a>
+
+						<a target="_blank"
+						   href="http://www.facebook.com/sharer.php?s=100&p[title]=${sharetitle}&p[summary]=${sharedesc}&p[url]=${shareurl}&p[images][0]=${shareimage}"
+						   data-url="${shareurl}"
+						   data-title="${sharetitle}"
+						   data-description="${sharedesc}"
+						   title="Facebook"
+						   class="achv-share-button fb">
+							Facebook
+						</a>
+
+						<a target="_blank"
+						   href="https://plus.google.com/share?url=${shareurl}"
+						   class="achv-share-button gp"
+						   data-title="${sharetitle}"
+						   data-image="${shareimage}"
+						   data-desc="${sharedesc}"
+						   data-url="${shareurl}">
+							Google+
+						</a>
+						<a href="http://vkontakte.ru/share.php?url=${shareurl}&title=${sharetitle}&description=${sharedesc}&image=${shareimage}"
+						   data-url="${shareurl}"
+						   target="_blank"
+						   class="achv-share-button vk">
+							Vkontakte
+						</a>
+					</div>
+				{% else %}
+					<div class="you_shall_not_pass">
+						To buy this item you must <a href="/login">Log in</a> or <a href="/registration">Sign up</a>
+					</div>
+				{% endif %}
+
+			</form>
+		</div>
+		<br class="clear">
+	</div>
+
+</script>
+
+<script id="cc-spell-popup" type="text/x-jquery-tmpl">
+
+	<div class="shop-item-popup">
+		<div class="shop-popup-img">
+			<span class="img-cont"><img class="item-img" src="${img}" alt="${name}"></span>
+			<span class="item-level">Level ${level}</span>
+		</div>
+
+		<div class="item-info">
+			<form action="" method="post">
+				<span class="item-type">Magic spell</span>
+				<h4 class="item-name">${name}</h4>
+
+				<div class="spell-keyword">
+					${keyword}
+				</div>
+
+				{% raw %}
+				{{if rejected}}
+				<br>
+				<div class="rejected-info">
+					Rejected by moderator with reason:<br> ${rejected_reason}
+				</div>
+				{{/if}}
+				{% endraw %}
+				<p class="item-text">
+					${desc}
+				</p>
+				{% raw %}
+				<span class="item-artwork-author">
+					{{if img_link}}
+						<a href="http://${img_link}">Artwork Source</a>
+					{{/if}}
+				</span>
+				{% endraw %}
+
+				{% raw %}
+				<ul class="popup-spell-list">
+					{{html rawactions}}
+				</ul>
+				{% endraw %}
+				<br class="clear">
+
+				<span class="mana-cost"><span class="text">Mana cost</span>&nbsp; <i class="icon mana-cost"></i> &nbsp;<span
+						class="count">${manacost}</span></span>
+
+
+
+				<span class="item-cost"> <i class="icon gold-3"></i> <span>${cost}</span></span>
+
+
+				{% raw %}
+				{{if formtype=="sell"}}
+					 <input type="hidden" id="item-cost" name="cost" value="${cost}" class="input-cost">
+					<input type="hidden" name="type_of_form" value="cancel_spell_sell">
+					<input type="hidden" name="copy" value="${sell}">
+					<input type="hidden" name="spell_id" value="${id}">
+					<div class"submit_button"><input class="btn-ido-big" type="submit" value="Stop selling"></div>
+				{{/if}}
+
+				{{if formtype=="not_sell"}}
+					<input type="hidden" name="type_of_form" value="put_crafted_pattern_to_market">
+					<input type="hidden" name="_id" value="${id}">
+					<label class="label-cost" for="item-cost">Cost</label>
+					<input type="text" id="item-cost" name="cost" value="${cost}" class="input-cost">
+					<div class"submit_button"><input class="btn-ido-big" type="submit" value="Sell"></div>
+				{{/if}}
+				{% endraw %}
+
+				{% if login %}
+					<div class="item-popup-share">
+						<a target="_blank"
+						   href="https://twitter.com/share?url=${shareurl}&hashtags=tweeria&text=${sharetitletwitter} thx @${shareauthor}"
+						   class="achv-share-button tw"
+						   data-lang="ru"
+						   data-url="${shareurl}"
+						   data-text="${sharetitle}"
+						   data-hashtags="tweeria">
+							Twitter
+						</a>
+
+						<a target="_blank"
+						   href="http://www.facebook.com/sharer.php?s=100&p[title]=${sharetitle}&p[summary]=${sharedesc}&p[url]=${shareurl}&p[images][0]=${shareimage}"
+						   data-url="${shareurl}"
+						   data-title="${sharetitle}"
+						   data-description="${sharedesc}"
+						   title="Facebook"
+						   class="achv-share-button fb">
+							Facebook
+						</a>
+
+						<a target="_blank"
+						   href="https://plus.google.com/share?url=${shareurl}"
+						   class="achv-share-button gp"
+						   data-title="${sharetitle}"
+						   data-image="${shareimage}"
+						   data-desc="${sharedesc}"
+						   data-url="${shareurl}">
+							Google+
+						</a>
+						<a href="http://vkontakte.ru/share.php?url=${shareurl}&title=${sharetitle}&description=${sharedesc}&image=${shareimage}"
+						   data-url="${shareurl}"
+						   target="_blank"
+						   class="achv-share-button vk">
+							Vkontakte
+						</a>
+					</div>
+				{% else %}
+					<div class="you_shall_not_pass">
+						To buy this item you must <a href="/login">Log in</a> or <a href="/registration">Sign up</a>
+					</div>
+				{% endif %}
+
+			</form>
+		</div>
+		<br class="clear">
+	</div>
+
+</script>
+
+<script id="cc-artwork-popup" type="text/x-jquery-tmpl">
+	<div class="shop-item-popup shop-artwork-popup">
+		<div class="shop-popup-img"><img class="item-img" width="240" height="420" src="${img}" alt="${name}"></div>
+
+		<div class="item-info">
+			<form action="" method="post">
+
+				<span class="item-type">${race} ${pclass}</span>
+				<h4 class="item-name">${name}</h4>
+
+				<div class="primary_stat">${primary}</div>
+
+				{% raw %}
+				<ul class="item-stats">
+					{{each bonusparsed}}
+					<li>${$value}</li>
+					{{/each}}
+				</ul>
+				{% endraw %}
+
+
+				<p class="item-text">
+					{% raw %}
+					{{if desc != '0'}}
+					${desc}
+					{{else}}
+					You can create description for this artwork. Just <a
+						href="mailto:yeah@tweenk.me?subject=Description for artwork: ${name}">write email</a>
+					to us or <a target="_blank"
+								href="https://twitter.com/intent/tweet?source=tweetbutton&text=@tweenk ">tweet</a>
+					{{/if}}
+					{% endraw %}
+				</p>
+				{% raw %}
+
+				<span class="item-artwork-author">
+					{{if img_link}}
+						<a href="http://${img_link}">Artwork Source</a>
+					{{/if}}
+				</span>
+				{% endraw %}
+
+
+
+
+
+				<span class="item-cost"> <i class="icon gold-3"></i> <span>${cost}</span></span>
+
+			{% raw %}
+
+				{{if formtype=="sell"}}
+					 <input type="hidden" id="item-cost" name="cost" value="${cost}" class="input-cost">
+					<input type="hidden" name="type_of_form" value="cancel_artwork_sell">
+					<input type="hidden" name="artwork_id" value="${id}">
+					<div class"submit_button"><input class="btn-ido-big" type="submit" value="Stop selling"></div>
+				{{/if}}
+
+				{{if formtype=="not_sell"}}
+					<input type="hidden" name="type_of_form" value="put_artwork_to_market">
+					<input type="hidden" name="_id" value="${id}">
+					<label class="label-cost" for="item-cost">Cost</label>
+					<input type="text" id="item-cost" name="cost" value="${cost}" class="input-cost">
+					<div class"submit_button"><input class="btn-ido-big" type="submit" value="Sell"></div>
+				{{/if}}
+
+
+			{% endraw %}
+
+
+				{% if login %}
+					<div class="item-popup-share">
+						<a target="_blank"
+						   href="https://twitter.com/share?url=${shareurl}&hashtags=tweeria&text=${sharetitletwitter} thx @${shareauthor}"
+						   class="achv-share-button tw"
+						   data-lang="ru"
+						   data-url="${shareurl}"
+						   data-text="${sharetitle}"
+						   data-hashtags="tweeria">
+							Twitter
+						</a>
+
+						<a target="_blank"
+						   href="http://www.facebook.com/sharer.php?s=100&p[title]=${sharetitle}&p[summary]=${sharedesc}&p[url]=${shareurl}&p[images][0]=${shareimage}"
+						   data-url="${shareurl}"
+						   data-title="${sharetitle}"
+						   data-description="${sharedesc}"
+						   title="Facebook"
+						   class="achv-share-button fb">
+							Facebook
+						</a>
+
+						<a target="_blank"
+						   href="https://plus.google.com/share?url=${shareurl}"
+						   class="achv-share-button gp"
+						   data-title="${sharetitle}"
+						   data-image="${shareimage}"
+						   data-desc="${sharedesc}"
+						   data-url="${shareurl}">
+							Google+
+						</a>
+						<a href="http://vkontakte.ru/share.php?url=${shareurl}&title=${sharetitle}&description=${sharedesc}&image=${shareimage}"
+						   data-url="${shareurl}"
+						   target="_blank"
+						   class="achv-share-button vk">
+							Vkontakte
+						</a>
+					</div>
+				{% else %}
+					<div class="you_shall_not_pass">
+						To buy this item you must <a href="/login">Log in</a> or <a href="/registration">Sign up</a>
+					</div>
+				{% endif %}
+			</form>
+		</div>
+		<br class="clear">
+	</div>
+</script>
+
+<script id="old-shop-item-popup" type="text/x-jquery-tmpl">
+
+	<div class="shop-item-popup">
+		<div class="shop-popup-img"><img class="item-img" src="${img}" alt="${name}"></div>
+
+		<div class="item-info">
+			<form method="post">
+				<h4 class="item-name">${name}</h4>
+				<span class="item-type-level">${view}, Level ${level}</span>
+
+				{% raw %}
+				{{if rejected }}
+				<p class="reject_info">
+					Item was rejected with reason:
+					${rejected_reason}
+				</p>
+				{{/if}}
+
+				<p class="item-text">
+					{{html desc}}
+				</p>
+
+				{{if view!="Spell"}}
+				<div class="primary_stat">${primary}</div>
+				<ul class="item-stats">
+					{{each bonusparsed}}
+					<li>${$value}</li>
+					{{/each}}
+				</ul>
+				{{/if}}
+				{{if view=="Spell"}}
+				<ul class="popup-spell-list">
+					{{html rawactions}}
+				</ul>
+				<span class="mana-cost"><span class="text">Total mana cost</span>&nbsp; <i class="icon mana-cost"></i> &nbsp;<span class="count">${manacost}</span></span>
+				<br class="clear"/>
+				{{/if}}
+				{% endraw %}
+
+				{% raw %}
+
+				{{if view=="Spell"}}
+					{{if formtype=="sell"}}
+						<label class="label-cost" for="item-cost">Cost</label> <input type="text" id="item-cost" name="cost" value="${cost}" class="input-cost">
+						<input type="hidden" name="type_of_form" value="cancel_spell_sell">
+						<input type="hidden" name="copy" value="${sell}">
+						<input type="hidden" name="spell_id" value="${id}">
+						<div class"submit_button"><input class="btn-ido-big" type="submit" value="Stop selling"></div>
+					{{/if}}
+
+					{{if formtype=="not_sell"}}
+						<input type="hidden" name="type_of_form" value="put_crafted_pattern_to_market">
+						<input type="hidden" name="_id" value="${id}">
+						<label class="label-cost" for="item-cost">Cost</label>
+						<input type="text" id="item-cost" name="cost" value="${cost}" class="input-cost">
+						<div class"submit_button"><input class="btn-ido-big" type="submit" value="Sell"></div>
+					{{/if}}
+
+
+				{{else view=="Artwork" }}
+
+					{{if formtype=="sell"}}
+						<label class="label-cost" for="item-cost">Cost</label> <input type="text" id="item-cost" name="cost" value="${cost}" class="input-cost">
+						<input type="hidden" name="type_of_form" value="cancel_artwork_sell">
+						<input type="hidden" name="artwork_id" value="${id}">
+						<div class"submit_button"><input class="btn-ido-big" type="submit" value="Stop selling"></div>
+					{{/if}}
+
+					{{if formtype=="not_sell"}}
+						<input type="hidden" name="type_of_form" value="put_artwork_to_market">
+						<input type="hidden" name="_id" value="${id}">
+						<label class="label-cost" for="item-cost">Cost</label>
+						<input type="text" id="item-cost" name="cost" value="${cost}" class="input-cost">
+						<div class"submit_button"><input class="btn-ido-big" type="submit" value="Sell"></div>
+					{{/if}}
+
+
+				{{else}}
+					{{if formtype=="sell"}}
+						<label class="label-cost" for="item-cost">Cost</label> <input type="text" id="item-cost" name="cost" value="${cost}" class="input-cost">
+						<input type="hidden" name="type_of_form" value="cancel_sell">
+						<input type="hidden" name="copy" value="${sell}">
+						<input type="hidden" name="item_id" value="${id}">
+						<div class"submit_button"><input class="btn-ido-big" type="submit" value="Stop selling"></div>
+					{{/if}}
+
+					{{if formtype=="not_sell"}}
+						<input type="hidden" name="type_of_form" value="put_crafted_item_to_market">
+						<input type="hidden" name="_id" value="${id}">
+						<label class="label-cost" for="item-cost">Cost</label>
+						<input type="text" id="item-cost" name="cost" value="${cost}" class="input-cost">
+						<div class"submit_button"><input class="btn-ido-big" type="submit" value="Sell"></div>
+					{{/if}}
+
+
+
+
+				{{/if}}
+	</form>
+
+	{{if rejected }}
+	<!--
+		  <form method="post">
+			  <input type="hidden" name="type_of_form" value="edit_created_smth">
+			  <input type="hidden" name="item_id" value="${id}">
+			  <div class"submit_button"><input class="btn-ido-big" type="submit" value="Edit"></div>
+		  </form>
+
+
+		  <form method="post">
+			  <input type="hidden" name="type_of_form" value="delete_created_smth">
+			  <input type="hidden" name="item_id" value="${id}">
+			  <div class"submit_button"><input class="btn-ido-big" type="submit" value="Delete"></div>
+		  </form>
+		  -->
+	{{/if}}
+
+	{% endraw %}
+
+	</div>
+	<br class="clear">
+	</div>
+
+</script>

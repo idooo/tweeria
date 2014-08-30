@@ -1,0 +1,98 @@
+{% include "header.jinja2" %}
+<script src="/js/page_scripts/upcoming_events.js?{{ build }}"></script>
+{% set messages = {
+	"raid": "Raid",
+	"war": "War",
+	"attack": "Attack"
+} %}
+
+{% include "events/event_detail.jinja2" %}
+
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg upcoming-events-page">
+
+			<h2>Group events</h2>
+
+			<ul class="event-filter-list">
+				<li><a href="/u/events">Upcoming</a></li>
+				<li><a href="#" class="active">Finished</a></li>
+			</ul>
+
+			<br class="clear">
+
+			{% if events|length==0 %}
+
+				<div class="empty-table">
+					There are no finished events right now
+				</div>
+
+			{% else %}
+				<table class="upcoming-event-table">
+					<thead>
+					<tr>
+						<th class="date">Date</th>
+						<th class="target">Target</th>
+						<th class="min-lvl">Min LVL</th>
+						<th class="author">Author</th>
+						<th class="people">People</th>
+						<th class="comment">Result</th>
+					</tr>
+					</thead>
+					<tbody>
+					{% for event in events %}
+						{% if not event.HIDE %}
+							<tr data-_id="{{ event._id }}" >
+								<td class="event-status-not_joined event-date">
+									{% if event.type=="attack" or event.status=="progress" %}
+										<span class="in-progress">in progress</span>
+									{% else %}
+										{{ event.start_date_f }}
+									{% endif %}
+								</td>
+								<td>
+
+
+									<i class="event-icon-{{ event.type }}"></i> {{ messages[event.type] }} <span class="event-{{ event.type }}">[{{ event.where_name }}]</span>
+								</td>
+								<td>
+									{{ event.lvl_min|default("1") }}
+
+								</td>
+								<td>
+									{{ event.author_name }}
+								</td>
+								<td>
+									{{ event.people_count }}
+									{% if event.people_count_max %}
+										/ {{ event.people_count_max }}
+									{% endif %}
+								</td>
+								<td class="comment">
+									<div class="event_cut"> {{ event.status }}</div>
+								</td>
+
+
+							</tr>
+
+						{% endif %}
+
+					{% endfor %}
+
+					</tbody>
+
+
+
+				</table>
+
+			{% endif %}
+
+
+
+		</div>
+	</div>
+</div>
+
+
+{% include "footer.jinja2" %}

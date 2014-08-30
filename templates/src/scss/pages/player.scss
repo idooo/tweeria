@@ -1,0 +1,1606 @@
+
+
+/* =======  Player page           ============================================= */
+
+.invite-block {
+  margin: 5px auto;
+  width: 535px;
+
+  a.invite {
+    color: transparent;
+    display: inline-block;
+    background: url(img/sprite.png) no-repeat -286px -575px;
+    width: 182px;
+    height: 35px;
+    text-indent: -99999px;
+
+    &:hover {
+      background-position: -286px -618px;
+    }
+
+    &:active {
+      background-position: -286px -663px;
+    }
+
+  }
+
+  span {
+    color: #5b653f;
+    font-family: "PT Serif", serif;
+    font-size: 14px;
+    font-style: italic;
+    margin: 7px 0 0 9px;
+    position: absolute;
+  }
+
+  hr.short {
+    border-top: 1px solid #B3AEAA;
+    border-bottom: 1px solid #ECEAE7;
+    margin: 16px 1px 0;
+    float: right;
+    height: 0;
+    width: 140px;
+  }
+
+}
+
+.guild-invite-block {
+  background: rgba(82,146,59,.2);
+  padding: 15px 20px 8px 20px;
+  margin: 0;
+  width: 864px;
+
+  a.invite {
+    vertical-align: top;
+    margin-top: -2px;
+  }
+
+  span {
+    line-height: 14px;
+    vertical-align: middle;
+  }
+
+}
+
+.resources-block {
+
+  .resources {
+    text-align: center;
+
+    &>div {
+      display: inline-block;
+      font-family: "PT Serif", serif;
+      font-size: 12px;
+      vertical-align: top;
+      margin-right: 17px;
+
+      span {
+        display: inline-block;
+        line-height: 1.7;
+        vertical-align: top;
+      }
+
+    }
+
+    i {
+      display: inline-block;
+      background-image: url(img/sprite.png);
+      background-repeat: no-repeat;
+    }
+
+    .resources_gold {
+      color: #ff7d0a;
+      font-size: 14px;
+
+      span {
+        line-height: 1.333;
+      }
+
+      i {
+        display: inline-block;
+        background: url(img/sprite.png) no-repeat -164px -24px;
+        width: 12px;
+        height: 12px;
+        margin-right: 5px;
+      }
+
+    }
+
+    .resources_ore {
+
+      line-height: 24px;
+
+      span {
+        color: #777;
+      }
+
+      i {
+        background-position: -185px -24px;
+        width: 11px;
+        height: 15px;
+        margin-right: 2px;
+        margin-top: 3px;
+        display: inline-block;
+      }
+
+    }
+
+    .resources_eore {
+
+      i {
+        background-position: -208px -20px;
+        width: 19px;
+        height: 20px;
+        margin-top: -1px;
+      }
+
+      span {
+        color: #846630;
+      }
+
+    }
+
+    .resources_pergament {
+      line-height: 25px;
+
+      i {
+        background-position: -238px -23px;
+        width: 15px;
+        height: 15px;
+        margin-right: 2px;
+      }
+
+      span {
+        color: #ada182;
+      }
+
+    }
+
+  }
+
+}
+
+.author_block {
+  font-family: "Trajan pro";
+  background: url("img/textures/author_texture.jpg") repeat black;
+  margin: 5px 15px 10px 15px;
+  padding: 11px 17px 7px 19px;
+
+  &.author_block_wide {
+    margin: -1px;
+  }
+
+  span {
+    font-size: 18px;
+    display: block;
+    float:left;
+    margin: 7px 14px 0 0;
+
+    &.likes {
+      font-size: 14px;
+      color: #3dd701;
+      margin: 1px 0 0 0;
+      background-color: #010101;
+      padding: 9px 11px 4px 11px;
+    }
+
+  }
+
+  a#portfolio-button {
+    background: url('img/sprite.png') no-repeat -336px -713px;
+    width: 140px;
+    height: 36px;
+    display: block;
+    float:left;
+    margin-left: 10px;
+
+    &:hover {
+      background-position: -336px -764px;;
+    }
+
+    &:active {
+      background-position: -336px -814px;;
+    }
+
+  }
+
+}
+
+/* profile tabs */
+
+@mixin clear_tab_style {
+  color: #fff;
+  text-decoration: none;
+  border-bottom-color: transparent;
+}
+
+#player-tabs-overlay {
+  background: url(img/textures/white-transparent-bg.png) repeat transparent 0 0;
+  min-height: 400px;
+  padding: 50px;
+  z-index: 11;
+
+  .pac-man-proggres {
+    margin: 0 auto;
+  }
+
+}
+
+#player-tabs {
+
+  border:none;
+  background: none;
+  display: none;
+
+  h4 {
+    color: #606060;
+    font-style: italic;
+    font-size: 14px;
+    font-weight: normal;
+    border-bottom: 1px solid #2a2626;
+    padding: 0px 8px 1px 7px;
+    margin: 0 4px 12px 4px;
+  }
+
+  &.ui-tabs {
+    padding: 0;
+  }
+
+  .ui-widget-header {
+    background: #1b1716;
+    border: none;
+    border-left: 1px solid #392b29;
+    border-radius: 0;
+    height: 30px;
+    padding: 12px 13px 0;
+    position: relative;
+    margin-left: -1px;
+    z-index: 2;
+
+    &:before {
+      background: url('img/sprite-bar.png') repeat-x 0 -194px;
+      content: " ";
+      display: none;
+      position: absolute;
+      width: 100%;
+      height: 42px;
+    }
+
+    li {
+      background: none;
+      border: none;
+      border-radius: 0;
+      padding-top: 3px;
+
+      a {
+        color: #ffd197; /* text color */
+        font-family: "Trajan Pro";
+        font-size: 16px;
+        font-weight: bold;
+        text-shadow: 0 1px 0 rgba(0,0,0,.75); /* drop shadow */
+        line-height: 1.333;
+        margin: 0 10px;
+        padding: 0;
+        border-bottom: 1px dotted #4f4131;
+
+        &:hover {
+          @include clear_tab_style;
+        }
+
+      }
+
+    }
+
+    li.magic {
+
+      a {
+        color: #f46b6b;
+      }
+
+    }
+
+    .ui-tabs-selected {
+      background: url(img/sprite-bar.png) repeat-x 0 -1808px;
+      height: 24px;
+
+      a:before {
+        content: " ";
+        background: url(img/sprite.png) no-repeat -255px -6px;
+        display: inline-block;
+        width: 9px;
+        height: 5px;
+        position: absolute;
+        left: 45%;
+        top: 26px;
+      }
+
+      a {
+         @include clear_tab_style;
+      }
+
+      .achv_points {
+        color: #ffffff;
+
+        i.icon_achv {
+          background: url('img/sprite.png') no-repeat -34px -488px;
+        }
+
+      }
+
+    }
+
+  }
+
+  .ui-widget-content {
+    background: #1e1616;
+    border-top: 1px solid #3f302c;
+    border-left: 1px solid #2e2626;
+    border-radius: 0;
+    padding: 21px 13px 23px;
+    position: relative;
+    margin-top: -2px;
+    margin-left: -1px;
+    z-index: 1;
+  }
+
+  .player-tabs-head .achv_points {
+    color: #ef824f;
+    font-size: 12px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 3px;
+    margin-right: 10px;
+
+    i.icon_achv {
+      background: url('img/sprite.png') no-repeat -34px -469px;
+      width: 10px;
+      height: 11px;
+      margin: 2px 3px 0;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+  }
+
+}
+
+/* player abilities tab */
+#player_stats {
+  font-size: 14px;
+  color: #c5c5c5;
+  clear: both;
+
+  .attr_block {
+    margin-bottom: 20px;
+
+    table {
+      float: left;
+      width: 170px;
+      margin-left: 11px;
+
+      td {
+        padding-bottom: 2px;
+
+        &.pvp_points {
+          color: #f99191;
+          width: 180px;
+
+          i.icon_pvp {
+            background: url('img/sprite.png') no-repeat -14px -446px;
+            width: 11px;
+            height: 17px;
+            margin-right: 8px;
+            display: inline-block;
+          }
+
+        }
+
+        &.achv_points {
+          color: #ef824f;
+
+          i.icon_achv {
+            background: url('img/sprite.png') no-repeat -14px -468px;
+            width: 12px;
+            height: 17px;
+            margin-right: 7px;
+            display: inline-block;
+          }
+
+        }
+
+      }
+
+      &.big_table {
+        width: 360px;
+        margin-top: 16px;
+      }
+
+      &.right_table {
+        width: 190px;
+      }
+
+      .buff_False {
+        color: #ff7575;
+      }
+
+      .buff_True {
+        color: #8cce5b;
+      }
+
+    }
+
+  }
+
+}
+
+/* player stats tab */
+#player_statistics {
+  color: #d8d8da;
+  font-size: 14px;
+
+  table {
+    margin-bottom: 26px;
+    margin-left: 9px;
+
+    tr:hover {
+      background-color: #352d2d;
+
+      td {
+        background-image: none;
+      }
+
+    }
+
+    td {
+      padding-bottom: 2px;
+      padding-top: 3px;
+      padding-left: 3px;
+      padding-right: 3px;
+
+      &.dotted {
+        background: url('img/sprite-bar.png') repeat-x 0 -440px;
+        width: 310px;
+      }
+
+    }
+
+  }
+
+}
+
+/* player achv tab */
+#player_achvs {
+
+  .achv_group {
+    padding-bottom: 15px;
+
+    .achvs {
+      padding-left: 10px;
+
+      .can-share-acvh {
+        cursor: pointer;
+      }
+
+      .achv {
+        float: left;
+        margin: 0 12px 12px 0;
+
+        img {
+          width: 56px;
+          height: 56px;
+        }
+
+        &.complete_False {
+          border: 1px solid #2e1f1d;
+        }
+
+        &.complete_True {
+          border: 1px solid #7e473b;
+        }
+
+        .achv_locked {
+          background: url('img/sprite.png') no-repeat -210px -696px;
+          width: 56px;
+          height: 56px;
+          position: absolute;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+/* =======  Registration page    ============================================= */
+
+.registration-page {
+  color: black;
+
+  h1 {
+    font-size: 36px;
+    text-align: center;
+    font-family: "Trajan Pro";
+    font-weight: normal;
+    margin: 20px 0 5px 0;
+  }
+
+  h6 {
+    font-size: 24px;
+    color: #b76100;
+    text-align: center;
+    font-family: "Trajan Pro";
+    font-weight: normal;
+    background: url('img/sprite-bar.png') repeat-x 0 -474px;
+    margin: 0 0 10px;
+
+    span {
+      background: url(img/white-background-texture.png) repeat;
+      padding: 0 20px;
+    }
+
+  }
+
+  .choose_race {
+    padding-bottom: 40px;
+    margin-left: 68px;
+
+    .faction {
+      float: left;
+      width: 270px;
+      margin: 0 10px;
+
+      p {
+        font-size: 12px;
+        margin-top: 0;
+        padding: 0 40px 0 15px;
+        line-height: 17px;
+      }
+
+      .faction_info {
+
+        span {
+          position: absolute;
+          font-family: "Trajan Pro";
+          font-size: 18px;
+          font-weight: bold;
+          line-height: 21px;
+          padding-top: 27px;
+        }
+
+        i {
+          background-image: url('img/sprite_registration.png');
+          background-repeat: no-repeat;
+          display: inline-block;
+          margin: 14px 14px 0 14px;
+          width: 70px;
+          height: 78px;
+        }
+
+        &.north_expansion i {
+          background-position: -31px -17px;
+        }
+
+        &.human_alliance i {
+          background-position: -152px -17px;
+        }
+
+        &.free_tribes i {
+          background-position: -282px -17px;
+        }
+
+      }
+
+      .race {
+        color: #623400;
+        font-family: "Trajan Pro";
+        font-size: 18px;
+        margin: 0 40px 0 6px;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        cursor: pointer;
+
+        &.undead span { color: #461f48; }
+
+        &.faceless span { color: #461f48; }
+
+        &.human span { color: #830000; }
+
+        &.elf span { color: #930000; }
+
+        &.orc span { color: #126102; }
+
+        &.troll span { color: #126102; }
+
+        &:hover {
+          background-color: #d5cec2;
+        }
+
+        &.selected {
+          background: url("img/textures/yellow2.png") repeat;
+          border: 1px solid #bca68b !important;
+          box-shadow: 0 2px 1px #CCC;
+        }
+
+        i {
+          width: 0px;
+          height: 35px;
+          display: inline-block;
+          margin: 7px 0 0 18px;
+        }
+
+        span {
+          position: absolute;
+          padding: 14px 0 0 0;
+        }
+
+      }
+
+    }
+
+  }
+
+  .choose_class {
+    margin-left: 180px;
+    margin-bottom: 20px;
+
+    div {
+      font-size: 14px;
+
+      span {
+        color: #724a1c;
+      }
+
+    }
+
+    .class_caption {
+      float: left;
+      text-align: center;
+      width: 200px;
+      border: 1px solid transparent;
+      padding: 0 0 20px 0;
+      margin: 0 5px;
+      cursor: pointer;
+      border-radius: 12px;
+
+      &:hover {
+        background-color: #d5cec2;
+      }
+
+      &.selected {
+        background: url("img/textures/yellow2.png") repeat;
+        border: 1px solid #bca68b !important;
+        box-shadow: 0 2px 1px #CCC;
+      }
+
+      i {
+        background-image: url('img/sprite_registration.png');
+        background-repeat: no-repeat;
+        width: 106px;
+        display: inline-block;
+        height: 100px;
+        margin: 0 auto;
+      }
+
+      .class_name {
+        font-size: 18px;
+        font-family: "Trajan Pro";
+        font-weight: bold;
+        margin-top: -10px;
+      }
+
+
+      &.class_warrior {
+        i { background-position: -15px -261px; }
+        .class_name { color: #0c5476; }
+      }
+
+      &.class_hunter {
+        i { background-position: -133px -261px; }
+        .class_name { color: #a20500; }
+      }
+
+      &.class_mage {
+        i { background-position: -260px -261px;}
+        .class_name { color: #6a380e; }
+      }
+
+    }
+
+  }
+
+  .choose_sex {
+    padding-bottom: 40px;
+    margin-left: 389px;
+
+    .sex {
+      float: left;
+      border: 1px solid transparent;
+      margin: 0 5px;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #d5cec2;
+      }
+
+      i {
+        background-image: url('img/sprite_registration.png');
+        background-repeat: no-repeat;
+        display: inline-block;
+      }
+
+      &.male {
+        padding: 19px 17px 10px 18px;
+
+        i {
+          background-position: -46px -391px;
+          width: 47px;
+          height: 48px;
+        }
+
+      }
+
+      &.female {
+        padding: 12px 23px 5px 23px;
+
+        i {
+          background-position: -126px -389px;
+          width: 36px;
+          height: 60px;
+        }
+
+      }
+
+      &.selected {
+        background: url("img/textures/yellow2.png") repeat;
+        border: 1px solid #bca68b !important;
+        box-shadow: 0 2px 1px #CCC;
+      }
+
+    }
+
+  }
+
+  .choose_sharing {
+    padding-bottom: 40px;
+    margin-left: 332px;
+
+    input {
+      position: absolute;
+      margin-top: 4px;
+    }
+
+    p {
+      padding-left: 22px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+  }
+
+  .approve_zone {
+    height: 70px;
+    padding-top: 20px;
+  }
+
+}
+
+
+/* =======  Landing page         ============================================= */
+
+.landing-page {
+
+  .invite-info {
+    background: url("/style/img/textures/light_green.png") repeat;
+    margin: -28px -20px 0 ;
+    padding: 45px 0 45px 140px;
+    border-bottom: 1px solid #9fa699;
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      float: left;
+    }
+
+    .main-info {
+
+      float: left;
+      width: 700px;
+      padding-left: 16px;
+
+      h2 {
+        font-family: "Trajan pro";
+        font-size: 24px;
+        margin: 0;
+
+        span {
+          color: #753f00;
+        }
+
+      }
+
+      .tweeria-logo-small {
+        background: url("/style/img/sprite-landing-page.png") no-repeat -9px -10px;
+        width: 153px;
+        height: 40px;
+        margin-top: -6px;
+        margin-left: 4px;
+        display: inline-block;
+      }
+
+      .inviter-race-info {
+        font-size: 12px;
+        color: #757575;
+        margin-top: -10px;
+      }
+
+      .invite-bonus {
+        font-size: 18px;
+        color: #6b3a00;
+        padding: 16px 0 2px;
+
+        span {
+          color: #004752;
+        }
+
+      }
+
+      .join-guild-block {
+        font-size: 14px;
+        color: #000000;
+        margin-top: 2px;
+      }
+
+    }
+
+  }
+
+  .landing-main-info {
+    margin-left: 180px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    color: black;
+
+    .tweeria-logo-big {
+      background: url("/style/img/sprite-landing-page.png") no-repeat -175px -5px;
+      width: 211px;
+      height: 55px;
+      display: inline-block;
+    }
+
+    h3.part {
+      font-size: 24px;
+      color: black;
+      margin-left: -33px;
+      font-family: "Trajan pro";
+      font-weight: normal;
+      margin-bottom: 0;
+    }
+
+    h4 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      font-family: "Trajan pro";
+    }
+
+    p {
+      font-size: 16px;
+      width: 600px;
+      margin-top: 10px;
+    }
+
+    div.image-tweet {
+      background: url("/style/img/sprite-landing-page.png") no-repeat -94px -108px;
+      width: 400px;
+      height: 270px;
+      position: absolute;
+      margin: 0 0 0 355px;
+    }
+
+    div.image-create {
+      background: url("/style/img/sprite-landing-page.png") no-repeat -230px -438px;
+      width: 270px;
+      height: 130px;
+      position: absolute;
+      margin: 8px 0 0 485px;
+    }
+
+    .feature-list {
+      padding-bottom: 10px;
+
+      .feature {
+
+        .image {
+          background: url("/style/img/sprite-landing-page.png") no-repeat;
+          width: 48px;
+          height: 40px;
+          position: absolute;
+          margin-left: -11px;
+          margin-top: 5px;
+
+          &.feature1 { background-position: -7px -58px; }
+          &.feature2 { background-position: -7px -105px; }
+          &.feature3 { background-position: -7px -153px; }
+          &.feature4 { background-position: -7px -202px; }
+          &.feature5 { background-position: -7px -253px; }
+          &.feature6 { background-position: -7px -302px; }
+
+        }
+
+        p {
+          margin-top: 0;
+          color: #676767;
+          margin-left: 49px;
+          font-size: 12px;
+          margin-bottom: 24px;
+
+          span {
+            font-size: 16px;
+            color: black;
+            display: block;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+  .registration-description {
+    display: inline-block;
+    color: #616161;
+    font-size: 12px;
+    font-style: italic;
+    position: absolute;
+    margin: 22px 4px 3px 12px;
+  }
+
+  .reg-link {
+    margin-top: 20px;
+  }
+
+}
+
+.invite-page {
+  padding: 29px 10px 0 29px;
+  min-height: 340px;
+  color: black;
+
+  .info-block {
+    text-align: center;
+  }
+
+  h1 {
+    font-family: "Trajan Pro";
+    font-size: 36px;
+    font-weight: normal;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+
+    span {
+      color: #ba1f1e;
+      line-height: 26px;
+    }
+
+  }
+
+  h4 {
+    font-family: "Trajan pro";
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 12px;
+    margin-top: 40px;
+  }
+
+  .send-to-twitter {
+    width: 100%;
+    vertical-align: top;
+    margin-bottom: 47px;
+
+    .invite-target-form {
+      text-align: center;
+      margin-bottom: -30px;
+    }
+
+    .invite-share-block {
+      color: #0c1200;
+      text-align: center;
+
+      .invite-share {
+        line-height: 32px;
+        margin-top: 3px;
+
+        .achv-share-button {
+          background: url(img/sprite-share.png) no-repeat 0 0;
+          display: inline-block;
+          margin-right: 6px;
+          height: 60px;
+          text-indent: -99999px;
+          width: 60px;
+
+          &.tw {
+            background-position: 0 -120px;
+          }
+
+          &.vk {
+            background-position: -235px -120px;
+          }
+
+          &.gp {
+            background-position: -157px -120px;
+          }
+
+          &.fb {
+            background-position: -78px -120px;
+          }
+
+        }
+
+      }
+
+    }
+
+    .invite-text-input {
+      border: 1px solid #999;
+      font-size: 16px;
+      padding: 0 10px;
+      margin: 1px 4px 14px 0;
+      width: 210px;
+      height: 34px;
+      line-height: 28px;
+      -moz-box-shadow:
+        0 1px 0 rgba(255,255,255,.45);
+      -webkit-box-shadow:
+        0 1px 0 rgba(255,255,255,.45);
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.45);
+      vertical-align: top;
+    }
+
+    .invite-button {
+      background: url(img/sprite.png) no-repeat -285px -744px;
+      width: 95px;
+      height: 31px;
+      border: none;
+      color: transparent;
+      font-family: "Trajan Pro";
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+      display: inline-block;
+      margin: 10px 7px 0 7px;
+      vertical-align: top;
+      text-indent: -99999px;
+
+      &.inviting {
+        background: #cccccc;
+        border: 1px solid #99978b;
+        border-radius: 3px;
+        color: #675a44; /* text color */
+        font-family: "Trajan Pro";
+        font-size: 14px;
+        font-weight: bold;
+        height: 29px;
+        text-indent: 0;
+      }
+
+      &.was-invited {
+        color: #675a44; /* text color */
+        font-family: "PT Serif", serif;
+        font-size: 14px;
+        font-style: italic;
+        display: inline-block;
+        vertical-align: top;
+        margin: 10px 0 0 0;
+        line-height: 26px;
+      }
+
+    }
+
+    ul {
+      list-style: none;
+      margin: 12px 0 20px;
+      padding: 0;
+
+      li {
+
+        img {
+          border: 1px solid #B1AEAB;
+          display: block;
+          margin: 10px auto 0;
+          width: 48px;
+          height: 48px;
+        }
+
+        &.friend {
+          background: url(img/textures/white-transparent-bg.png) repeat transparent 0 0;
+          border-top: 1px solid #b1aeab;
+          display: inline-block;
+          margin-right: 19px;
+          margin-bottom: 20px;
+          padding-bottom: 5px;
+          height: 116px;
+          width: 160px;
+          text-align: center;
+          vertical-align: top;
+        }
+
+        span {
+          display: block;
+          color: #000; /* text color */
+          font-family: "PT Serif", serif;
+          font-size: 14px;
+          line-height: 24px;
+        }
+
+        &.preloader {
+
+          img {
+            border: none;
+          }
+
+        }
+
+        input, a {
+          border: 0;
+          display: block;
+          color: transparent;
+          width: 82px;
+          height: 25px;
+          margin: 0 auto;
+          line-height: 25px;
+          text-indent: -99999px;
+        }
+
+        .invite {
+          background: url(img/sprite.png) no-repeat -279px -482px;
+          color: transparent;
+          width: 82px;
+          height: 25px;
+          text-indent: -99999px;
+
+          &:hover {
+            background-position: -279px -522px;
+          }
+
+        }
+
+        .inviting {
+          background: url(img/sprite.png) no-repeat -373px -481px;
+          width: 82px;
+          cursor: default;
+          padding: 5px 0;
+          height: 25px;
+
+          div {
+            background: url('img/pacman-waiting.gif') no-repeat;
+            display: block;
+            width: 78px;
+            height: 13px;
+          }
+
+        }
+
+        .invited {
+          color: #003538;
+          font-family: "Trajan Pro";
+          font-size: 12px;
+          font-weight: bold;
+          display: block;
+          width: 82px;
+          height: 25px;
+          line-height: 25px;
+          margin: 0 auto;
+        }
+
+      }
+
+      .more {
+        display: block;
+        color: transparent;
+        background: url(img/sprite.png) no-repeat -279px -568px;
+        width: 138px;
+        height: 34px;
+        text-indent: -99999px;
+        margin-top: 30px;
+      }
+
+    }
+
+  }
+
+  .invite-summary-block {
+    background: url(img/create-summary-block-bg.png) repeat transparent 0 0;
+    font-size: 14px;
+    margin: 0 -10px 0 -29px;
+    padding: 24px 29px;
+  }
+
+}
+
+/* =======  Ratings page         ============================================= */
+
+.ratings-page {
+  color: black;
+  padding: 25px 20px;
+
+  h2 {
+    color: #000;
+    display: inline-block;
+    font-family: "Trajan Pro";
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0 0 0 10px;
+    vertical-align: top;
+  }
+
+  th h2 {
+    margin: 0;
+  }
+
+  hr {
+    border-top: 1px solid #e7e6e3;
+    box-shadow: 0 -1px 0 #b0aba7;
+    margin: 10px 0;
+  }
+
+  &.all-page {
+
+    .second_col h2 {
+      margin-top: 42px;
+    }
+
+    .ratings-table {
+      margin-top: 0;
+    }
+
+  }
+
+  .typical_col {
+    width: 620px;
+    float: left;
+  }
+
+  .second_col {
+    width: 260px;
+    float: right;
+    font-size: 14px;
+    color: #666;
+
+    h2 {
+      margin-top: 22px;
+
+      &.your-sweet-guild {
+        margin-top: 0;
+      }
+
+    }
+
+  }
+
+  .ratings-table {
+    width: 100%;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    border-collapse: separate;
+    border-spacing: 0 7px;
+    float: left;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+
+    a {
+      color: #5E3A27;
+      font-size: 14px;
+      line-height: 20px;
+      margin-left: 9px;
+      text-decoration: none;
+
+      &:hover {
+        border-bottom: 1px solid #5E3A27;
+      }
+
+    }
+
+    thead th {
+      color: #6A6A6A;
+      font-size: 12px;
+      line-height: 4px;
+      padding: 0 10px;
+      text-align: left;
+      font-weight: normal;
+      vertical-align: middle;
+
+      &.level { width: 80px; }
+      &.achv_points { width: 80px; }
+      &.pvp_points { width: 80px; }
+      &.guild { width: 150px; }
+      &.number { width: 20px; padding: 0px 5px; }
+      &.name { width: 200px; padding: 0px 5px; }
+      &.race_class { width: 120px; }
+      &.guild_name { width: 329px; }
+      &.guild_players { width: 182px; }
+      &.guild_pvp { width: 40px; }
+      &.guild { width: 220px; }
+
+      a {
+        color: #6A6A6A;
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        font-weight: normal;
+        text-decoration: none;
+
+        &:hover {
+          color: #A46140;
+          border: none;
+        }
+
+      }
+
+    }
+
+    tbody tr {
+
+      &:hover {
+        background: #cecabf;
+        cursor: pointer;
+      }
+
+      &:first-child td {
+        border-top: 1px solid #e7e6e3;
+        box-shadow: 0 -1px 0 #b0aba7;
+        padding-top: 8px;
+      }
+
+      td {
+        padding: 1px 10px;
+        vertical-align: baseline;
+        color: #222;
+        font-size: 12px;
+
+        &:first-child {
+          width: 20px;
+        }
+
+      }
+
+    }
+
+    &.search-table {
+      margin-bottom: 40px;
+      margin-left: 2px;
+
+      thead.pt40 tr th {
+        padding-top: 40px;
+      }
+
+      .last-search-th {
+        width: 165px;
+      }
+
+      .name { width: 200px; }
+      .class { width: 130px; }
+      .lvl { width: 100px; }
+      .achv { width: 70px; }
+      .pvp { width: 50px; }
+
+    }
+
+    .player-guild a {
+      color: #5b3923; /* text color */
+      font-family: "PT Serif", serif;
+      font-size: 12px;
+      margin-left: 0;
+      text-decoration: none;
+    }
+
+    .empty-rating-table a {
+      color: #5E3A27;
+      font-size: 14px;
+      line-height: 20px;
+      text-decoration: none;
+      border-bottom: 1px solid #B2A69C;
+
+      &:hover {
+        border-bottom: 1px solid #5E3A27;
+      }
+
+    }
+
+  }
+
+  .all-players {
+    color: #5B3923;
+    font-family: "PT Serif", serif;
+    font-size: 14px;
+    text-decoration: underline;
+    margin-bottom: 55px;
+    display: inline-block;
+    margin-left: 10px;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+  }
+
+
+  .you-not-ia-a-guild {
+    margin-left: 10px;
+
+    p {
+      color: #000;
+      font-size: 14px;
+      margin: 0 0 10px;
+    }
+
+  }
+
+  .your-sweet-guild {
+    margin-left: 10px;
+
+    .img-cont {
+      display: inline-block;
+      margin-right: 10px;
+      vertical-align: top;
+      width: 42px;
+      height: 42px;
+      overflow: hidden;
+
+      img {
+        width: 42px;
+        height: 42px;
+      }
+
+    }
+
+    .guild-info {
+      color: #585858;
+      display: inline-block;
+      font-size: 12px;
+      vertical-align: top;
+
+      a {
+        border: none;
+        color: #5b3923;
+        font-size: 20px;
+        text-decoration: none;
+      }
+
+    }
+
+  }
+
+}
+
+/* =======  Portfolio page         =========================================== */
+
+.portfolio-page {
+  padding: 0 0 25px 0;
+
+  .author_block {
+
+    .author_info {
+
+      float: left;
+      width: 400px;
+      padding-top: 5px;
+      margin-bottom: 7px;
+
+      span {
+        float: none;
+        margin-top: 3px;
+        margin-bottom: -5px;
+      }
+
+      .player-avatar {
+        float: left;
+        margin-bottom: 0;
+      }
+
+      .player-name {
+        font-family: "PT Serif";
+
+        a {
+          color: #ffad00;
+          font-size: 12px;
+          text-decoration: none;
+          border-bottom: 1px solid #5a4a27;
+
+          &:hover {
+            border-bottom: 1px solid #ffad00;
+          }
+
+        }
+
+        a.player-name-link {
+          color: white;
+          font-size: 18px;
+          border: none;
+          text-decoration: none;
+
+          &:hover {
+            color: #ffad00;
+          }
+
+        }
+
+      }
+
+    }
+
+    .works-share {
+      float: right;
+      width: 100px;
+      position: relative;
+      margin-top: 13px;
+      margin-left: 0;
+    }
+
+    .big-likes {
+      float: right;
+      font-size: 30px;
+      color: #3dd701;
+      margin: 3px 0 0 0;
+      background-color: #010101;
+      padding: 9px 11px 0px 11px;
+    }
+
+  }
+
+  h2 {
+    margin: 15px 0 0 20px;
+  }
+
+  .works-list {
+    margin: 0 0 0 20px;
+  }
+
+  .no-portfolio {
+    width: 100%;
+    font-family: "Trajan pro";
+    font-size: 30px;
+    text-align: center;
+    padding-top: 100px;
+
+    a {
+      font-size: 18px;
+      font-family: "PT Serif";
+    }
+
+  }
+
+  .comments {
+
+    border-top: 1px solid #aaa;
+    margin-top: 15px;
+
+    .disqus-thread {
+      margin-left: 21px;
+      width: 700px;
+
+      h4 {
+        font-family: "Trajan pro";
+      }
+
+    }
+
+  }
+
+}

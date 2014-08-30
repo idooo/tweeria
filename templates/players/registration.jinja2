@@ -1,0 +1,134 @@
+﻿{% include "header.jinja2" %}
+<script src="/js/page_scripts/registration.js?{{ build }}"></script>
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg registration-page">
+			<h1>Create your hero</h1>
+
+			<h6><span>Pick your race</span></h6>
+
+			<form action="registration" method="post" id="form">
+				<input type="hidden" name="type_of_form" value="add_user">
+				<input type="hidden" name="step2" value=2>
+
+				<div class="choose_race">
+
+					<div class="faction">
+						<div class="faction_info north_expansion ">
+							<i></i><span>North<br>Expansion</span>
+						</div>
+						<p>
+							Something mystic happened <span class="nw">in the North.</span>
+							Something that raised dead heroes and created new ones ...
+						</p>
+
+						<div class="race undead selected" data-id="0:0"><i></i><span>Undead</span></div>
+						<div class="race faceless" data-id="0:1"><i></i><span>Faceless</span></div>
+					</div>
+
+					<div class="faction">
+						<div class="faction_info human_alliance ">
+							<i></i><span>Human<br>Alliance</span>
+						</div>
+						<p>
+							People of the middle kingdom lived <span class="nw">in peace</span> in this lands
+							for a long time <span class="nw">but now</span> they need to defend it ...
+						</p>
+
+						<div class="race human" data-id="1:0"><i></i><span>Human</span></div>
+						<div class="race elf" data-id="1:1"><i></i><span>Elf</span></div>
+					</div>
+
+					<div class="faction">
+						<div class="faction_info free_tribes ">
+							<i></i><span>Free<br>Tribes</span>
+						</div>
+						<p>
+							Ancient races of this lands hidden <span class="nw">in the wild</span> forests
+							for a long time <span class="nw">but they</span> have reasons to wake up ...
+						</p>
+
+						<div class="race orc" data-id="2:0"><i></i><span>Orc</span></div>
+						<div class="race troll" data-id="2:1"><i></i><span>Troll</span></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<h6><span>Choose your class ...</span></h6>
+				<div class="choose_class">
+					<div data-id="1" class="class_caption class_warrior selected">
+						<i></i>
+						<div class="class_name">Warrior</div>
+						<div>Main stat: <span>Strength</span></div>
+						<div>Weapons: <span>Swords, Axes</span></div>
+					</div>
+
+					<div data-id="3" class="class_caption class_hunter">
+						<i></i>
+						<div class="class_name">Hunter</div>
+						<div>Main stat: <span>Dexterity</span></div>
+						<div>Weapons: <span>Crossbows, Bows</span></div>
+					</div>
+
+					<div data-id="2" class="class_caption class_mage">
+						<i></i>
+						<div class="class_name">Mage</div>
+						<div>Main stat: <span>Intellect</span></div>
+						<div>Weapons: <span>Staves</span></div>
+					</div>
+
+					<div class="clear"></div>
+				</div>
+
+				<h6><span>... gender ...</span></h6>
+				<div class="choose_sex">
+					<div class="sex male selected" data-id="1"><i></i></div>
+					<div class="sex female" data-id="0"><i></i></div>
+					<div class="clear"></div>
+				</div>
+
+				<h6><span>... and sharing settings</span></h6>
+				<div class="choose_sharing">
+					<input type="checkbox" name="post_to_twitter" id="post_to_twitter" checked>
+					<label for="post_to_twitter">
+						<p>Share messages about earned achievements<br>and new levels on twitter automatically</p>
+					</label>
+					<div class="clear"></div>
+				</div>
+
+
+				<input type="hidden" name="race" id="race">
+				<input type="hidden" name="class" id="class">
+				<input type="hidden" name="sex" id="sex">
+				<input type="hidden" name="referal" value="{{ referal }}">
+				<input type="hidden" name="guild_invite" value="{{ guild_invite }}">
+
+				<input type=hidden name="login_name" value='{{ login_name }}'>
+				<input type=hidden name="avatar" value='{{ avatar }}'>
+				<input type=hidden name="id" value='{{ id }}'>
+				<input type="hidden" name="utc" id="utc" value="{{ utc }}">
+				<input type="hidden" name="rto"  value="{{ rto }}">
+				<input type=hidden name="token2" value='{{ access_secret }}'>
+				<input type=hidden name="token1" value='{{ access_key }}'>
+
+				<div class="create-summary-block approve_zone">
+					<input type="submit" value="Create" class="create-item-button">
+				</div>
+			</form>
+
+		</div>
+	</div>
+</div>
+	<div id="content_container" style="display:none;">
+					<form action="registration" method="post" id="form2">
+						<input type="hidden" name="type_of_form" value="add_user">
+						<input type="hidden" name="step2" value=2>
+
+
+
+
+							<input type="submit">
+					</form>
+
+			</div>
+{% include "footer.jinja2" %}

@@ -1,0 +1,115 @@
+{% include "header.jinja2" %}
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg ratings-page">
+
+			<h2>Search</h2>
+
+			<div class="search-main-form">
+				<form method="get" action="search" id="form_search">
+					<input type="text" name="q" {% if param_q %} value="{{ param_q }}" {% endif %} class="search-main-input" >
+					<input type="submit" value="Find" class="find-button">
+				</form>
+			</div>
+			<br class="clear">
+
+
+			{% if not error %}
+				<div>
+					{% if param_o=="1" %}
+						{% set order = "-1" %}
+					{% else %}
+						{% set order = "1" %}
+					{% endif %}
+					<table class="ratings-table search-table">
+
+				{% if players %}
+
+						<thead>
+							<tr>
+								<th class="number" colspan="3">
+									<h2>Found players</h2>
+								</th>
+								<th class="level{% if param_s == "lvl" %} sorted{{ order }} {% endif %}">
+									Level
+								</th>
+								<th class="achv_points{% if param_s == "achv_points" %} sorted{{ order }} {% endif %}">
+									Achv
+								</th>
+								<th class="pvp_points{% if param_s == "pvp_score" %} sorted{{ order }} {% endif %}">
+									PvP
+								</th>
+								<th class="guild{% if param_s == "_guild_name" %} sorted{{ order }} {% endif %}">
+									Guild
+								</th>
+								<th class="last-search-th"></th>
+							</tr>
+						</thead>
+						<tbody>
+
+							{% for player in players %}
+								<tr>
+									<td class="number">{{ loop.index }}</td>
+									<td class="name"><img src="{{ player.avatar }}"><a href="/{{ player.name }}">{{ player.name }}</a></td>
+									<td class="class">{{ player.race_name }} {{ player.class_name }}</td>
+									<td class="lvl">Level {{ player.lvl }} </td>
+									<td class="achv">{{ player.achv_points }} </td>
+									<td class="pvp">{{ player.pvp_score }} </td>
+									<td class="player-guild"><a href="/guilds/{{ player._guild_name }}">{{ player._guild_name }} </a></td>
+									<td>&nbsp;</td>
+								</tr>
+							{% endfor %}
+
+						</tbody>
+
+
+				{% endif %}
+
+				{% if guilds %}
+
+
+						<thead{% if players %} class="pt40"{% endif %}>
+							<tr>
+								<th class="number" colspan="3">
+									<h2>Guilds</h2>
+								</th>
+								<th class="guild_players{% if param_s == "people_count" %} sorted{{ order }} {% endif %}">
+									Players
+								</th>
+								<th class="guild_pvp{% if param_s == "pvp_score" %} sorted{{ order }} {% endif %}">
+									Strenght
+								</th>
+								<th class="last-search-th" colspan="3">&nbsp;</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							{% for guild in guilds %}
+								<tr>
+									<td>{{ loop.index }}</td>
+									<td colspan="2" class="guild-name"><img src="/data/resized_image/guilds_avatars/{{ guild.img }}"><a
+											href="/guilds/{{ guild.name }}">{{ guild.name }}</a></td>
+									<td class="guild-people">{{ guild.people_count }} players</td>
+									<td class="guild-pvp">{{ guild.pvp_score }}</td>
+									<td class="last-search-th" colspan="3">&nbsp;</td>
+								</tr>
+							{% endfor %}
+
+
+
+
+				{% endif %}
+						</tbody>
+					</table>
+				</div>
+
+			{% endif %}
+			<br class="clear">
+
+		</div>
+	</div>
+</div>
+
+
+{% include "footer.jinja2" %}

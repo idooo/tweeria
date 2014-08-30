@@ -1,0 +1,33 @@
+{% include "header.jinja2" %}
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg guild-page guild-news-add-page">
+
+		<a class="link-back" href="/guilds/{{ link_name }}">Guild</a>
+			&mdash;
+			<a class="link-back2" href="/guilds/news">News</a>
+
+			<form method="post">
+
+				<input type="text" name="header" class="guild-news-title default-classic-input" >
+
+				{#<span class="when">{{ date }}</span>
+				Link:<br>
+				<input type="text" name="link"><br>#}
+
+				<textarea name="text" class="guild-news-text default-classic-input"></textarea>
+
+				<input type="hidden" name="link" value="tweeria.com">
+
+				<input type="hidden" name="type_of_form" value="add_news">
+				<input type="submit" value="Add story" class="btn2 btn2-gray btn2-wide contrast">
+
+			</form>
+
+		</div>
+	</div>
+</div>
+
+
+{% include "footer.jinja2" %}

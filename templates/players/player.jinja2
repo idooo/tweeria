@@ -1,0 +1,213 @@
+﻿{% include "header.jinja2" %}
+<script src="/js/page_scripts/player.js?{{ build }}"></script>
+
+{% include "players/share.jinja2" %}
+
+<script type="text/javascript">
+	{% if param_invite == '' %}
+	var inviterData = {
+		"avatar" 		: "{{ player.avatar }}",
+		"inviter"		: "{{ player.name }}",
+		"inviter_race" 	: "{{ player.race_name }}",
+		"inviter_class"	: "{{ player.class_name }}",
+		"inviter_level"	: "{{ player.lvl }}"
+	}
+	{% endif %}
+</script>
+
+{% include "misc/quick_tour.jinja2" %}
+
+{% set spell_types = ['','+','','-'] %}
+
+<div role="main" id="main">
+
+	{% if player.banned %}
+		<div class="banned-info-notice">This player was banned. Reason: {{ player.ban_reason }}</div>
+	{% endif %}
+
+	<div class="column-left player-left player-page">
+		<div class="column-right player-events">
+			<div class="column-left-inner">
+
+				<div class="player-info">
+					<div class="player-data">
+						{% if player.is_sleep %}
+							<div class="sleep-icon"></div>
+						{% endif %}
+
+						<div class="player-avatar">
+							<img width="48px" src="{{ player.avatar }}" alt="{{ player.name }}"
+                                 onerror="this.src='/style/img/unknown.jpg'"
+                                 >
+						</div>
+
+						<div class="player-name-guild-rc">
+							<h1 title="{{ player.name_with_title }}">{{ player.name_with_title }}</h1>
+
+							{% if player.pvp %}
+								<sup class="player-pvp-status player-pvp-status-enabled">PvP</sup>
+							{% endif %}
+
+							<span class="player-class-race">{{ player.race_name }} {{ player.class_name }}</span>
+
+							{% if guild %}
+								<a href="/guilds/{{ guild.link }}" class="player-guild">{{ guild.name }}</a>
+							{% endif %}
+
+						</div>
+						<div class="player-pvp-debuff">
+							<a class="player-twitter-button" target="_blank" href="http://twitter.com/{{ player.name }}">{{ player.name }}</a>
+
+							{% if player_self %}
+								<a href="/settings" class="player-pvp-status-toggler"><i></i></a>
+							{% endif %}
+
+						</div>
+					</div>
+					<div class="player-exp-bar">
+						<div class="player-lvl">Level {{ player.lvl }}
+						{% if player.is_sleep %}
+                            </div>
+							<div class="player-exp-percent">
+								Hero is sleeping now{% if not login %}. <a href="/login">Login</a> to wake up{% endif %}
+							</div>
+							<div class="player-sleep-bg"></div>
+						{% else %}
+                            <div class="level-cap">{{ player.exp_level_cap }} exp</div>
+                            </div>
+							<div class="player-exp-percent">{{ player.exp_percent }}%</div>
+							<div class="player-current-exp" style="width: {{ player.exp_percent }}%"></div>
+						{% endif %}
+					</div>
+					<div class="player-hp">
+						<div class="player-hp-mp-text">
+							<span id="player-ab-HP-cur">{{ player.stat.HP.current }}</span>
+							/
+							<span id="player-ab-HP-max">{{ player.stat.HP.max_dirty }}</span>
+						</div>
+						<div class="player-current-hp-mp"
+							 id="player-ab-HP-percent"
+						     style="width: {{ player.HP_percent }}%;"></div>
+					</div>
+					<div class="player-mp">
+						<div class="player-hp-mp-text"><span id="player-ab-MP-cur">{{ player.stat.MP.current }}</span> / <span id="player-ab-MP-max">{{ player.stat.MP.max_dirty }}</span></div>
+						<div class="player-current-hp-mp"
+							 id="player-ab-MP-percent"
+							 style="width: {{ player.MP_percent }}%;"></div>
+					</div>
+					{#
+						<a class="player-flag" href="#"></a>
+					 #}
+
+				</div>
+
+				<div id="player-tabs">
+					<ul class="player-tabs-head">
+						<li><a href="#tab-items">Items</a></li>
+						<li{% if player.buffs %} class="magic"{% endif %}><a href="#tab-abilities">Abilities</a></li>
+						<li><a href="#tab-stats">Stats</a></li>
+						<li>
+							<a href="#tab-achvs">Achvs</a>
+							<div class="achv_points">
+								<i class="icon_achv"></i>{{ player.achv_points }}
+							</div>
+						</li>
+					</ul>
+					<div id="tab-items">
+						{% include "players/items.jinja2" %}
+					</div>
+					<div id="tab-abilities">
+						{% include "players/player_abilities.jinja2" %}
+					</div>
+					<div id="tab-stats">
+						{% include "players/player_stats.jinja2" %}
+					</div>
+					<div id="tab-achvs">
+						{% include "players/player_achvs.jinja2" %}
+					</div>
+				</div>
+
+			</div>
+			<div class="column-right-inner">
+				{#
+				<div class="quest-block">
+					<i class="icon quest"></i>
+					<span>quest: {{ player.quest|default("Reconing of the Time") }}</span>
+				</div>
+				 #}
+
+				{% if author_info %}
+					<div class="author_block">
+						<span>
+							Author
+						</span>
+
+						<span class="likes">
+							{{ author_info.likes }} like{% if author_info.likes != 1 %}s{% endif %}
+						</span>
+
+						<a href="/{{ player.name }}?works"  id="portfolio-button">
+
+						</a>
+						<div class="clear"></div>
+					</div>
+				{% endif %}
+
+				{% if player_self %}
+				<div class="invite-block">
+					<a class="invite" href="/inv">Invite</a>
+					<span>to receive Health and Luck bonus</span>
+					<hr class="short">
+
+				</div>
+				{% endif %}
+
+
+
+				<div class="player-map">
+					{% include "players/player_map.jinja2" %}
+				</div>
+
+				{% if player.direction %}
+					<div class="going-to-block">
+						<i class="icon going-to"></i>
+						<span>{{ player.direction.name }}</span>
+					</div>
+				{% endif %}
+
+				<div class="last-events">
+					<h2>Last events</h2>
+					{% if events %}
+						{% include "players/upcoming_events.jinja2" %}
+					{% endif %}
+					<hr class="right-line">
+					<br class="clear">
+
+					{% if in_progress_event %}
+						<ul class="progress-upcoming-events">
+							<li>
+								<span class="in-progress inline">Right now</span>
+
+								<a href="/events/{{ in_progress_event._id }}">
+									{% if in_progress_event.type=="raid" %}
+										Raid to <span class="dungeon">[{{ in_progress_event.target_name }}]</a>
+									{% elif in_progress_event.type == "war" %}
+										Guild war <span>{{ in_progress_event.guild_side_name }}</span> vs. <span>{{ in_progress_event.target_name }}</span>
+									{% elif in_progress_event.type == "fvf" %}
+										Battle between {{ in_progress_event.sides_names[0] }} and {{ in_progress_event.sides_names[1] }}
+									{% endif %}
+								</a>
+
+							</li>
+						</ul>
+					{% endif %}
+					{% include "players/last_events.jinja2" %}
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<br class="clear">
+</div>
+
+{% include "footer.jinja2" %}

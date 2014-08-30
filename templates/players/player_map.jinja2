@@ -1,0 +1,50 @@
+<script type="text/javascript">
+
+	var someMapData = {
+				player:{
+					x: {{ player_coords.x }},
+					y: {{ player_coords.y }},
+					name:"{{ player.name }}"
+				},
+				showAllMap:false
+			},
+			showAllMapP = false;
+	localStorage.setItem("map-points", JSON.stringify([]));
+	var playersData = [
+		{
+			count:1,
+			players:[
+				{
+					"name":"{{ player.name }}",
+					"race":"{{ player.race_name }}",
+					"class":"{{ player.class_name }}",
+					"lvl":"{{ player.lvl }} level",
+					"img":"{{ player.avatar }}",
+					"href":"/{{ player.name }}"
+				}
+			],
+			pos:{
+				x: {{ player_coords.x }},
+				y: {{ player_coords.y }}
+			},
+			gotomap:true
+		}
+	]
+</script>
+<script type="text/javascript" src="/js/page_scripts/sprite-map.js?{{ build }}"></script>
+<script type="text/javascript" src="/js/page_scripts/player_map.js?{{ build }}"></script>
+<div id="map-sprite" style="display:block; width:530px; height: 144px;">
+	<div class="global-map-wrapper dragger"></div>
+	<div class="global-map">
+
+
+	</div>
+</div>
+
+{% if nearby_players and nearby_players.count > 0 %}
+	<div class="nearby-players" id="nearby-players">
+		{{ nearby_players.count }} player{% if nearby_players.count > 1 %}s{% endif %} nearby
+	</div>
+{% endif %}
+
+{% include "players/nearby_popup.jinja2" %}

@@ -1,0 +1,72 @@
+
+
+{% if need_parent_id %}
+	data-_id="{{ item.parent_id }}"
+{% else %}
+	data-no_parent = true
+	data-_id="{{ item._id }}"
+{% endif %}
+
+data-UID="{{ item.UID|default(-1) }}"
+data-type="{{ item.view|capitalize }}"
+data-name="{{ item.name }}"
+data-level="{{ item.lvl_min|default(1) }}"
+data-lvl_enough="{{ login_lvl|default(100) >= item.lvl_min|int }}"
+{% if item.cant_use %}
+	data-can_use=false
+{% else %}
+	data-can_use=true
+{% endif %}
+data-img="{{ item.img }}"
+date-create_date_f="{{ item.create_date_f }}"
+data-author_name="{{ item.author_name }}"
+data-desc="{{ item.desc|escape }}"
+data-cost="{{ item.cost }}"
+data-is_like="{{ item.is_like|lower }}"
+data-likes="{{ item.likes }}"
+data-sell="{{ item.sell }}"
+data-primary="{{ item.primary }}"
+data-bonus="{{ item.stat_parsed }}"
+{% if item.img_info %}
+	data-img_author="{{ item.img_info.name }}"
+	data-img_link="{{ item.img_info.link }}"
+{% endif %}
+
+data-shareurl="{{ host }}u/item?id={{ item._id }}"
+data-shareimage="{{ host+item.img[3:] }}"
+{% if item.author_name==login_name %}
+	data-sharetitletwitter="Check my {{ item.name }} "
+	data-sharetitle="My {{ item.view }}: {{ item.name }} in Tweeria"
+{% else %}
+	data-sharetitletwitter="Just found {{ item.name }} "
+	data-sharetitle="{{ item.view }} {{ item.name }} in Tweeria"
+{% endif %}
+data-sharehash="Tweeria"
+data-sharedesc="{{ item.desc }}"
+
+data-shareauthor="{{ item.author_name }}"
+{% if parent %}
+	data-parent="{{ parent }}"
+{% else %}
+	data-parent="item-{{ item._id }}"
+{% endif %}
+
+data-enough_gold=
+{% if login and item.cost <= login_resources.gold %}
+	"true"
+{% else %}
+	"false"
+	data-gold="{% if login %}{{ login_resources.gold }}{% endif %}"
+{% endif %}
+
+{% if login %}
+	data-login="true"
+{% else %}
+	data-login="false"
+{% endif %}
+
+{% if canBuy %}
+	data-canbuy="{{ canBuy }}"
+{% else %}
+	data-canbuy="true"
+{% endif %}

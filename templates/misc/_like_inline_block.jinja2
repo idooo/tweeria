@@ -1,0 +1,23 @@
+<span class="rating {% if like.likes|default(0)>0 %} plus{% endif %}{% if like.is_like  %} liked{% endif %}">
+
+{% if like.is_like %}
+	<span class="likes-count">{{ like.likes|default(0) }}</span> like{% if like.likes|default(0) != 1 %}s{% endif %}
+	<i></i>
+{% else %}
+
+	{% if login %}
+	<form method="post" action="/" name="like-form">
+		<input type="hidden" name="_id" value="{{ id }}">
+		<input type="hidden" name="type" value="{{ like_type }}">
+		<input type="hidden" name="like" value="true">
+
+		<a data-likes="{{ like.likes|default(0) }}" data-parent="{{ parent }}" class="inline-like-button" href="#">
+			<span class="likes-count">{{ like.likes|default(0) }}</span> like{% if like.likes != 1 %}s{% endif %} <i></i>
+		</a>
+	</form>
+
+	{% else %}
+		<span class="likes-count">{{ like.likes|default(0) }}</span> like{% if like.likes != 1 %}s{% endif %} <i></i>
+	{% endif %}
+{% endif %}
+</span>

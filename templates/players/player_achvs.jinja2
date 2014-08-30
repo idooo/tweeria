@@ -1,0 +1,36 @@
+<div id="player_achvs">
+
+	{% for achv_groups in achvs %}
+		<div class="achv_group">
+			<h4>{{ achv_groups.name }}</h4>
+			<div class="achvs">
+				{% for achv in achv_groups.achvs %}
+					{% set achvComplete = achv.complete %}
+					<div class="achv complete_{{ achv.complete }}"
+
+						data-tooltip="|<img src='./data/achvs/{{ achv.img }}.jpg'><c><n0>{{ achv.name }}</n0><s class='type_2'>{{ achv.text }}</s></c>|">
+						{% if not achvComplete  %}
+							<div class="achv_locked"></div>
+						{% endif %}
+						<img src="/data/achvs/{{ achv.img }}.jpg"
+							 {% if achvComplete  %}
+							 class="can-share-acvh"
+							 data-achvId="{{ achv.UID }}"
+							 data-achvImg="/data/achvs/{{ achv.img }}.jpg"
+							 data-achvName="{{ achv.name }}"
+							 data-achvDesc="{{ achv.text}}"
+							 data-shareUrl="{{ host+address }}"
+							 data-shareTitle="{{ achv.name }} badge in Tweeria"
+							 data-shareTitleTwitter="I've got {{ achv.name }} badge in %23tweeria"
+							 data-shareDesc="{{ achv.text }}"
+							 data-shareImage="{{ host }}/data/achvs/{{ achv.img }}.jpg"
+							 {% endif %}
+								/>
+					</div>
+				{% endfor %}
+				<div class="clear"></div>
+			</div>
+		</div>
+
+	{% endfor %}
+</div>

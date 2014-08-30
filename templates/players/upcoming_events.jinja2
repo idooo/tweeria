@@ -1,0 +1,82 @@
+<div class="upcoming-events">
+
+	{% if events %}
+	<a class="upcoming-event-toggler" href="/u/events">Upcoming</a>
+	<br class="clear">
+
+		<ul class="upcoming-events-list">
+			{% for event in events %}
+
+				<li class="{% if event.type=="raid" %}pve{% else %}pvp{% endif %}-upcomin-event">
+
+					<span class="time">{{ event.start_date_f }}</span>
+
+					<a href="/events/{{ event._id }}">
+					{% if event.type=="raid" %}
+						Raid to <span class="dungeon">[{{ event.target_name }}]</a>
+					{% elif event.type == "war" %}
+						Guild war {{ event.guild_side_name }} vs. {{ event.target_name }}
+					{% elif event.type == "fvf" %}
+						Battle between {{ event.sides_names[0] }} and {{ event.sides_names[1] }}
+					{% endif %}
+					</a>
+				</li>
+			{% endfor %}
+
+
+			{#
+			<li class="pve-upcomin-event">
+
+				<span class="time">12:42</span>
+
+				Raid to <a href="#" class="dungeon">[ Dungeon of Broken Stones ]</a>
+			</li>
+			<li class="pvp-upcomin-event">
+
+				<span class="time">15:00</span>
+
+				War with <a href="#" class="guild">[ Best Guild I’ve seen ]</a>
+			</li>
+			 #}
+		</ul>
+	{% endif %}
+</div>
+
+{#
+
+	<h2>Upcoming Events</h2>
+	<hr class="right-line">
+	<br class="clear">
+
+
+
+	<li class="pve-upcomin-event">
+		<span class="in-progress">in progress</span> Raid to <a href="#" class="dungeon">[Lost Temple]</a>
+		<a href="#" class="leave-upcoming-events">Leave</a>
+	</li>
+	<li class="pve-upcomin-event">
+		<span class="time">12:42</span> Raid to <a href="#" class="dungeon">[Dungeon of Broken Stones]</a>
+		<a href="#" class="leave-upcoming-events">Leave</a>
+		<span class="event-remaining">emaining 1 hour 25 minutes</span>
+	</li>
+	<li class="pvp-upcomin-event">
+		<span class="time">15:00</span> War with <a href="#" class="guild">[Best Guild I’ve seen]</a>
+		<a href="#" class="leave-upcoming-events">Leave</a>
+		<span class="event-remaining">emaining 2 hour 1 minute</span>
+	</li>
+
+	<li class="pve-upcomin-event">
+		<span class="in-progress">in progress</span> Raid to <a href="#" class="dungeon">[Lost Temple]</a>
+	</li>
+	<li class="pve-upcomin-event">
+		<span class="time">12:42</span> Raid to <a href="#" class="dungeon">[Dungeon of Broken Stones]</a>
+		<span class="event-remaining">emaining 1 hour 25 minutes</span>
+	</li>
+	<li class="pvp-upcomin-event">
+		<span class="time">15:00</span> War with <a href="#" class="guild">[Best Guild I’ve seen]</a>
+		<span class="event-remaining">emaining 2 hour 1 minute</span>
+	</li>
+
+
+</div>
+#}

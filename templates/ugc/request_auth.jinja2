@@ -1,0 +1,59 @@
+{% include "header.jinja2" %}
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-ugc-request-form">
+			<h2>Content creation request</h2>
+			<div class="container-one">
+
+				<p>
+					Please send this form with your data to get content creation rights.<br>
+					All fields except "Additional" field are required. We will not send any promotional information
+					to your e-mail address and only administrators will see it.
+				</p>
+
+				<p>
+					We will check your information as soon as possible and will make a decision.<br>
+					We answer you directly to your twitter account or email.
+				</p>
+
+				<form method="POST">
+					<input type="hidden" value="request_auth" name="type_of_form">
+
+					<label for="link">Link to your portfolio </label>
+					<input type="text" id="link" name="link" value="{{ param_link }}" placeholder="http://" {% if _E_link %}class="invalid"{% endif %}><br>
+
+					<label for="fullname">Your full name</label>
+					<input type="text" id="fullname" name="fullname" value="{{ param_fullname }}" {% if _E_fullname %}class="invalid"{% endif %}><br>
+
+					<label for="email">E-mail</label>
+					<input type="text" id="email" name="email" value="{{ param_email }}" {% if _E_email %}class="invalid"{% endif %}><br>
+
+					<label for="additional">Additional information</label>
+					<textarea name="additional" id="additional">{{ param_additional }}</textarea>
+
+					<span class="note">
+						Please, write here about you and your style, another links to your works and any additional information
+					</span>
+
+					{#
+						<div>
+							<input type="checkbox" id="terms" name="terms">
+							<label for="terms" class="inline-block">I agree with <a href="/terms">Tweeria Terms of Service</a></label>
+						</div>
+					 #}
+
+					<div>
+						<input type="checkbox" id="rules" name="rules">
+						<label for="rules" class="inline-block {% if _E_rules %}invalid{% endif %}">I read and accept <a href="/help_ugc" target="_blank">Terms of content creation</a></label>
+					</div>
+
+					<input type="submit" value="Request" class="btn2 btn2-classic btn2-wide">
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

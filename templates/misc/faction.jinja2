@@ -1,0 +1,125 @@
+{% include "header.jinja2" %}
+
+{% set faction_info = {
+	'ne': {
+		'_id': 0,
+		'links': [
+			{
+				'href': 'http://blog.tweenk.me/post/33640839820/the-history-of-tweeria-iii-north-expansion',
+				'name': 'More about North Expansion'
+			},
+		],
+		'desc': '
+			The Faceless came to Tweeria from the Northern Territories about 560 years ago and
+			settled on the ruins of ancient troll and gnoll cities. The undead began to appear
+			about 50-60 years ago. The first hearings about the walking dead came from the northern settlements.
+			<br><br>
+			The efforts of the Human Alliance to study why it is happening are still unsuccessful.
+			Faceless are the only race who accepted Undead. They initially took Undead neutral,
+			allowing them to live in their cities and not showing any interest to them.
+		'
+	},
+
+	'ft': {
+		'_id': 2,
+		'links': [
+			{
+				'href': 'http://blog.tweenk.me/post/33366447902/the-history-of-tweeria-ii-free-tribes',
+				'name': 'More about Free Tribes'
+			},
+		],
+			'desc': '
+			Trolls have been living on the land of Tweeria for many thousands of years; their empires
+			have risen and fallen here. Orcs came to these lands about 2500 years ago, and easily made
+			an alliance with trolls due to very similar culture.
+			<br><br>
+			Tribes live in harmony with nature and natural powers. This union is headed by a tribal council,
+			which consists of three chief shamans. The council takes all the decisions after discussion.
+		'
+	},
+
+	'ha': {
+		'_id': 1,
+		'links': [
+			{
+				'href': 'http://blog.tweenk.me/post/33023066006/the-history-of-tweeria-i-human-alliance',
+				'name': 'More about Human Alliance'
+			},
+		],
+			'desc': '
+			500 years ago humans and elves came to the land of Tweeria from the Eternal Kingdom.
+			There was an exploratory expedition led by the elf named Daeron Vaneth from Starseekers
+			research community. The expedition has begun shortly after a massive explosion in Tweeria.
+			<br><br>
+			Expedition mages discovered strange energy disturbance in the Sore, which was quickly
+			propagating throughout Tweeria. Daeron decided to establish a research station to study
+			the magical abnormalities in that area.
+		'
+	},
+}
+%}
+
+<script type="text/javascript" src="/js/page_scripts/faction_page.js"></script>
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg faction-page {{ __page__ }}-faction-page">
+			<div class="faction-img-block">
+				<img src="/style/img/{{ __page__ }}-faction-img.png" alt="{{ side_name }}">
+
+			</div>
+			<div class="faction-info-block">
+				<h2>{{ side_name }}</h2>
+
+				<p class="faction-desc">
+					{{ faction_info[address].desc }}
+				</p>
+				{% for link in faction_info[address].links %}
+					<a class="faction-link" href="{{ link.href }}">{{ link.name }}</a>
+				{% endfor %}
+
+				{#
+				<div class="upcoming-raid">
+					<h3>Upcoming raid</h3>
+					<ul class="upcomin-raid-list">
+						<li>
+							<a class="join" href="#join">Join</a>
+							<span class="raid-title">VS <span class="against-ha">Human Alliance</span></span>
+							<span class="remainig">8 hours remainig</span>
+
+							<span class="peoples">21 people joined</span>
+						</li>
+					</ul>
+				</div>
+				 #}
+
+				<div class="disqus-thread">
+					<div id="disqus_thread"></div>
+				</div>
+				<script type="text/javascript">
+					/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+					var disqus_shortname = 'tweeria'; // required: replace example with your forum shortname
+
+					{#var  disqus_config = function() {
+						this.callbacks.afterRender = [function() {
+							console.log("ASADSASDASD");
+						}];
+					}#}
+					/* * * DON'T EDIT BELOW THIS LINE * * */
+					(function () {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript';
+						dsq.async = true;
+						dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					})();
+				</script>
+				<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments
+					powered by Disqus.</a></noscript>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

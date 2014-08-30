@@ -1,0 +1,70 @@
+<script id="share-block" type="text/x-jquery-tmpl">
+	<div class="achv-share-block">
+		<div class="achv-share-block-content">
+			<div class="achv-share-block-achv">
+				<span class="img-cont"><img src="${achvimg}" alt="${achvname}"></span>
+				<h4 class="achv-type">Achievement</h4>
+				<h2 class="achv-title">${achvname}</h2>
+
+				<p class="achv-desc">${achvdesc}</p>
+
+			</div>
+
+			<br class="clear">
+
+			<div class="default-share">
+				<a target="_blank"
+				   href="https://twitter.com/share?url=${shareurl}&hashtags=${sharehash}&text=${sharetitletwitter}"
+				   class="achv-share-button tw"
+				   data-lang="ru"
+				   data-url="${shareurl}"
+				   data-text="${sharetitle}"
+				   data-hashtags="tweeria">
+					Twitter
+				</a>
+
+				<a target="_blank"
+				   href="http://www.facebook.com/sharer.php?s=100&p[title]=${sharetitle}&p[summary]=${sharedesc}&p[url]=${shareurl}&p[images][0]=${shareimage}"
+				   data-url="${shareurl}"
+				   data-title="${sharetitle}"
+				   data-description="${sharedesc}"
+				   title="Facebook"
+				   class="achv-share-button fb">
+					Facebook
+				</a>
+
+				{#<a target="_blank"
+				   href="https://plus.google.com/share?url=${shareurl}"
+				   class="achv-share-button gp"
+				   data-title="${sharetitle}"
+				   data-image="${shareimage}"
+				   data-desc="${sharedesc}"
+				   data-url="${shareurl}">
+					Google+
+				</a>#}
+				<a href="http://vkontakte.ru/share.php?url=${shareurl}&title=${sharetitle}&description=${sharedesc}&image=${shareimage}"
+				   data-url="${shareurl}"
+				   target="_blank"
+				   class="achv-share-button vk">
+					Vkontakte
+				</a>
+			</div>
+
+{#			<div class="mobile-share">
+				<a href="https://twitter.com/share" class="twitter-share-button"
+				   data-url="${shareurl}"
+				   data-text="${sharetitletwitter }"
+				   data-count="none">Tweet</a>
+				&nbsp;&nbsp;
+
+				&nbsp;&nbsp;
+				<div class="fb-like" data-href="${shareurl}" data-send="false" data-width="40" data-show-faces="false" data-layout="button_count"></div>
+				<br class="clear">
+				<div class="g-plusone" data-size="medium" data-annotation="none" data-href="${shareurl}"></div>
+			</div>#}
+		</div>
+
+	</div>
+</script>
+
+<script src="/js/page_scripts/share.js?{{ build }}"></script>

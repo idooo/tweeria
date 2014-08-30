@@ -1,0 +1,65 @@
+<script src="/js/page_scripts/last_events.js?{{ build }}"></script>
+<script id="player-popup-template" type="text/x-jquery-tmpl">
+	<div class="event-list-popup">
+		<div class="event-list-popup-arrow-border"></div>
+		<div class="event-list-popup-arrow"></div>
+		<a href="${gameLink}" class="game-profile">Game profile</a>
+		<br>
+		<a href="${twitterLink}" target="_blank" class="twitter-profile">Twitter</a>
+	</div>
+</script>
+
+<script id="player-popup-template-not-in-game" type="text/x-jquery-tmpl">
+	<div class="event-list-popup">
+		<div class="event-list-popup-arrow-border"></div>
+		<div class="event-list-popup-arrow"></div>
+		<span class="not-a-player">Not a player</span>
+		<br>
+		<a href="/inv" class="invite-profile" data-name="${name}">${inviteText}</a>
+		<br>
+		<a href="${twitterLink}" target="_blank" class="twitter-profile">Twitter</a>
+	</div>
+</script>
+
+<ul class="last-events-list">
+{% set shareEventUrl = host+address %}
+
+
+	{% for message in player.messages %}
+
+		{% set shareEventText = message.clear_message|striptags|replace("|","")|replace("#","%23")|replace("@","%40")|replace("`","%60") %}
+
+		{% if message.data.lvl %}
+			<li class="lvl-up">
+				<a class="achv-share-button twitter-event" href="https://twitter.com/share?text={{ shareEventText }}" target="_blank">Tweet</a>
+
+				<p>{{ message.message }}
+				<br>
+				<span class="ago">{{ message.time }}</span>
+				</p>
+			</li>
+		{% elif message.data.achv %}
+			<li class="achv-earned">
+				<span class="event-achv-share-button" data-aid="{{ message.data.achv_UID }}">Tweet</span>
+
+				{{ message.message }}
+				<br>
+				<span class="ago">{{ message.time }}</span>
+			</li>
+		{% else %}
+			<li>
+				<a class="achv-share-button twitter-event" href="https://twitter.com/share?url=&text={{ shareEventText }}" target="_blank">Tweet</a>
+				<p>
+					{{ message.message }}
+					<br>
+					{% if message.data.exp %}<span class="exp-gained">+{{ message.data.exp }}</span>{% endif %}
+					{% if message.data.gold %}<span class="gold-gained">+{{ message.data.gold }}</span>{% endif %}
+					{% if message.data.pvp_score %}<span class="pvp-gained">+{{ message.data.pvp_score }}</span>{% endif %}
+
+				<span class="ago">{{ message.time }}</span>
+				</p>
+			</li>
+		{% endif %}
+	{% endfor %}
+
+</ul>

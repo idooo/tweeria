@@ -1,0 +1,528 @@
+{% include "header.jinja2" %}
+
+{% set hcontent = [
+	{
+		'title': 'General',
+		'content': '
+			<p>
+				Tweeria is a game for people. We don’t like situations where bots and spammers getting
+				<span class="nw">an advantage</span> over casual players.
+			</p>
+			<p>
+				We can make a decision to give a penalty for player’s hero (such as decrease character’s level)
+				if there are a lot of automatically created tweets in the user’s timeline.
+			</p>
+
+			<p>
+				Also we will ban users if their Twitter activity can be described by any of these conditions:<br>
+				— retweet-only Twitter accounts<br>
+				— bot’s accounts (automatically posted tweets only or non-human activity)<br>
+				— non-personal (corporate) Twitter accounts
+			</p>
+		'
+	},
+	{
+		'title': 'Registration and settings',
+		'content': '
+			<p>
+				During registration you must select one of three fractions (there are two
+				races for every faction) and select a class for your hero .
+			</p>
+			<p>
+				You can read short stories about these factions here:</br>
+				— <a href="http://blog.tweenk.me/post/33640839820/the-history-of-tweeria-iii-north-expansion">North Expansion</a></br>
+				— <a href="http://blog.tweenk.me/post/33023066006/the-history-of-tweeria-i-human-alliance">Human Alliance</a></br>
+				— <a href="http://blog.tweenk.me/post/33366447902/the-history-of-tweeria-ii-free-tribes">Free Tribes</a>
+			</p>
+			<p>
+				There are one main parameter and set of specific weapons that can be used by each of classes:
+			</p>
+			<p>
+				— Warriors<br>
+				Main parameter: Strength; Weapons: Swords, Axes
+			</p>
+			<p>
+				— Hunters<br>
+				Main parameter: Dexterity; Weapons: Bows, Crossbows
+			</p>
+			<p>
+				— Mages<br>
+				Main parameter: Intellect; Weapons: Staves
+			</p>
+
+			<p>
+				You can change character’s race and class in the game settings page after
+				character’s creation but there are some penalties to do it:
+				— You&#39;ll lose all your items<br>
+				— You&#39;ll lose all artworks<br>
+				— You&#39;ll lose 50% of hero&#39;s levels<br>
+				— You&#39;ll lose 50% of your resources
+			</p>
+			<p>
+				You will NOT LOSE your items / spells / artworks in the market, but you will
+				need to spend your money to buy it. Again.
+			</p>
+			<p>
+				Also, you can change character’s artwork and title, enable Player vs. Player
+				mode and notifications at the game settings page.
+			</p>
+		'
+	},
+	{
+		'title': 'Gameplay and hero&#39;s page',
+		'content': '
+			<p>
+				After registration you will take your own lazy hero  with selected faction, race and class.
+				You can control him just a bit — your character prefers to do all his heroic things
+				independently but he look on your tweets.
+			</p>
+			<p>
+				Your character will do different actions depending on his settings and your Twitter
+				activity. For example, when you mention other player in your tweet your character may
+				help other player’s hero or receive help from he (if “Player vs. Player” mode was disabled).
+			</p>
+			<p>
+				You can see last character’s events on your profile page. Also there you may find a
+				minimap with your hero’s position, spellbook, equipped items and inventory.
+			</p>
+			<p>
+				<a href="#Items">Read this</a> to learn more about items management.
+			</p>
+		'
+	},
+	{
+		'title': 'Events refreshing',
+		'content': '
+			<p>
+				Recent events feed of game character is NOT UPDATING IN REALTIME. Because of the limitations of Twitter API we get a users’ twitter feeds with a certain delay. With normal circumstances we process user tweets 1-2 times per hour, but that time can vary depending on the our servers’ load.
+			</p>
+			<p>
+				Therefore, please note that it will takes some time to process your tweets after you wrote it. We continually upgrade our hardware and software infrastructure to reduce these delays to a minimum.
+			</p>
+		'
+	},
+	{
+		'title': 'Sleeping',
+		'content': '
+			<p class="important">
+				<span>New in version 1.1!</span>
+			</p>
+			<p>
+				Your character falls asleep if you have not visited Tweeria website more than one week. In this state, he stops to respond on your tweets and stops all his activity in the game world.
+			</p>
+			<p>
+				To wake your character up, you need login on Tweeria website. Your character wakes up and will continue to fight against evil after next data update.
+			</p>
+		'
+	},
+	{
+		'title': 'Your hero',
+		'content': '
+			<p>
+				Each of characters has a set of heroic characteristics. Each of these has influence on something:
+			</p>
+			<p>
+				— Level<br>
+				Hero&#39;s level affects on the available things that he can equip, dungeons available for run and other game&#39;s things.
+				You can create more powerful and cool stuff at higher levels. Also you can fight with stronger monsters and the game becomes harder.
+			</p>
+			<p>
+				— Experience<br>
+				Your character needs to gain some quantity of experience to reach the next level.
+				Hero gets experience from monster kills and from other heroic actions.
+				The higher the level of the hero, the more experience he needs to reach the next level.
+			</p>
+			<p>
+				— Hit Points<br>
+				It displays the number of health of the hero. The more health the more likely that
+				you will live longer in a fight with a monster or another player.
+				During the battle, the hero&#39;s health is taken away, but it is fully restored in the next update of game data.
+			</p>
+			<p>
+				— Mana Points<br>
+				It displays mana of the hero. Character needs mana points to cast spells in the game.
+				Each spell, depending on its power requires mana. The stronger the spell,
+				the more mana you should spend to use it. If your hero has not enough mana to use his spells, he can not cast it.
+			</p>
+			<p>
+				Mana points restore fully before every update of game data.
+			</p>
+			<p>
+				— Strength, Dexterity, Intellect<br>
+				Each character has one main characteristic depending on its class.
+				For hunters it is Dexterity, for the warriors — Strength, for mages — Intellect.
+				The more main characteristic, the more chance you have to win the battle with the monster or against player.
+			</p>
+			<p>
+				For example, warrior doesn’t need Dexterity and Intellect, but it is very important for
+				him to have a lot of Strength. Try to equip items with a bonus to your main characteristic.
+				This will increase your chances of success in battle.
+			</p>
+			<p>
+				Note: main characteristics (Strength, Dexterity, Intellect) do not affect the Damage directly,
+				but are involved in the calculation of the fight.
+			</p>
+			<p>
+				— Damage<br>
+				It shows the damage that player’s character causes to his enemy by a single blow.
+				This is a very important characteristic that directly affects the success in a battle.
+				Try to always equip things which give more bonus damage to character.
+			</p>
+			<p>
+				— Defense<br>
+				The more protection your hero has, the more resistant he will versus enemy strikes.
+				High defense rank takes a big effect to survival of the hero.
+			</p>
+			<p>
+				— Luck<br>
+				It affect the chances of finding a fine item, and can give a small bonus in a fight
+				with a monster or player (if your hero is more lucky than his opponent)
+			</p>
+			<p>
+				— Leadership<br>
+				After registration in the game your character gets a certain amount of leadership
+				points from 1 to 10 depending on the ratio between following and followers in your twitter.
+				The group with a powerful leader will be more successful in fighting a strong monster or in a group raid run.
+			</p>
+		'
+	},
+	{
+		'title': 'Death',
+		'content': '
+			<p>
+				Tweeria is a good-natured game and here is no death for our heroes.
+				If character’s health becomes less than 1 Hit Point he will leave battle and surrender.
+			</p>
+			<p>
+				Anyone who attacks the hero with 1 Hit Point will immediately wins.
+				Heroes with 1 Hit Point can not help other heroes in their battles.
+			</p>
+			<p>
+				Remember, Hit Points restore to a maximum for each update of game data.
+			</p>
+		'
+	},
+	{
+		'title': 'Battle System',
+		'content': '
+			<p>
+				There are a lot of battles in Tweeria. Battles may be between players and monsters or players vs. players.
+			</p>
+			<p>
+				The winner of the battle is determined by the formulas based on the characteristics of both sides. Damage, Defense, Hit Points and main characteristics have a direct influence on the chances to win the battle.
+			</p>
+			<p>
+				Try to increase these characteristics to increase chances to win battle.
+			</p>
+		'
+	},
+	{
+		'title': 'Player vs. Player',
+		'content': '
+			<p>
+				By default, PVP mode is disabled for each player, but it can be enabled using settings
+				button on the player’s page. Players can fight only if both of them have turned PVP mode on.
+			</p>
+			<p>
+				Hostility. The target is considered hostile if:
+				— Target’s PVP mode is enabled
+				— Target’s level is close enough to player’s level
+				— Target is not in the same guild as player
+				— Target and player belong to different factions
+			</p>
+			<p>
+				a) Wild hunt. If you write a common tweet and do not mention anyone, the target is
+				chosen randomly from available hostile players within a radius of 10 hexes from you.
+			</p>
+			<p>
+				b) Target player. If your PVP mode is on and you mention another player in your tweet,
+				he becomes your target, regardless of the distance between you.
+			</p>
+			<p>
+				c) Forced Target Player. If you mention a friendly player and include hashtag #pewpew
+				in your tweet, you fight that player, but the winner does not get a reward.
+			</p>
+			<p>
+				d) Target Peasant. A person, who is not registered in Tweeria and is mentioned by tweerians,
+				becomes a peasant. If you mention a peasant in your tweet, you automatically attack him.
+				It so happens that no one likes peasants.
+			</p>
+			<p>
+				e) Spells. You can use any spells on enemies whose PVP mode is turned on.
+			</p>
+			<p>
+				Reward. When you defeat a hostile player, you get a certain amount of PVP points.
+				This amount depends on many factors, including level difference between players.
+				When you fight friendly players and peasants, you do not receive a reward, but you might
+				obtain cool achievements instead.
+			</p>
+		'
+	},
+	{
+		'title': 'Monsters',
+		'content': '
+			<p>
+				Tweeria world is populated by a big amount of monsters. Wherever your hero goes
+				– he will always find someone with he can fight. Each monster has its own level
+				and set of characteristics.
+			</p>
+			<p>
+				We can say about the monsters:<br>
+				— You have very little chance to defeat monsters whose level is much higher than your<br>
+				— Monsters regenerate their health very quickly. If you didn’t kill monster on the first try, do not expect finish him – monsters restore their health much faster than players<br>
+				— More powerful monsters live in the more remote areas of the world<br>
+				— You will get a reward (experience and gold) for monsters kills. Also, there is a chance to find items in the monster’s bags after his death
+			</p>
+		'
+	},
+	{
+		'title': 'Dungeons',
+		'content': '
+			<p class="important">
+				<span>
+					Note: In version 1.1 we redesigned the dungeons mechanics in order to increase
+					their value and stop spam dungeons. Please read carefully what&#39;s written below.
+				</span>
+			</p>
+			<p>
+				Dungeons are special places marked on the map where characters can find
+				the most powerful monsters and rare bosses. Each dungeon has restrictions by level.
+			</p>
+			<p>
+				Each dungeon has special hashtag.<br>
+				— If you use dungeon hashtag in tweet, your character goes to this dungeon<br>
+				— If you use any other hashtag in tweet, your character goes to a random dungeon,
+				which is related by his level
+			</p>
+			<p>
+				It may takes a lot of time for hero to get to the dungeon
+				(read more about the movement <a href="#Map and moving">here</a>). As soon as the hero gets to the dungeon, he engages in battle with the main dungeon’s boss.
+			</p>
+			<p>
+				You get more experience and gold from bosses and you have a chance to find really rare weapons and armor.
+			</p>
+		'
+	},
+	{
+		'title': 'Raids',
+		'content': '
+			<p class="important">
+				<span>
+					Note: In version 1.1, we changed a lot of things in the raids’ mechanic.
+					Now, if you want to help your comrades in raid, you should be near the raid dungeon
+					on the map. We did this to stop the raid spam and make raid content more rare and make
+					raid runs more organized with worthy prizes.
+				</span>
+			</p>
+			<p>
+				Players can create raid events to go to difficult raid dungeons in a group.
+				Different raid dungeons are designed for different levels and for a certain number of players.
+				You can create a group journey to raid dungeons available for your level. Group event has a
+				beginning date set up during creation. The beginning time is displayed in your own time zone,
+				which can be adjusted in your twitter account settings.
+			</p>
+			<p>
+				Once you create or join a raid — your character starts to walk there (read more about the
+				movement <a href="#Map and moving">here</a>). Do not create a raid group or join raid if you do not sure that your character
+				have ehough time to get to this raid instance.
+			</p>
+			<p>
+				Group events last for one hour approximately. All your tweets written during a raid are not
+				considered as world events and do not appear in your feed, but they have a direct impact on
+				the result of the raid. Whether players win or lose the event depends on all their actions in
+				total. If the group of players defeats raid bosses, each player can obtain some rare or epic item.
+				You chance of getting magic items does not depend on your group mates’ chance.
+			</p>
+			<p>
+				After the event, raid statistics becomes available. It shows every player’s contribution and
+				overall success of the raid event.
+			</p>
+			<p>
+				Also you will not get any reward for the raid where you have not participated it (for example,
+				you wrote no tweets during raid battle)
+			</p>
+			<p>
+				You can enable checkbox “Guild run” during raid group creation to apply “guild members only
+				can join” restriction. In that case only your guild members can join this raid.
+			</p>
+		'
+	},
+	{
+		'title': 'Guilds',
+		'content': '
+			<p>
+				Tweeria will be easier if you will cooperate with other players.
+				You can create a new guild or join one of the existing ones for this.
+			</p>
+			<p>
+				Guild are divided to two types: open and closed. Anyone can join open guild
+				without any restrictions. To join closed guild you have to ask the invitation first,
+				and then guild leader must confirm it to finish join process (or reject it if he has a bad mood).
+			</p>
+			<p>
+				Also leader of the guild can write funny news with guild events announcements or something
+				else like this. News of closed guilds are visible only for their members.
+			</p>
+			<p>
+				Now there is new leadership column on the guild’s page. Players get extra chances to win
+				group event if the creator of this event has a high Leadership.
+			</p>
+		'
+	},
+	{
+		'title': 'Guild vs. guild battles',
+		'content': '
+			<p>
+				There is new type of group events — Guild vs. Guild group battles.
+				During this event two guilds fight between each other.
+			</p>
+			<p>
+				GvG events can only be created by guild leaders and top-5 guild members by highnest PvP score.
+				If you haven’t enough PvP score to create GvG events, try to ask your guild friends which can create it.
+			</p>
+			<p>
+				All Guild vs. Guild events tied to Tweeria geography as well as raids. Location of
+				GvG event assigned randomly within The Sore (center of the map) after creation.
+			</p>
+			<p>
+				Only members of two fighting guilds may join GvG event. To participate GvG event and
+				help your comrades, you need to join event and be near to the place marked as battle on the
+				world map when it will start. It is not necessary to enable PvP mode to join Guild vs. Guild event.
+			</p>
+			<p>
+				The number of participants of Guild vs. Guild battle is not limited. Battle will take place
+				only if each of sides has at least one joined member. So if you want to challenge with other
+				guild you should send message to this guild&#39;s members about upcoming battle.
+			</p>
+			<p>
+				Mechanics of Guild vs. Guild events are same the mechanics in raids. Events last for one
+				hour approximately. All your tweets written during a raid are not considered as world
+				events and do not appear in your feed, but they have a direct impact on the result of the raid.
+				Whether players win or lose the event depends on all their actions in total.
+			</p>
+			<p>
+				Winners of GvG event receive experience and PvP points, winner guild gets a PvP Guild Points.
+				These points will be used to create ladder and other stuff in the future.
+			</p>
+		'
+	},
+	{
+		'title': 'Items',
+		'content': '
+			<p class="important">
+				<span>
+					In version 1.1 we added a mechanism to reusing items:
+					If you bought an item in the market, and then sold it away, then there is a
+					little chance that this item can be found by another player as loot from game&#39;s monsters.
+				</span>
+			</p>
+			<p>
+				It was be harder for heroes to live in Tweeria without big amount of items and
+				high-quality weapons, which they can use to fight with monsters. You can buy items for
+				gold in the market or get them as loot from monsters.
+			</p>
+			<p>
+				Your character does not equip found items automatically, but he will put them to his inventory.
+			</p>
+			<p>
+				To equip items you can drag&#39;n&#39;drop desired item from the inventory to the
+				item slot. Each item type has it own specific slot in the character&#39;s page.
+				You can not equip items which level is greater than character’s level and the weapon
+				that does not eligible for character’s class.
+			</p>
+			<p>
+				To sale item, simply drag and drop it to the sell-area on your character’s artwork that
+				appears when you drag an item.
+			</p>
+		'
+	},
+	{
+		'title': 'Map and moving',
+		'content': '
+			<p class="important">
+				<span>
+					We introduce new movement system in version 1.1!
+				</span>
+			</p>
+			<p>
+				World of Tweeria is pretty big. There is a world map with points of interests to
+				help players to orienting.
+			</p>
+			<p>
+				The whole world is populated by monsters. They do not appear on your map but you
+				should know it — they are everywhere. The farther from the center of the map that they are stronger.
+			</p>
+			<p>
+				If you did not order your character to go to a certain place, he is free to choose
+				its direction according to his mood. Speed of movement — one hex for one data update.
+			</p>
+			<p>
+				You can write place&#39;s hashtag in a tweet to order your character to go to specific
+				point of interest (such as a dungeon). Click on the marker of place on the world map
+				to get information about this place.
+			</p>
+			<p>
+				Note:<br>
+				— Some places are far away from center of the map and far away from starting position.
+				It may takes a few days or more to reach them.<br>
+				— If you fight with strong monsters (remember — the further from the center of the map
+				so they are stronger) and if your character can not beat them, he moves one hex back.
+				So do not try to get into high-level dungeons by low level characters — your hero just does
+				not get to them ever.
+			</p>
+		'
+	},
+	{
+		'title': 'Spells',
+		'content': '
+			<p class="important">
+				<span>
+					In version 1.1 you no need to write "!" before spell keyword to cast spell!<br>
+					To buff yourself use spell in a tweet withot mention anybody
+				</span>
+			</p>
+			<p>
+				The world of Tweeria is full of magic, therefore every tweerians regardless of his/her class,
+				level and race can use powerful spells. Spells can improve characters’ stats,
+				damage enemies and give your foes a hard time.
+			</p>
+			<p>
+				a) Types of spells. All spells are divided into two groups: positive and negative.
+				— Positive spells have no negative effect.
+				— Negative spells have at least one negative effect.
+			</p>
+			<p>
+				b) Effects. Spells comprise magic effects (usually from 1 to 3) of a different power.
+				 All effects are divided into three groups:
+				— Enhancement effects – improve one stat for one hour.
+				— Weakening effects – reduce one stat for one hour.
+				— Instant damage effects – deal instant damage to your target (these effects are especially helpful
+				against monsters).
+			</p>
+			<p>
+				d) Use. Before using a spell, you should activate it on your spellbook page. You can have no more
+				than 5 active spells at the same time. Every spell has its own magic keyword that you have to use in
+				order to cast this spell. You can discover all keywords in your spellbook. If spell is activated in
+				your spellbook, you can cast it using
+			</p>
+			<p>
+				e) Targeting. When you mention another player in your tweet, you can cast a spell on him in case:
+				— You and your opponent have PVP mode turned on.
+				— If at least one of you has PVP mode turned off, the spell can be cast only if it does not contain
+				negative effects.
+			</p>
+			<p>
+				f) Self-target. You can cast a spell on yourself. In order to do this,
+				you should write spell keyword and this tweet must not be a mention
+			</p>
+			<p>
+				Monster target. If you have no target, a spell will be cast on any monster.
+			</p>
+		'
+	}
+
+] %}
+
+
+{% include "misc/help_layout.jinja2" %}
+{% include "footer.jinja2" %}

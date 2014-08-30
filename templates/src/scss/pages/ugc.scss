@@ -1,0 +1,63 @@
+/*
+  UGC Pages
+*/
+
+/*
+  Content creation request
+  /u/request
+*/
+
+.cc-ugc-request-form {
+
+  .container-one {
+    @include container-one;
+
+    p {
+      width: 500px;
+    }
+
+    label {
+      display: block;
+      color: #666;
+    }
+
+    span.note {
+      width: 200px;
+      display: inline-block;
+      font-size: 12px;
+      margin-left: 17px;
+      color: #666;
+    }
+
+    div {
+      margin-top: 10px;
+
+      label {
+        padding-left: 7px;
+
+        &.invalid, &.invalid a {
+          color: #dd0000;
+        }
+
+      }
+    }
+
+    input[type=text] {
+      @include input-text-standart;
+      width: 400px;
+    }
+
+    textarea {
+      @include input-textarea-standart;
+      width: 400px;
+      height: 100px;
+    }
+
+    input[type=submit] {
+      margin-top: 30px;
+    }
+
+  }
+
+}
+

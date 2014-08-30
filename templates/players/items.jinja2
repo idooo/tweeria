@@ -1,0 +1,277 @@
+{% set inventory_max = 16 %}
+
+{% if login_name == player.name %}
+	<script src="/js/page_scripts/items_drag.js?{{ build }}"></script>
+{% endif %}
+
+{% set need_parent_id = True %}
+
+{% set right_slots = [
+	{"id": 10, "slot": "slot10", "type": "hand"},
+	{"id": 8, "slot": "slot8", "type": "waist"},
+	{"id": 11, "slot": "slot11", "type": "legs"},
+	{"id": 6, "slot": "slot6", "type": "ring1"},
+	{"id": 66, "slot": "slot66", "type": "ring2"},
+	{"id": 7, "slot": "slot7", "type": "foot"}
+] %}
+
+{% set left_slots = [
+	{"id": 4, "slot": "slot4", "type": "head"},
+	{"id": 5, "slot": "slot5", "type": "neck"},
+	{"id": 13, "slot": "slot13", "type": "shoulder"},
+	{"id": 12, "slot": "slot12", "type": "chest"},
+	{"id": 9, "slot": "slot9", "type": "wrist"},
+	{"id": 1, "slot": "slot1", "type": "weapon"},
+]
+%}
+
+{% set stats = {
+	'int': 'Intellect',
+	'str': 'Strength',
+	'dex': 'Dexterity',
+	'luck': 'Luck',
+	'HP': 'Hit Points',
+	'MP': 'Mana Points',
+	'DEF': 'Armor',
+	'DMG': 'Damage'
+}
+%}
+
+{% set cant_buy = True %}
+
+<script id="player-item-popup" type="text/x-jquery-tmpl">
+	{% include "popups/item.jinja2" %}
+</script>
+
+<script id="sell-item-form-template" type="text/x-jquery-tmpl">
+	<form method="post" action="/u/shop">
+		<input type="hidden" name="created_by_player" value="${created_by_player}">
+		<input type="hidden" name="type_of_form" value="sell_item">
+		<input type="hidden" name="uid" value="${itemId}">
+		<input type="submit" value="sell">
+	</form>
+</script>
+
+<ul class="player-items player-items-left">
+	{% for slot in left_slots %}
+		{% if items[slot.slot] %}
+			<li class="itm{{ items[slot.slot].color }}" data-id="{{ items[slot.slot].id }}" id="{{ slot.type }}" data-slot="{{ slot.id }}">
+				{% if items[slot.slot].created_by_player %}
+					{% set itemImg = items[slot.slot].img|replace("item_images","resized_image/items") %}
+				{% else %}
+					{% set itemImg = items[slot.slot].img %}
+				{% endif %}
+
+				<img class="itm{{ items[slot.slot].color }}" src="{{ items[slot.slot].img }}"
+					data-form-id="{{ items[slot.slot].id }}"
+					{% set item = items[slot.slot] %}
+					data-tooltip="{% include "misc/_cluetip_item_slot.jinja2" %}"
+					data-created="{{ items[slot.slot].created_by_player }}"
+
+					data-popup="1"
+					data-slot="{{ items[slot.slot].view|capitalize }}"
+
+					{% set item = items[slot.slot] %}
+					{% set canBuy = "false" %}
+					{% include "misc/_item_data_attr.jinja2" %}
+				/>
+			</li>
+		{% else %}
+			<li id="{{ slot.type }}" class="player-slot itm0" data-slot="{{ slot.id }}">
+				<img src="/style/img/fancybox/blank.gif" alt="No item" data-form-id="0">
+			</li>
+		{% endif %}
+	{% endfor %}
+</ul>
+
+<div class="player-art" id="player-art">
+	{% if default_artwork %}
+		<div class="no_artwork">
+			<img src="/data/artwork_empty.jpg" alt="No artwork" width="240" height="400" >
+			<div class="no_artwork_caption">
+				<span>Hero has no<br>artwork right now</span>
+				{% if player_self %}
+					<span>You can buy any<br><a href="/u/shop#!tab-artworks">in the shop</a></span>
+				{% endif %}
+			</div>
+		</div>
+	{% else %}
+		<a href="/u/artwork?id={{ player.artwork_id }}">
+			<img width="240" height="400" src="{{ player.artwork }}" alt="{{ player.name }} artwork">
+		</a>
+	{% endif %}
+
+	<div class="sell-item-form">
+		<div class="sell-form-text">
+			<i></i><br>
+			Drop item here to sell<br>
+			<span>You can’t undo this action!</span>
+		</div>
+		<div class="gold-gained-block">
+			<i></i><br>
+			You got <span class="count">0</span> gold
+		</div>
+		<form method="post" action="/u/shop" id="sell-item-form">
+			<input type="hidden" name="created_by_player" value="0" id="sell-item-created">
+			<input type="hidden" name="type_of_form" value="sell_item">
+			<input type="hidden" name="uid" value="0" id="sell-item-uid">
+			<input type="submit" value="sell">
+		</form>
+	</div>
+</div>
+
+<ul class="player-items player-items-right">
+
+	{% for slot in right_slots %}
+		{% if items[slot.slot] %}
+			<li class="itm{{ items[slot.slot].color }}" data-id="{{ items[slot.slot].id }}" id="{{ slot.type }}" data-slot="{{ slot.id }}">
+				<img class="itm{{ items[slot.slot].color }}" src="{{ items[slot.slot].img }}"
+
+					data-form-id="{{ items[slot.slot].id }}"
+					{% set item = items[slot.slot] %}
+					data-tooltip="{% include "misc/_cluetip_item_slot.jinja2" %}"
+					data-created="{{ items[slot.slot].created_by_player }}"
+					data-popup="1"
+					data-slot="{{ items[slot.slot].view|capitalize }}"
+
+					{% set item = items[slot.slot] %}
+					{% set canBuy = "false" %}
+					{% include "misc/_item_data_attr.jinja2" %}
+				/>
+
+			</li>
+		{% else %}
+			<li id="{{ slot.type }}" class="itm0" data-slot="{{ slot.id }}">
+				<img src="/style/img/fancybox/blank.gif" alt="No item" data-form-id="0">
+			</li>
+		{% endif %}
+	{% endfor %}
+</ul>
+<br class="clear">
+<div class="resources-block">
+	<div class="resources">
+		<div class="resources_gold"><i></i> <span id="player-gold">{{ player.resources.gold }}</span></div>
+		<div class="resources_ore"><i></i> <span>{{ player.resources.ore }}</span></div>
+		<div class="resources_eore"><i></i> <span>{{ player.resources.eore }}</span></div>
+		<div class="resources_pergament"><i></i> <span>{{ player.resources.prg }}</span></div>
+	</div>
+</div>
+
+<div class="player-top-border-box player-inventory">
+	<form method="post" id="equip-form" action="/{{ address }}" style="display:none;">
+		<input type="hidden" name="type_of_form" value="equip_item">
+		<input type="hidden" name="uid" id="uid" value="">
+		<input type="submit" value="equip">
+	</form>
+
+	<h2>Inventory</h2>
+	{% if player_self %}
+		<ul class="player-top-border-box-actions">
+			<li><a href="/u/craft_item" class="yellow">Craft items</a></li>
+			<li><a href="/u/shop" class="yellow">Buy</a></li>
+		</ul>
+	{% endif %}
+
+	<br class="clear">
+
+	<ul class="player-slot-list player-inventory">
+		{% for item in inventory %}
+			{% set cantUse = false %}
+			{% if item.cant_use %}
+				{% set cantUse = true %}
+			{% elif login_lvl|default(100) < item.lvl_min|default(1)%}
+				{% set cantUse = true %}
+			{% endif %}
+
+			<li class="itm{{ item.color }} player-inventory" data-some="SAD" data-slot="{% if cantUse %}{{ item.type*100 }}{% else %}{{ item.type }}{% endif %}">
+
+				<img
+					class="itm{{ item.color }} item-weapon"
+
+					data-tooltip="{% include "misc/_cluetip_item_slot.jinja2" %}"
+					data-slot="{{ item.str_type|capitalize }}"
+					data-uid="{{ item.id }}"
+					data-created="{{ item.created_by_player }}"
+					data-form-id="{{ item.id }}" src="{{ item.img }}" alt="{{ item.name }} — {{ item.id }}"
+					data-popup="1"
+					data-slot="{{ item.view|capitalize }}"
+
+					{% set canBuy = "false" %}
+					{% include "misc/_item_data_attr.jinja2" %}
+
+				/>
+
+			</li>
+
+		{% endfor %}
+
+		{% if inventory|length<inventory_max %}
+			{% for i in range(inventory|length,inventory_max) %}
+				<li class="itm0">
+					<img data-uid="0" data-form-id="0" src="/style/img/fancybox/blank.gif" />
+				</li>
+			{% endfor %}
+		{% endif %}
+	</ul>
+	<br class="clear">
+</div>
+
+
+{% if player_self %}
+	<div class="player-top-border-box player-spells">
+		<h2>Active spells</h2>
+		<a href="/spellbook" class="change-spell yellow">Change</a>
+		<ul class="player-top-border-box-actions">
+			<li><a href="/u/create_spell" class="yellow">Create Spell</a></li>
+			<li><a href="/u/shop#tab-spells" class="yellow">Buy</a></li>
+		</ul>
+		<br class="clear">
+		<ul class="player-slot-list">
+			{% for spell in spells %}
+				<li><a alt="{{ spell.name }}" href="#" title="|{% include "misc/_spell_cluetip.jinja2" %}"><img width=40 src="{{ spell.img }}" /></a></li>
+			{% endfor %}
+
+			{% if spells|length<5 %}
+				{% for i in range(spells|length,5) %}
+					<li>
+
+					</li>
+				{% endfor %}
+			{% endif %}
+
+		</ul>
+		<br class="clear">
+	</div>
+{% endif %}
+
+
+<div class="player-top-border-box player-wealth">
+	<h2>Wealth</h2>
+	<br class="clear">
+	{% if wealth|length == 0 %}
+		<div class="have-no-wealth">
+			{% if player_self %}
+				Have no wealth items.
+				<a href="/u/shop#!tab-fun" class="yellow">Buy?</a>
+			{% else %}
+				No wealth items
+			{% endif %}
+		</div>
+	{% else %}
+		<ul class="player-slot-list">
+			{% for item in wealth %}
+				<li>
+					<a rel="/obj/8/{{ item.item_UID }}" class="with-tooltip">
+						<img style="width: 40px; height:40px;" src="/data/items/non_combat/{{ item.img }}.jpg?{{ build }}"/>
+					</a>
+				</li>
+			{% endfor %}
+			{% if player_self %}
+				<li class="no-background"><a href="/u/shop#!tab-fun" class="buy-wealth yellow">Buy</a></li>
+			{% else %}
+
+			{% endif %}
+		</ul>
+	{% endif %}
+</div>
+

@@ -1,0 +1,12 @@
+<img src='{{ spell.img }}' width='54'>
+	<c class='player_item'>
+		<n0>{{ spell.name }}</n0>
+		<t>{{ spell.keyword }}</t>
+	<br>
+		<s>
+		{% for action in spell.spell_actions %}
+			{{ spell_types[action.type] }} {{ action.value }} {{ stat_names[action.effect] }}<br>
+		{% endfor %}
+		</s>
+	</c>
+<div class='clear'></div>

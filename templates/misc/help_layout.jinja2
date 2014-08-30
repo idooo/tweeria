@@ -1,0 +1,43 @@
+
+<script src="/js/page_scripts/help.js?{{ build }}"></script>
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-help-page">
+
+			<h2>Help</h2>
+			<div id="accordion-help">
+
+				{% for record in hcontent %}
+					<h3><a class="ac-head" name="{{ record.title }}">{{ record.title }}</a></h3>
+					<div>
+						{{ record.content }}
+					</div>
+				{% endfor %}
+			</div>
+
+			<div class="help-menu">
+				<div class="big_link">
+					<a href="/help_ugc">User creating content</a>
+				</div>
+				<div class="big_link">
+					<a href="/credits">Credits</a>
+				</div>
+				{% for record in hcontent %}
+					<div>
+						<a href="#{{ record.title }}">{{ record.title }}</a>
+					</div>
+				{% endfor %}
+			</div>
+
+			<div class="clear"></div>
+			<p class="bottom-help-container">
+				{% if login_name %}
+					<a href="/{{ login_name }}" class="btn2 btn2-classic btn2-wide">Back to hero</a>
+				{% else %}
+					<a href="/registration" class="btn2 btn2-classic btn2-wide">Sign up!</a>
+				{% endif %}
+			</p>
+		</div>
+	</div>
+</div>

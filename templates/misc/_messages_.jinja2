@@ -1,0 +1,49 @@
+<div class="success-message2">
+	<div>
+
+		{# things buy #}
+		{% if message_type < 10 %}
+
+			{% if message_type == 0 %}
+				You've just bought this cool item. Go to your <a href="/{{ login_name }}">character page</a> to equip it
+			{% elif message_type == 1 %}
+				You've just bought amazing spell. Go to your <a href="/{{ spellbook }}">spellbook</a> to activate it
+			{% elif message_type == 2 %}
+				You've just bought nice artwork. Go to <a href="/{{ login_name }}">your page</a> to see how your hero looks
+			{% endif %}
+
+		{# settings #}
+		{% elif message_type < 20 %}
+
+			{% if message_type == 10 %}
+				You've successfully change your hero's race/class. <a href="/{{ login_name }}">Go to profile</a>
+			{% endif %}
+
+		{# misc #}
+		{% elif message_type < 30 %}
+
+			{% if message_type == 20 %}
+				You've successfully deleted your guild. Is this a time to <a href="/guilds/add">create new</a>?
+			{% endif %}
+
+		{# events #}
+		{% elif message_type < 40 %}
+
+			{% if message_type == 30 %}
+				You've successfully created an event. Invite your friends and be ready for battle
+			{% endif %}
+
+		{% elif message_type < 50 %}
+
+			{% if message_type == 40 %}
+				You've successfully added new message!
+			{% elif message_type == 41 %}
+				You've successfully edit message!
+			{% elif message_type == 42 %}
+				You've successfully delete message!
+			{% endif %}
+
+		{% endif %}
+
+	</div>
+</div>

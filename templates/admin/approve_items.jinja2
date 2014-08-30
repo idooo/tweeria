@@ -1,0 +1,131 @@
+{% include "header.jinja2" %}
+<script type="text/javascript" src="/js/page_scripts/admin_approve.js"></script>
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-page">
+			<a class="link-back" href="/a/index">Back</a><br>
+			<h2>Items to approve</h2>
+
+			<p class="read-rules">
+				Please read <a href="/help_ugc" target="_blank">new approvement rules</a> before approve
+			</p>
+
+			<div class="nothing-to-approve"{% if not items %} style="display:block;"{% endif %}>
+				<h2>No waiting items</h2>
+			</div>
+
+			<div id="approve-block" data-type="items">
+				{% if items %}
+
+
+					{% for item in items %}
+						<div class="approve-item-wrapper">
+							<div class="approve-item">
+								<div class="image-container">
+									<img src="{{ item.img }}" alt="">
+
+									{% if item.img_info.link %}
+										<a class="artwork-source" href="http://{{ item.img_info.link }}" target="_blank">Artwork Source</a><br>
+									{% endif %}
+
+									{% if item.img_info.name %}
+										<br>{{ item.img_info.name }}
+									{% endif %}
+
+									{% if item.img_info.email %}
+										<br><a class="artwork-source" href="mailto:{{ item.img_info.email }}">{{ item.img_info.email }}</a>
+									{% endif %}
+
+									{% if item.img_info.twitter %}
+										<br><a class="artwork-source" href="http://twitter.com/{{ item.img_info.twitter }}">@{{ item.img_info.twitter }}</a>
+									{% endif %}
+
+									{% if item.img_info.iamauthor %}
+										<br><b>[He is author]</b>
+									{% endif %}
+
+									<br>License: {{ item.img_info.copyright }}
+
+
+								</div>
+
+								<div class="info-container">
+									<div class="approve-type">
+										{{ item.view|capitalize }},
+										<span class="level">Level {{ item.lvl_min|default(1) }}</span>
+									</div>
+
+									<div class="approve-name">
+										{% if item.old_data %}
+											<span class="item-was-edited" alt="{{ item.old_data }}">Edit</span>
+										{% endif %}
+
+										{{ item.name }}
+									</div>
+									<div class="bonus">{{ item.bonus_stats }}</div>
+									<p class="desc">{{ item.desc }}</p>
+
+									<span class="cost"><i class="icon gold-3"></i> {{ item.cost }}</span>
+									<a class="author">@{{ item.author_name }}</a>
+
+									{% if item.old_data %}
+										<div class="old-data">
+										Old data:<br>
+										{% for data in item.old_data %}
+											{{ data|capitalize }}: {{ item.old_data[data] }}<br>
+										{% endfor %}
+										</div>
+									{% endif %}
+								</div>
+
+								<div class="reject-container">
+
+									<h4>Reject reason:</h4>
+
+									<form method="post" action="">
+
+										<ul class="reason-list">
+											{% for reason in reasons %}
+												<li class="reason-item">
+													<input type="checkbox" name="reject_reason{{ reason.id }}"
+														   id="reason-{{ loop.index }}-{{ item._id }}">
+													<label for="reason-{{ loop.index }}-{{ item._id }}">{{ reason.name }}</label>
+												</li>
+											{% endfor %}
+										</ul>
+										<input type="hidden" value="reject_item" name="type_of_form">
+										<input type="hidden" value="{{ item._id }}" name="_id">
+										<input type="submit" value="Reject" class="flat-button reject">
+										<input type="checkbox" name="force_delete" id="force_delete"> <label
+											class="force-delete-label" for="force_delete">Force delete</label>
+									</form>
+
+								</div>
+
+								<div class="approve-container">
+									<form method="post" action="">
+										<input type="hidden" value="approve_item" name="type_of_form">
+										<input type="hidden" value="{{ item._id }}" name="_id">
+										<label for="tag">Category:</label>
+										<select name="tag" id="tag">
+											<option value=""></option>
+											{% for cat in categories %}
+												<option value="{{ cat.value }}" {% if cat.value == tag %}
+												        selected {% endif %}>{{ cat.name }}</option>
+											{% endfor %}
+										</select>
+										<input type="submit" value="Approve" class="flat-button approve">
+									</form>
+								</div>
+
+							</div>
+						</div>
+					{% endfor %}
+				{% endif %}
+			</div>
+
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

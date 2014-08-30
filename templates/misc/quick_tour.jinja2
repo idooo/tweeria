@@ -1,0 +1,64 @@
+<script id="invited-block" type="text/x-jquery-tmpl">
+	<div class="invited-block">
+		<img src="${avatar}" class="avatar" alt="${inviter}">
+		{% if current_page== './guilds/guild_detail.jinja2' %}
+			<img src="${guild_avatar}" class="avatar" alt="${guild_name}">
+		{% endif %}
+
+		<div class="invited-info{% if current_page== './guilds/guild_detail.jinja2' %} guild-invited-info{% endif %}">
+			<h2>${inviter} invites you to Tweeria</h2>
+			{% if current_page== './guilds/guild_detail.jinja2' %}
+				<h2>and guild “${guild_name}”</h2>
+			{% else %}
+				<span class="inviter-info">
+				${intiver_race} ${inviter_class}, Level ${inviter_level}
+			</span>
+			{% endif %}
+
+
+			<div class="invite-fade-block">
+				<p class="invite-text">
+					Join your friend and receive a bonus
+				</p>
+
+				<p class="invite-bonus">
+					+1 Luck <span>and</span> +5 Hit Points
+				</p>
+			</div>
+
+			<div class="quick-tour-block">
+				<span class="quick-tour-prev"></span>
+
+				<div class="quick-tour-wrapper">
+					<ul>
+						<li style="background: url(/style/img/tour/tour1.jpg) no-repeat 0px 0 transparent">
+
+							<p class="quick-tour-overlay" style="margin-top: 248px">
+								Tweeria is a Zero Player RPG with minimal user's involvement...
+							</p>
+						</li>
+						<li style="background: url(/style/img/tour/tour2.jpg) no-repeat 0px 0 transparent">
+							<p class="quick-tour-overlay" style="margin-top: 226px">
+								... but your character's life and growth indirectly depend on your Twitter activity
+							</p>
+						</li>
+						<li style="background: url(/style/img/tour/tour3.jpg) no-repeat 0px 0 transparent">
+							<p class="quick-tour-overlay" style="margin-top: 226px">
+								Items and spells creation is a significant part of the game. It makes your hero more
+								powerful
+							</p>
+						</li>
+					</ul>
+				</div>
+				<span class="quick-tour-next"></span>
+			</div>
+
+			{% if current_page== './guilds/guild_detail.jinja2' %}
+				<a class="btn2 btn2-classic" href="/registration?{{ param_name }}&guild">Start playing</a>
+			{% else %}
+				<a class="btn2 btn2-classic" href="/registration?{{ player.name }}">Start playing</a>
+			{% endif %}
+			{# <a class="quick-tour" href="#">Quick tour</a> #}
+		</div>
+	</div>
+</script>

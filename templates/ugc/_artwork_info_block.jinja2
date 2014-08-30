@@ -1,0 +1,49 @@
+<div class="artwork-view-info
+{% if img_info.link or img_info.name or img_info.email or img_info.twitter%}pb{% endif %}">
+	{% if img_info %}
+
+		{% if img_info.verified %}
+			<div class="authorized">
+				Authorized artwork {# <span class="help"><sup><a href="/help_auth">?</a></sup></span> #}
+			</div>
+
+			{% if img_info.copyright and img_info.copyright != 'unknown' %}
+				<div class="copyright-content-page-info">
+					<a href="/licenses#{{ img_info.copyright }}" target="_blank">License:</a><br>
+					{% if img_info.copyright in ['closed', 'unknonw'] %}
+						{{ img_info.copyright }}
+					{% else %}
+						<img src="/style/img/licenses/{{ img_info.copyright }}.png" alt="">
+					{% endif %}
+				</div>
+			{% endif %}
+
+		{% else %}
+			<div class="not-authorized">
+				This artwork needs to be authorized <span class="help"><sup><a href="/help_auth">?</a></sup></span><br>
+				<span class="help">Please <a href="mailto:yeah@tweenk.me?subject=Author for {{ _id }}">write us</a> about author and we contact with him</span>
+			</div>
+		{% endif %}
+
+		{% if img_info.link %}
+			<span>Link: <a href="{{ img_info.link }}">{{ img_info.link_name }}</a></span>
+		{% endif %}
+
+		{% if img_info.name %}
+			<span>Author: <span class="author">{{ img_info.name }}</span></span>
+		{% endif %}
+
+		{% if img_info.email %}
+			{% if login_moderator or login_admin %}
+				<span>E-mail: <a href="mailto:{{ img_info.email }}">{{ img_info.email }}</a></span>
+			{% endif %}
+		{% endif %}
+
+		{% if img_info.twitter %}
+			<span>Twitter: <a href="http://twitter.com/{{ img_info.twitter }}">@{{ img_info.twitter }}</a></span>
+		{% endif %}
+
+
+
+	{% endif %}
+</div>

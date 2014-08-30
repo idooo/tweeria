@@ -1,0 +1,34 @@
+{% include "header.jinja2" %}
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-page">
+			<a class="link-back" href="/a/index">Back</a><br>
+			<h2>Reported items</h2>
+
+			<table class="passive-table">
+				<thead>
+				<tr>
+					<th class="n"></th>
+					<th class="type" style="width:80px;">Type</th>
+					<th class="name">Name</th>
+					<th class="reports">Reports</th>
+				</tr>
+				</thead>
+				<tbody>
+				{% for item in items %}
+					<tr>
+						<td>{{ loop.index }}</td>
+						<td class="type">{{ item.view|capitalize }}</td>
+						<td class="name"><a href="/u/item?id={{ item._id }}">{{ item.name }}</a></td>
+						<td class="author">{{ item.reports }}</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

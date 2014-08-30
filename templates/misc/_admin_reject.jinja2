@@ -1,0 +1,54 @@
+
+	{% if not reject %}
+		<div class="reject_form">
+				<form method="post" action="/a/index">
+
+					{% if reject_type == 'spell' %}
+						<input type="hidden" value="reject_spell" name="type_of_form">
+					{% elif reject_type == 'item' %}
+						<input type="hidden" value="reject_item" name="type_of_form">
+					{% elif reject_type == 'artwork' %}
+						<input type="hidden" value="reject_artwork" name="type_of_form">
+					{% endif %}
+
+					<input type="hidden" value="/{{ address }}?{{ __query__ }}" name="backlink">
+					<input type="hidden" value="{{ _id }}" name="_id">
+
+					<ul class="reason-list">
+						{% for reason in reasons %}
+							<li class="reason-item">
+								<input type="checkbox" name="reject_reason{{ reason.id }}" id="reason-{{ loop.index }}">
+								<label for="reason-{{ loop.index }}">{{ reason.name }}</label>
+							</li>
+						{% endfor %}
+					</ul>
+
+					{#
+						<textarea name="reject_reason" placeholder="You must write why you rejected this"></textarea>
+				    #}
+					<input type="submit" value="Reject" class="btn2 btn2-red">
+					<br><br><input type="checkbox" name="force_delete" id="force_delete"> <label class="force-delete-label" for="force_delete">Force delete</label>
+
+				</form>
+		</div>
+	{% endif %}
+
+	<div class="change-tag-form">
+		<form method="post" action="/a/index">
+
+			<select name="new_tag">
+				{% for cat in categories %}
+					<option value="{{ cat.value }}" {% if cat.value == tag %} selected {% endif %}>{{ cat.name }}</option>
+				{% endfor %}
+			</select><br>
+
+			<input type="hidden" value="{{ _id }}" name="_id">
+			<input type="hidden" value="{{ reject_type }}" name="thing_type">
+			<input type="hidden" value="/{{ address }}?{{ __query__ }}" name="backlink">
+
+			<input type="hidden" value="change_tag" name="type_of_form">
+			<input type="submit" value="Change tag" class="btn2 btn2-classic">
+
+		</form>
+	</div>
+<br class="clear">

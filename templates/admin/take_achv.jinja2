@@ -1,0 +1,44 @@
+{% include "header.jinja2" %}
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-invites-page">
+
+			{% if param_success %}
+				<div class="success-message">
+					<div>
+						You've took rare achv to <strong>{{ param_take }}</strong> successfully<br>
+						<a target="_blank" href="https://twitter.com/intent/tweet?source=tweetbutton&text=@{{ param_take }}, You've earned achievement [{{ achv }}] in%20%23tweeria — &url={{ host }}{{ param_take }}">Write</a> him about it
+					</div>
+				</div>
+			{% endif %}
+
+			{% if param_fail %}
+				<div class="error-message">
+					<div>
+						There is unknown error
+					</div>
+				</div>
+			{% endif %}
+
+			<div class="page-part">
+				<a class="link-back" href="/a/index">Back</a><br>
+
+				<h2>Take rare achievement</h2>
+				<form method="POST" action="/a/achvs">
+					<br>
+					{% for achv in achvs %}
+					<input type="radio" name="achv" value="{{ achv.UID }}"> {{ achv.name }}<br>
+					{% endfor %}
+					<br>To:
+					<input type="hidden" name="type_of_form" value="take_achv">
+					<input type="text" name="user_name" placeholder="Twitter name"><br>
+					<input type="submit" class="btn-ido-big" value="Take">
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+{% include "footer.jinja2" %}

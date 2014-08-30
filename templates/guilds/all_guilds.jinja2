@@ -1,0 +1,136 @@
+{% include "header.jinja2" %}
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg ratings-page all-page">
+			<div class="typical_col first_col">
+
+				<a class="link-back" href="/top">Back</a><br>
+				<br class="clear">
+
+				<div>
+					{% if param_order=="1" %}
+						{% set order = "-1" %}
+					{% else %}
+						{% set order = "1" %}
+					{% endif %}
+					{% set addPagePart = "" %}
+					{% if param_field %}
+						{% set addPagePart = addPagePart+"&field="+param_field|string %}
+					{% endif %}
+
+					{% if param_order %}
+						{% set addPagePart = addPagePart+"&order="+param_order|string %}
+					{% endif %}
+					<table class="ratings-table">
+						<thead>
+						<tr>
+							<th class="number" colspan="2">
+								<h2 class="caption_popular_guilds">Top guilds</h2>
+
+							</th>
+							<th class="guild_players{% if param_field == "people_count" %} sorted{{ order }} {% endif %}">
+								<a href="/all-guilds?field=people_count&order={{ order }}">Players</a>
+								<i></i>
+							</th>
+							<th class="guild_pvp{% if param_field == "pvp_score" %} sorted{{ order }} {% endif %}">
+								<a href="/all-guilds?field=pvp_score&order={{ order }}">PvP</a>
+								<i></i>
+							</th>
+							<th class="guild_pvp{% if param_field == "guild_points" %} sorted{{ order }} {% endif %}">
+								<a href="/all-guilds?field=guild_points&order={{ order }}">GvG</a>
+								<i></i>
+							</th>
+						</tr>
+						</thead>
+						<tbody>
+						{% if guilds|length>0 %}
+
+							{% for guild in guilds %}
+								<tr>
+									<td>{{ loop.index+10*(param_pi|int-1) }}</td>
+									<td><img src="/data/resized_image/guilds_avatars/{{ guild.img }}"><a
+											href="/guilds/{{ guild.name }}">{{ guild.name }}</a></td>
+									<td>{{ guild.people_count }}</td>
+									<td>{{ guild.pvp_score }}</td>
+									<td>{{ guild.guild_points }}</td>
+								</tr>
+							{% endfor %}
+
+							</tbody>
+							</table>
+						{% else %}
+							<tr>
+								<td colspan="4"></td>
+							</tr>
+							</tbody>
+							</table>
+
+
+							<div class="empty-rating-table">
+								There are no guilds yet. <a href="/guilds/add">Create one!</a>
+							</div>
+							<br class="clear"/>
+
+						{% endif %}
+
+				</div>
+			</div>
+
+			<div class="typical_col second_col">
+				<h2 class="caption_popular_guilds">Your sweet guild</h2>
+				<hr>
+				{% if not login_guild %}
+					<div class="you-not-ia-a-guild">
+
+						<p>Right now you not in a guild. <br>
+							It’s a sad. Isn’t it?</p>
+						<a href="/guilds/add" class="btn-ido-big">Create guild</a>
+					</div>
+				{% else %}
+					<div class="your-sweet-guild">
+						<span class="img-cont"><img src="{{ login_guild.img }}" alt="{{ login_guild.img }}"></span>
+
+						<div class="guild-info">
+							<a href="/guilds/{{ login_guild.name }}">{{ login_guild.name }}</a> <br>
+							{{ login_guild.people_count }} players
+						</div>
+					</div>
+				{% endif %}
+			</div>
+			<br class="clear">
+			{% if total_pages and total_pages > 1 %}
+				<div class="pager">
+					{% if param_pi|int == 1 %}
+						<span class="prev">prev</span>
+					{% else %}
+						<a href="?pi={{ param_pi|int - 1 }}{{ addPagePart }}" data-page="{{ param_pi|int - 1 }}" class="prev">prev</a>
+					{% endif %}
+					<ul class="page-list">
+
+						{% for number_page in display_pages %}
+							<li>
+								{% if param_pi|int == number_page %}
+									<span>{{ number_page }}</span>
+								{% else %}
+									{% if number_page == '.' %}
+										...
+									{% else %}
+										<a href="?pi={{ number_page }}{{ addPagePart }}">{{ number_page }}</a>
+									{% endif %}
+								{% endif %}
+							</li>
+						{% endfor %}
+
+					</ul>
+					{% if param_pi|int == total_pages %}
+						<span class="next">next</span>
+					{% else %}
+						<a href="?pi={{ param_pi|int + 1 }}{{ addPagePart }}" data-page="{{ param_pi|int + 1 }}" class="next">next</a>
+					{% endif %}
+				</div>
+			{% endif %}
+			<br class="clear">
+		</div>
+	</div>
+</div>
+{% include "footer.jinja2" %}

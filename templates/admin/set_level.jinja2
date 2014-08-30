@@ -1,0 +1,78 @@
+{% include "header.jinja2" %}
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-page cc-admin-invites-page">
+
+			{% if param_success %}
+				<div class="success-message">
+					<div>
+						You've changed level for user
+					</div>
+				</div>
+			{% endif %}
+
+			{% if param_fail %}
+				<div class="error-message">
+					<div>
+						There is unknown error
+					</div>
+				</div>
+			{% endif %}
+
+			<div class="page-part">
+				<a class="link-back" href="/a/index">Back</a><br>
+
+				<h2>Level change</h2>
+				<form method="POST">
+					<input type="hidden" name="type_of_form" value="change_level">
+					<input type="text" name="user_name" placeholder="Twitter name" class="change-level">
+					<select name="new_level" id="new_level">
+						{% for item in range(1,61) %}
+							<option value="{{ item }}">{{ item }}</option>
+						{% endfor %}
+					</select>
+					<br>
+					with reason: <br><input type="text" name="reason" placeholder="reason" class="change-level">
+					<br><input type="submit" class="btn2 btn2-classic" value="Change level">
+				</form>
+			</div>
+
+			<h2>Previously changed:</h2>
+			<div class="timeline-admin">
+				<table class="passive-table">
+					<thead>
+					<tr>
+						<th class="name">User</th>
+						<th>Level</th>
+						<th>Reason</th>
+						<th>Admin</th>
+						<th>Date</th>
+					</tr>
+					</thead>
+					<tbody>
+					{% for info in levels %}
+						<tr>
+							<td style="width: 150px;">{{ info.player_name }}</td>
+							<td style="width: 50px;">{{ info.level }}</td>
+							<td class="tip-content">{{ info.reason }}</td>
+							<td style="width: 150px;">{{ info.author_name }}</td>
+							<td style="width: 150px;">{{ info.time_f }}</td>
+						</tr>
+					{% endfor %}
+
+
+
+					</tbody>
+				</table>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$("#new_level").uniform();
+</script>
+
+{% include "footer.jinja2" %}

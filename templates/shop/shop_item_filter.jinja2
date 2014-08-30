@@ -1,0 +1,74 @@
+<div id="item-filter" class="item-filter">
+	<form method="get" id="item_filter">
+		<input type="hidden" name="t" value="item">
+		<input type="hidden" name="s" value="{{ param_s|default("") }}" id="item_sorting_field">
+		<input type="hidden" name="o" value="{{ param_o|default("1") }}" id="item_sorting_order">
+		<input type="hidden" name="pi" value="1" id="item_page">
+
+	<table class="shop-filter-table">
+		<tr>
+			<td>
+				<label for="filter-item-name">Name</label>
+				<input type="text" name="search" id="filter-item-name" class="text mr22" value="{{ param_item_search }}">
+			</td>
+			<td>
+				<label for="filter-item-cost-max">Cost</label>
+				<input type="text" name="cost_min" id="filter-item-cost-min" class="text mini" value="{{ param_item_cost_min }}">
+				<span class="shop-filter-table-dash">—</span>
+				<input type="text" name="cost_max" id="filter-item-cost-max" class="text mini mr35" value="{{ param_item_cost_max }}">
+			</td>
+			<td>
+				<label for="filter-item-author" class="author">Author</label>
+				<input type="text" name="author" id="filter-item-author" class="text author" value="{{ param_item_author }}">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="filter-item-type">Type</label>
+
+				<select name="type" id="filter-item-type" class="select">
+					<option value="">Any</option>
+
+					{% for group in itemNewTypes %}
+						<optgroup label="{{ group.name }}">
+							{% for item in group.types %}
+								<option
+										{% if param_item_type == item.value %}
+											selected="selected"
+										{% endif %}
+											value="{{ item.value }}">{{ item.name }}</option>
+							{% endfor %}
+						</optgroup>
+					{% endfor %}
+
+				</select>
+			</td>
+			<td>
+				<label for="filter-item-cost-max">Level</label>
+				<input type="text" name="level_min" id="filter-item-lvl-min" class="text mini" value="{{ param_item_level_min }}">
+				<span class="shop-filter-table-dash">—</span>
+				<input type="text" name="level_max" id="filter-item-lvl-max" class="text mini" value="{{ param_item_level_max }}">
+			</td>
+			<td id="right-col">
+				{#
+				<input type="checkbox" name="can_use" class="shop-filter-checkbox check" id="filter-item-can-use">
+				<label for="filter-item-can-use">Only items I can use</label>
+				 #}
+
+				<label for="filter-item-tag" class="author">Category</label>
+				<select name="tag" id="filter-item-tag" class="select tag-filter" style="min-width: 200px">
+					<option value="">Any</option>
+					{% for cat in categories %}
+						<option value="{{ cat.value }}" {% if cat.value == param_item_tag %} selected {% endif %}>{{ cat.value }}</option>
+					{% endfor %}
+				</select>
+
+			</td>
+		</tr>
+	</table>
+
+		<input type="submit" value="Find" class="find-button">
+
+		<a class="clear_filter_btn" href="/u/shop#!tab-items">Clear</a>
+	</form>
+</div>

@@ -1,0 +1,46 @@
+<div class="help-info">
+	{% if display_actions %}
+		<h4>Action results:</h4>
+		<p><span>OK</span> — if action was completed by player</p>
+		<p><span>FAIL</span> — if action was failed</p>
+		<p><span>Callback OK</span> — interaction if main player completed action</p>
+		<p><span>Callback FAIL</span>— interaction if main player failed </p>
+
+		<p>
+			For example, if player_1 complete pvp action vs player_2:<br>
+			— player_1 -> result <span>OK</span><br>
+			— player_2 -> result <span>Callback OK</span>
+		</p>
+	{% endif %}
+
+	<h4>Variables:</h4>
+    <p><span>{playerpage}</span> — link to the current player's page<span class="new-variable">NEW</span></p>
+    <p><span>{tag=tag_code}</span> — insert tag by tag code<span class="new-variable">NEW</span></p>
+    <p><span>{url=Google=http://google.com}</span> — url</p>
+	<p><span>{player}</span> — current player's name</p>
+	<p><span>{party}</span> — mention/RT user name</p>
+	<p><span>{monster}</span> — monster name</p>
+	<p><span>{dungeon}</span> — dungeon/raid name</p>
+	<p><span>{item}</span> — item name</p>
+	<p><span>{achv}</span> — achievement name</p>
+	<p><span>{lvl}</span> — level number</p>
+	<p><span>{spell}</span> — spell name</p>
+	<p><span>{poi}</span> — point of interest (or location) name</p>
+	<p><span>{quest}</span> — quest name</p>
+	<p><span>{winner_guild}</span> — winner guild name</p>
+	<p><span>{looser_guild}</span> — looser guild name</p>
+	<p><span>{winner_faction}</span> — winner faction name</p>
+	<p><span>{looser_faction}</span> — looser faction name</p>
+
+    {% if tags %}
+		<h4>Available tags:</h4>
+
+        {% for tag in tags %}
+
+            <p><span>{tag={{ tag.variable }}}</span> — #{{ tag.name }}</p>
+
+        {% endfor %}
+
+	{% endif %}
+
+</div>

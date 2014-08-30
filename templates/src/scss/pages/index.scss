@@ -1,0 +1,390 @@
+
+@mixin h1-modern {
+  color: #e5b062;
+  font-family: "Trajan Pro";
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+  margin: 16px 0 0px;
+
+  hr {
+    border-top: 1px solid #34250d;
+    display: inline-block;
+    width: 55px;
+    height: 1px;
+    margin: 0;
+    vertical-align: middle;
+  }
+}
+
+.main_index {
+
+  span.rating {
+    margin: 5px 0 4px;
+    display: block;
+    font-family: "Trajan pro";
+    font-size: 10px;
+
+    .main-like-button {
+    display: block;
+    height: 16px;
+    padding-right: 8px;
+    color: #338E0A;
+    font-weight: bold;
+    float: left;
+    text-decoration: none;
+    border: 1px solid #1F2D0C;
+
+    i {
+      background: url("img/sprite.png") no-repeat -361px -987px;
+      margin-left: 1px;
+      width: 19px;
+      height: 12px;
+      display: inline-block;
+    }
+
+    &.liked {
+      padding: 2px 10px 0;
+      padding-top: 2px;
+      color: #244715;
+      height: 14px;
+    }
+
+  }
+
+    a.main-like-button:hover {
+      background-color: #338e0a;
+      border: 1px solid #338e0a;
+      color: #ffffff;
+      text-shadow: 0px 1px 1px #1f5606;
+
+
+      i {
+        background-position: -361px -1001px;
+      }
+
+  }
+
+    span.main-likes-count {
+      background-color: #2B5A08;
+      color: #8EBB6E;
+      font-size: 12px;
+      height: 14px;
+      margin-left: 3px;
+      padding: 3px 6px 1px 6px;
+      display: block;
+      float: left;
+    }
+
+  }
+
+  .new-in-shop {
+    border-bottom: 1px solid #2b2727;
+    background: url(img/main-new-item-bg.jpg) no-repeat 0 0 #221d1c;
+    width: 500px;
+
+    .items {
+      width: 500px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+
+      h1 {
+        @include h1-modern;
+      }
+
+      .new-items-list {
+        font-size: 0;
+        list-style: none;
+        padding: 0;
+        margin-left: 7px;
+
+        li {
+          background-color: #170f0f;
+          display: inline-block;
+          vertical-align: top;
+          width: 120px;
+          margin: 0 1px 7px 1px;
+
+          .img-cont {
+            border: 1px solid #3d3333;
+            background: #000000;
+            display: inline-block;
+            padding: 1px;
+            margin: 11px 0 3px 11px;
+
+            img {
+              width: 96px;
+              height: 96px;
+            }
+
+          }
+
+          .item-desc {
+            display: block;
+            margin: 2px 0 6px 12px;
+            vertical-align: middle;
+            width: 98px;
+
+            span.item-name {
+              display: block;
+            }
+
+            .item-name {
+              color: #b7b7b7;
+              line-height: 16px;
+              font-size: 14px;
+              width: 90px;
+            }
+
+            .item-author {
+              color: #4a4037;
+              font-size: 10px;
+              text-decoration: none;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+  .main-artwork {
+
+    .artwork-info {
+      color: #404040;
+      font-family: "PT Serif", serif;
+      font-size: 12px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      height: 86px;
+
+      .rating {
+        display: inline-block;
+      }
+
+    }
+
+  }
+
+  .world-news {
+    height: 221px;
+    padding: 3px 0 0 14px;
+    margin-bottom: 10px;
+
+    .world-news-item {
+      margin-bottom: 25px;
+
+      .date {
+        color: #ffb13d;
+        font-size: 12px;
+        font-style: italic;
+        display: block;
+      }
+
+      .title {
+        color: #dde5cf;
+        font-size: 16px;
+        display: block;
+      }
+
+      .desc {
+        color: #decbad;
+        font-size: 14px;
+        margin-top: 1px;
+        padding-right: 10px;
+
+        a {
+          color: #eeb15b;
+          text-decoration: none;
+          border-bottom: 1px solid #936a30;
+
+          &:hover {
+            border-color: #eeb15b;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+  .authors-rating {
+    background: url(img/main-new-item-bg.jpg) no-repeat -1px 0 #221d1c;
+    width: 253px;
+    padding-top: 16px;
+    margin-bottom: 14px;
+
+    h1 {
+      @include h1-modern;
+      margin: 0 0 13px;
+
+      hr {
+        width: 26px;
+      }
+
+    }
+
+    div.crown-icon {
+      background: url("img/sprite.png") no-repeat -287px -90px;
+      width: 17px;
+      height: 9px;
+      position: absolute;
+      margin: -10px 0 0 36px;
+    }
+
+    table {
+      z-index: 10;
+      position: relative;
+      margin-left: 6px;
+
+      td {
+        padding-bottom: 14px;
+      }
+
+      img {
+        width: 20px;
+        height: 20px;
+        margin-right: 4px;
+      }
+
+      .count {
+        color: #3f3f3f;
+        font-size: 12px;
+        padding-right: 9px;
+        text-align: right;
+        padding-top: 6px;
+      }
+
+      .authors-info {
+        width: 200px;
+        padding-top: 1px;
+
+        a {
+          font-size: 14px;
+          color: #f3a93a;
+          text-decoration: none;
+        }
+
+      }
+
+      .author-likes {
+        width: 60px;
+        color: #418239;
+        font-size: 12px;
+        padding-top: 6px;
+      }
+
+      .top_author {
+
+        .count {
+          font-size: 14px;
+          color: #ffb241;
+          padding-top: 2px;
+        }
+
+        a {
+          display: inline-block;
+          float: left;
+        }
+
+        img {
+          width: 32px;
+          height: 32px;
+          float: left;
+          margin-right: 10px;
+        }
+
+        .author-likes {
+          display: block;
+          position: absolute;
+          margin: 18px 41px;
+          padding-top: 0;
+        }
+
+      }
+
+    }
+
+    .btn2 {
+      position: relative;
+      z-index: 10;
+      margin: 9px 0 11px 36px;
+
+    }
+
+    .bottom-bg {
+      background: url("img/artists-rating-index.png") no-repeat;
+      width: 253px;
+      height: 343px;
+      position: absolute;
+      margin-top: -200px;
+      z-index: 1;
+    }
+  }
+
+  .main-map {
+    padding-left: 8px;
+    margin-top: 23px;
+    position: relative;
+    z-index: 10;
+
+    .main-map-info {
+      cursor: pointer;
+      width: 198px;
+      height: 45px;
+      margin-top: -73px;
+      text-align: center;
+      margin-left: 10px;
+      padding: 10px;
+      position: absolute;
+
+      h3 {
+        color: #E5B062;
+        font-family: "Trajan Pro";
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      a {
+        color: #a36f4b;
+        font-size: 14px;
+        text-decoration: none;
+      }
+
+    }
+
+  }
+
+  .tip-day {
+    margin: 6px 0 23px;
+    padding: 4px 10px 0;
+
+    p {
+      color: #eae0c6;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    a {
+      color: #CD8E31;
+      text-decoration: none;
+    }
+
+  }
+
+}
+
+

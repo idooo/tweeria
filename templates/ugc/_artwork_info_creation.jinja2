@@ -1,0 +1,30 @@
+<div class="create-item-img-copyrights create-item-sublevel ">
+	<h2>Artwork information</h2><hr class="right-line">
+	<br class="clear">
+	<div class="iamanuthor">
+		<input type="checkbox" name="iamauthor" id="iamauthor"><label for="iamauthor">I am author</label><br>
+	</div>
+	<label for="img-source">Link</label> <input {% if 'img_source' in error_fields %} class="error_field" {% endif %} type="text" id="img-source" name="img_source" value="{{ param_img_source }}" placeholder="http://"><br>
+	<label for="img-author">Author</label> <input type="text" id="img-author" name="img_author" value="{{ param_img_author }}"><br>
+	<label for="img-email">Contact</label>
+	<input class="contact-field" type="text" id="img-email" name="img_email" value="{{ param_img_email }}" placeholder="E-mail">
+	<input class="contact-field" type="text" id="img-twitter" name="img_twitter" value="{{ param_img_twitter }}" placeholder="Twitter">
+
+	<br>
+
+
+	<div class="copyright-select-block">
+		{% for cc in ['cc-by', 'cc-by-sa', 'cc-by-nd', 'cc-by-nc', 'cc-by-nc-sa', 'cc-by-nc-nd'] %}
+			<div class="copyright-select-block-item">
+				<input type="radio" name="copyright_type" value="{{ cc }}" id="{{ cc }}" {% if cc == 'cc-by' %}checked{% endif %}>
+				<label for="{{ cc }}"><img src="/style/img/licenses/{{ cc }}.png" alt=""></label>
+			</div>
+		{% endfor %}
+		<div class="copyright-select-block-item">
+			<input type="radio" name="copyright_type" value="closed" id="tw-closed">
+			<label for="tw-closed">Closed</label>
+		</div>
+		<div class="clear"></div>
+		<a href="/licenses" target="_blank">Learn more about licensing</a>
+	</div>
+</div>

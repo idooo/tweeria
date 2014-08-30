@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://tweeria.com/</loc>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>http://tweeria.com/u/shop</loc>
+</url>
+<url>
+  <loc>http://tweeria.com/top</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>http://tweeria.com/u/events</loc>
+</url>
+<url>
+  <loc>http://tweeria.com/help</loc>
+</url>
+<url>
+  <loc>http://tweeria.com/registration</loc>
+</url>
+<url>
+  <loc>http://tweeria.com/u/craft_item</loc>
+</url>
+<url>
+  <loc>http://tweeria.com/u/creation_center</loc>
+</url>
+<url>
+  <loc>http://tweeria.com/u/create_spell</loc>
+</url>
+<url>
+  <loc>http://tweeria.com/u/create_artwork</loc>
+</url>
+<url>
+  <loc>http://tweeria.com/all-players</loc>
+</url>
+<url>
+  <loc>http://tweeria.com/u/world</loc>
+</url>
+<url>
+  <loc>http://tweeria.com/all-guilds</loc>
+</url>
+</urlset>

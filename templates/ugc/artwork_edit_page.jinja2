@@ -1,0 +1,123 @@
+{% include "header.jinja2" %}
+
+{% set races = [
+		{ 'name': 'Undead', 'value': '0:0' },
+		{ 'name': 'Faceless', 'value': '0:1' },
+		{ 'name': 'Human', 'value': '1:0' },
+		{ 'name': 'Elf', 'value': '1:1' },
+		{ 'name': 'Orc', 'value': '2:0' },
+		{ 'name': 'Troll', 'value': '2:1' },
+	]
+%}
+
+{% set classes = [
+		{ 'name' : 'Warrior', 'value': 1},
+		{ 'name' : 'Mage', 'value': 2},
+		{ 'name' : 'Hunter', 'value': 3},
+	]
+%}
+
+<div id="crop-cont" style="display:none; text-align:center;">
+	<img src="" alt="Image to crop" id="thumb">
+	<a id="crop-image" href="/u/ajax/?action=crop_image" class="create-item-button">Crop Image</a>
+</div>
+
+<script src="/js/page_scripts/create_artwork.js?{{ build }}"></script>
+<script src="/js/page_scripts/crop_img.js?{{ build }}"></script>
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg detail-item-page edit-artwork-page">
+			<a class="link-back" href="/u/artwork?id={{ _id }}">Artwork</a>
+			<br class="clear">
+
+			<div class="edit-item-img">
+
+				<form method="post" id="upload-image-form" action=""  {% if 'img' in error_fields %}
+				      class="error_field" {% endif %}>
+
+					<input type="file" name="img" id="art-pre-image" data-imgsize="240px 400px" data-aspect="0.6" data-fsizew="240"
+					       data-fsizeh="400" data-src="{{ img }}_fit.png">
+
+					<input type="hidden" name="type_of_form" value="create_artwork"/>
+
+					<img id="dest-img" src="/style/img/10x10.gif" style="display:none; float:right;"/>
+
+					<div class="preview" style="display:none;">
+						<img width="150px" height="100px" src="/style/img/150x100.gif"/>
+
+						<input type="hidden" id="x1" name="x1"/>
+						<input type="hidden" id="y1" name="y1"/>
+						<input type="hidden" id="x2" name="x2"/>
+						<input type="hidden" id="y2" name="y2"/>
+						<input type="hidden" id="w" name="w"/>
+						<input type="hidden" id="h" name="h"/>
+
+						<input type="hidden" id="img_to_crop" name="img_to_crop" value="">
+						<br>
+
+					</div>
+				</form>
+			</div>
+
+			<div class="edit-item-info">
+				<form method="post" action="/u/edit_artwork">
+
+				<input type="hidden" name="img" id="img-link">
+
+					<div class="inline-field">
+						<label for="art-race" class="race-label">Race</label>
+						<select name="race" id="art-race" class="race-select">
+							{% for race in races %}
+								<option {% if faction_race == race.value %}selected{% endif %} value="{{ race.value }}">{{ race.name }}</option>
+							{% endfor %}
+						</select>
+					</div>
+
+					<div class="inline-field">
+						<label for="art-class" class="class-label">Class</label>
+						<select name="class" id="art-class" class="race-select">
+							{% for cl in classes %}
+								<option {% if class == cl.value %}selected{% endif %} value="{{ cl.value }}">{{ cl.name }}</option>
+							{% endfor %}
+						</select>
+					</div>
+					<br class="clear">
+
+					<input type="text" name="name" class="name-input" value="{{ name }}" placeholder="Name">
+					<br class="clear">
+
+					<textarea name="desc" class="desc-textarea" placeholder="Description">{{ desc }}</textarea>
+					<br class="clear">
+
+					{% include "ugc/_artwork_edit_info_block.jinja2" %}
+
+					<label for="cost" class="cost-label">Cost</label>
+					<input type="text" class="cost-input" id="cost" name="cost" value="{{ cost }}">
+					<br class="clear">
+
+					<input type="hidden" name="type_of_form" value="edit_artwork">
+					<input type="hidden" name="id" value="{{ _id }}">
+
+					<br>
+					<input type="submit" value="Ok" class="btn2 btn2-classic btn2-wide">
+					<a class="btn2 btn2-gray" href="/u/item?id={{ _id }}">Cancel</a>
+
+				</form>
+
+				{% if login_admin or login_id == author %}
+				<div class="delete-item ">
+					<form method="post" action="/u/edit_artwork">
+						<input type="hidden" name="type_of_form" value="delete_artwork">
+						<input type="hidden" name="id" value="{{ _id }}">
+						<input type="submit" value="delete" class="btn2 btn2-red" id="delete-item-button">
+					</form>
+				</div>
+				{% endif %}
+			</div>
+
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

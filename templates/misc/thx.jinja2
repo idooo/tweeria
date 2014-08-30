@@ -1,0 +1,43 @@
+
+{% include "header.jinja2" %}
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg create-page">
+			<div class="ugc-disabled-normal-message">
+
+				{% if not param_n %}
+
+					<h1>Thank you for your help!</h1>
+					<br>
+					Together we will make Tweeria better<br><br>
+
+				{% else %}
+
+					{% if param_n == 'ugc_request' %}
+						<h1>Thank you for request</h1>
+						<br>
+						We will answer as soon as possible<br>
+						directly to your twitter account or email
+					{% endif %}
+
+					<br><br>
+
+				{% endif %}
+
+				{% if login_name %}
+					<a href="/{{ login_name }}">Back to profile</a><br><br>
+				{% endif %}
+
+				<a href="/">Home</a>
+				<br><br>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}
+
+
+

@@ -1,0 +1,107 @@
+{% if nearby_players %}
+	<div class="nearby-popup" id="nearby-popup">
+
+		<h2>{{ nearby_players.count }} player{% if nearby_players.count > 1 %}s{% endif %} near you</h2>
+
+		<div class="nearby-popup-info-cont">
+			<div class="nearby-popup-info left">
+				{% if nearby_players.enemies %}
+					<h4>Enemies</h4>
+
+					<p>
+						You can attack nearby players to increase<br>
+						your pvp rating and earn exp
+					</p>
+
+					<p>
+						To attack players you must enable PvP mode<br>
+						at hero’s <a href="/settings">settings page</a>
+					</p>
+				{% else %}
+					<h4>No enemies near</h4>
+
+					<p>
+						<a href="/settings">Enable pvp</a> to go to the center of the map (the Sore)<br>
+						You will find there a lot of enemies
+					</p>
+
+				{% endif %}
+			</div>
+			<div class="nearby-popup-info right">
+			{% if login_guild %}
+
+				{% if nearby_players.friends %}
+					<h4>Guild friends</h4>
+
+					<p>
+						You can use your magic skills to buff your friends
+						to improve their stats
+					</p>
+
+					<p>
+						To use magic spell you must select it<br>
+						in <a href="/spellbook">your spellbook</a> first
+					</p>
+				{% else %}
+					<h4>No guild friends near</h4>
+
+					<p>
+						Try to collaborate with your guild friends<br>
+						to make your journey more easly and nice
+					</p>
+
+					<p>
+						Or <a href="/inv">invite your friends</a> to Tweeria
+					</p>
+
+				{% endif %}
+
+			{% else %}
+				<h4>You're not in a guild</h4>
+
+				<p>
+					Try to <a href="/all-guilds">join any</a> of famous Tweeria guilds<br>
+					or <a href="/guilds/add">create</a> new guild
+				</p>
+
+			{% endif %}
+			</div>
+		</div>
+
+		<div class="nearby-popup-players">
+			<ul class="nearby-popup-players-list left">
+
+				{% for player in nearby_players.enemies %}
+					<li>
+						<a class="nearby-popup-players-list-img" href="#"><img src="{{ player.avatar }}" alt="{{ player.name }}"></a>
+						<div class="nearby-popup-player-list-info-block">
+							<a class="nearby-popup-players-list-name" href="/{{ player.name }}">{{ player.name }}</a>
+							<span class="nearby-popup-players-list-info">Level {{ player.lvl }}, {{ player.race_name }} {{ player.class_name }}</span>
+						</div>
+						<a class="nearby-popup-players-list-tweet-button" href="
+							https://twitter.com/share?hashtags=tweeria&text=@{{ player.name }}
+						">Tweet to attack</a>
+					</li>
+				{% endfor %}
+
+			</ul>
+
+			<ul class="nearby-popup-players-list right">
+				{% for player in nearby_players.friends %}
+					<li>
+						<a class="nearby-popup-players-list-img" href="#"><img src="{{ player.avatar }}" alt="{{ player.name }}"></a>
+						<div class="nearby-popup-player-list-info-block">
+							<a class="nearby-popup-players-list-name" href="/{{ player.name }}">{{ player.name }}</a>
+							<span class="nearby-popup-players-list-info">Level {{ player.lvl }}, {{ player.race_name }} {{ player.class_name }}</span>
+						</div>
+						<a class="nearby-popup-players-list-tweet-button" href="
+							https://twitter.com/share?hashtags=tweeria&text=@{{ player.name }}
+						">Tweet</a>
+					</li>
+				{% endfor %}
+
+			</ul>
+		</div>
+		{# <a class="nearby-popup-more-button" href="#">and more...</a> #}
+	</div>
+{% endif %}

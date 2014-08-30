@@ -1,0 +1,57 @@
+{% set spell_types = ['','+','','-'] %}
+{% set spell_table_rows = [
+	{'name':'Name','class':'name'},
+	{'name':'Level','class':'lvl_min'},
+	{'name':'Author','class':'author'},
+	{'name':'Cost','class':'cost'},
+	{'name':'Likes','class':'likes'},
+	{'name':'Created date','class':'date'}
+] %}
+{% if param_o=="1" %}
+	{% set order = "-1" %}
+{% else %}
+	{% set order = "1" %}
+{% endif %}
+
+<table class="shop-item-table spell-popuped">
+	<thead>
+	<tr>
+		{% for row in spell_table_rows %}
+			<th class="{{ row.class }}{% if param_s == row.class %} sorted{{ param_o }} {% endif %}">
+				<a href="#" data-field="{{ row.class }}" data-type="spell"
+				   data-order="{{ param_o }}">{{ row.name }}</a><i></i>
+			</th>
+		{% endfor %}
+	</tr>
+	</thead>
+
+	{% if spells|length==0 %}
+		</table>
+		<div class="empty-table">
+			There are no spells to buy right now
+		</div>
+
+	{% else %}
+
+		<tbody>
+		{% for spell in spells %}
+
+			<tr class="popuped_spells cluetip_popup_shop"
+				title="|{% include "misc/_spell_cluetip.jinja2" %}|"
+				id="spell-table-{{ spell._id }}"
+					>
+				<td class="name"><a href="/u/spell?id={{ spell._id }}">{{ spell.name }}</a></td>
+				<td class="level">{{ spell.lvl_min }}</td>
+				<td class="author"><a href="/{{ spell.author_name }}">{{ spell.author_name }}</a></td>
+				<td class="cost">{{ spell.cost }}</td>
+				<td class="likes"><span class="likes-count">{{ spell.likes }}</span></td>
+				<td class="date">{{ spell.create_date_f }}</td>
+
+			</tr>
+
+		{% endfor %}
+
+		</tbody>
+
+		</table>
+	{% endif %}

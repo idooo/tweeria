@@ -1,0 +1,64 @@
+{% include "header.jinja2" %}
+
+{% set spell_types = ['','+','','-'] %}
+
+<script src="/js/page_scripts/spellbook.js?{{ build }}"></script>
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg create-spell-page spellbook-control-page">
+			<a class="link-back" href="/{{ login_name }}">Back to hero</a>
+			<h2>Spellbook</h2>
+
+			<p>
+				To use spell in game you should use its keyword.<br>
+				For example: "Take this <b>fireball</b>"
+			</p>
+
+			<p>
+				Also, spell must be marked as active here that you can use it
+			</p>
+
+			<h3>Select spells to use</h3>
+
+			<div class="list-spells">
+				{% for spell in spells %}
+				<form method="post" class="spellbook-form">
+					{% if spell.active %}
+						<input type="hidden" name="type_of_form" value="move_spell_from_book">
+					{% else %}
+						<input type="hidden" name="type_of_form" value="move_spell_to_book">
+					{% endif %}
+
+					{% if spell.UID %}
+						<input type="hidden" name="uid" value="{{ spell.UID }}">
+					{% else %}
+						<input type="hidden" name="id" value="{{ spell._id }}">
+					{% endif %}
+
+					<div class="spell-item spell-can-use-{{ spell.can_use }} {% if spell.active %} active {% endif %}" data-title="|{% include "misc/_spell_cluetip.jinja2" %}">
+						<div class="spell-body">
+							<div class="art">
+								<img src="{{ spell.img }}">
+							</div>
+
+							<div class="name">{{ spell.name }}</div>
+							<div class="keyword">{{ spell.keyword }}</div>
+						</div>
+						<div class="spell-footer">
+							<div class="spell-mana-cost"><i></i>{{ spell.mana_cost }}</div>
+							<div class="spell-lvl">Level {{ spell.lvl_min }}</div>
+						</div>
+
+					</div>
+				</form>
+				{% endfor %}
+
+				<br class="clear"/>
+			</div>
+
+			<a href="/{{ login_name }}" class="btn2 btn2-classic btn2-wide">Back to hero</a><br><br>
+
+
+</div></div></div>
+
+{% include "footer.jinja2" %}

@@ -1,0 +1,139 @@
+{% include "header.jinja2" %}
+{% set spell_types = ['','+','','-'] %}
+{% if not stat_names %}
+	{% set stat_names = {'DEF': 'Defense',
+                'DMG': 'Damage',
+                'HP': 'Hit points',
+                'MP': 'Mana points',
+                'SPD': 'Speed',
+                'dex': 'Dexterity',
+                'fame': 'Fame',
+                'int': 'Intellect',
+                'karma': 'Karma',
+                'lead': 'Leaderhip',
+                'luck': 'Luck',
+                'mastery': 'Mastery',
+                'str': 'Strength'}
+			%}
+{% endif %}
+
+<div id="crop-cont" style="display:none; text-align:center;">
+	<img src="" alt="Image to crop" id="thumb">
+	<a id="crop-image" href="/u/ajax/?action=crop_image" class="create-item-button">Crop Image</a>
+</div>
+
+<script src="/js/page_scripts/create_spell.js?{{ build }}"></script>
+<script src="/js/page_scripts/crop_img.js?{{ build }}"></script>
+
+
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg  detail-spell-page edit-spell-page">
+			<a class="link-back" href="/u/spell?id={{ _id }}">Spell</a>
+			<br class="clear">
+
+			<div class="edit-item-img">
+				<span class="item-level item-level-">{{ lvl_min }}</span>
+
+				<form method="post" id="upload-image-form" action=""  {% if 'img' in error_fields %}
+				      class="error_field" {% endif %}>
+
+
+					<input type="file" name="img" id="item-image" data-imgsize="100px" data-fsizew="100"
+					       data-fsizeh="100" data-src="{{ img }}_fit.png">
+
+					<input type="hidden" name="type_of_form" value="create_item"/>
+
+					<img id="dest-img" src="/style/img/10x10.gif" style="display:none; float:right;"/>
+
+					<div class="preview" style="display:none;">
+						<img width="150px" height="100px" src="/style/img/150x100.gif"/>
+
+						<input type="hidden" id="x1" name="x1"/>
+						<input type="hidden" id="y1" name="y1"/>
+						<input type="hidden" id="x2" name="x2"/>
+						<input type="hidden" id="y2" name="y2"/>
+						<input type="hidden" id="w" name="w"/>
+						<input type="hidden" id="h" name="h"/>
+
+						<input type="hidden" id="img_to_crop" name="img_to_crop" value="">
+						<br>
+
+					</div>
+				</form>
+			</div>
+
+			<div class="edit-item-info spell-info">
+				<form method="post" action="/u/edit_spell">
+
+					<input type="hidden" name="img" id="img-link">
+
+					<span class="spell-type spell-type">Magic spell</span>
+					<br class="clear">
+
+					<input type="text" name="name" class="name-input" value="{{ name }}" placeholder="Name">
+					<br class="clear">
+
+					<label>Keyword</label>
+					<input type="text" name="keyword" class="name-input keyword-input" value="{{ keyword }}">
+					<br class="clear">
+
+					<label>Description</label>
+					<textarea name="desc" class="desc-textarea" placeholder="Description">{{ desc }}</textarea>
+					<br class="clear">
+
+
+					<ul class="popup-spell-list">
+						{% for action in spell_actions %}
+							<li data-spellname="{{ action.name }}">
+								<div class="popup-left-part">
+									<span class="spell-img">
+										<img src="/data/effects/{{ action.img }}.jpg" alt="{{ action.img }}">
+									</span>
+									<h4 class="spell-title">{{ action.name }}</h4>
+									<i class="icon spell type_{{ action.type }}"></i><span
+										class="spell-action-type">{{ action.power }}</span>
+								</div>
+								<div class="popup-right-part">
+									<span class="big">{% if action.type == 3 %}-{% elif action.type == 1 %}
+										+{% endif %}{{ action.value }}</span> {{ stat_names[action.effect] }}
+								</div>
+								<br class="clear">
+							</li>
+						{% endfor %}
+					</ul>
+						<span class="mana-cost"><span class="text">Mana cost</span>&nbsp; <i class="icon mana-cost"></i> &nbsp;
+							<span class="count">{{ mana_cost }}</span></span>
+
+					{% include "ugc/_artwork_edit_info_block.jinja2" %}
+
+					<label for="cost" class="cost-label">Cost</label>
+					<input type="text" class="cost-input" id="cost" name="cost" value="{{ cost }}">
+					<br class="clear">
+
+					<input type="hidden" name="type_of_form" value="edit_spell">
+					<input type="hidden" name="id" value="{{ _id }}">
+
+					<br><br>
+					<input type="submit" value="Ok" class="btn2 btn2-classic btn2-wide">
+					<a class="btn2 btn2-gray" href="/u/spell?id={{ _id }}">Cancel</a>
+
+				</form>
+
+				{% if login_admin or login_id == author %}
+				<div class="delete-item ">
+					<form method="post" action="/u/edit_spell">
+						<input type="hidden" name="type_of_form" value="delete_spell">
+						<input type="hidden" name="id" value="{{ _id }}">
+						<input type="submit" value="delete" class="btn2 btn2-red" id="delete-item-button">
+					</form>
+				</div>
+				{% endif %}
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+{% include "footer.jinja2" %}

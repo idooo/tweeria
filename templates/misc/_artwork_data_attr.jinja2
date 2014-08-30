@@ -1,0 +1,49 @@
+data-name="{{ artwork.name }}"
+data-race="{{ artwork.race_name }}"
+data-pclass="{{ artwork.class_name }}"
+data-author_name="{{ artwork.author_name }}"
+data-desc="{{ artwork.desc }}"
+data-cost="{{ artwork.cost }}"
+data-img="{{ artwork.img }}"
+
+
+data-is_like="{{ artwork.is_like|lower }}"
+data-likes="{{ artwork.likes }}"
+
+{% if artwork.UID %}
+	{% if parent %}
+		data-parent="{{ parent }}"
+	{% else %}
+		data-parent="artwork-{{ artwork.UID }}"
+	{% endif %}
+	data-id="{{ artwork.UID }}"
+	data-_id="{{ artwork.UID }}"
+{% else %}
+	{% if parent %}
+		data-parent="{{ parent }}"
+	{% else %}
+		data-parent="artwork-{{ artwork._id }}"
+	{% endif %}
+	data-id="{{ artwork._id }}"
+	data-_id="{{ artwork._id }}"
+	{% if artwork.img_info %}
+		data-img_author="{{ artwork.img_info.name }}"
+		data-img_link="{{ artwork.img_info.link }}"
+	{% else %}
+		data-img_author=""
+		data-img_link=""
+	{% endif %}
+{% endif %}
+
+data-shareurl="{{ host }}u/shop?tab=artworks"
+data-shareimage="{{ host+artwork.img[1:] }}"
+data-sharetitletwitter="{{ artwork.name }} is a cool artwork"
+data-sharetitle="{{ artwork.name }} is a cool artwork"
+data-shareauthor="{{ artwork.author_name }}"
+data-sharedesc=""
+
+{% if login %}
+	data-login="true"
+{% else %}
+	data-login="false"
+{% endif %}

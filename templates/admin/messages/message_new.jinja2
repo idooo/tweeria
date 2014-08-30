@@ -1,0 +1,53 @@
+{% include "header.jinja2" %}
+
+<script type="text/javascript" src="/js/page_scripts/admin_message_edit.js?{{ build }}"></script>
+<div id="main" role="main">
+	<div class="event-page-border">
+		<div class="white-textured-bg cc-page cc-admin-page cc-messages-edit">
+
+			{% set display_actions = True %}
+			{% include "admin/messages/_messages_help.jinja2" %}
+
+			<div class="page-part left">
+				<a class="link-back" href="/a/messages{% if param_b %}?id={{ param_b }}{% endif %}">Back</a><br>
+				<h2>New message</h2>
+
+				<form method="post" class="message-edit">
+
+					<input name="type_of_form" type="hidden" value="add_message">
+					<label>Action: </label>
+					<select name="action_name" id="action_selector">
+						{% for action in actions %}
+							<option value="{{ action.name }}" {% if action.name == param_action_name %}selected{% endif %}>{{ action.name }}</option>
+						{% endfor %}
+					</select>
+
+					<br>
+					<label>Result: </label>
+					<select name="message_type">
+						<option value="messages_OK">OK</option>
+						<option value="messages_FAIL">FAIL</option>
+						<option value="callback_OK">Callback OK</option>
+						<option value="callback_FAIL">Callback FAIL</option>
+					</select>
+
+					<br>
+
+					<textarea name="text"></textarea>
+
+					<label>Chance: </label>
+					<input type="text" name="p">
+
+					<br>
+
+					<input class="btn2 btn2-classic btn2-wide" value="Add" type="submit">
+				</form>
+
+			</div>
+
+            <div class="clear"></div>
+		</div>
+	</div>
+</div>
+
+{% include "footer.jinja2" %}

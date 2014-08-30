@@ -1,0 +1,67 @@
+{% for item_type in shop_items %}
+	<h2><span>{{ item_type.title }}</span></h2>
+
+	<ul class="shop-item-list" id="trivi">
+		{% for item in item_type.shop_items %}
+			<li>
+				<form method="POST">
+					<div class="shop-item-img">
+						{% if item.img %}
+							<img class="cluetip_popup_shop"
+								 title="|<img src='/data/items/non_combat/{{ item.img }}.jpg?{{ build }}'>
+				                            <c class='player_item'>
+				                                <n0>{{ item.name }}</n0>
+
+				                                {% if item.desc == '0' %}
+				                                    <t class='empty'>
+				                                        Description is empty.<br>Write to us about this item!
+				                                    </t>
+				                                {% else %}
+				                                    <span class='trivia-desc'> {{ item.desc }}</span>
+				                                    {% if item.author != '0' %}
+				                                        <span class='trivia-author'> Description by {{ item.author }}</span>
+				                                    {% endif %}
+				                                {% endif %}
+
+				                            </c>
+				                            <br class='clear'/>
+				                 "
+								 src="/data/items/non_combat/{{ item.img }}.jpg?{{ build }}" alt="{{ item.name }}"
+							>
+						{% endif %}
+					</div>
+
+					<div class="item-info trivia-item">
+						<span class="item-title">{{ item.name }}</span>
+						<input type="hidden" name='type_of_form' value="buy_NP_item">
+						<input type="hidden" name='item_id' value="{{ item.item_UID }}">
+						<input type="hidden" name='item_name' value="{{ item.name }}">
+
+						{% if login %}
+							{% if not item.have_it %}
+								{% if item.can_buy %}
+									<input type="submit" value="Buy" class="can-buy btn2 btn2-classic btn2-wide">
+									<i class="icon gold-1"></i>
+									<span class="item-cost">{{ item.cost }}</span>
+								{% else %}
+									<i class="icon gold-2"></i>
+									<span class="item-cost item-cost-unable">{{ item.cost }}</span>
+								{% endif %}
+							{% else %}
+								<div class="applyed"></div>
+								<i class="icon gold-1"></i>
+								<span class="item-cost">{{ item.cost }}</span>
+							{% endif %}
+						{% else %}
+							<i class="icon gold-1"></i>
+							<span class="item-cost">{{ item.cost }}</span>
+						{% endif %}
+
+					</div>
+				</form>
+
+			</li>
+
+		{% endfor %}
+	</ul>
+{% endfor %}

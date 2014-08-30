@@ -1,0 +1,94 @@
+/* tooltip */
+
+#cluetip {
+    font-size: 14px;
+}
+#cluetip img {
+    float: left;
+    border-radius: 3px;
+}
+
+#cluetip c {
+    display: block;
+    margin-left: 70px;
+}
+
+    #cluetip c.player_item {
+        margin-left: 11px;
+        width: 140px;
+        display: block;
+        float: left;
+    }
+
+#cluetip c.noimg {
+    margin-left: 10px;
+}
+
+#cluetip n1, n2, n3, n0, n {
+    font-size: 18px;
+    display: block;
+    line-height: 1;
+}
+
+#cluetip dmg {
+    display: block;
+}
+
+#cluetip t {
+    display: block;
+    color: #666;
+}
+
+    #cluetip t.item-cant-use {
+        color: red;
+    }
+
+#cluetip d {
+    margin-top: 10px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#cluetip s {
+    display: block;
+    text-decoration: none;
+    color: #b0d3ff;
+}
+
+#cluetip span.trivia-desc {
+    ont-size: 12px;
+    line-height: 14px;
+    display: inline-block;
+    width: 180px;
+    color: #EFC77A;
+}
+
+#cluetip span.trivia-author {
+    font-size: 12px;
+    font-style: italic;
+}
+
+.cluetip-default #cluetip-outer {
+    position: relative;
+    margin: 0;
+    background-color: black;
+    border-radius: 3px;
+    opacity: 0.95;
+    color: white;
+    border: 1px solid #666;
+    box-shadow: 2px 2px 5px #444;
+}
+
+.cluetip-default #cluetip-inner {
+    padding: 10px;
+    min-height: 56px;
+}
+
+
+/* stupid IE6 HasLayout hack */
+.cluetip-rounded #cluetip-title,
+.cluetip-rounded #cluetip-inner {
+    zoom: 1;
+}
+
+/* */
