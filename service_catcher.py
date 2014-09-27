@@ -152,12 +152,10 @@ class serviceCatcher():
 	threads = {}
 	threads_number = 0
 
-	# счетчики
 	request_time = 0
 	parse_time = 0
 	group_number = 0
 
-	# Твиты для графа
 	graph_tweets = {}
 
 	def __init__(self):
@@ -228,12 +226,10 @@ class serviceCatcher():
 		last_id = self.parser.player['last_id']
 
 		# DEBUG VAR
-		# чтобы учитывались не только новые твиты
 
 		if tweenk_core.debug['load_deprecated_tweets']:
 			last_id = 1
 
-		# Если только что добавили игрока то обрабатывает только последний статус
 		if last_id == 0:
 			statuses = [statuses[0]]
 
@@ -305,8 +301,6 @@ class serviceCatcher():
 			time.sleep(1)
 			count += 1
 
-			# если до конца дошли очередь
-			# то можно обрабатывать
 			if self.local_queue.ended:
 				print '> Queue ended'
 
@@ -420,10 +414,7 @@ class serviceCatcher():
 			completed += step
 			pass
 
-
-
-		#self.appendGraphTweets() # добавляем  твитты в коллекцию grapth_tweets для построения социального графа
-		print 'parse_time', self.parse_time
+        print 'parse_time', self.parse_time
 
 		self.log.write('Parsed '+str(self.counts['parsed_tweets'])+' / '+str(self.counts['tweets'])+' tweets by '+str(self.counts['y_players'])+' / '+str(self.counts['players'])+' / '+str(self.counts['all_players'])+' players')
 		self.log.write('Total groups '+str(self.group_number)+' by '+str(step)+' players')

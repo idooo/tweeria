@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# TODO ограничение на количество одновременных баффов и дебаффов у игрока
-
 from sets import Set
 import time
 import random

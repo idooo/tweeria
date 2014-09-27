@@ -235,11 +235,9 @@ class core():
 
 	# -------------
 
-
-	# сколько максимум игровых сообщений хранится в БД для каждого игрока
 	max_stored_messages = 20
 	max_guild_stored_messages = 20
-	max_notable_messages = 5 # сколько хранится нотабл сообщений для отображения на главной
+	max_notable_messages = 5
 
 	# DEBUG VARS
 	always_login = False
@@ -435,10 +433,8 @@ class balance():
 	# --------------------------------------------------------------------------------------------------
 	# Events
 	#
-	# на сколько групповых действий можно записаться одновременно
 	max_events = 5
 
-	# продолжительность группового эвента (сек)
 	LENGTH_OF_RAID = 3600
 	LENGTH_OF_WAR = 3600
 	LENGTH_OF_FVF = 10800
@@ -793,13 +789,13 @@ class databaseSettings():
 	    'col_items_pool': 'items_pool',
 		'col_artworks': 'artworks',
 
-		'col_spellbooks': 'spellbooks',                             # книги заклинаний (активные заклинания для каждого игрока)
-		'col_spells': 'spells',                                     # встроенные в игру заклинания
-		'col_spells_created': 'spells_created',                     # созданные по паттернам заклинания (купленные)
-		'col_spells_crafted_patterns': 'spells_crafted_patterns',   # созданные паттерны заклинаний (на продажу)
-		'col_spells_actions': 'spells_actions',                     # действия для заклинаний
+		'col_spellbooks': 'spellbooks',
+		'col_spells': 'spells',
+		'col_spells_created': 'spells_created',
+		'col_spells_crafted_patterns': 'spells_crafted_patterns',
+		'col_spells_actions': 'spells_actions',
 
-		'col_events': 'events',                                     # групповые события
+		'col_events': 'events',
 
 		'col_dungeons': 'dungeons',
 		'col_locations': 'locations',
@@ -831,9 +827,9 @@ class databaseSettings():
 	    'col_beta_spells': 'beta_spells',
 	    'col_beta_artworks': 'beta_artworks',
 
-	    'col_gamestats': 'game_statistics',                         # тут будет хранится информация об игре
+	    'col_gamestats': 'game_statistics',
 
-		'col_admin_bad_people': 'admin_bad_people'                  # хранится информация о реджектах
+		'col_admin_bad_people': 'admin_bad_people'
 	}
 
 class BaseObj():

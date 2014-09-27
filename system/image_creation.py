@@ -18,8 +18,6 @@ class imageCreator(basic.defaultClass):
 
 	DIR = ''
 
-	# на сервере рисует текст на 4 пикселя выше чем на тестовом локальном
-
 	def __init__(self):
 		self.mongoConnect()
 		self.loadSettings()
@@ -134,5 +132,4 @@ class imageCreator(basic.defaultClass):
 if __name__ == '__main__':
 	ic = imageCreator()
 
-	#ic.genarateOne('suxxes')
 	ic.generateAll()

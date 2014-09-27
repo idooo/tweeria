@@ -340,7 +340,6 @@ class tweetParser():
 
 	def saveCurrentEvents(self):
 		for event_id in self.updated_events:
-			# TODO сделать добавление активности push отдельных элементов а не всего массива активности
 			self.model.events.updateEvent(self.all_events[event_id]['_id'], {
 				'status': self.all_events[event_id]['status'],
 				'activity': self.all_events[event_id]['activity']
@@ -536,7 +535,6 @@ class tweetParser():
 			for spellbook in spellbooks:
 				self._fast_spellbooks.update({str(spellbook['player_id']): spellbook})
 
-			# загружаем данные по заклинаниям
 			spells_created = self.model.spells.getALLSpellsCreated(debug_limits)
 			spells = self.model.spells.getALLSpells(debug_limits)
 
@@ -581,7 +579,6 @@ class tweetParser():
 
 		getNewMechanics()
 
-		# сюда будем кэшировать скомпилированные регекспы заклинаний
 		self.RE_SPELLS = {}
 
 		self.all_events = getParsedEvents()
@@ -827,7 +824,6 @@ class tweetParser():
 
 		self.spellbook = getSpells()
 
-		# TODO DONE NEED TEST медленно (грузить только последние и активные)
 		self.player_events = self.mongo.getu('events', {
 				'people': {'$all':[self.player['_id']]},
 				'$or': [{'status':'progress'}, {'status': 'active'}]
@@ -947,7 +943,6 @@ class tweetParser():
 		)
 
 	# --------------------------------------------------------------------------------------
-	# Создание сообщений
 
 	def composeMessage(self):
 
@@ -1215,7 +1210,6 @@ class tweetParser():
 				insertGuildMessage(self.player['_guild_name'], record)
 
 	# --------------------------------------------------------------------------------------
-	# Проверяем содержимой твита
 
 	def isMention(self, tweet):
 		self.tweet_vars['is_mention'] = False
@@ -1271,7 +1265,6 @@ class tweetParser():
 					self.tweet_vars['move_order'] = self.location_tags[dungeon['hashtag']]
 
 	def isRetweet(self, tweet):
-		# определяем сам ли пользователь написал твит или ретвинул другого?
 
 		try:
 			self.tweet_vars.update({'retweeted_user': tweet.retweeted_status.user.screen_name})
@@ -1282,7 +1275,6 @@ class tweetParser():
 		if is_retweet:
 			self.tweet_vars['retweeted_user_id'] = tweet.retweeted_status.user.id
 
-			# определяем ретвитнул он не игрока/игрока/звезду
 			if self.tweet_vars['retweeted_user'].upper() in self._fast_all_players:
 				self.tweet_vars.update({
 					'is_retweeted_player': True,
@@ -1345,9 +1337,6 @@ class tweetParser():
 				record[key] = self.tweet_vars[key]
 
 			return record
-
-		# если игрок находится в группе, то мы не просчитываем механику
-		# но сохраняем данные о твите для последующей обработки
 
 		result = {'is_group_event': False}
 
@@ -1426,7 +1415,6 @@ class tweetParser():
 					items.append(record)
 
 			if len(items)>0:
-				# если только одно кольцо то сообщаем что второй слот под кольцо пустой
 				if item_type == 6 and len(items) == 1:
 					items.append([])
 				return items
@@ -1434,15 +1422,11 @@ class tweetParser():
 				return [False]
 
 		def getCurrentItemForComparsion(item_type):
-			# Смотрим есть ли надетые предметы такого же типа?
 			player_items = getPlayersItemByType(item_type)
 
-			# Выбираем предмет для сравнения с новым
-			# если не кольцо, то берем надетый
 			if item_type != 6:
 				player_item = player_items[0]
 			else:
-				# если выпало кольцо, то будем сравнивать с самым плохим кольцом которое есть у игрока
 				if not player_items[0] or not player_items[1]:
 					player_item = False
 				else:
@@ -1793,12 +1777,10 @@ class tweetParser():
 					self.player['stat']['MP']['current'] -= mana_cost
 					self.updated_fields.add('stat')
 
-					# если цель - сам игрок то баффаемся
 					if self.isParam('is_self_target'):
 						self.actionBuffSomebody(spell_effects['target_fields'])
 						self.tweet_vars.update({'is_self_buff': True})
 
-					# если цель друг - бафаем его
 					if target_info[2]:
 						self.actionBuffSomebody(target_spell_effects, self.tweet_vars['mention_player'])
 
@@ -1819,7 +1801,6 @@ class tweetParser():
 		target_spell_effects = getMagic(target_info)
 
 		# ACTIONS
-		# ищем подземелье если необходимо
 		if action_name in [
 			'go_to_dungeon',
 		    'peasant_help_dungeon',
@@ -1931,7 +1912,6 @@ class tweetParser():
 		if 'exp' in self.tweet_vars['rewards']:
 			self.getExp(self.tweet_vars['rewards']['exp'] / 2)
 
-		# если это битва и игрок 1 проиграл, то игрок 2 должен получить награду
 		if self.tweet_vars['action']['name'] == 'player_fight' and not self.tweet_vars['result']:
 			self._getPVPRewards()
 
@@ -2096,7 +2076,6 @@ class tweetParser():
 			return stats
 
 		def getNearTarget():
-			# TODO медленно (хз как поправить — может отказаться?)
 			near_players = self.model.players.getNearPlayers(
 				self.player['position']['x'],
 				self.player['position']['y'],
@@ -2701,8 +2680,6 @@ class tweetParser():
 
 		def getMetrics():
 
-			# Выясняем какая метрика используется
-			# и получаем данные о метрике
 			current_metric = False
 
 			if isMetric('is_mention'):
@@ -2722,30 +2699,24 @@ class tweetParser():
 
 		def getInfoAboutTweet(tweet):
 
-			# сюда будут записываться переменные о твите
 			self.tweet_vars.update({
 				'tweet_id': tweet.id,
 				'tweet_text': tweet.text
 			})
 
-			# антимат фильтр
 			debuff = self.modules['censore_filter'].censoreFilter(tweet)
 			if debuff:
 				self.setActivity('bad_words')
 
-			# фильтр игровых сообщений
 			if self.player['lvl']:
 				if self.modules['ignore_game_tweets'].isGameTweet(tweet):
 					self.setActivity('ignore_game')
 					return False
 
-			# Игнор сообщений от сервисов типа @YouTube
 			if self.modules['ignore_services'].isBlackListTweet(tweet):
 				self.setActivity('ignore_service')
 				return False
 
-			# Здесь собираем как можно больше информации из твита
-			# чтобы выяснить какую метрику будем использовать
 			self.isRetweet(tweet)
 			self.isMention(tweet)
 			self.isHashtag(tweet)
@@ -2830,9 +2801,6 @@ class tweetParser():
 			self.getExceptionText('Player not exist')
 			return False
 
-		# Если на входе не сообщение о взаимодействии, то значит — твит
-		# тогда узнаем все про него
-
 		parse_it = True
 
 		if not isinstance(tweet, dict):
@@ -2849,8 +2817,6 @@ class tweetParser():
 
 		if not parse_it:
 			return False
-
-		# Выясняем какое действие произошло
 
 		if self.isParam('is_group_event'):
 			pass
