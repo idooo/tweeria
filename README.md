@@ -2,7 +2,7 @@
 
 Tweeria is a game with minimal user's involvement. Everytime you tweet, your alter ego finds adventures, kills monsters or gets items.
 
-This is source code for Tweeria, you can use it and modify according the MIT licence. 
+This is source code for Tweeria, you can use it and modify according the MIT licence 
 
 ### Install
 
@@ -10,6 +10,8 @@ This is source code for Tweeria, you can use it and modify according the MIT lic
 Tweeria should work correctly on any linux/osx distributive. Originally Ubuntu LTS was used for production. This guide was written for Ubuntu 14.04.
 
 Tweeria is a Python 2.7 application. We use memcache for caching, MongoDB as a database, SASS as a style preprocessor
+
+In addition to this guide, you will need to create and register a Twitter Application using you Twitter account. Read more about this [here in our wiki](https://github.com/idooo/tweeria/wiki/Twitter-API-settings)
 
 #### 1. Install necessary tools
 
@@ -21,7 +23,7 @@ sudo apt-get install python-pip python-dev build-essential git
 
 #### 2. Thread safe version of Tweepy
 
-Tweeria uses [Tweepy](https://github.com/tweepy/tweepy) library to parse user tweets, but unfortunately, this library is not thread safe so we monkey patched library, threw away some time-related stuff out and use [that custom build](https://github.com/idooo/tweepy-threadsafe)
+Tweeria uses [Tweepy](https://github.com/tweepy/tweepy) library to parse user tweets, but unfortunately, this library is not thread safe so we monkey patched library, threw away some time-related stuff out and use [this custom build](https://github.com/idooo/tweepy-threadsafe)
 
 You would need to do this to install:
 
@@ -47,7 +49,7 @@ sudo apt-get install python-imaging
 
 #### 4. NodeJS and Ruby
 
-Tweeria uses `grunt` to automate assets building process and SASS as a preprocessor so you will need to install Node and Ruby
+Tweeria uses `grunt` to automate assets building process and SASS as a CSS preprocessor so you will need to install Node and Ruby
 
 ```
 sudo apt-get install nodejs npm ruby
@@ -117,6 +119,8 @@ cp default.conf newconf.conf
 ```
 
 Change there DB credentials, server settings and Twitter API keys. Please do not forget to change static files root directory `tools.staticdir.root` like `tools.staticdir.root = "/home/ido/tweeria"`
+
+Read more about config settings [in our wiki](https://github.com/idooo/tweeria/wiki/Config)
 
 Start Tweeria by executing `loader.sh <confname>` like this: `./loader.sh newconf`
 
