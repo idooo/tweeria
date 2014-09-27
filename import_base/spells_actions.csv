@@ -1,0 +1,21 @@
+UID,name,type,power,desc,target,,,,lvl_min,lvl_max,effect,cost_by_effect,restriction_by_lvl,img,effect_desc,effect_value_text
+,,,,,monster,enemy,friend,self,,,,,,,,
+,Buffs,,,,,,,,,,,,,,,
+1,Divine Strength,1,arcane,Increase strength for 1 hour,1,1,1,1,1,70,str,1,5,inc_str,+1 Strength,strength
+2,Divine Intellect,1,arcane,Increase intellect for 1 hour,1,1,1,1,1,70,int,1,5,inc_int,+1 Intellect,intellect
+3,Divine Dexterity,1,arcane,Increase dexterity for 1 hour,1,1,1,1,1,70,dex,1,5,inc_dex,+1 Dexterity,dexterity
+4,Endurance,1,arcane,Increase armor for 1 hour,1,1,1,1,1,70,DEF,1,5,inc_def,+1 Armor,armor
+5,Enrage,1,arcane,Increase damage for 1 hour,1,1,1,1,1,70,DMG,1,5,inc_dmg,+1 Damage,damage
+,,,,,,,,,,,,,,,,
+,dmg,,,,,,,,,,,,,,,
+6,Fire,2,fire,Inflict fire damage,1,1,1,1,1,70,DMG,1,5,fire,1 Fire damage,damage
+7,Frost,2,frost,Deal frost damage,1,1,1,1,1,70,DMG,1,5,frost,1 Frost damage,damage
+8,Air,2,air,Hit enemy by air,1,1,1,1,1,70,DMG,1,5,air,1 Air damage,damage
+9,Arcane,2,arcane,Inflict arcane damage,1,1,1,1,10,70,DMG,1,5,arcane,1 Arcane damage,damage
+,,,,,,,,,,,,,,,,
+,debuff,,,,,,,,,,,,,,,
+10,Reduce Strength,3,arcane,Reduce strength for 1 hour,1,1,1,1,1,70,str,1,5,red_str,-1 Strength,strength
+11,Reduce Intellect,3,arcane,Reduce intellect for 1 hour,1,1,1,1,1,70,int,1,5,red_int,-1 Intellect,intellect
+12,Reduce Dexterity,3,arcane,Reduce dexterity for 1 hour,1,1,1,1,1,70,dex,1,5,red_dex,-1 Dexterity,dexterity
+13,Vulnerability,3,arcane,Reduce armor for 1 hour,1,1,1,1,1,70,DEF,1,5,red_def,-1 Armor,armor
+14,Suffering,3,arcane,Reduce damage for 1 hour,1,1,1,1,1,70,DMG,1,5,red_dmg,-1 Damage,damage

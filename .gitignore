@@ -27,3 +27,4 @@ templates/js/plugins.js
 
 .sass-cache/
 templates/style/*.css
+conf/tweeria.conf

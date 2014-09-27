@@ -1,0 +1,111 @@
+UID,name,text,type,points,condition,order,visibility,img
+1,General,,0,1,,1,1,
+2,Level 10,Reach level 10,1,1,lvl:10,2,1,level10
+3,Level 20,Reach level 20,1,1,lvl:20,3,1,level20
+4,Level 30,Reach level 30,1,1,lvl:30,4,1,level30
+5,Level 40,Reach level 40,1,1,lvl:40,5,1,level40
+6,Level 50,Reach level 50,1,1,lvl:50,6,1,level50
+7,Level 60,Reach level 60,1,1,lvl:60,7,1,level60
+8,Finder,Loot 100 items,1,1,items_looted:100,8,1,100items
+9,Give me more!,Loot 1000 items,1,1,items_looted:1000,9,1,1000items
+10,Monsters,,0,2,,10,1,
+11,This is simple,Kill any monster,2,1,kills_monster:1,11,1,monster1
+12,Not as hard as before,Kill 100 monsters,2,1,kills_monster:100,12,1,monster2
+13,Where Is My Sword?,Kill 1000 monsters,2,1,kills_monster:1000,13,1,monster3
+14,Seriously?,Kill 10000 monsters,2,1,kills_monster:10000,14,1,monster4
+15,Overkill,Kill 100000 monsters,2,1,kills_monster:100000,15,1,monster5
+16,Team Work,Kill 10 monsters in a party,2,1,kills_monster_party:10,16,1,party1
+17,Call Me Maybe?,Kill 100 monsters in a party,2,1,kills_monster_party:100,17,1,party2
+18,You Will Never Walk Alone,Kill 1000 monsters in a party,2,1,kills_monster_party:1000,18,1,party3
+19,My Secret Friend,Kill 10000 monsters in a party,2,1,kills_monster_party:10000,19,1,party4
+20,Party Leader,Kill 100000 monsters in a party,2,1,kills_monster_party:100000,20,1,party5
+21,Not This,Kill any boss,2,1,kills_boss:1,21,1,skull1
+22,And Not These,kill 10 bosses,2,1,kills_boss:10,22,1,skull2
+23,Crush Kill And Destroy,kill 100 bosses,2,1,kills_boss:100,23,1,skull3
+24,They Told: The Cake Is A Lie,kill 1000 bosses,2,1,kills_boss:1000,24,1,skull4
+25,The Way It Was,kill 10000 bosses,2,1,kills_boss:10000,25,1,skull5
+26,Easy To Use,Kill any monster with magic,2,1,kills_monster_magic:1,26,1,magic1
+27,Eat This Fireball,Kill 10 monster with magic,2,1,kills_monster_magic:10,27,1,magic2
+28,Hocus pocus,Kill 100 monster with magic,2,1,kills_monster_magic:100,28,1,magic3
+29,Pew Pew Pew,Kill 1000 monster with magic,2,1,kills_monster_magic:1000,29,1,magic4
+30,Like Harry,Kill 10000 monster with magic,2,1,kills_monster_magic:10000,30,1,magic5
+31,Dungeons,,0,3,,31,1,
+32,Welcome To Mystery,Complete any dungeon,3,1,dungeons_classic_complete_count:1,32,1,run1
+33,Nice Start,Complete 10 dungeons,3,1,dungeons_classic_complete_count:10,33,1,run2
+34,Dark Sides Of Tweeria,Complete 100 dungeons,3,1,dungeons_classic_complete_count:100,34,1,run3
+35,1000 Reasons to Drink,Complete 1000 dungeons,3,1,dungeons_classic_complete_count:1000,35,1,run4
+36,Dungeon Master,Complete 10000 dungeons,3,1,dungeons_classic_complete_count:10000,36,1,run5
+37,Whispers in the Dark,Go to any dungeon alone,3,1,dungeons_runs_alone:1,37,1,alone1
+38,Unfriendly,Go to 100 dungeons alone,3,1,dungeons_runs_alone:100,38,1,alone2
+39,Forever Alone II,Go to 10000 dungeons alone,3,1,dungeons_runs_alone:10000,39,1,alone3
+40,Bone Dungeon,Kill Grim in Bone Dungeon,3,1,dungeons_classic_complete_dungeon_1:1,40,1,dungeons/grim
+41,Ice Cave,Kill Silver Spider in Ice Cave,3,1,dungeons_classic_complete_dungeon_2:1,41,1,dungeons/spider
+42,Tropical Island,Kill Survivor in Tropical Island,3,1,dungeons_classic_complete_dungeon_3:1,42,1,dungeons/survivor
+43,Earth Shrine,Kill Lion King in Earth Shrine,3,1,dungeons_classic_complete_dungeon_4:1,43,1,dungeons/lion_king
+44,Pinnacle Rocks,Kill Earth Elemental in Pinnacle Rocks,3,1,dungeons_classic_complete_dungeon_5:1,44,1,dungeons/elemental
+45,Snow Cave,Kill Frozen Gnome in Snow Cave,3,1,dungeons_classic_complete_dungeon_6:1,45,1,dungeons/frozen
+46,Feywood,Kill Karpe in Feywood,3,1,dungeons_classic_complete_dungeon_7:1,46,1,dungeons/karpe
+47,Serpent Trench,Kill Naga in Serpent Trench,3,1,dungeons_classic_complete_dungeon_8:1,47,1,dungeons/naga
+48,Fiend Colony,Kill Soul of Ler'iuqs in Fiend Colony,3,1,dungeons_classic_complete_dungeon_9:1,48,1,dungeons/field
+49,Mirrors,Kill The Assembly of Reflection in Mirrors,3,1,dungeons_classic_complete_dungeon_10:1,49,1,dungeons/mirrors
+50,Ice Pyramid,Kill Frost General in Ice Pyramid,3,1,dungeons_classic_complete_dungeon_11:1,50,1,dungeons/general
+51,Giant Tree,Kill Nang Takian in Giant Tree,3,1,dungeons_classic_complete_dungeon_12:1,51,1,dungeons/takian
+52,Library of the Ancients,Kill Satori in Library of the Ancients,3,1,dungeons_classic_complete_dungeon_13:1,52,1,dungeons/eye
+53,Hellfire Chasm,Kill Warmaster in Hellfire Chasm,3,1,dungeons_classic_complete_dungeon_14:1,53,1,dungeons/warmaster
+54,Cultists' Tower,Kill Dark Summoner in Cultists' Tower,3,1,dungeons_classic_complete_dungeon_15:1,54,1,dungeons/summoner
+55,Temple of the Ancients,Kill Old God in The Temple of the Ancients,3,1,dungeons_classic_complete_dungeon_16:1,55,1,dungeons/god
+56,South Tower,Kill Lich in The South Tower,3,1,dungeons_classic_complete_dungeon_17:1,56,1,dungeons/lich
+57,Lost Temple,Kill Resurrected Night Lord in The Lost Temple,3,1,dungeons_classic_complete_dungeon_18:1,57,1,dungeons/lord
+58,North Tower,Kill Loogaroo in The North Tower,3,1,dungeons_classic_complete_dungeon_19:1,58,1,dungeons/loogaroo
+59,Raids,,0,4,,59,1,
+60,Something New,Complete any raid,4,1,raids_completed:1,60,1,raid1
+61,Better Loot For Better Players,Complete 10 raids,4,1,raids_completed:10,61,1,raid2
+62,Every Day I Think About It,Complete 100 raids,4,1,raids_completed:100,62,1,raid3
+63,Just Do It,Complete 1000 raids,4,1,raids_completed:1000,63,1,raid4
+64,Raid Leader,Complete 10000 raids,4,1,raids_completed:10000,64,1,raid5
+65,Great Salt Lake,Kill Salamander in Great Salt Lake,4,1,raid_complete_20:1,65,1,raids/salamander
+91,Siberia,Kill Big Snow Worm in Siberia,4,1,raid_complete_21:1,66,1,raids/worm
+92,Rebellious Tribes,Kill Zahhak in Rebellious Tribes,4,1,raid_complete_22:1,67,1,raids/tribe
+66,Deeper Caverns,Kill Andras’ son in Deeper Caverns,4,1,raid_complete_23:1,68,1,raids/son
+93,Last Seasons,Kill Dream Hunter in Last Seasons,4,1,raid_complete_24:1,69,1,raids/hunter
+94,Through Clouds,Kill Windcaller in Through Clouds,4,1,raid_complete_25:1,70,1,raids/caller
+67,Dreadnought Leviathan,Kill Gunman Master in Dreadnought Leviathan,4,1,raid_complete_26:1,71,1,raids/master
+68,Pirates' Hideout,Kill Captain Jack in Pirates' Hideout,4,1,raid_complete_27:1,72,1,raids/jack
+69,Forbidden Land,Kill Dreadmage Artodius in Forbidden Land,4,1,raid_complete_28:1,73,1,raids/mage
+70,Sacrarium,Kill Tomb Lord Mankuri in Sacrarium,4,1,raid_complete_29:1,74,1,raids/tomb
+71,Desert Palace,Kill Rainbow Serpent in Desert Palace,4,1,raid_complete_30:1,75,1,raids/serpent
+72,Dragons' Den ,Kill Drakaina in Dragons' Den ,4,1,raid_complete_31:1,76,1,raids/dragon
+73,Citadel of Trials,Kill The Apprentice in Citadel of Trials,4,1,raid_complete_32:1,77,1,raids/app
+74,PvP,,0,5,,78,1,
+75,Good Luck,Kill a player,5,1,pvp_kills_player:1,79,1,kill1
+76,Born For This,Kill 10 players,5,1,pvp_kills_player:10,80,1,kill2
+77,In The Line Of Fire,Kill 100 players,5,1,pvp_kills_player:100,81,1,kill3
+78,No Mercy,Kill 1000 players,5,1,pvp_kills_player:1000,82,1,kill4
+79,I`m a Criminal II,Kill 10000 players,5,1,pvp_kills_player:10000,83,1,kill5
+80,Prepare For Battle,Kill a peasant,5,1,pvp_np_kills_player:1,84,1,peasant1
+81,Stop! They Can`t Hurt You,Kill 10 peasants,5,1,pvp_np_kills_player:10,85,1,peasant2
+82,For The Players!,Kill 100 peasants,5,1,pvp_np_kills_player:100,86,1,peasant3
+83,No Reason For This,Kill 1000 peasants,5,1,pvp_np_kills_player:1000,87,1,peasant4
+84,Mr. Brutality,Kill 10000 peasants,5,1,pvp_np_kills_player:10000,88,1,peasant5
+85,Rare,,0,6,,89,1,
+86,Be Aware II,Was a beta tester,6,1,rare_beta:1,90,1,beta
+87,Thank you for help,Help to create Tweeria,6,1,rare_help:1,91,1,help
+88,Bard`s Tale,Write an epic blog post,6,1,rare_bard:1,92,1,bard
+89,Grand Believer ,Led many people to the game,6,1,rare_believer:1,93,1,people
+90,Amazing Guild Leader,Builder of the game community,6,1,rare_guild_leader:1,94,1,guild
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,

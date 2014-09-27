@@ -309,12 +309,10 @@
 			{% endfor %}
 		</div>
 
-
-
 		<div class="authors-rating">
 			<h1><hr> Top artists <hr></h1>
 
-
+            {% if authors_likes | length != 0 %}
 			<div class="crown-icon"></div>
 			<table>
 				<tr class="top_author">
@@ -335,7 +333,7 @@
 					<tr>
 						<td class="count">{{ i+1 }}</td>
 						<td class="authors-info">
-							<a href="/{{ authors_likes[0].author_name }}?works">
+							<a href="/{{ authors_likes[i].author_name }}?works">
 								<img src="{{ authors_likes[i].author_avatar }}" alt="{{ authors_likes[i].author_name }}"
                                      onerror="this.src='/style/img/unknown.jpg'"
                                         >
@@ -346,6 +344,7 @@
 					</tr>
 				{% endfor %}
 			</table>
+            {% endif %}
 
 			{% if login and not login_ugc_enabled or login_admin %}
 				<a href="/u/create" class="btn2 btn2-classic btn2-small btn2-wide">Become an artist</a>

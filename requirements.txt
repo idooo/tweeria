@@ -2,3 +2,5 @@ jinja2
 pymongo
 python-dateutil
 simplejson
+cherrypy
+python-memcached

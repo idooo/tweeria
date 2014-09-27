@@ -1,0 +1,226 @@
+,,,,,
+A1,1,monster_fight,OK,2,{player} looked for experience and meet {monster}. After short battle our hero killed him
+,2,,,,{player} looked for treasure and pursued {monster}. Monster was killed by hero a few minutes ago
+,3,,,,Tricky {player} killed weak {monster} by a shovel
+,4,,,,Ingenious {player} used lemon and a paddle to kill {monster}
+,5,,,,{monster} was confused by new {player}’s tactics and died very fast
+,6,,FAIL,1,{player} was scared by {monster} and ran away from him
+,7,,,,{monster} hit {player} in the head critically and fled away
+,8,,,,{player} was embarrassed by new {monster}’s look and fallen
+,9,,,,{monster} cut off {player}’s ears and ran away on the laugh
+,10,,,,Hungry {monster} drunk {player}’s blood through hero’s nose
+,,,,,
+A2,1,player_fight,OK,17,{player} found {party} in the forest and massacred him due short battle
+,2,,,,{player} walked through dark forest and met {party}. Enemy of our hero fled away
+,3,,,,{player} tear away {party}’s hands and earned some exp
+,4,,,,Tricky {player} killed weak {party} by a lasagna
+,5,,,,Ingenious {player} used chicken and a nail to kill {player}
+,6,,FAIL,18,{player} was defeated by {party}’s strength and intellect
+,7,,,,{player} ran away from angry {party}
+,8,,,,Lazy {player} was frightened by {party} and was defeated
+,9,,,,Smart {player} was no so smart to win a battle wit {party}
+,10,,,,{player} was confused by {party}’s new look and was killed
+,,,,,
+A3,1,monster_assisted,OK,11,{player} assisted {party} to kill {monster} and earned some gold
+,2,,,,{player} helped {party} in the battle with strong {monster}
+,3,,,,{monster} could kill {party} but our hero {player} helped him to survive
+,4,,,,{party} was hit by curious {monster} but with {player} support monster was killed
+,5,,,,Pity {monster} did’t have chances to win battle with {party} and {player}
+,6,,FAIL,110,{player} assisted {party} but even together they can’t killed {monster}
+,7,,,,{monster} scared {party} and {player} so they ran away
+,8,,,,{player} helped {party} to fled away from funny {monster}
+,9,,,,{party} and {player} were eaten completely by cute {monster} 
+,10,,,,{party} tried to kill {monster} with {player}’s help but monster ran away
+,,,,,
+A4,1,go_to_dungeon,OK,4,{player} killed {monster} and found secret path to {dungeon}
+,2,,,,{monster} was scared and killed by {player} in {dungeon}
+,3,,,,{monster} was found by {player} in the far corner of {dungeon}
+,4,,,,Glorious {player} crushed {monster} in {dungeon}
+,5,,,,{player} hit {monster} in the nose critically and monster fled away
+,6,,FAIL,40,{player} can’t killed {monster} near {dungeon}
+,7,,,,{player} was eaten by {monster} in the dark {dungeon}
+,8,,,,{monster} scared {player} in the {dungeon}
+,9,,,,{player} was dazed by {monster} in {dungeon}
+,10,,,,{player} found strange trails near {dungeon} but hero was eaten by {monster} during investigation 
+,,,,,
+A7,1,peasant_assist,OK,33,Peasant {party} tried to assist {player} in the fight with {monster} but fled away first
+,2,,,,Farmer {party} threw his pitchfork into {monster}’s eye and {player} killed monster
+,3,,,,Peasant {party} helped {player} and hit {monster} by his fishing rod 
+,4,,,,Peon {party} hit {monster}’s leg by his shovel. Monster distracted and was killed by {player}
+,5,,,,{party} overwhelmed {monster} with peasant {party}’s assist 
+,6,,FAIL,34,Weak peasant {party} tried to help {party} in the battle with {monster} but monster was stronger
+,7,,,,{player} and slave {party} was eaten by {monster}
+,8,,,,Farmer {party} threw his pitchfork into {monster} but it hit {player}
+,9,,,,Peasant {party} misunderstood {player} and kill himself by a shovel
+,10,,,,{monster} ate peasant {party} with his boat. {player} decided to ignore this
+,,,,,
+A8,1,peasant_help_dungeon,OK,35,Peasant {party} tried to assist {player} in the fight with {monster} at {dungeon} but fled away first
+,2,,,,Farmer {party} helped {player} to kill {monster} at the {dungeon} entrance
+,3,,,,Peon {party} hit {monster}’s leg by his shovel. Monster distracted and was killed by {player} near {dungeon}
+,4,,,,Peasant {party} threw steel bucket to {monster}’s head near {dungeon}. {player} killed dazed monster
+,5,,,,{player} used peasant {party}‘s bodyparts to kill {monster} near {dungeon}
+,6,,FAIL,36,Villager {party} and {player} fell into the pit near {dungeon}
+,7,,,,{monster} ate farmer {party} and hit {player} near {dungeon}
+,8,,,,{player} and peasant {party} were massacred by {monster} in {dungeon}
+,9,,,,Dangerous {dungeon}’s monster {monster} defeated {player} and his slave {party}
+,10,,,,{player} ran away from {dungeon} when {monster} ate peasant {party}
+,,,,,
+A9,1,go_to_dungeon_assisted,OK,12,{player} assisted {party} to kill {monster} near {dungeon} and earned some gold
+,2,,,,{player} helped {party} in the battle with strong {monster} near {dungeon}
+,3,,,,{monster} was killed by {player} and {party} near {dungeon}
+,4,,,,{player} and {party} overwhelmed {monster} in {dungeon}
+,5,,,,{monster} killed by {party} in {dungeon}. Our hero {player} helped with it
+,6,,FAIL,120,{player} with {party}’s assist cant’t killed {monster} in {dungeon}
+,7,,,,In the dark corner of {dungeon} our heroes {party} and {player} were eaten by {monster}
+,8,,,,{monster} in {dungeon} casted strange spell and {party} with {player} was morphed to kangaroo
+,9,,,,{player} and {party} walked through {dungeon} but hungry {monster} attacked them
+,10,,,,{party} and {player} were completely broken by monstrous {monster} in {dungeon}
+,,,,,
+A10,1,peasant_kill_go_to_dungeon,OK,37,Peasant {party} was injured by {player} near {dungeon}
+,2,,,,Farmer {party} was killed by {player} at the {dungeon} entrance
+,3,,,,{player} searched blood carrots near {dungeon} and massacred peasant {party} to find it
+,4,,,,Weak peasant {party} did’t have chances to win battle with {player} near {dungeon} 
+,5,,,,{player} tried to find way into the {dungeon} but laborer {party} interrupted him and was killed
+,6,,FAIL,38,{monster} and his slave {party} did unspeakable damage to {player} near {dungeon}
+,7,,,,{monster} ate farmer {party} and massacred {player} near {dungeon}
+,8,,,,{player} tried to kill {monster} during his meat-dinner ({party}) but it was useless
+,9,,,,{player} killed weak peasant {party} and then was scared by {monster} in {dungeon}
+,10,,,,{monster} found {player} and farmer {party} near {dungeon} and broke their legs
+,,,,,
+A12,1,peasant_meet,OK,41,"The {player} visited farmer {party}, had lunch and listened latest news"
+,2,,,,Peasant {party} helped {player} and told about nearest monsters
+,3,,,,{player} and peasant {party} had a rest at the campfire
+,4,,,,{player} found crypt with {party}’s body and stole some gold from it
+,5,,,,Useless peasant {party} helped {player} to understand some of these messages
+,6,,FAIL,42,{player} met cursed farmer {party} and banished him 
+,7,,,,Strange peasant {party} was scared by {player} and died
+,8,,,,Curious {player} tried to find something interesting into {party}’s head but found nothing
+,9,,,,{player} saw that unlucky peasant {party} was eaten by cute koala
+,10,,,,{player} met peasant {party} on the road but ignored him
+,,,,,
+A13,1,players_meet,OK,43,Two heroes {player} and {party} had a sparring in the swamp. Earned some exp and frogs
+,2,,,,{player} met {party} in the tavern. They drunk some beers and signed some songs
+,3,,,,{Player} met {party} in the tavern. They drank some beers and sang popular songs
+,4,,,,{player} met bard {party} and listened latest song about him
+,5,,,,{player} and {party} spent a couple of hours to understand game’s rules
+,6,,FAIL,44,{player} met {party} at the road stone. They tweeted about and gone away 
+,7,,,,Forgetful {player} met {party} at the marketplace but was too busy to speak with
+,8,,,,{player} and {party} disputed about monster tactics but not agreed with each other
+,9,,,,{party} and {player} decided to make a test fight but lost their swords
+,10,,,,{party} wanted to demonstrated his fight skills to {player} but forgot how to fight
+,,,,,
+A14,1,pvp_players_meet,OK,45,{player} watched for {party} from bushes and saw hidden stash 
+,2,,,,{player} chased {party} and found some gold coins
+,3,,,,Tricky {player} steal some gold from {party} in the tavern
+,4,,,,Drunken {player} hijacked {party}’s camel and broke it
+,5,,,,{player} found {party}’s treasure chest with a few useful maps 
+,6,,FAIL,46,{player} tried to steal anything from {party}’s bag but can’t did it
+,7,,,,Inexperienced {player} tried to steal something from {party} but today it was unreal
+,8,,,,It was too hard for {player} to steal {party}’s paddle
+,9,,,,{player} saw {party} in the tavern and tried to poison him but didn’t find any acid
+,10,,,,Forgetful {player} decided to fight with {party} but lost his sword
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+A2,1,player_fight,OK,28,Suddenly {player} was massacred by tricky {party}
+,2,,,,{party} attacked {player} and won this battle
+,3,,,,{player} was confused by {party}’s new equipments and was killed
+,4,,,,{player} ran away from angry {party}
+,5,,,,Weak {player} was massacred by strong {party}
+,6,,FAIL,27,{player} defended himself from {party}’s attacks
+,7,,,,Physically strong {player} used karate skills to kill {party}  
+,8,,,,Smart {player} used intellect to defend from {party}’s attacks
+,9,,,,{player} protected self and used trick to kill {party} 
+,10,,,,{party} was killed by lucky {player}
+,,,,,
+A3,1,monster_assisted,OK,21,Noble {party} helped our hero {player} to defeat {monster}
+,2,,,,With {party}’s assist our smart {player} massacred {monster}
+,3,,,,{player} was hit by dreadful {monster} but with {party} support monster was killed
+,4,,,,{player} and {party} looked for experience and meet {monster}. After short battle our heroes killed him
+,5,,,,{party} assisted noble {player} to kill {monster}
+,6,,FAIL,210,Party of {party} and {player} was eaten by hungry {monster}
+,7,,,,{player} and {party} were massacred by strong {monster}
+,8,,,,{monster} protected himself and kill {party} and ate {player}’s head
+,9,,,,{monster} was confused by new {player}’s and {party}‘s tactics but killed them anyway
+,10,,,,{monster} killed party and made souvenirs from {party}’s and {player}’s skulls
+,,,,,
+A9,1,go_to_dungeon_assisted,OK,8,{player} defeated {monster} in {dungeon} with {party}’s assist
+,2,,,,{monster} in {dungeon} was broken by {player} and {party}
+,3,,,,{party} helped {player} to kill {monster} in {dungeon}
+,4,,,,{party} and {player} scared {monster} in {dungeon} and he ran away
+,5,,,,Dazed {monster} by {party} was killed by {player} in {dungeon}
+,6,,FAIL,80,{player} and {party} lost their heads during battle with {monster} in {dungeon}
+,7,,,,{monster} from {dungeon} made nice necklace from {player}’s and {party}’s fingers
+,8,,,,{player} was killed by {monster} in {dungeon}. As well as {party}
+,9,,,,{monster} broke all {player}’s bones and drunk all {party}’s blood in {dungeon}
+,10,,,,{monster} killed unlucky {party} and {player} in {dungeon}
+,,,,,
+A13,1,players_meet,OK,430,{player} met {party} in the tavern and listened some news about changes in game’s rules
+,2,,,,{party} told {player} new tactics versus monsters
+,3,,,,{party} showed his face book to {player} 
+,4,,,,{player} listened {party} carefully about new Tweeria releases and updates 
+,5,,,,Funny {party} helped {player} to earn some money by dancing
+,6,,FAIL,440,Sad {party} found {player} in the village and make him sad too
+,7,,,,{player} met cursed {party} and banished him 
+,8,,,,{party} wanted to demonstrated his magic skills to {player} but forgot how to cast
+,9,,,,{party} invited {player} to fight training but broke his legs before it starts
+,10,,,,{party} and {player} met kangaroo and fed it
+,,,,,
+A14,1,pvp_players_meet,OK,450,{party} stole some gold coins from {player}’s bags
+,2,,,,{player} was tricked by cunning {party}
+,3,,,,{party} found {player}’s keys for treasure chest
+,4,,,,{player}’s favorite camel was hijacked by drunken {party}
+,5,,,,Fast {party} hid {player}’s sword in the tavern
+,6,,FAIL,460,{party} can’t stole anything from {player}’s pockets
+,7,,,,Forgetful {party} decided to fight with {party} but forgot his password
+,8,,,,{player} presented acid platypus to {party} as a gift
+,9,,,,{player} changed PIN to {party}’s treasure chest
+,10,,,,Brutal {player} stole {party}’s favorite cow
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,

@@ -1,0 +1,63 @@
+UID,name,type,amount,visibility,text,order,group
+1,General,none,0,0,General,1,0
+2,lvl,value,1,0,lvl,2,1
+3,items_looted,inc,0,1,Items looted,3,1
+4,spells_used,inc,0,1,Magic spells used,4,1
+5,kills_monster,inc,0,1,Monsters killed,5,1
+6,kills_boss,inc,0,1,Bosses killed,6,1
+7,kills_monster_party,inc,0,1,Monsters killed in party,7,1
+8,kills_monster_magic,inc,0,1,Monsters killed with magic,8,1
+9,Dungeons,none,0,0,Dungeons,9,0
+10,dungeons_runs,inc,0,1,Dungeons entered,10,9
+11,dungeons_runs_alone,inc,0,1,Dungeons entered alone,11,9
+12,dungeons_classic_complete,inc,0,0,Different dungeons completed,12,9
+13,dungeons_classic_complete_count,inc,0,1,Dungeons completed,13,9
+14,dungeons_classic_complete_dungeon_1,inc,0,1,Bone Dungeon completed runs,14,9
+15,dungeons_classic_complete_dungeon_2,inc,0,1,Ice Cave completed runs,15,9
+16,dungeons_classic_complete_dungeon_3,inc,0,1,Tropical Island completed runs,16,9
+17,dungeons_classic_complete_dungeon_4,inc,0,1,Earth Shrine completed runs,17,9
+18,dungeons_classic_complete_dungeon_5,inc,0,1,Pinnacle Rocks completed runs,18,9
+19,dungeons_classic_complete_dungeon_6,inc,0,1,Snow Cave completed runs,19,9
+20,dungeons_classic_complete_dungeon_7,inc,0,1,Feywood completed runs,20,9
+21,dungeons_classic_complete_dungeon_8,inc,0,1,Serpent Trench completed runs,21,9
+22,dungeons_classic_complete_dungeon_9,inc,0,1,Fiend Colony completed runs,22,9
+23,dungeons_classic_complete_dungeon_10,inc,0,1,Mirrors completed runs,23,9
+24,dungeons_classic_complete_dungeon_11,inc,0,1,Ice Pyramid completed runs,24,9
+25,dungeons_classic_complete_dungeon_12,inc,0,1,Giant Tree completed runs,25,9
+26,dungeons_classic_complete_dungeon_13,inc,0,1,Library of the Ancients completed runs,26,9
+27,dungeons_classic_complete_dungeon_14,inc,0,1,Hellfire Chasm completed runs,27,9
+28,dungeons_classic_complete_dungeon_15,inc,0,1,Cultists' Tower completed runs,28,9
+29,dungeons_classic_complete_dungeon_16,inc,0,1,Temple of the Ancients completed runs,29,9
+30,dungeons_classic_complete_dungeon_17,inc,0,1,South Tower completed runs,30,9
+31,dungeons_classic_complete_dungeon_18,inc,0,1,Lost Temple completed runs,31,9
+32,dungeons_classic_complete_dungeon_19,inc,0,1,North Tower completed runs,32,9
+33,Raids,none,0,0,Raids,33,0
+34,raids_runs,inc,0,1,Raid runs ,34,33
+35,raids_completed,inc,0,1,Completed raid runs,35,33
+36,raid_complete_20,inc,0,1,Great Salt Lake completed runs,36,33
+59,raid_complete_21,inc,0,1,Siberia completed runs,37,33
+60,raid_complete_22,inc,0,1,Rebellious Tribes completed runs,38,33
+37,raid_complete_23,inc,0,1,Deeper Caverns completed runs,39,33
+61,raid_complete_24,inc,0,1,Last Seasons completed runs,40,33
+62,raid_complete_25,inc,0,1,Through Clouds completed runs,41,33
+38,raid_complete_26,inc,0,1,Dreadnought Leviathan completed runs,42,33
+39,raid_complete_27,inc,0,1,Pirates' Hideout completed runs,43,33
+40,raid_complete_28,inc,0,1,Forbidden Land completed runs,44,33
+41,raid_complete_29,inc,0,1,Sacrarium completed runs,45,33
+42,raid_complete_30,inc,0,1,Desert Palace completed runs,46,33
+43,raid_complete_31,inc,0,1,Dragons' Den completed runs,47,33
+44,raid_complete_32,inc,0,1,Citadel of Trials completed runs,48,33
+45,Pvp,none,0,0,Player vs. player,49,0
+46,pvp_kills_player,inc,0,1,All players killed,50,45
+47,pvp_np_kills_player,inc,0,1,Peasants killed,51,45
+48,undead_kills,inc,0,0,Undeads killed,52,45
+49,faceless_kills,inc,0,0,Facelesses killed,53,45
+50,human_kills,inc,0,0,Humans killed,54,45
+51,elf_kills,inc,0,0,Elves killed,55,45
+52,orc_kills,inc,0,0,Orcs killed,56,45
+53,troll_kills,inc,0,0,Trolls killed,57,45
+54,Rare,none,0,0,Rare,58,0
+55,rare_beta,inc,0,0,rare_beta,59,54
+56,rare_help,inc,0,0,rare_help,60,54
+57,rare_guild_leader,inc,0,0,rare_guild_leader,61,54
+58,rare_believer,inc,0,0,rare_believer,62,54
