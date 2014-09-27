@@ -1,5 +1,9 @@
 ﻿# -*- coding: UTF-8 -*-
 
+# This is Tweeria server application
+# You can find routing settings here, adapters for db
+# and caching
+
 import __init__
 import inspect
 import settings

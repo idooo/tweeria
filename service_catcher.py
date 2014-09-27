@@ -4,6 +4,8 @@
 # Hi my name is Kayo 3.5
 # I like to catch people's tweets
 #
+# 
+#
 # author: Alex Shteinikov
 
 import __init__
@@ -523,6 +525,8 @@ if __name__ == '__main__':
 	pp.process()
 
 	# faction vs faction event auto creation
+    # Feature was experimental and disabled
+    #
 	#fvf = fvf_creator.FVFCreator()
 	#fvf.checkAndCreateFvF()
 
@@ -543,8 +547,9 @@ if __name__ == '__main__':
 
 	#
 	# get last blog posts ------------
-	#
-
-	wp = liveblog_integration.LBIntegration()
-	wp.getBlogLastPosts()
+	# This addon will get rss field from the remote source,
+    # parse it to display on the main page (news)
+    #
+	#wp = liveblog_integration.LBIntegration()
+	#wp.getBlogLastPosts()
 

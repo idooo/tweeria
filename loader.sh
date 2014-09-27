@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # I'm an amazing web server runner
-#
+# This script will kill existing tweenk/tweeria application process and start a new one
 # Author: Alex Shteinikov
 
 PID_FILE="/PID/web.pid"
