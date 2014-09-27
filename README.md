@@ -2,7 +2,7 @@
 
 Tweeria is a game with minimal user's involvement. Everytime you tweet, your alter ego finds adventures, kills monsters or gets items.
 
-This is source codes for Tweeria, you can use it and modify according the MIT licence. 
+This is source code for Tweeria, you can use it and modify according the MIT licence. 
 
 ### Install
 
