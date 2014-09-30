@@ -6,6 +6,8 @@ This is source code for Tweeria, you can use it and modify according the MIT lic
 
 Also there are two useful articles in our wiki we suggest to check: [configuration](https://github.com/idooo/tweeria/wiki/Configuration) and [Twitter API settings](https://github.com/idooo/tweeria/wiki/Twitter-API-settings) 
 
+#### Important: you can use Tweeria source code in any way MIT license allows you, but you have no rights to use "Tweeria" trademark and you must clearly specify that your product is based on Tweeria Source Code 
+
 ### Install
 
 #### 0. Introduction
