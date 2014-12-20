@@ -71,6 +71,8 @@ sudo apt-get install nodejs npm ruby
 sudo gem install sass
 sudo npm install -g grunt-cli
 
+* Make sure you pull the source before you execute this part *
+
 cd tweeria
 npm install
 
