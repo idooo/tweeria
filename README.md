@@ -102,13 +102,13 @@ You also will need to create Tweeria user with password in MongoDB. Run `mongo` 
 
 ```
 db.createUser(
-	{
-		user: "user",
-		pwd: "password",
-		roles:  { 
-			role: "readWrite", db: "tweeria" 
-		}
-	}
+    {
+        user: "user",
+        pwd: "password",
+        roles:  [{ 
+            role: "readWrite", db: "tweeria" 
+        }]
+    }
 )
 ```
 
