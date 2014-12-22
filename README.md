@@ -71,6 +71,8 @@ sudo apt-get install nodejs npm ruby
 sudo gem install sass
 sudo npm install -g grunt-cli
 
+* Make sure you pull the source before you execute this part *
+
 cd tweeria
 npm install
 
@@ -102,13 +104,13 @@ You also will need to create Tweeria user with password in MongoDB. Run `mongo` 
 
 ```
 db.createUser(
-	{
-		user: "user",
-		pwd: "password",
-		roles:  { 
-			role: "readWrite", db: "tweeria" 
-		}
-	}
+    {
+        user: "user",
+        pwd: "password",
+        roles:  [{ 
+            role: "readWrite", db: "tweeria" 
+        }]
+    }
 )
 ```
 
