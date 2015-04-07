@@ -148,7 +148,7 @@ class core():
 
 	BLOG_FEED_URL = 'http://tweeria.wordpress.com/feed/'
 
-	MAX_TIME_TO_SLEEP = 604800
+	MAX_TIME_TO_SLEEP = 7776000
 
 	FINISHED_EVENTS_LIFETIME = 1209600
 
