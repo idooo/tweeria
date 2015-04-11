@@ -410,7 +410,7 @@ class balance():
 	QUEST_LEN = 86400
 
 	# craft items
-	ORE_COST_PER_ITEM = 1
+	ORE_COST_PER_ITEM = 0
 
 	MAX_STATS_ITEM_CREATE = {
 		'25': 75,
