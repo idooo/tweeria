@@ -495,7 +495,8 @@ if __name__ == '__main__':
 	# parsing ------------------------
 	#
 
-	threads = 48
+	# amount of parallel threads that will be used to fetch tweets
+	threads = 1
 
 	service = serviceCatcher()
 	service.start(threads = threads, step = 500)
