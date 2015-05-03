@@ -414,7 +414,7 @@ class serviceCatcher():
 			completed += step
 			pass
 
-        print 'parse_time', self.parse_time
+		print 'parse_time', self.parse_time
 
 		self.log.write('Parsed '+str(self.counts['parsed_tweets'])+' / '+str(self.counts['tweets'])+' tweets by '+str(self.counts['y_players'])+' / '+str(self.counts['players'])+' / '+str(self.counts['all_players'])+' players')
 		self.log.write('Total groups '+str(self.group_number)+' by '+str(step)+' players')
