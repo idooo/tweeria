@@ -1,6 +1,6 @@
-jinja2
-pymongo
+jinja2==2.7
+pymongo==2.5.1
 python-dateutil
 simplejson
-cherrypy
+cherrypy==3.2.2
 python-memcached
