@@ -921,7 +921,7 @@ class playerController(basic.defaultController):
         else:
             fields.update({'player': player})
 
-            fields['player']['is_sleep'] = not (fields['player']['last_login'] >= time() - self.core.MAX_TIME_TO_SLEEP)
+            fields['player']['is_sleep'] = not (fields['player']['last_login'] >= time() - self.core.MAX_TIME_TO_SLEEP) 
 
             # format player's last events messages
             tags = self.model.misc.getTags()
@@ -1109,9 +1109,9 @@ class playerController(basic.defaultController):
         needed_fields = {'name': 1, 'class': 1, 'race': 1, 'lvl': 1, 'faction': 1, 'pvp_score': 1, 'achv_points': 1,
                          'avatar': 1, '_guild_name': 1}
 
-        no_60lvl = {'lvl': {'$lte': 60}}
+        no_top = {'lvl': {'$lt': 60},'last_login': {'$gte': time() - self.core.MAX_TIME_TO_SLEEP}} #exclude lvl 60 and sleeping heroes from top rating
 
-        players_by_lvl = self.mongo.getu('players', search=no_60lvl, limit=10, sort={'lvl': -1}, fields=needed_fields)
+        players_by_lvl = self.mongo.getu('players', search=no_top, limit=10, sort={'lvl': -1}, fields=needed_fields)
 
         for players in [players_by_lvl]:
             for player in players:
