@@ -922,7 +922,6 @@ class playerController(basic.defaultController):
             fields.update({'player': player})
 
             fields['player']['is_sleep'] = not (fields['player']['last_login'] >= time() - self.core.MAX_TIME_TO_SLEEP) 
-      
 
             # format player's last events messages
             tags = self.model.misc.getTags()
