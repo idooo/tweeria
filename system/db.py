@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 import pymongo
+import re
 import __main__
 from bson import ObjectId
 import time
@@ -14,6 +15,23 @@ def _profile(method_to_decorate):
 		return result
 
 	return wrapper
+
+def cleanhtml(raw_html):
+	cleanr = re.compile('<.*?>')
+	cleantext = re.sub(cleanr, '', raw_html)
+	return cleantext
+
+def sanitize(d):
+	new_dict = {}
+	for key, value in d.iteritems():
+		if isinstance(value, dict):
+			new_dict[key] = sanitize(value)
+		elif type(value) == str or type(value) == unicode:
+			new_dict[key] = cleanhtml(value)
+		else:
+			new_dict[key] = value
+
+	return new_dict
 
 class mongoAdapter():
 
@@ -78,7 +96,7 @@ class mongoAdapter():
 
 	def insert(self,collection_name,item):
 		items = self.db[collection_name]
-		return items.insert(item)
+		return items.insert(sanitize(item))
 
 	def remove(self, collection_name, search = {}):
 		self.profile('remove',collection_name)
@@ -88,12 +106,12 @@ class mongoAdapter():
 	def updateWOSet(self,collection_name, search, update, insert = False, multi = False):
 		self.profile('update',collection_name)
 		items = self.db[collection_name]
-		return items.update(search, update, insert, multi)
+		return items.update(search, sanitize(update), insert, multi)
 
 	def update(self,collection_name, search, update, insert = False, multi = False):
 		self.profile('update',collection_name)
 		items = self.db[collection_name]
-		return items.update(search, {"$set": update}, insert, multi)
+		return items.update(search, {"$set": sanitize(update)}, insert, multi)
 
 	def deleteKeys(self,collection_name, search, keys):
 		self.profile('delete key',collection_name)
@@ -108,17 +126,17 @@ class mongoAdapter():
 	def raw_update(self,collection_name, search, update, insert = False, multi = False):
 		self.profile('raw update',collection_name)
 		items = self.db[collection_name]
-		return items.update(search, update, insert, multi)
+		return items.update(search, sanitize(update), insert, multi)
 
 	def raw_many_update(self,collection_name, search, update):
 		self.profile('raw update',collection_name)
 		items = self.db[collection_name]
-		return items.update(search, update, multi=True)
+		return items.update(search, sanitize(update), multi=True)
 
 	def updateInc(self,collection_name, search, update, insert = False, multi = False):
 		self.profile('update',collection_name)
 		items = self.db[collection_name]
-		return items.update(search, {"$inc": update}, insert, multi)
+		return items.update(search, {"$inc": sanitize(update)}, insert, multi)
 
 	def findSomeIDs(self,collection_name, ids, fields={}, sort = {}):
 		query = []
