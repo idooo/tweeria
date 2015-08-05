@@ -9,7 +9,7 @@ import time
 from datetime import datetime
 
 try:
-	import ImageOps, Image
+	from PIL import ImageOps, Image
 except ImportError:
 	print("Image library not found")
 
