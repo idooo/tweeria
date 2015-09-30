@@ -184,7 +184,7 @@ After this tou should see `Admin` link in the user menu popup like this:
 
 #### converter.py - .csv to DB 
 
-There are CSV file in `import_base` directory with all the static information Tweeria needs (default items, achievments, stats, dungeons and etc). If you would need to change this data in CSV files, you can use the convertor tools to update your database. Run `converter.py <conf> -h` to get all the possible options like this
+There are CSV file in `import_base` directory with all the static information Tweeria needs (default items, achievements, stats, dungeons and etc). If you would need to change this data in CSV files, you can use the convertor tools to update your database. Run `converter.py <conf> -h` to get all the possible options like this
 
 ```
 ./converter.py newconf -h
