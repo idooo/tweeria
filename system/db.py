@@ -51,10 +51,11 @@ class mongoAdapter():
 			self.tweenk_conf.loaded_data['db_port']
 		)
 		self.db = self.con[self.db_name]
-		self.db.authenticate(
-			self.tweenk_conf.loaded_data['db_user'],
-			self.tweenk_conf.loaded_data['db_passw']
-		)
+		if self.tweenk_conf.loaded_data['db_user']:
+			self.db.authenticate(
+					self.tweenk_conf.loaded_data['db_user'],
+					self.tweenk_conf.loaded_data['db_passw']
+			)
 
 	def profile(self, name, params):
 		if self.PROFILE:
