@@ -178,7 +178,7 @@ There are couple scripts included to the Tweeria package, you can find them in `
 ```
 ./_admin.py <conf> -s <username>
 ```
-After this tou should see `Admin` link in the user menu popup like this:
+After this you should see `Admin` link in the user menu popup like this:
 
 ![](http://shteinikov.com/files/tweeria/admin_link.png) 
 
